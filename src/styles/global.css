@@ -5,151 +5,70 @@
  */
 
 :root {
-  --primary-blue: #0047AB; /* A strong, professional "Cobalt" Blue */
-  --light-blue: #87CEEB;   /* Matches your "Light Blue" logo accents */
+  --primary-blue: #0047AB; 
+  --light-blue: #87CEEB;   
 }
 
-/* Apply the dark blue to your headings for authority */
-h1, h2, h3 {
-  color: var(--primary-blue) !important;
+/* 1. FORCE HEADER TITLE TO ONE LINE */
+/* Add this to target the title in your Header.astro */
+.site-title, 
+header a span {
+  white-space: nowrap !important;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
-/* Apply the light blue to links or accents */
-a {
-  color: #0077b6; 
+/* 2. MAKE TEXT SMALLER (Scientific Professional Look) */
+html {
+  font-size: 15px; /* Lowering the base size */
 }
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
+
 body {
-	html {
-  font-size: 16px; /* Resets the base size to standard */
-}
-p, li {
-  font-size: 1rem; /* Standard readable size */
+  font-family: "Atkinson", sans-serif;
   line-height: 1.6;
-}
-h1 {
-  font-size: 2.2rem; /* Shrinks the main "Welcome" heading */
-}
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
-	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
-	font-weight: 700;
-}
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
-}
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 2em;
-}
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-}
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0px;
-	font-size: 1.333em;
-}
-hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
+  color: #333;
 }
 
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
+p, li {
+  font-size: 0.95rem; /* Small, crisp text */
+  margin-bottom: 1em;
+}
+
+/* 3. SCALE DOWN HEADINGS */
+h1 { font-size: 2rem; color: var(--primary-blue) !important; }
+h2 { font-size: 1.6rem; color: var(--primary-blue) !important; margin-top: 1.5rem; }
+h3 { font-size: 1.3rem; color: var(--primary-blue) !important; }
+
+/* 4. LAYOUT & UTILS */
+main {
+  width: 720px;
+  max-width: calc(100% - 2em);
+  margin: auto;
+  padding: 2em 1em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+a {
+  color: #0077b6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 5. MOBILE OVERFLOW PREVENTION */
+@media (max-width: 720px) {
+  .site-title, 
+  header a span {
+    font-size: 1.1rem !important; /* Shrinks title font so it fits on one line on phones */
+  }
+  main {
+    padding: 1em;
+  }
 }

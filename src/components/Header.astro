@@ -2,86 +2,31 @@
 import HeaderLink from './HeaderLink.astro';
 ---
 
-<header>
-	<nav>
-		<div class="logo-section">
-			<a href="/">
-				<img 
-					src="/logo.png" 
-					alt="Panoramic Omics Sciences Center Logo" 
-				/>
-				<div class="site-title">
-					<span class="full-name">Panoramic Omics Sciences Center</span>
-					<span class="short-name">PanorOmics</span>
-				</div>
-			</a>
-		</div>
+<header style="background: white; border-bottom: 1px solid #eee; padding: 0.8rem 0;">
+	<nav style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
 		
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Research</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
+		<!-- CLEAN LOGO SECTION -->
+		<a href="/" style="display: flex; align-items: center; text-decoration: none; gap: 15px;">
+			<img 
+				src="/logo.png" 
+				alt="PanorOmics Logo" 
+				style="height: 75px; width: auto;" 
+			/>
+			<div style="display: flex; flex-direction: column; line-height: 1.2;">
+				<span style="font-size: 1.4rem; font-weight: 800; color: #0047AB; letter-spacing: -0.5px;">
+					PanorOmics
+				</span>
+				<span style="font-size: 0.85rem; color: #666; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">
+					Sciences Center
+				</span>
+			</div>
+		</a>
+
+		<!-- NAVIGATION -->
+		<div class="internal-links" style="display: flex; gap: 25px;">
+			<HeaderLink href="/" style="color: #333; font-weight: 500; text-decoration: none;">Home</HeaderLink>
+			<HeaderLink href="/blog" style="color: #333; font-weight: 500; text-decoration: none;">Research</HeaderLink>
+			<HeaderLink href="/about" style="color: #333; font-weight: 500; text-decoration: none;">About</HeaderLink>
 		</div>
 	</nav>
 </header>
-
-<style>
-	header {
-		margin: 0;
-		padding: 0;
-		background: white;
-		box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-		border-bottom: 1px solid #eee;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		max-width: 960px;
-		margin: 0 auto;
-		padding: 0.5rem 1rem;
-	}
-	.logo-section a {
-		display: flex;
-		align-items: center;
-		text-decoration: none;
-		gap: 12px;
-	}
-	.logo-section img {
-		height: 60px; /* Reduced from 100px for a cleaner look */
-		width: auto;
-		flex-shrink: 0;
-	}
-	.site-title {
-		display: flex;
-		flex-direction: column;
-		line-height: 1.1;
-	}
-	.full-name {
-		font-size: 1.1rem;
-		font-weight: 800;
-		color: #0047AB;
-		letter-spacing: -0.2px;
-	}
-	.short-name {
-		font-size: 0.85rem;
-		color: #666;
-		font-weight: 500;
-	}
-	.internal-links {
-		display: flex;
-		gap: 1.5rem;
-	}
-	
-	/* Mobile view: hide the long name if screen is too small */
-	@media (max-width: 600px) {
-		.full-name {
-			display: none;
-		}
-		.short-name {
-			font-size: 1.1rem;
-			color: #0047AB;
-			font-weight: 800;
-		}
-	}
-</style>

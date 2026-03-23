@@ -1,35 +1,10 @@
----
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
----
-
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-  <h1>The Panoramic Omics Sciences Center (PanorOmics)</h1>
-  
-  <img src="/omics-dogma.jpg" alt="The Central Dogma of Omics Science" style="width: 100%; height: auto; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" />
-
-  <p>
-    PanorOmics is dedicated to advancing precision medicine through multi-omics integration and innovative data science. 
-    Our center explores the complex biological landscape—integrating <strong>epigenomics</strong>, genomics, and proteomics—to solve pressing challenges in disease mechanisms.
-  </p>
-
-  <h3>Our Research Pillars</h3>
-  <ul>
-    <li>Genomics & Transcriptomics</li>
-    <li><strong>Epigenomics & Chromatin Dynamics</strong></li> <!-- Added here -->
-    <li>Proteomics & Metabolomics</li>
-    <li>Computational Bioinformatics</li>
-  </ul>
+<main style="background-color: #FDFCF0; color: #003366; padding: 80px 1rem; min-height: 50vh;">
+	<div style="max-width: 800px; margin: 0 auto;">
+		<h2 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; opacity: 0.8;">
+			The Central Dogma of Omics Science
+		</h2>
+		<p style="font-size: 1.1rem; line-height: 1.8; text-align: left;">
+			PanorOmics is dedicated to advancing precision medicine through multi-omics integration and innovative data science. Our center explores the complex biological landscape—integrating <strong>Genomics, Transcriptomics, Epigenomics & Chromatin Dynamics, Proteomics, Metabolomics,</strong> and <strong>Computational Bioinformatics</strong> to solve pressing challenges in disease mechanisms.
+		</p>
+	</div>
 </main>
-		<Footer />
-	</body>
-</html>

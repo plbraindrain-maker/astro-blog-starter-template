@@ -1,12 +1,11 @@
-rt HeaderLink from './HeaderLink.astro';
+import HeaderLink from './HeaderLink.astro';
 ---
-
 <header style="background: #FDFCF0; border-bottom: 1px solid rgba(0,51,102,0.1); padding: 1rem 0;">
 	<nav style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
 		
 		<!-- LOGO SECTION -->
 		<a href="/" style="display: flex; align-items: center; text-decoration: none; gap: 15px;">
-			<img src="/logo.png" alt="Logo" style="height: 70px; width: auto;" />
+			<img src="/logo.png" alt="PanorOmics Logo" style="height: 70px; width: auto;" />
 			<div style="display: flex; flex-direction: column; line-height: 1.1;">
 				<span style="font-size: 2rem; font-weight: 800; color: #003366; text-transform: lowercase; letter-spacing: -1px;">
 					panoromics
@@ -19,6 +18,7 @@ rt HeaderLink from './HeaderLink.astro';
 
 		<!-- RIGHT SIDE: MENU & SEARCH -->
 		<div style="display: flex; align-items: center; gap: 20px;">
+			<!-- Three-bar Dropdown -->
 			<div class="dropdown">
 				<button class="dropbtn" aria-label="Menu">
 					<svg width="30" height="20" viewBox="0 0 30 20" fill="none" stroke="#003366" stroke-width="3">
@@ -36,6 +36,7 @@ rt HeaderLink from './HeaderLink.astro';
 				</div>
 			</div>
 
+			<!-- Search Icon -->
 			<button id="search-button" style="background: none; border: none; cursor: pointer; padding: 5px;">
 				<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2.5">
 					<circle cx="11" cy="11" r="8"></circle>
@@ -72,3 +73,8 @@ rt HeaderLink from './HeaderLink.astro';
 </style>
 
 <script>
+	document.getElementById('search-button')?.addEventListener('click', () => {
+		const q = prompt("Search PanorOmics:");
+		if (q) window.location.href = `/search?q=${encodeURIComponent(q)}`;
+	});
+</script>

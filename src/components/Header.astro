@@ -1,3 +1,4 @@
+
 ---
 import HeaderLink from './HeaderLink.astro';
 ---
@@ -29,8 +30,8 @@ import HeaderLink from './HeaderLink.astro';
 				</div>
 			</div>
 
-			<!-- SEARCH MAGNIFYING GLASS -->
-			<button aria-label="Search" style="background: none; border: none; cursor: pointer; padding: 5px;">
+			<!-- SEARCH BUTTON (Now with ID for JavaScript) -->
+			<button id="search-button" aria-label="Search" style="background: none; border: none; cursor: pointer; padding: 5px;">
 				<svg xmlns="http://www.w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<circle cx="11" cy="11" r="8"></circle>
 					<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -40,25 +41,23 @@ import HeaderLink from './HeaderLink.astro';
 	</nav>
 </header>
 
+<!-- JAVASCRIPT TO MAKE IT CLICKABLE -->
+<script>
+	const searchBtn = document.getElementById('search-button');
+	
+	searchBtn?.addEventListener('click', () => {
+		// Basic functionality: asks the user for a search term
+		const query = prompt("What are you looking for?");
+		if (query) {
+			// Redirects to a search page (you'll need to create /search)
+			window.location.href = `/search?q=${encodeURIComponent(query)}`;
+		}
+	});
+</script>
+
 <style>
-	/* Dropdown Container */
-	.dropdown {
-		position: relative;
-		display: inline-block;
-	}
-
-	/* Dropdown Button */
-	.dropbtn {
-		background: none;
-		border: none;
-		color: #333;
-		font-weight: 500;
-		font-size: 1rem;
-		cursor: pointer;
-		padding: 10px 0;
-	}
-
-	/* Dropdown Content (Hidden by Default) */
+	.dropdown { position: relative; display: inline-block; }
+	.dropbtn { background: none; border: none; color: #333; font-weight: 500; font-size: 1rem; cursor: pointer; padding: 10px 0; }
 	.dropdown-content {
 		display: none;
 		position: absolute;
@@ -66,28 +65,11 @@ import HeaderLink from './HeaderLink.astro';
 		background-color: #ffffff;
 		min-width: 220px;
 		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-		z-index: 1;
+		z-index: 10;
 		border-radius: 4px;
 		border: 1px solid #eee;
 	}
-
-	/* Links inside the dropdown */
-	.dropdown-content :global(a) {
-		color: #333;
-		padding: 12px 16px;
-		text-decoration: none;
-		display: block;
-		font-size: 0.95rem;
-	}
-
-	.dropdown-content :global(a:hover) {
-		background-color: #f8f9fa;
-		color: #0047AB;
-	}
-
-	/* Show the dropdown on hover */
-	.dropdown:hover .dropdown-content {
-		display: block;
-	}
+	.dropdown-content :global(a) { color: #333; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.95rem; }
+	.dropdown-content :global(a:hover) { background-color: #f8f9fa; color: #0047AB; }
+	.dropdown:hover .dropdown-content { display: block; }
 </style>
-

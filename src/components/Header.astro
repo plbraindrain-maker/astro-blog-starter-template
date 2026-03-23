@@ -1,76 +1,59 @@
+rt HeaderLink from './HeaderLink.astro';
 ---
-import HeaderLink from './HeaderLink.astro';
----
 
-<div style="background-color: #FDFCF0; min-height: 100vh; color: #003366; font-family: 'Inter', sans-serif; margin: 0; padding: 0;">
-	<header style="border-bottom: 1px solid rgba(0,51,102,0.1); padding: 1rem 0;">
-		<nav style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-			
-			<!-- LOGO & TITLE -->
-			<a href="/" style="display: flex; align-items: center; text-decoration: none; gap: 15px;">
-				<img src="/logo.png" alt="Logo" style="height: 70px; width: auto;" />
-				<div style="display: flex; flex-direction: column; line-height: 1.1;">
-					<span style="font-size: 2rem; font-weight: 800; color: #003366; text-transform: lowercase; letter-spacing: -1px;">
-						panoromics
-					</span>
-					<span style="font-size: 0.7rem; color: #555; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
-						The Panoramic Omics Sciences Center
-					</span>
-				</div>
-			</a>
+<header style="background: #FDFCF0; border-bottom: 1px solid rgba(0,51,102,0.1); padding: 1rem 0;">
+	<nav style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+		
+		<!-- LOGO SECTION -->
+		<a href="/" style="display: flex; align-items: center; text-decoration: none; gap: 15px;">
+			<img src="/logo.png" alt="Logo" style="height: 70px; width: auto;" />
+			<div style="display: flex; flex-direction: column; line-height: 1.1;">
+				<span style="font-size: 2rem; font-weight: 800; color: #003366; text-transform: lowercase; letter-spacing: -1px;">
+					panoromics
+				</span>
+				<span style="font-size: 0.7rem; color: #555; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+					The Panoramic Omics Sciences Center
+				</span>
+			</div>
+		</a>
 
-			<!-- RIGHT SIDE: MENU & SEARCH -->
-			<div style="display: flex; align-items: center; gap: 20px;">
-				<div class="dropdown">
-					<button class="dropbtn" aria-label="Menu">
-						<svg width="30" height="20" viewBox="0 0 30 20" fill="none" stroke="#003366" stroke-width="3">
-							<line x1="0" y1="2" x2="30" y2="2" />
-							<line x1="0" y1="10" x2="30" y2="10" />
-							<line x1="0" y1="18" x2="30" y2="18" />
-						</svg>
-					</button>
-					<div class="dropdown-content">
-						<HeaderLink href="/research">Research</HeaderLink>
-						<HeaderLink href="/education">Education and Learning</HeaderLink>
-						<HeaderLink href="/news">News</HeaderLink>
-						<HeaderLink href="/about">About Us</HeaderLink>
-						<HeaderLink href="/give" style="font-weight: bold; color: #C8102E;">Give</HeaderLink>
-					</div>
-				</div>
-
-				<button id="search-button" style="background: none; border: none; cursor: pointer;">
-					<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2.5">
-						<circle cx="11" cy="11" r="8"></circle>
-						<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+		<!-- RIGHT SIDE: MENU & SEARCH -->
+		<div style="display: flex; align-items: center; gap: 20px;">
+			<div class="dropdown">
+				<button class="dropbtn" aria-label="Menu">
+					<svg width="30" height="20" viewBox="0 0 30 20" fill="none" stroke="#003366" stroke-width="3">
+						<line x1="0" y1="2" x2="30" y2="2" />
+						<line x1="0" y1="10" x2="30" y2="10" />
+						<line x1="0" y1="18" x2="30" y2="18" />
 					</svg>
 				</button>
+				<div class="dropdown-content">
+					<HeaderLink href="/research">Research</HeaderLink>
+					<HeaderLink href="/education">Education and Learning</HeaderLink>
+					<HeaderLink href="/news">News</HeaderLink>
+					<HeaderLink href="/about">About Us</HeaderLink>
+					<HeaderLink href="/give" style="font-weight: bold; color: #C8102E;">Give</HeaderLink>
+				</div>
 			</div>
-		</nav>
-	</header>
 
-	<!-- INTRODUCTION SECTION -->
-	<main style="max-width: 1200px; margin: 80px auto; padding: 0 2rem;">
-		<h2 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.8rem; color: #003366; opacity: 0.8;">
-			The Central Dogma of Omics Science
-		</h2>
-		<p style="max-width: 750px; font-size: 1rem; line-height: 1.7; text-align: left; color: #003366;">
-			PanorOmics is dedicated to advancing precision medicine through multi-omics integration and innovative data science. 
-			Our center explores the complex biological landscape—integrating 
-			<span style="font-weight: 700;">Genomics, Transcriptomics, Epigenomics & Chromatin Dynamics, Proteomics, Metabolomics,</span> and 
-			<span style="font-weight: 700;">Computational Bioinformatics</span> 
-			to solve pressing challenges in disease mechanisms.
-		</p>
-	</main>
-</div>
+			<button id="search-button" style="background: none; border: none; cursor: pointer; padding: 5px;">
+				<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2.5">
+					<circle cx="11" cy="11" r="8"></circle>
+					<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+				</svg>
+			</button>
+		</div>
+	</nav>
+</header>
 
 <style>
 	.dropdown { position: relative; }
-	.dropbtn { background: none; border: none; cursor: pointer; padding: 10px; display: flex; align-items: center; }
+	.dropbtn { background: none; border: none; cursor: pointer; display: flex; align-items: center; }
 	.dropdown-content {
 		display: none;
 		position: absolute;
 		right: 0;
-		background: #FFF;
+		background: white;
 		min-width: 220px;
 		box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 		border-radius: 4px;
@@ -89,9 +72,3 @@ import HeaderLink from './HeaderLink.astro';
 </style>
 
 <script>
-	const searchBtn = document.getElementById('search-button');
-	searchBtn?.addEventListener('click', () => {
-		const query = prompt("Search PanorOmics:");
-		if (query) window.location.href = `/search?q=${encodeURIComponent(query)}`;
-	});
-</script>

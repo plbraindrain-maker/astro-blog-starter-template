@@ -1,7 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
-/* DELETE THE FOOTER IMPORT LINE BELOW */
 ---
 <html lang="en">
 	<head>
@@ -9,7 +8,10 @@ import Header from '../components/Header.astro';
 		<BaseHead title="panoromics" description="The Panoramic Omics Sciences Center" />
 		<style>
 			body { background-color: #FDFCF0; color: #003366; margin: 0; padding: 0; }
-			main { max-width: 800px; margin: 100px auto; padding: 0 2rem; }
+			
+			/* CHANGED: Reduced margin from 100px to 40px to move text up */
+			main { max-width: 800px; margin: 40px auto; padding: 0 2rem; }
+			
 			h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; opacity: 0.8; }
 			p { font-size: 1.15rem; line-height: 1.8; text-align: left; }
 		</style>
@@ -22,6 +24,5 @@ import Header from '../components/Header.astro';
 				PanorOmics is dedicated to advancing precision medicine through multi-omics integration and innovative data science. Our center explores the complex biological landscape—integrating <strong>Genomics, Transcriptomics, Epigenomics & Chromatin Dynamics, Proteomics, Metabolomics,</strong> and <strong>Computational Bioinformatics</strong> to solve pressing challenges in disease mechanisms.
 			</p>
 		</main>
-		<!-- DELETE THE <Footer /> TAG BELOW -->
 	</body>
 </html>

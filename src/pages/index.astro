@@ -7,13 +7,50 @@ import Header from '../components/Header.astro';
 		<meta charset="UTF-8" />
 		<BaseHead title="panoromics" description="The Panoramic Omics Sciences Center" />
 		<style>
-			body { background-color: #FDFCF0; color: #003366; margin: 0; padding: 0; }
+			/* 1. GLOBAL STYLES */
+			body { 
+				background-color: #FDFCF0; 
+				color: #003366; 
+				margin: 0; 
+				padding: 0; 
+			}
 			
-			/* CHANGED: Reduced margin from 100px to 40px to move text up */
-			main { max-width: 800px; margin: 40px auto; padding: 0 2rem; }
+			/* 2. DESKTOP STYLES (Content moved up) */
+			main { 
+				max-width: 800px; 
+				margin: 40px auto; 
+				padding: 0 2rem; 
+			}
 			
-			h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; opacity: 0.8; }
-			p { font-size: 1.15rem; line-height: 1.8; text-align: left; }
+			h2 { 
+				font-size: 0.9rem; 
+				text-transform: uppercase; 
+				letter-spacing: 2px; 
+				margin-bottom: 1rem; 
+				opacity: 0.8; 
+			}
+			
+			p { 
+				font-size: 1.15rem; 
+				line-height: 1.8; 
+				text-align: left; 
+			}
+
+			/* 3. MOBILE STYLES (Added for phones) */
+			@media (max-width: 768px) {
+				main { 
+					margin: 20px auto; /* Moves text even higher on mobile screens */
+					padding: 0 1.5rem; 
+				}
+				h2 { 
+					font-size: 0.8rem; 
+					line-height: 1.4; 
+				}
+				p { 
+					font-size: 1.05rem; 
+					line-height: 1.6; 
+				}
+			}
 		</style>
 	</head>
 	<body>

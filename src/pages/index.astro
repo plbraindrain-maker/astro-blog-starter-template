@@ -1,1 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="PanorOmics | Integrating Life Sciences • Data • Discovery">
+	<main>
+		<!-- FULL SCREEN HERO CANVAS -->
+		<section class="hero">
+			<div class="container">
+				
+				<!-- THE EXACT LOGO IMAGE ASSET -->
+				<div class="logo-container">
+					<img 
+						src="/panoromics-logo.png" 
+						alt="PanorOmics Logo" 
+						class="brand-logo" 
+					/>
+				</div>
+				
+				<!-- INTERACTIVE CONTEXT CALL TO ACTIONS -->
+				<div class="action-row">
+					<a href="#research" class="action-btn btn-filled">Explore Our Center</a>
+					<a href="#about" class="action-btn btn-outline">Learn More</a>
+				</div>
+
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	/* Full Window Centering */
+	main {
+		background-color: #000c1a; /* Seamlessly matches the logo's dark navy background color */
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	.hero {
+		width: 100%;
+		max-width: 1200px;
+		padding: 2rem 1.5rem;
+		display: flex;
+		justify-content: center;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 3.5rem; /* Balanced space between the square brand asset and operational choices */
+	}
+
+	/* Exact Logo Formatting Constraints */
+	.logo-container {
+		width: 100%;
+		max-width: 520px; /* Maximum rendering sharp size for the uploaded brand asset */
+		display: flex;
+		justify-content: center;
+		animation: smoothEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+	}
+
+	.brand-logo {
+		width: 100%;
+		height: auto;
+		display: block;
+		object-fit: contain;
+	}
+
+	/* Clean Functional Actions */
+	.action-row {
+		display: flex;
+		gap: 1.25rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		animation: smoothEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+	}
+
+	.action-btn {
+		font-family: system-ui, -apple-system, sans-serif;
+		font-size: 0.95rem;
+		font-weight: 600;
+		text-decoration: none;
+		padding: 0.85rem 2.25rem;
+		border-radius: 50px; /* Capsule buttons complementing the logo rounded edge mask */
+		transition: all 0.2s ease;
+		letter-spacing: 0.2px;
+	}
+
+	.btn-filled {
+		background-color: #1a8cff; /* Matches the vibrant blue tone inside the DNA helix helix graphic */
+		color: #ffffff;
+		box-shadow: 0 4px 15px rgba(26, 140, 255, 0.25);
+	}
+
+	.btn-filled:hover {
+		background-color: #0073e6;
+		transform: translateY(-1px);
+		box-shadow: 0 6px 20px rgba(26, 140, 255, 0.35);
+	}
+
+	.btn-outline {
+		background-color: transparent;
+		color: #ffffff;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.btn-outline:hover {
+		background-color: rgba(255, 255, 255, 0.04);
+		border-color: rgba(255, 255, 255, 0.4);
+		transform: translateY(-1px);
+	}
+
+	/* Elegant Presentation Animation */
+	@keyframes smoothEntrance {
+		from {
+			opacity: 0;
+			transform: translateY(15px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>
 

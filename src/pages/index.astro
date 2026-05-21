@@ -90,25 +90,26 @@
 				background-color: #010610;
 			}
 
-			/* WIDESCREEN HERO BLOCK - PLACES LOGO DIRECTLY ON THE LEFT */
+			/* BULLETPROOF HERO WRAPPER - FORCES LOGO TO THE LEFT */
 			.widescreen-hero {
 				width: 100%;
 				max-width: 1200px;
 				padding: 6rem 2rem;
 				box-sizing: border-box;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: 4rem; /* Balanced space between the logo and the text */
+				display: flex !important;
+				flex-direction: row !important; /* Force items horizontal side-by-side */
+				align-items: center !important;
+				justify-content: center !important;
+				gap: 4rem; 
 			}
 
-			/* Logo container sitting cleanly on the left side */
+			/* Logo sitting cleanly on the left side */
 			.hero-logo-frame {
 				width: 220px;
 				height: 220px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
+				display: flex !important;
+				align-items: center !important;
+				justify-content: center !important;
 				flex-shrink: 0;
 			}
 
@@ -117,21 +118,15 @@
 				height: auto;
 				display: block;
 				object-fit: contain;
-				border-radius: 16px;
 			}
 
-			/* Clickable content link wrapping the hero text matrix */
+			/* Clickable center framework link wrapping the brand text matrix */
 			.hero-text-link {
-				display: flex;
-				flex-direction: column;
+				display: flex !important;
+				flex-direction: column !important;
 				max-width: 650px;
-				text-decoration: none; /* Removes underlines from link */
-				cursor: pointer;
-				transition: transform 0.2s ease;
-			}
-
-			.hero-text-link:hover {
-				transform: translateX(4px); /* Subtle horizontal move on hover to show interactivity */
+				text-decoration: none !important; 
+				cursor: pointer !important;
 			}
 
 			.hero-title {
@@ -140,16 +135,16 @@
 				line-height: 1.05;
 				margin: 0 0 0.75rem 0;
 				letter-spacing: -1.5px;
-				color: #ffffff;
+				color: #ffffff !important;
 			}
 
 			.hero-title span {
-				color: #1a8cff; 
+				color: #1a8cff !important; 
 			}
 
 			.hero-tagline {
 				font-size: 1.35rem;
-				color: #a0c0e0;
+				color: #a0c0e0 !important;
 				line-height: 1.6;
 				margin: 0;
 				letter-spacing: 0.5px;
@@ -184,13 +179,10 @@
 			/* Responsive mobile stacking layout */
 			@media (max-width: 860px) {
 				.widescreen-hero {
-					flex-direction: column;
+					flex-direction: column !important;
 					text-align: center;
 					gap: 2.5rem;
 					padding: 4rem 1.5rem;
-				}
-				.hero-text-link:hover {
-					transform: none;
 				}
 			}
 		</style>
@@ -213,14 +205,14 @@
 		<!-- MAIN PRESENTATION CANVAS -->
 		<div class="landing-container">
 			
-			<!-- SECTION 1: WIDESCREEN HERO (Logo Left, Clickable Page Link Center) -->
+			<!-- SECTION 1: WIDESCREEN HERO (Forced Side-by-Side) -->
 			<section class="widescreen-hero">
 				<!-- Logo sitting perfectly on the left side -->
 				<div class="hero-logo-frame">
 					
 				</div>
 				
-				<!-- Main text block configured as a clickable link going to your landing/about page -->
+				<!-- Main text block configured as a clickable landing page link -->
 				<a href="/about" class="hero-text-link" title="Go to About Landing Page">
 					<h1 class="hero-title">Panor<span>Omics</span></h1>
 					<p class="hero-tagline">integrating life sciences • data • discovery</p>

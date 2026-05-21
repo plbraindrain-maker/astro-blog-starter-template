@@ -1,5 +1,5 @@
 ---
-// Standalone Landing Page Configuration
+// Full Presentation Canvas for PanorOmics Widescreen Infographics
 ---
 
 <!doctype html>
@@ -8,232 +8,62 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/png" href="/panoromics-logo.png" />
-		<title>PanorOmics | Precision Medicine & Multi-Omics Integration</title>
+		<title>PanorOmics | Unifying Omics. Advancing Health. Transforming Lives.</title>
 		<style>
-			/* Setup a clean, dark canvas matching your brand logo background color */
+			/* Completely flush the browser margins for a full-screen layout */
 			html, body {
 				margin: 0;
 				padding: 0;
 				box-sizing: border-box;
-				background-color: #000c1a;
-				color: #ffffff;
-				font-family: system-ui, -apple-system, sans-serif;
-				scroll-behavior: smooth;
-			}
-
-			.page-container {
+				background-color: #010610; /* Blends flawlessly into the dark midnight blue of your graphic assets */
 				width: 100%;
 				min-height: 100vh;
+				overflow-x: hidden;
 			}
 
-			/* Hero Frame Context */
-			.hero-block {
-				min-height: 100vh;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				padding: 2rem 1.5rem;
-				box-sizing: border-box;
-			}
-
-			.center-content {
+			.landing-container {
+				width: 100%;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				gap: 3.5rem;
-				width: 100%;
+				background-color: #010610;
 			}
 
-			.logo-box {
+			.page-section {
 				width: 100%;
-				max-width: 480px;
+				max-width: 1920px; /* Ensures ultra-high res monitors display text perfectly sharp */
 				display: flex;
 				justify-content: center;
-				animation: revealAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 			}
 
-			.main-brand-asset {
+			.full-page-asset {
 				width: 100%;
 				height: auto;
 				display: block;
-				object-fit: contain;
-			}
-
-			/* Call to Action Capsule Buttons */
-			.cta-row {
-				display: flex;
-				gap: 1.25rem;
-				flex-wrap: wrap;
-				justify-content: center;
-				animation: revealAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-			}
-
-			.nav-button {
-				font-size: 0.95rem;
-				font-weight: 600;
-				text-decoration: none;
-				padding: 0.9rem 2.5rem;
-				border-radius: 50px;
-				transition: all 0.2s ease;
-				letter-spacing: 0.2px;
-			}
-
-			.accent-fill {
-				background-color: #1a8cff;
-				color: #ffffff;
-				box-shadow: 0 4px 15px rgba(26, 140, 255, 0.2);
-			}
-
-			.accent-fill:hover {
-				background-color: #0073e6;
-				transform: translateY(-1px);
-				box-shadow: 0 6px 20px rgba(26, 140, 255, 0.3);
-			}
-
-			.ghost-outline {
-				background-color: transparent;
-				color: #ffffff;
-				border: 1px solid rgba(255, 255, 255, 0.2);
-			}
-
-			.ghost-outline:hover {
-				background-color: rgba(255, 255, 255, 0.04);
-				border-color: rgba(255, 255, 255, 0.4);
-				transform: translateY(-1px);
-			}
-
-			/* Multi-Omics Information Data Grid Block */
-			.data-block {
-				padding: 8rem 1.5rem;
-				display: flex;
-				justify-content: center;
-				background: linear-gradient(180deg, #000c1a 0%, #001226 100%);
-			}
-
-			.grid-container {
-				width: 100%;
-				max-width: 1200px;
-				text-align: center;
-			}
-
-			.grid-headline {
-				font-size: clamp(2rem, 4vw, 2.5rem);
-				font-weight: 800;
-				margin: 0 0 1rem 0;
-				letter-spacing: -0.5px;
-			}
-
-			.grid-tagline {
-				font-size: clamp(1rem, 2vw, 1.15rem);
-				color: #a0c0e0;
-				max-width: 650px;
-				margin: 0 auto 4rem auto;
-				line-height: 1.6;
-			}
-
-			.card-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-				gap: 1.5rem;
-			}
-
-			.info-card {
-				background-color: rgba(255, 255, 255, 0.02);
-				border: 1px solid rgba(255, 255, 255, 0.06);
-				border-radius: 12px;
-				padding: 2.5rem 2rem;
-				text-align: left;
-				transition: all 0.3s ease;
-			}
-
-			.info-card:hover {
-				background-color: rgba(255, 255, 255, 0.04);
-				border-color: rgba(26, 140, 255, 0.3);
-				transform: translateY(-4px);
-			}
-
-			.card-index {
-				font-size: 0.85rem;
-				font-weight: 700;
-				color: #1a8cff;
-				display: block;
-				margin-bottom: 1rem;
-				letter-spacing: 1px;
-			}
-
-			.info-card h3 {
-				font-size: 1.3rem;
-				font-weight: 700;
-				margin: 0 0 0.75rem 0;
-			}
-
-			.info-card p {
-				font-size: 0.95rem;
-				color: #a0c0e0;
-				margin: 0;
-				line-height: 1.5;
-			}
-
-			@keyframes revealAnim {
-				from { opacity: 0; transform: translateY(12px); }
-				to { opacity: 1; transform: translateY(0); }
 			}
 		</style>
 	</head>
 	<body>
-		<main class="page-container">
+		<div class="landing-container">
 			
-			<!-- HERO BLOCK -->
-			<section class="hero-block">
-				<div class="center-content">
-					<!-- Loads your uploaded square logo image asset directly -->
-					<div class="logo-box">
-						<img 
-							src="/panoromics-logo.png" 
-							alt="PanorOmics Center Logo" 
-							class="main-brand-asset" 
-						/>
-					</div>
-					
-					<!-- Operational Buttons -->
-					<div class="cta-row">
-						<a href="#ecosystem" class="nav-button accent-fill">Explore Ecosystem</a>
-						<a href="#ecosystem" class="nav-button ghost-outline">Center Research</a>
-					</div>
-				</div>
+			<!-- PAGE ONE: MAIN LANDING HERO & ECOSYSTEM OVERVIEW -->
+			<section class="page-section">
+				<img 
+					src="/panoromics-logo.png" 
+					alt="PanorOmics - Unifying Omics. Advancing Health. Transforming Lives." 
+					class="full-page-asset"
+				/>
 			</section>
 
-			<!-- ECOSYSTEM SECTION -->
-			<section id="ecosystem" class="data-block">
-				<div class="grid-container">
-					<h2 class="grid-headline">The Multi-Omics Ecosystem</h2>
-					<p class="grid-tagline">Simultaneously analyzing data layers across the central dogma of biology to resolve disease mechanisms.</p>
-					
-					<div class="card-grid">
-						<div class="info-card">
-							<span class="card-index">01</span>
-							<h3>Genomics</h3>
-							<p>Mapping primary DNA structures and inherited structural disease variants.</p>
-						</div>
-						<div class="info-card">
-							<span class="card-index">02</span>
-							<h3>Transcriptomics</h3>
-							<p>Quantifying static and dynamic cellular RNA gene expression levels.</p>
-						</div>
-						<div class="info-card">
-							<span class="card-index">03</span>
-							<h3>Proteomics</h3>
-							<p>Characterizing protein expression profiles alongside underlying cellular modifications.</p>
-						</div>
-						<div class="info-card">
-							<span class="card-index">04</span>
-							<h3>Bioinformatics</h3>
-							<p>Applying innovative data sciences to integrate deep computational multi-omics layers.</p>
-						</div>
-					</div>
-				</div>
+			<!-- PAGE TWO: CENTRAL DOGMA & SIX PILLARS MAP -->
+			<section class="page-section">
+				<img 
+					src="/central-dogma.png" 
+					alt="The Central Dogma of Omics Science" 
+					class="full-page-asset"
+				/>
 			</section>
 
-		</main>
+		</div>
 	</body>
 </html>

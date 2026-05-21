@@ -1,1 +1,75 @@
 
+-
+import Layout from './Layout.astro';
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<Layout title={title}>
+	<article class="blog-post">
+		<div class="container">
+			{heroImage && <img class="hero-image" src={heroImage} alt="" />}
+			<h1 class="title">{title}</h1>
+			<p class="date">Published on {pubDate}</p>
+			{updatedDate && <p class="updated-date">Last updated on {updatedDate}</p>}
+			<hr class="divider" />
+			<div class="content">
+				<slot />
+			</div>
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.blog-post {
+		background-color: #000c1a;
+		color: #ffffff;
+		min-height: 100vh;
+		padding: 4rem 1.5rem;
+	}
+	.container {
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	.hero-image {
+		width: 100%;
+		height: auto;
+		border-radius: 12px;
+		margin-bottom: 2rem;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+	}
+	.title {
+		font-size: clamp(2rem, 4vw, 3rem);
+		font-weight: 800;
+		margin: 0 0 0.5rem 0;
+		color: #ffffff;
+	}
+	.date {
+		color: #a0c0e0;
+		font-size: 0.95rem;
+		margin: 0;
+	}
+	.updated-date {
+		font-style: italic;
+		color: #1a8cff;
+		font-size: 0.9rem;
+	}
+	.divider {
+		border: none;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		margin: 2rem 0;
+	}
+	.content {
+		line-height: 1.8;
+		font-size: 1.1rem;
+		color: #e0e0e0;
+	}
+	.content :global(p) {
+		margin-bottom: 1.5rem;
+	}
+	.content :global(h2) {
+		color: #ffffff;
+		font-size: 1.5rem;
+		margin: 2.5rem 0 1rem 0;
+	}
+</style>

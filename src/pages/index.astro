@@ -1,89 +1,355 @@
 ---
-// Standalone Landing Page Configuration
-export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+
+// Nav links to build out a clean header system later
+const navLinks = [
+	{ name: 'Home', href: '/' },
+	{ name: 'About', href: '/about' },
+	{ name: 'Research', href: '/research' },
+	{ name: 'Education', href: '/education' },
+	{ name: 'Platforms', href: '/platforms' },
+	{ name: 'Data', href: '/data' },
+	{ name: 'Publications', href: '/publications' },
+	{ name: 'News', href: '/news' },
+	{ name: 'Contact', href: '/contact' },
+];
+
+// Data structures matching your exact pillar cards text content
+const omicsPillars = [
+	{ id: 'genomics', name: 'GENOMICS', border: '#1e3a8a', text: 'The complete set of DNA, including genes, variants, and genetic architecture.' },
+	{ id: 'transcriptomics', name: 'TRANSCRIPTOMICS', border: '#166534', text: 'Examine RNA molecules to understand gene expression and cellular function.' },
+	{ id: 'proteomics', name: 'PROTEOMICS', border: '#5b21b6', text: 'Analyze the full complement of proteins to uncover function, interactions, and pathways.' },
+	{ id: 'metabolomics', name: 'METABOLOMICS', border: '#991b1b', text: 'Profile small-molecule metabolites to reveal biochemical activity and metabolic states.' },
+	{ id: 'lipidomics', name: 'LIPIDOMICS', border: '#854d0e', text: 'Investigate lipids and lipid species to understand membrane biology and signaling.' },
+	{ id: 'epigenomics', name: 'EPIGENOMICS', border: '#3730a3', text: 'Explore epigenetic modifications that regulate gene activity without changing DNA.' },
+];
+
+// The bottom horizontal mission impact track values
+const missionRibbon = [
+	{ title: 'KNOWLEDGE', text: 'Generate and integrate biological knowledge across omics layers.', icon: '🧠' },
+	{ title: 'INSIGHT', text: 'Uncover mechanisms, biomarkers, and targets with greater precision.', icon: '👁️' },
+	{ title: 'ACTION', text: 'Translate insights into strategies and innovative solutions.', icon: '🎯' },
+	{ title: 'BIOTECH', text: 'Drive biotechnology innovation and therapeutic development.', icon: '🧬' },
+	{ title: 'CURE', text: 'Accelerate the discovery of cures and improve treatment outcomes.', icon: '❤️' },
+	{ title: 'BETTER LIFE', text: 'Improve human health and quality of life for generations to come.', icon: '🌐' }
+];
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/png" href="/panoromics-logo.png" />
-		<title>PanorOmics | integrating life sciences • data • discovery</title>
-		<style>
-			html, body {
-				margin: 0;
-				padding: 0;
-				box-sizing: border-box;
-				background-color: #010610;
-				width: 100%;
-				min-height: 100vh;
-				overflow-x: hidden;
-				font-family: system-ui, -apple-system, sans-serif;
-			}
-
-			.landing-container {
-				width: 100%;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-			}
-
-			.page-section {
-				width: 100%;
-				max-width: 1200px;
-				display: flex;
-				justify-content: center;
-				position: relative;
-			}
-
-			.full-page-asset {
-				width: 100%;
-				height: auto;
-				display: block;
-			}
-
-			.clickable-area {
-				position: absolute;
-				display: block;
-				cursor: pointer;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="landing-container">
-			
-			<section class="page-section">
-				<img 
-					src="/main-landing.png" 
-					alt="PanorOmics Home Portal" 
-					class="full-page-asset" 
-				/>
-
-				<!-- NAVIGATION SYSTEMS LINKS MAPPING coordinates -->
-				<a href="/" class="clickable-area" style="top: 3.0%; left: 1.5%; width: 18%; height: 3.5%;" title="Home"></a>
-				<a href="/" class="clickable-area" style="top: 3.8%; left: 25.8%; width: 3.5%; height: 2.0%;" title="Home"></a>
-				<a href="/about" class="clickable-area" style="top: 3.8%; left: 30.6%; width: 4.2%; height: 2.0%;" title="About"></a>
-				<a href="/research" class="clickable-area" style="top: 3.8%; left: 36.2%; width: 6.2%; height: 2.0%;" title="Research"></a>
-				<a href="/education" class="clickable-area" style="top: 3.8%; left: 43.6%; width: 6.5%; height: 2.0%;" title="Education"></a>
-				<a href="/platforms" class="clickable-area" style="top: 3.8%; left: 51.5%; width: 6.6%; height: 2.0%;" title="Platforms"></a>
-				<a href="/data" class="clickable-area" style="top: 3.8%; left: 59.5%; width: 3.2%; height: 2.0%;" title="Data"></a>
-				<a href="/publications" class="clickable-area" style="top: 3.8%; left: 64.0%; width: 8.5%; height: 2.0%;" title="Publications"></a>
-				<a href="/news" class="clickable-area" style="top: 3.8%; left: 74.0%; width: 3.5%; height: 2.0%;" title="News"></a>
-				<a href="/contact" class="clickable-area" style="top: 3.8%; left: 79.0%; width: 5.5%; height: 2.0%;" title="Contact"></a>
-				<a href="/partner" class="clickable-area" style="top: 3.2%; left: 86.5%; width: 12.0%; height: 3.0%;" title="Partner With Us"></a>
-
-				<a href="/research" class="clickable-area" style="top: 71.0%; left: 4.2%; width: 18.0%; height: 3.0%;" title="Explore Our Research"></a>
-
-				<a href="/genomics" class="clickable-area" style="top: 77.0%; left: 1.8%; width: 12.5%; height: 21.0%;" title="Genomics"></a>
-				<a href="/transcriptomics" class="clickable-area" style="top: 77.0%; left: 15.8%; width: 12.5%; height: 21.0%;" title="Transcriptomics"></a>
-				<a href="/proteomics" class="clickable-area" style="top: 77.0%; left: 29.8%; width: 12.5%; height: 21.0%;" title="Proteomics"></a>
-				<a href="/metabolomics" class="clickable-area" style="top: 77.0%; left: 43.8%; width: 12.5%; height: 21.0%;" title="Metabolomics"></a>
-				<a href="/lipidomics" class="clickable-area" style="top: 77.0%; left: 57.8%; width: 12.5%; height: 21.0%;" title="Lipidomics"></a>
-				<a href="/epigenomics" class="clickable-area" style="top: 77.0%; left: 71.8%; width: 12.5%; height: 21.0%;" title="Epigenomics"></a>
-				<a href="/education" class="clickable-area" style="top: 77.0%; left: 85.8%; width: 12.5%; height: 21.0%;" title="Education"></a>
-			</section>
-
+<Layout title="PanorOmics | integrating life sciences • data • discovery">
+	<!-- Fixed Interactive Top Navigation Bar -->
+	<header class="site-header">
+		<div class="header-container">
+			<a href="/" class="logo-group">
+				<div class="branding-text">
+					<span class="brand-title">PanorOmics</span>
+					<span class="brand-sub">THE PANORAMIC OMICS SCIENCES CENTER</span>
+				</div>
+			</a>
+			<nav class="main-nav">
+				{navLinks.map(link => (
+					<a href={link.href} class="nav-link">{link.name}</a>
+				))}
+			</nav>
+			<a href="/partner" class="partner-btn">Partner With Us</a>
 		</div>
-	</body>
-</html>
+	</header>
+
+	<!-- Main Graphic Canvas Viewport Container -->
+	<main class="portal-hero">
+		<div class="hero-content">
+			<h1 class="portal-title">Panor<span>Omics</span></h1>
+			<p class="portal-tagline">integrating life sciences • data • discovery</p>
+		</div>
+
+		<!-- Section 1: Central Dogma Map Wrapper -->
+		<section class="dogma-container">
+			<h2>The Central Dogma of Omics Science</h2>
+			<p class="dogma-subtitle">From Information to Function. From Biology to Impact.</p>
+			
+			<div class="dogma-graphic-wrapper">
+				<!-- Keep your background graphic layer here -->
+				<img src="/main-landing.png" alt="The Central Dogma Flow Diagrams" class="dogma-graphic-layer" />
+				<a href="/research" class="explore-overlay-btn" title="Explore Our Research">Explore Our Research</a>
+			</div>
+		</section>
+
+		<!-- Section 2: Six Structural Pillars Grid Grid Elements -->
+		<section class="pillars-section">
+			<p class="pillars-heading">• THE SIX PILLARS OF OMICS SCIENCE •</p>
+			<div class="pillars-grid">
+				{omicsPillars.map(pillar => (
+					<a href={`/${pillar.id}`} class="pillar-card" style={`--accent-color: ${pillar.border}`}>
+						<div class="pillar-card-content">
+							<span class="pillar-name">{pillar.name}</span>
+							<p class="pillar-description">{pillar.text}</p>
+						</div>
+						<div class="card-glow-element"></div>
+					</a>
+				))}
+			</div>
+		</section>
+
+		<!-- Section 3: Bottom Integration Mission Ribbon Banner -->
+		<section class="mission-section">
+			<div class="mission-header">
+				<h3>INTEGRATING MULTI-OMICS</h3>
+				<p>Integrating multiple omics layers to reveal a comprehensive view of biology.</p>
+			</div>
+			
+			<div class="mission-grid">
+				{missionRibbon.map(item => (
+					<div class="mission-node">
+						<div class="icon-ring">
+							<span class="node-icon">{item.icon}</span>
+						</div>
+						<h4>{item.title}</h4>
+						<p>{item.text}</p>
+					</div>
+				))}
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	/* Header Component Structural Properties */
+	.site-header {
+		width: 100%;
+		background-color: #ffffff;
+		padding: 0.75rem 2rem;
+		position: sticky;
+		top: 0;
+		z-index: 100;
+	}
+	.header-container {
+		max-width: 1400px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.logo-group {
+		text-decoration: none;
+	}
+	.brand-title {
+		font-size: 1.5rem;
+		font-weight: 800;
+		color: #0c4a6e;
+		display: block;
+		line-height: 1;
+	}
+	.brand-sub {
+		font-size: 0.6rem;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		color: #64748b;
+	}
+	.main-nav {
+		display: flex;
+		gap: 1.25rem;
+	}
+	.nav-link {
+		color: #334155;
+		text-decoration: none;
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+	.partner-btn {
+		background-color: #0284c7;
+		color: #ffffff;
+		padding: 0.5rem 1.25rem;
+		border-radius: 4px;
+		text-decoration: none;
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+
+	/* Hero Branding Header Layout */
+	.portal-hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 4rem 1.5rem;
+	}
+	.portal-title {
+		font-size: 4.5rem;
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		text-align: center;
+	}
+	.portal-title span {
+		color: #38bdf8;
+	}
+	.portal-tagline {
+		font-size: 1.25rem;
+		color: #94a3b8;
+		letter-spacing: 0.05em;
+		margin-top: 0.25rem;
+		text-align: center;
+	}
+
+	/* Central Diagram Logic Blocks */
+	.dogma-container {
+		width: 100%;
+		max-width: 1200px;
+		text-align: center;
+		margin: 4rem auto 2rem;
+	}
+	.dogma-container h2 {
+		font-size: 2rem;
+		font-weight: 700;
+	}
+	.dogma-subtitle {
+		font-size: 0.95rem;
+		color: #64748b;
+		margin-bottom: 2rem;
+	}
+	.dogma-graphic-wrapper {
+		position: relative;
+		width: 100%;
+	}
+	.dogma-graphic-layer {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+	.explore-overlay-btn {
+		position: absolute;
+		top: 71.0%;
+		left: 4.2%;
+		background-color: rgba(56, 189, 248, 0.1);
+		border: 1px solid #38bdf8;
+		color: #ffffff;
+		padding: 0.6rem 1.5rem;
+		text-decoration: none;
+		border-radius: 4px;
+		font-weight: 600;
+		font-size: 0.85rem;
+		backdrop-filter: blur(4px);
+		transition: all 0.2s ease;
+	}
+	.explore-overlay-btn:hover {
+		background-color: #38bdf8;
+		color: #010610;
+		box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+	}
+
+	/* Central 6 Pillars Framework Layout */
+	.pillars-section {
+		width: 100%;
+		max-width: 1250px;
+		margin: 3rem auto;
+	}
+	.pillars-heading {
+		text-align: center;
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: #475569;
+		letter-spacing: 0.15em;
+		margin-bottom: 2rem;
+	}
+	.pillars-grid {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 1rem;
+	}
+	.pillar-card {
+		position: relative;
+		background-color: rgba(15, 23, 42, 0.4);
+		border: 1px solid var(--accent-color);
+		border-radius: 6px;
+		padding: 1.5rem 1.25rem;
+		text-decoration: none;
+		min-height: 220px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+	.pillar-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 6px 25px var(--accent-color);
+	}
+	.pillar-name {
+		color: #ffffff;
+		font-weight: 700;
+		font-size: 1.05rem;
+		letter-spacing: 0.05em;
+		display: block;
+		margin-bottom: 1rem;
+	}
+	.pillar-description {
+		color: #94a3b8;
+		font-size: 0.8rem;
+		line-height: 1.5;
+	}
+
+	/* Bottom Ribbon Target Columns Styling */
+	.mission-section {
+		width: 100%;
+		max-width: 1250px;
+		margin: 4rem auto 2rem;
+		border-top: 1px solid #1e293b;
+		padding-top: 3rem;
+	}
+	.mission-header {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+	.mission-header h3 {
+		font-size: 1.25rem;
+		letter-spacing: 0.1em;
+		color: #38bdf8;
+	}
+	.mission-header p {
+		font-size: 0.9rem;
+		color: #64748b;
+		margin-top: 0.25rem;
+	}
+	.mission-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+	}
+	.mission-node {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.icon-ring {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		border: 1px solid #334155;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 0.75rem;
+	}
+	.node-icon {
+		font-size: 1.25rem;
+	}
+	.mission-node h4 {
+		font-size: 0.9rem;
+		letter-spacing: 0.05em;
+		color: #f8fafc;
+		margin-bottom: 0.5rem;
+	}
+	.mission-node p {
+		font-size: 0.75rem;
+		color: #64748b;
+		max-width: 180px;
+		line-height: 1.4;
+	}
+
+	/* Viewport Screen Queries Breakpoints */
+	@media (min-width: 768px) {
+		.pillars-grid { grid-template-columns: repeat(3, 1fr); }
+		.mission-grid { grid-template-columns: repeat(3, 1fr); }
+	}
+	@media (min-width: 1024px) {
+		.pillars-grid { grid-template-columns: repeat(6, 1fr); }
+		.mission-grid { grid-template-columns: repeat(6, 1fr); }
+	}
+</style>

@@ -1,5 +1,5 @@
----
-// Final Production Delivery for PanorOmics - Clean Image Matrix
+-
+// Final Production Delivery for PanorOmics - Image Canvas with Complete Header System
 ---
 
 <!doctype html>
@@ -79,6 +79,27 @@
 				text-transform: uppercase;
 				letter-spacing: 0.5px;
 				margin-top: 1px;
+			}
+
+			/* RIGHT SIDE SEARCH TOOL */
+			.header-actions {
+				display: flex;
+				align-items: center;
+			}
+
+			#search-button {
+				background: none;
+				border: none;
+				cursor: pointer;
+				padding: 8px;
+				display: flex;
+				align-items: center;
+				border-radius: 50%;
+				transition: background-color 0.2s ease;
+			}
+
+			#search-button:hover {
+				background-color: rgba(0, 51, 102, 0.05);
 			}
 
 			/* MAIN PRESENTATION SECTION LAYOUT */
@@ -177,6 +198,7 @@
 		<!-- FIXED STICKY HEADER -->
 		<header class="site-header">
 			<div class="nav-container">
+				<!-- Brand Layout Left side -->
 				<a href="/" class="brand-link">
 					<img src="/icon-mark.png" alt="PanorOmics Icon" class="header-logo-icon" />
 					
@@ -184,6 +206,16 @@
 						<span class="brand-subtitle">The Panoramic Omics Sciences Center</span>
 					</div>
 				</a>
+
+				<!-- Functional Search Utility Right side -->
+				<div class="header-actions">
+					<button id="search-button" aria-label="Search site">
+						<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="11" cy="11" r="8"></circle>
+							<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+						</svg>
+					</button>
+				</div>
 			</div>
 		</header>
 
@@ -225,5 +257,13 @@
 			</section>
 
 		</div>
+
+		<!-- FUNCTIONAL INTERACTIVE SEARCH UTILITY SCRIPT -->
+		<script>
+			document.getElementById('search-button')?.addEventListener('click', () => {
+				const q = prompt("Search PanorOmics:");
+				if (q) window.location.href = `/search?q=${encodeURIComponent(q)}`;
+			});
+		</script>
 	</body>
 </html>

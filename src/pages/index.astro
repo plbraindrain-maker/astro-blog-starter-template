@@ -52,10 +52,11 @@
 			}
 
 			.header-logo-icon {
-				height: 45px;
-				width: auto;
-				display: block;
-				border-radius: 8px;
+				height: 45px !important;
+				width: auto !important;
+				display: block !important;
+				border-radius: 8px !important;
+				clip-path: none !important; /* Force deletes any lingering old circle masks */
 			}
 
 			.text-identity {
@@ -94,13 +95,16 @@
 				max-width: 1400px;
 				display: flex;
 				justify-content: center;
-				position: relative; /* Essential for aligning invisible links on top of the images */
+				position: relative;
 			}
 
+			/* CRITICAL FORCED OVERRIDE TO RESTORE THE LOGO BANNER TO CORRECT SQUARE/RECTANGLE PROP */
 			.full-page-asset {
-				width: 100%;
-				height: auto;
-				display: block;
+				width: 100% !important;
+				height: auto !important;
+				display: block !important;
+				border-radius: 0px !important;
+				clip-path: none !important; /* Forces the browser to discard the old theme's circle cropping */
 			}
 
 			/* INTERACTIVE INVISIBLE CLICK LINK CONTAINERS */
@@ -108,7 +112,6 @@
 				position: absolute;
 				display: block;
 				cursor: pointer;
-				/* background-color: rgba(255, 0, 0, 0.2); Uncomment this line to see the boxes for testing */
 			}
 		</style>
 	</head>
@@ -130,7 +133,7 @@
 		<!-- INFOGRAPHIC SCROLLING SECTIONS -->
 		<div class="landing-container">
 			
-			<!-- SECTION 1: CORE RAW LOGO GRAPHIC DISPLAY (No code text, no cropping mistakes) -->
+			<!-- SECTION 1: CORE RAW LOGO GRAPHIC DISPLAY (Forced sharp box representation) -->
 			<section class="page-section">
 				<img 
 					src="/panoromics-logo.png" 
@@ -147,17 +150,24 @@
 					class="full-page-asset"
 				/>
 
-				<!-- INVISIBLE LINK OVER GENOMICS LAYER -->
-				<a href="/research#genomics" class="clickable-area" style="top: 72%; left: 12%; width: 12%; height: 25%;" title="Genomics Research"></a>
+				<!-- INVISIBLE LINKS BALANCED DIRECTLY ACROSS THE SIX PILLARS PANELS -->
+				<!-- 1. GENOMICS -->
+				<a href="/research#genomics" class="clickable-area" style="top: 60%; left: 0%; width: 16.6%; height: 40%;" title="Genomics Pillar"></a>
 
-				<!-- INVISIBLE LINK OVER TRANSCRIPTOMICS LAYER -->
-				<a href="/research#transcriptomics" class="clickable-area" style="top: 72%; left: 25%; width: 12%; height: 25%;" title="Transcriptomics Research"></a>
+				<!-- 2. TRANSCRIPTOMICS -->
+				<a href="/research#transcriptomics" class="clickable-area" style="top: 60%; left: 16.6%; width: 16.6%; height: 40%;" title="Transcriptomics Pillar"></a>
 
-				<!-- INVISIBLE LINK OVER PROTEOMICS LAYER -->
-				<a href="/research#proteomics" class="clickable-area" style="top: 72%; left: 50%; width: 12%; height: 25%;" title="Proteomics Research"></a>
+				<!-- 3. PROTEOMICS -->
+				<a href="/research#proteomics" class="clickable-area" style="top: 60%; left: 33.2%; width: 16.6%; height: 40%;" title="Proteomics Pillar"></a>
 
-				<!-- INVISIBLE LINK OVER METABOLOMIC INTERACTIONS LAYER -->
-				<a href="/research#metabolomics" class="clickable-area" style="top: 72%; left: 74%; width: 12%; height: 25%;" title="Metabolomics Research"></a>
+				<!-- 4. METABOLOMICS -->
+				<a href="/research#metabolomics" class="clickable-area" style="top: 60%; left: 49.8%; width: 16.6%; height: 40%;" title="Metabolomics Pillar"></a>
+
+				<!-- 5. LIPIDOMICS -->
+				<a href="/research#lipidomics" class="clickable-area" style="top: 60%; left: 66.4%; width: 16.6%; height: 40%;" title="Lipidomics Pillar"></a>
+
+				<!-- 6. EPIGENOMICS -->
+				<a href="/research#epigenomics" class="clickable-area" style="top: 60%; left: 83%; width: 17%; height: 40%;" title="Epigenomics Pillar"></a>
 			</section>
 
 		</div>

@@ -2,19 +2,32 @@
 import HeaderLink from './HeaderLink.astro';
 ---
 
-<header style="background: #FDFCF0; border-bottom: 1px solid rgba(0,51,102,0.1); padding: 1rem 0;">
+<header style="background: #001A33; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 0.75rem 0;">
 	<nav style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
 		
-		<!-- LOGO SECTION -->
-		<a href="/" style="display: flex; align-items: center; text-decoration: none;">
-			<img src="/panoromics-logo.png" alt="PanorOmics Logo" style="height: 90px; width: auto; border-radius: 8px;" />
+		<!-- LOGO & BRAND SECTION -->
+		<a href="/" style="display: flex; align-items: center; text-decoration: none; gap: 15px;">
+			<!-- Container that crops into just the DNA circle icon -->
+			<div style="width: 50px; height: 50px; overflow: hidden; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+				<img src="/panoromics-logo.png" alt="PanorOmics Icon" style="width: 140%; height: auto; transform: translateY(-18px);" />
+			</div>
+			
+			<!-- Reconstructed crisp text layout matching your new logo branding -->
+			<div style="display: flex; flex-direction: column; line-height: 1.1;">
+				<span style="font-size: 1.8rem; font-weight: 700; color: #FFFFFF; letter-spacing: -0.5px;">
+					Panor<span style="color: #1A8CFF;">Omics</span>
+				</span>
+				<span style="font-size: 0.65rem; color: #A0C0E0; font-weight: 400; letter-spacing: 0.3px; margin-top: 2px; text-transform: lowercase;">
+					integrating life sciences <span style="color: #1A8CFF; margin: 0 3px; font-weight: 900;">•</span> data <span style="color: #1A8CFF; margin: 0 3px; font-weight: 900;">•</span> discovery
+				</span>
+			</div>
 		</a>
 
 		<!-- RIGHT SIDE: MENU & SEARCH -->
 		<div style="display: flex; align-items: center; gap: 20px;">
 			<div class="dropdown">
 				<button class="dropbtn" aria-label="Menu">
-					<svg width="30" height="20" viewBox="0 0 30 20" fill="none" stroke="#003366" stroke-width="3">
+					<svg width="30" height="20" viewBox="0 0 30 20" fill="none" stroke="#FFFFFF" stroke-width="3">
 						<line x1="0" y1="2" x2="30" y2="2" />
 						<line x1="0" y1="10" x2="30" y2="10" />
 						<line x1="0" y1="18" x2="30" y2="18" />
@@ -25,12 +38,12 @@ import HeaderLink from './HeaderLink.astro';
 					<HeaderLink href="/education">Education and Learning</HeaderLink>
 					<HeaderLink href="/news">News</HeaderLink>
 					<HeaderLink href="/about">About Us</HeaderLink>
-					<HeaderLink href="/give" style="font-weight: bold; color: #C8102E;">Give</HeaderLink>
+					<HeaderLink href="/give" style="font-weight: bold; color: #FF4D4D;">Give</HeaderLink>
 				</div>
 			</div>
 
 			<button id="search-button" style="background: none; border: none; cursor: pointer; padding: 5px;">
-				<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2.5">
+				<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5">
 					<circle cx="11" cy="11" r="8"></circle>
 					<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
 				</svg>
@@ -46,9 +59,9 @@ import HeaderLink from './HeaderLink.astro';
 		display: none;
 		position: absolute;
 		right: 0;
-		background: white;
+		background: #00264D;
 		min-width: 220px;
-		box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+		box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 		border-radius: 4px;
 		z-index: 100;
 	}
@@ -56,11 +69,11 @@ import HeaderLink from './HeaderLink.astro';
 		padding: 15px 20px; 
 		text-decoration: none; 
 		display: block; 
-		color: #003366; 
+		color: #FFFFFF; 
 		font-size: 0.9rem;
-		border-bottom: 1px solid #FDFCF0;
+		border-bottom: 1px solid #001A33;
 	}
-	.dropdown-content :global(a:hover) { background: #FDFCF0; }
+	.dropdown-content :global(a:hover) { background: #003366; }
 	.dropdown:hover .dropdown-content { display: block; }
 </style>
 

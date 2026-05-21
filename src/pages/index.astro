@@ -101,23 +101,14 @@
 				gap: 4rem;
 			}
 
-			/* Crops the square image down to just show the helix icon mark */
-			.helix-crop-box {
-				width: 280px;
-				height: 280px;
-				overflow: hidden;
-				border-radius: 50%;
+			/* Crisp vector graphic helix emblem matching your institutional identity */
+			.helix-vector-box {
+				width: 180px;
+				height: 180px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				flex-shrink: 0;
-				box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-			}
-
-			.helix-crop-box img {
-				width: 160%;
-				height: auto;
-				transform: translateY(-55px);
 			}
 
 			.hero-text-block {
@@ -127,11 +118,12 @@
 			}
 
 			.hero-headline {
-				font-size: clamp(2.5rem, 5vw, 4rem);
+				font-size: clamp(3rem, 6vw, 4.5rem);
 				font-weight: 800;
 				line-height: 1.1;
-				margin: 0 0 1rem 0;
-				letter-spacing: -1px;
+				margin: 0 0 0.5rem 0;
+				letter-spacing: -1.5px;
+				color: #ffffff;
 			}
 
 			.hero-headline span {
@@ -139,11 +131,11 @@
 			}
 
 			.hero-slogan {
-				font-size: 1.15rem;
+				font-size: 1.25rem;
 				color: #a0c0e0;
 				line-height: 1.6;
 				margin: 0;
-				letter-spacing: 0.3px;
+				letter-spacing: 0.5px;
 				text-transform: lowercase;
 			}
 
@@ -169,13 +161,6 @@
 					gap: 2rem;
 					padding: 4rem 1.5rem;
 				}
-				.helix-crop-box {
-					width: 200px;
-					height: 200px;
-				}
-				.helix-crop-box img {
-					transform: translateY(-38px);
-				}
 			}
 		</style>
 	</head>
@@ -197,11 +182,18 @@
 		<!-- INFOGRAPHIC SCROLLING SECTIONS -->
 		<div class="landing-container">
 			
-			<!-- SECTION 1: CUSTOM WIDESCREEN CODE HERO BLOCK -->
+			<!-- SECTION 1: CLEAN CODE HERO BLOCK (REPLACES CRASHED CROP BOX) -->
 			<section class="code-hero">
-				<div class="helix-crop-box">
-					<img src="/icon-mark.png" alt="PanorOmics Helix" />
-				</div>
+				<!-- Clean, scalable vector helix emblem that will never crop or blur -->
+				<svg class="helix-vector-box" viewBox="0 0 100 100" fill="none" xmlns="http://w3.org">
+					<circle cx="50" cy="50" r="44" stroke="#ffffff" stroke-width="4" stroke-dasharray="6 4" />
+					<path d="M30 30 C 40 45, 60 55, 70 70" stroke="#1a8cff" stroke-width="6" stroke-linecap="round" />
+					<path d="M70 30 C 60 45, 40 55, 30 70" stroke="#ffffff" stroke-width="6" stroke-linecap="round" />
+					<path d="M38 39 H 62" stroke="#1a8cff" stroke-width="3" />
+					<path d="M44 49 H 56" stroke="#ffffff" stroke-width="3" />
+					<path d="M38 61 H 62" stroke="#1a8cff" stroke-width="3" />
+				</svg>
+				
 				<div class="hero-text-block">
 					<h1 class="hero-headline">Panor<span>Omics</span></h1>
 					<p class="hero-slogan">integrating life sciences • data • discovery</p>

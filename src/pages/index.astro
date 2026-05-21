@@ -2,68 +2,98 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="PanorOmics | Integrating Life Sciences • Data • Discovery">
+<Layout title="PanorOmics | Precision Medicine & Multi-Omics Integration">
 	<main>
-		<!-- FULL SCREEN HERO CANVAS -->
-		<section class="hero">
-			<div class="container">
-				
-				<!-- THE EXACT LOGO IMAGE ASSET -->
-				<div class="logo-container">
+		<!-- HERO CANVAS -->
+		<section class="hero-section">
+			<div class="hero-container">
+				<!-- Live Logo Asset -->
+				<div class="logo-viewport">
 					<img 
 						src="/panoromics-logo.png" 
-						alt="PanorOmics Logo" 
+						alt="PanorOmics Center Logo" 
 						class="brand-logo" 
 					/>
 				</div>
 				
-				<!-- INTERACTIVE CONTEXT CALL TO ACTIONS -->
-				<div class="action-row">
-					<a href="#research" class="action-btn btn-filled">Explore Our Center</a>
-					<a href="#about" class="action-btn btn-outline">Learn More</a>
+				<!-- Interactive Pathways -->
+				<div class="pathway-row">
+					<a href="#omics" class="pathway-btn btn-accent">Explore Center Ecosystem</a>
+					<a href="#about" class="pathway-btn btn-ghost">Learn More</a>
 				</div>
+			</div>
+		</section>
 
+		<!-- MULTI-OMICS ARCHITECTURE SECTIONS -->
+		<section id="omics" class="omics-section">
+			<div class="section-container">
+				<h2 class="section-title">The Multi-Omics Ecosystem</h2>
+				<p class="section-subtitle">Integrating complex data layers simultaneously across the central dogma of biology to map comprehensive disease mechanisms.</p>
+				
+				<div class="omics-grid">
+					<div class="omics-card">
+						<div class="card-num">01</div>
+						<h3>Genomics</h3>
+						<p>Mapping primary DNA structures, sequences, and critical inherited disease variants.</p>
+					</div>
+					<div class="omics-card">
+						<div class="card-num">02</div>
+						<h3>Transcriptomics</h3>
+						<p>Quantifying total dynamic RNA transcription levels to monitor cellular instructions.</p>
+					</div>
+					<div class="omics-card">
+						<div class="card-num">03</div>
+						<h3>Proteomics & Epigenomics</h3>
+						<p>Analyzing physical cellular proteins alongside chromatin structural modifications.</p>
+					</div>
+					<div class="omics-card">
+						<div class="card-num">04</div>
+						<h3>Bioinformatics</h3>
+						<p>Deploying advanced innovative data sciences to synthesize deep multi-layered outputs.</p>
+					</div>
+				</div>
 			</div>
 		</section>
 	</main>
 </Layout>
 
 <style>
-	/* Full Window Centering */
+	/* Global Resets and Core Canvas */
 	main {
-		background-color: #000c1a; /* Seamlessly matches the logo's dark navy background color */
+		background-color: #000c1a; /* Flawless background pairing with the logo graphic */
+		color: #ffffff;
+		font-family: system-ui, -apple-system, sans-serif;
 		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+		scroll-behavior: smooth;
 	}
 
-	.hero {
-		width: 100%;
-		max-width: 1200px;
-		padding: 2rem 1.5rem;
+	/* Hero Block Specifics */
+	.hero-section {
+		min-height: 100vh;
 		display: flex;
 		justify-content: center;
+		align-items: center;
+		padding: 2rem 1.5rem;
+		box-sizing: border-box;
 	}
 
-	.container {
+	.hero-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 3.5rem; /* Balanced space between the square brand asset and operational choices */
+		gap: 4rem;
+		width: 100%;
 	}
 
-	/* Exact Logo Formatting Constraints */
-	.logo-container {
+	.logo-viewport {
 		width: 100%;
-		max-width: 520px; /* Maximum rendering sharp size for the uploaded brand asset */
+		max-width: 500px;
 		display: flex;
 		justify-content: center;
-		animation: smoothEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+		animation: entranceAnimation 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 	}
 
 	.brand-logo {
@@ -73,60 +103,123 @@ import Layout from '../layouts/Layout.astro';
 		object-fit: contain;
 	}
 
-	/* Clean Functional Actions */
-	.action-row {
+	/* Operational CTA UI Elements */
+	.pathway-row {
 		display: flex;
 		gap: 1.25rem;
 		flex-wrap: wrap;
 		justify-content: center;
-		animation: smoothEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+		animation: entranceAnimation 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 	}
 
-	.action-btn {
-		font-family: system-ui, -apple-system, sans-serif;
+	.pathway-btn {
 		font-size: 0.95rem;
 		font-weight: 600;
 		text-decoration: none;
-		padding: 0.85rem 2.25rem;
-		border-radius: 50px; /* Capsule buttons complementing the logo rounded edge mask */
+		padding: 0.9rem 2.5rem;
+		border-radius: 50px;
 		transition: all 0.2s ease;
 		letter-spacing: 0.2px;
 	}
 
-	.btn-filled {
-		background-color: #1a8cff; /* Matches the vibrant blue tone inside the DNA helix helix graphic */
+	.btn-accent {
+		background-color: #1a8cff; /* Vibrant diagnostic blue tone matching your helix accent */
 		color: #ffffff;
-		box-shadow: 0 4px 15px rgba(26, 140, 255, 0.25);
+		box-shadow: 0 4px 20px rgba(26, 140, 255, 0.25);
 	}
 
-	.btn-filled:hover {
+	.btn-accent:hover {
 		background-color: #0073e6;
 		transform: translateY(-1px);
-		box-shadow: 0 6px 20px rgba(26, 140, 255, 0.35);
+		box-shadow: 0 6px 25px rgba(26, 140, 255, 0.35);
 	}
 
-	.btn-outline {
+	.btn-ghost {
 		background-color: transparent;
 		color: #ffffff;
 		border: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
-	.btn-outline:hover {
+	.btn-ghost:hover {
 		background-color: rgba(255, 255, 255, 0.04);
 		border-color: rgba(255, 255, 255, 0.4);
 		transform: translateY(-1px);
 	}
 
-	/* Elegant Presentation Animation */
-	@keyframes smoothEntrance {
-		from {
-			opacity: 0;
-			transform: translateY(15px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
+	/* Multi-Omics Data Grid Blocks */
+	.omics-section {
+		padding: 8rem 1.5rem;
+		display: flex;
+		justify-content: center;
+		background: linear-gradient(180deg, #000c1a 0%, #001428 100%);
+	}
+
+	.section-container {
+		width: 100%;
+		max-width: 1200px;
+		text-align: center;
+	}
+
+	.section-title {
+		font-size: clamp(2rem, 4vw, 2.75rem);
+		font-weight: 800;
+		margin: 0 0 1rem 0;
+		letter-spacing: -0.5px;
+	}
+
+	.section-subtitle {
+		font-size: clamp(1rem, 2vw, 1.15rem);
+		color: #a0c0e0;
+		max-width: 700px;
+		margin: 0 auto 4.5rem auto;
+		line-height: 1.6;
+	}
+
+	.omics-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.omics-card {
+		background-color: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.07);
+		border-radius: 12px;
+		padding: 2.5rem 2rem;
+		text-align: left;
+		transition: all 0.3s ease;
+	}
+
+	.omics-card:hover {
+		background-color: rgba(255, 255, 255, 0.04);
+		border-color: rgba(26, 140, 255, 0.3);
+		transform: translateY(-4px);
+	}
+
+	.card-num {
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: #1a8cff;
+		margin-bottom: 1rem;
+		letter-spacing: 1px;
+	}
+
+	.omics-card h3 {
+		font-size: 1.35rem;
+		font-weight: 700;
+		margin: 0 0 0.75rem 0;
+	}
+
+	.omics-card p {
+		font-size: 0.95rem;
+		color: #a0c0e0;
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	/* Animations */
+	@keyframes entranceAnimation {
+		from { opacity: 0; transform: translateY(15px); }
+		to { opacity: 1; transform: translateY(0); }
 	}
 </style>
-

@@ -24,9 +24,9 @@
 				overflow-x: hidden;
 			}
 
-			/* FIXED LIGHTER NAV BAR HEADER FOR TEXT CONTRAST */
+			/* FIXED STICKY NAVIGATION BAR */
 			.site-header {
-				background-color: #f4f7fa; /* Clean, light science-lab background to make dark blue letters pop */
+				background-color: #f4f7fa; 
 				border-bottom: 1px solid rgba(0, 51, 102, 0.1);
 				position: sticky;
 				top: 0;
@@ -47,37 +47,33 @@
 			.brand-link {
 				display: flex;
 				align-items: center;
-				gap: 14px;
+				gap: 12px;
 				text-decoration: none;
 			}
 
-			/* Controlled Small Header Icon Size */
-			.header-logo-icon {
-				height: 45px;
-				width: auto;
+			/* Clean, lightweight inline SVG icon matching your helix design */
+			.header-logo-vector {
+				width: 32px;
+				height: 32px;
 				display: block;
-				border-radius: 8px;
 			}
 
-			/* Typography Identity Block */
 			.text-identity {
 				display: flex;
 				flex-direction: column;
 				line-height: 1.2;
 			}
 
-			/* Dark Blue Main Brand Label */
 			.brand-text {
 				font-size: 1.5rem;
 				font-weight: 800;
-				color: #00264d; /* Deep clinical dark blue representing authority and science */
+				color: #00264d; 
 				letter-spacing: -0.5px;
 			}
 
-			/* Subtitle Center Label */
 			.brand-subtitle {
 				font-size: 0.7rem;
-				color: #4a607a; /* Muted corporate blue-gray for the full academic title */
+				color: #4a607a; 
 				font-weight: 600;
 				text-transform: uppercase;
 				letter-spacing: 0.5px;
@@ -109,11 +105,17 @@
 	</head>
 	<body>
 
-		<!-- FIXED STICKY NAVIGATION BAR -->
+		<!-- HEADER BAR -->
 		<header class="site-header">
 			<div class="nav-container">
 				<a href="/" class="brand-link">
-					<img src="/panoromics-logo.png" alt="PanorOmics" class="header-logo-icon" />
+					<!-- Crisp graphic science emblem for the header link -->
+					<svg class="header-logo-vector" viewBox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2.5" stroke-linecap="round">
+						<path d="M4.5 10.5C4.5 5.52285 8.52285 1.5 13.5 1.5C18.4772 1.5 22.5 5.52285 22.5 10.5C22.5 15.4772 18.4772 19.5 13.5 19.5" />
+						<path d="M9 7.5C9 9.98528 11.0147 12 13.5 12C15.9853 12 18 9.98528 18 7.5C18 5.01472 15.9853 3 13.5 3" />
+						<path d="M12 14.5V22.5" />
+						<path d="M8.5 19H15.5" />
+					</svg>
 					
 						<span class="brand-text">PanorOmics</span>
 						<span class="brand-subtitle">The Panoramic Omics Sciences Center</span>
@@ -122,10 +124,10 @@
 			</div>
 		</header>
 
-		<!-- MAIN INFOGRAPHIC SCROLLING SECTIONS -->
+		<!-- INFOGRAPHIC SCROLLING SECTIONS -->
 		<div class="landing-container">
 			
-			<!-- SECTION 1: HERO & ECOSYSTEM OVERVIEW -->
+			<!-- SECTION 1: LOADS YOUR FULL-SCALE WIDESCREEN IMAGE ASSET -->
 			<section class="page-section">
 				<img 
 					src="/panoromics-logo.png" 
@@ -134,7 +136,7 @@
 				/>
 			</section>
 
-			<!-- SECTION 2: CENTRAL DOGMA & SIX PILLARS MAP -->
+			<!-- SECTION 2: CENTRAL DOGMA MAP -->
 			<section class="page-section">
 				<img 
 					src="/central-dogma.png" 

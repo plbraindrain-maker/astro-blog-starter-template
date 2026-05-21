@@ -1,5 +1,5 @@
 ---
-// Final Production Delivery for PanorOmics Landing Page
+// Final Production Delivery for PanorOmics - Clean Image Matrix
 ---
 
 <!doctype html>
@@ -8,7 +8,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/png" href="/icon-mark.png" />
-		<title>PanorOmics | Unifying Omics. Advancing Health. Transforming Lives.</title>
+		<title>PanorOmics | integrating life sciences • data • discovery</title>
 		<style>
 			/* Reset browser defaults */
 			html, body {
@@ -81,7 +81,7 @@
 				margin-top: 1px;
 			}
 
-			/* PAGE CONTENT LAYOUT WRAPPER */
+			/* MAIN PRESENTATION SECTION LAYOUT */
 			.landing-container {
 				width: 100%;
 				display: flex;
@@ -90,69 +90,50 @@
 				background-color: #010610;
 			}
 
-			/* BULLETPROOF HERO WRAPPER - FORCES LOGO TO THE LEFT */
-			.widescreen-hero {
+			/* HERO MATRIX ROW - LOGO LEFT, CLICKABLE LANDING ASSET CENTER */
+			.hero-matrix-row {
 				width: 100%;
-				max-width: 1200px;
-				padding: 6rem 2rem;
+				max-width: 1400px;
+				padding: 4rem 2rem;
 				box-sizing: border-box;
-				display: flex !important;
-				flex-direction: row !important; /* Force items horizontal side-by-side */
-				align-items: center !important;
-				justify-content: center !important;
-				gap: 4rem; 
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 3rem;
 			}
 
-			/* Logo sitting cleanly on the left side */
-			.hero-logo-frame {
-				width: 220px;
-				height: 220px;
-				display: flex !important;
-				align-items: center !important;
-				justify-content: center !important;
+			/* Left-aligned Icon Mark */
+			.left-logo-frame {
+				width: 160px;
+				height: 160px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				flex-shrink: 0;
 			}
 
-			.hero-logo-frame img {
+			.left-logo-frame img {
 				width: 100%;
 				height: auto;
 				display: block;
 				object-fit: contain;
 			}
 
-			/* Clickable center framework link wrapping the brand text matrix */
-			.hero-text-link {
-				display: flex !important;
-				flex-direction: column !important;
-				max-width: 650px;
-				text-decoration: none !important; 
-				cursor: pointer !important;
+			/* Clickable Middle Landing Page Frame */
+			.center-landing-link {
+				display: block;
+				width: 100%;
+				max-width: 750px;
+				cursor: pointer;
+				text-decoration: none;
+				transition: transform 0.2s ease;
 			}
 
-			.hero-title {
-				font-size: clamp(3.2rem, 6vw, 4.8rem);
-				font-weight: 800;
-				line-height: 1.05;
-				margin: 0 0 0.75rem 0;
-				letter-spacing: -1.5px;
-				color: #ffffff !important;
+			.center-landing-link:hover {
+				transform: scale(1.01);
 			}
 
-			.hero-title span {
-				color: #1a8cff !important; 
-			}
-
-			.hero-tagline {
-				font-size: 1.35rem;
-				color: #a0c0e0 !important;
-				line-height: 1.6;
-				margin: 0;
-				letter-spacing: 0.5px;
-				text-transform: lowercase;
-				font-weight: 400;
-			}
-
-			/* INFOGRAPHIC CONTENT LAYER */
+			/* INFOGRAPHIC IMMERSIVE LAYERS */
 			.page-section {
 				width: 100%;
 				max-width: 1400px;
@@ -169,27 +150,31 @@
 				clip-path: none !important;
 			}
 
-			/* INTERACTIVE INVISIBLE CLICK TARGETS FOR THE GRAPHICS BLOCKS */
+			/* INVISIBLE MAP LINKS FOR THE SIX PILLARS PANELS */
 			.clickable-area {
 				position: absolute;
 				display: block;
 				cursor: pointer;
 			}
 
-			/* Responsive mobile stacking layout */
+			/* Mobile Stacking Breakpoint */
 			@media (max-width: 860px) {
-				.widescreen-hero {
-					flex-direction: column !important;
+				.hero-matrix-row {
+					flex-direction: column;
 					text-align: center;
-					gap: 2.5rem;
-					padding: 4rem 1.5rem;
+					gap: 2rem;
+					padding: 3rem 1.5rem;
+				}
+				.left-logo-frame {
+					width: 120px;
+					height: 120px;
 				}
 			}
 		</style>
 	</head>
 	<body>
 
-		<!-- HEADER BAR -->
+		<!-- FIXED STICKY HEADER -->
 		<header class="site-header">
 			<div class="nav-container">
 				<a href="/" class="brand-link">
@@ -202,20 +187,23 @@
 			</div>
 		</header>
 
-		<!-- MAIN PRESENTATION CANVAS -->
+		<!-- CONTENT BLOCK MATRIX -->
 		<div class="landing-container">
 			
-			<!-- SECTION 1: WIDESCREEN HERO (Forced Side-by-Side) -->
-			<section class="widescreen-hero">
-				<!-- Logo sitting perfectly on the left side -->
-				<div class="hero-logo-frame">
+			<!-- SECTION 1: HERO MATRIX (Logo Left, Clickable Landing Graphic Center) -->
+			<section class="hero-matrix-row">
+				<!-- Logo Image sitting directly on the left side -->
+				<div class="left-logo-frame">
 					
 				</div>
 				
-				<!-- Main text block configured as a clickable landing page link -->
-				<a href="/about" class="hero-text-link" title="Go to About Landing Page">
-					<h1 class="hero-title">Panor<span>Omics</span></h1>
-					<p class="hero-tagline">integrating life sciences • data • discovery</p>
+				<!-- Main Landing Page graphic sitting in the middle and completely clickable -->
+				<a href="/about" class="center-landing-link" title="Click to open landing content">
+					<img 
+						src="/panoromics-logo.png" 
+						alt="PanorOmics | integrating life sciences • data • discovery" 
+						class="full-page-asset" 
+					/>
 				</a>
 			</section>
 
@@ -227,7 +215,7 @@
 					class="full-page-asset"
 				/>
 
-				<!-- INVISIBLE LINKS FOR THE SIX PILLARS PANELS -->
+				<!-- INVISIBLE CLICK LINKS FOR THE SIX PILLARS AT THE BOTTOM -->
 				<a href="/research#genomics" class="clickable-area" style="top: 60%; left: 0%; width: 16.6%; height: 40%;" title="Genomics Pillar"></a>
 				<a href="/research#transcriptomics" class="clickable-area" style="top: 60%; left: 16.6%; width: 16.6%; height: 40%;" title="Transcriptomics Pillar"></a>
 				<a href="/research#proteomics" class="clickable-area" style="top: 60%; left: 33.2%; width: 16.6%; height: 40%;" title="Proteomics Pillar"></a>

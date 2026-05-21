@@ -51,7 +51,6 @@
 				text-decoration: none;
 			}
 
-			/* Pixel-perfect formatting for your small rounded logo mark */
 			.header-logo-icon {
 				height: 45px;
 				width: auto;
@@ -90,6 +89,65 @@
 				background-color: #010610;
 			}
 
+			/* HORIZONTAL CODE-BASED HERO BANNER */
+			.code-hero {
+				width: 100%;
+				max-width: 1400px;
+				padding: 6rem 2rem;
+				box-sizing: border-box;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 4rem;
+			}
+
+			/* Crops the square image down to just show the helix icon mark */
+			.helix-crop-box {
+				width: 280px;
+				height: 280px;
+				overflow: hidden;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-shrink: 0;
+				box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+			}
+
+			.helix-crop-box img {
+				width: 160%;
+				height: auto;
+				transform: translateY(-55px);
+			}
+
+			.hero-text-block {
+				display: flex;
+				flex-direction: column;
+				max-width: 600px;
+			}
+
+			.hero-headline {
+				font-size: clamp(2.5rem, 5vw, 4rem);
+				font-weight: 800;
+				line-height: 1.1;
+				margin: 0 0 1rem 0;
+				letter-spacing: -1px;
+			}
+
+			.hero-headline span {
+				color: #1a8cff;
+			}
+
+			.hero-slogan {
+				font-size: 1.15rem;
+				color: #a0c0e0;
+				line-height: 1.6;
+				margin: 0;
+				letter-spacing: 0.3px;
+				text-transform: lowercase;
+			}
+
+			/* IMAGE SECTIONS */
 			.page-section {
 				width: 100%;
 				max-width: 1920px;
@@ -102,6 +160,23 @@
 				height: auto;
 				display: block;
 			}
+
+			/* Responsive tweaks for mobile viewports */
+			@media (max-width: 820px) {
+				.code-hero {
+					flex-direction: column;
+					text-align: center;
+					gap: 2rem;
+					padding: 4rem 1.5rem;
+				}
+				.helix-crop-box {
+					width: 200px;
+					height: 200px;
+				}
+				.helix-crop-box img {
+					transform: translateY(-38px);
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -110,7 +185,6 @@
 		<header class="site-header">
 			<div class="nav-container">
 				<a href="/" class="brand-link">
-					<!-- Loads your specific custom small rounded logo icon -->
 					<img src="/icon-mark.png" alt="PanorOmics Icon" class="header-logo-icon" />
 					
 						<span class="brand-text">PanorOmics</span>
@@ -123,13 +197,15 @@
 		<!-- INFOGRAPHIC SCROLLING SECTIONS -->
 		<div class="landing-container">
 			
-			<!-- SECTION 1: WIDESCREEN PRESENTATION BANNER -->
-			<section class="page-section">
-				<img 
-					src="/panoromics-logo.png" 
-					alt="PanorOmics - Unifying Omics. Advancing Health. Transforming Lives." 
-					class="full-page-asset"
-				/>
+			<!-- SECTION 1: CUSTOM WIDESCREEN CODE HERO BLOCK -->
+			<section class="code-hero">
+				<div class="helix-crop-box">
+					<img src="/icon-mark.png" alt="PanorOmics Helix" />
+				</div>
+				<div class="hero-text-block">
+					<h1 class="hero-headline">Panor<span>Omics</span></h1>
+					<p class="hero-slogan">integrating life sciences • data • discovery</p>
+				</div>
 			</section>
 
 			<!-- SECTION 2: CENTRAL DOGMA MAP -->

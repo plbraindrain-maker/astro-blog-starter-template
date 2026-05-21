@@ -1,7 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-// Nav links to build out a clean header system later
+// Completely self-contained page. No imports to break.
 const navLinks = [
 	{ name: 'Home', href: '/' },
 	{ name: 'About', href: '/about' },
@@ -14,7 +12,6 @@ const navLinks = [
 	{ name: 'Contact', href: '/contact' },
 ];
 
-// Data structures matching your exact pillar cards text content
 const omicsPillars = [
 	{ id: 'genomics', name: 'GENOMICS', border: '#1e3a8a', text: 'The complete set of DNA, including genes, variants, and genetic architecture.' },
 	{ id: 'transcriptomics', name: 'TRANSCRIPTOMICS', border: '#166534', text: 'Examine RNA molecules to understand gene expression and cellular function.' },
@@ -24,7 +21,6 @@ const omicsPillars = [
 	{ id: 'epigenomics', name: 'EPIGENOMICS', border: '#3730a3', text: 'Explore epigenetic modifications that regulate gene activity without changing DNA.' },
 ];
 
-// The bottom horizontal mission impact track values
 const missionRibbon = [
 	{ title: 'KNOWLEDGE', text: 'Generate and integrate biological knowledge across omics layers.', icon: '🧠' },
 	{ title: 'INSIGHT', text: 'Uncover mechanisms, biomarkers, and targets with greater precision.', icon: '👁️' },
@@ -35,321 +31,311 @@ const missionRibbon = [
 ];
 ---
 
-<Layout title="PanorOmics | integrating life sciences • data • discovery">
-	<!-- Fixed Interactive Top Navigation Bar -->
-	<header class="site-header">
-		<div class="header-container">
-			<a href="/" class="logo-group">
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PanorOmics</title>
+		<style>
+			/* Global Resets */
+			*, *::before, *::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			html, body {
+				background-color: #010610;
+				color: #ffffff;
+				font-family: system-ui, -apple-system, sans-serif;
+				min-height: 100vh;
+				width: 100%;
+				overflow-x: hidden;
+			}
+
+			/* Top Header */
+			.site-header {
+				width: 100%;
+				background-color: #ffffff;
+				padding: 0.75rem 2rem;
+				position: sticky;
+				top: 0;
+				z-index: 100;
+			}
+			.header-container {
+				max-width: 1400px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.brand-title {
+				font-size: 1.5rem;
+				font-weight: 800;
+				color: #0c4a6e;
+				display: block;
+				line-height: 1;
+			}
+			.brand-sub {
+				font-size: 0.6rem;
+				font-weight: 700;
+				letter-spacing: 0.05em;
+				color: #64748b;
+			}
+			.main-nav {
+				display: flex;
+				gap: 1.25rem;
+			}
+			.nav-link {
+				color: #334155;
+				text-decoration: none;
+				font-size: 0.85rem;
+				font-weight: 600;
+			}
+			.partner-btn {
+				background-color: #0284c7;
+				color: #ffffff;
+				padding: 0.5rem 1.25rem;
+				border-radius: 4px;
+				text-decoration: none;
+				font-size: 0.85rem;
+				font-weight: 600;
+			}
+
+			/* Main Content Template layout */
+			.portal-hero {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 4rem 1.5rem;
+			}
+			.portal-title {
+				font-size: 4.5rem;
+				font-weight: 800;
+				letter-spacing: -0.03em;
+				text-align: center;
+			}
+			.portal-title span {
+				color: #38bdf8;
+			}
+			.portal-tagline {
+				font-size: 1.25rem;
+				color: #94a3b8;
+				letter-spacing: 0.05em;
+				margin-top: 0.25rem;
+				text-align: center;
+			}
+
+			/* Central Diagram Wrapper */
+			.dogma-container {
+				width: 100%;
+				max-width: 1200px;
+				text-align: center;
+				margin: 4rem auto 2rem;
+			}
+			.dogma-container h2 {
+				font-size: 2rem;
+				font-weight: 700;
+			}
+			.dogma-subtitle {
+				font-size: 0.95rem;
+				color: #64748b;
+				margin-bottom: 2rem;
+			}
+			.dogma-graphic-wrapper {
+				position: relative;
+				width: 100%;
+			}
+			.dogma-graphic-layer {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+			.explore-overlay-btn {
+				position: absolute;
+				top: 71.0%;
+				left: 4.2%;
+				background-color: rgba(56, 189, 248, 0.1);
+				border: 1px solid #38bdf8;
+				color: #ffffff;
+				padding: 0.6rem 1.5rem;
+				text-decoration: none;
+				border-radius: 4px;
+				font-weight: 600;
+				font-size: 0.85rem;
+				backdrop-filter: blur(4px);
+			}
+
+			/* Six Pillars Grid UI */
+			.pillars-section {
+				width: 100%;
+				max-width: 1250px;
+				margin: 3rem auto;
+			}
+			.pillars-heading {
+				text-align: center;
+				font-size: 0.85rem;
+				font-weight: 700;
+				color: #475569;
+				letter-spacing: 0.15em;
+				margin-bottom: 2rem;
+			}
+			.pillars-grid {
+				display: grid;
+				grid-template-columns: repeat(1, 1fr);
+				gap: 1rem;
+			}
+			.pillar-card {
+				background-color: rgba(15, 23, 42, 0.4);
+				border: 1px solid var(--accent-color);
+				border-radius: 6px;
+				padding: 1.5rem 1.25rem;
+				text-decoration: none;
+				min-height: 200px;
+				display: flex;
+				flex-direction: column;
+			}
+			.pillar-name {
+				color: #ffffff;
+				font-weight: 700;
+				font-size: 1.05rem;
+				letter-spacing: 0.05em;
+				display: block;
+				margin-bottom: 1rem;
+			}
+			.pillar-description {
+				color: #94a3b8;
+				font-size: 0.8rem;
+				line-height: 1.5;
+			}
+
+			/* Bottom Ribbon */
+			.mission-section {
+				width: 100%;
+				max-width: 1250px;
+				margin: 4rem auto 2rem;
+				border-top: 1px solid #1e293b;
+				padding-top: 3rem;
+			}
+			.mission-header {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+			.mission-header h3 {
+				font-size: 1.25rem;
+				letter-spacing: 0.1em;
+				color: #38bdf8;
+			}
+			.mission-header p {
+				font-size: 0.9rem;
+				color: #64748b;
+				margin-top: 0.25rem;
+			}
+			.mission-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 2rem;
+			}
+			.mission-node {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+			}
+			.icon-ring {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				border: 1px solid #334155;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 0.75rem;
+			}
+			.node-icon {
+				font-size: 1.25rem;
+			}
+			.mission-node h4 {
+				font-size: 0.9rem;
+				color: #f8fafc;
+				margin-bottom: 0.5rem;
+			}
+			.mission-node p {
+				font-size: 0.75rem;
+				color: #64748b;
+				line-height: 1.4;
+			}
+
+			@media (min-width: 768px) {
+				.pillars-grid { grid-template-columns: repeat(3, 1fr); }
+				.mission-grid { grid-template-columns: repeat(3, 1fr); }
+			}
+			@media (min-width: 1024px) {
+				.pillars-grid { grid-template-columns: repeat(6, 1fr); }
+				.mission-grid { grid-template-columns: repeat(6, 1fr); }
+			}
+		</style>
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="header-container">
 				<div class="branding-text">
 					<span class="brand-title">PanorOmics</span>
 					<span class="brand-sub">THE PANORAMIC OMICS SCIENCES CENTER</span>
 				</div>
-			</a>
-			<nav class="main-nav">
-				{navLinks.map(link => (
-					<a href={link.href} class="nav-link">{link.name}</a>
-				))}
-			</nav>
-			<a href="/partner" class="partner-btn">Partner With Us</a>
-		</div>
-	</header>
-
-	<!-- Main Graphic Canvas Viewport Container -->
-	<main class="portal-hero">
-		<div class="hero-content">
-			<h1 class="portal-title">Panor<span>Omics</span></h1>
-			<p class="portal-tagline">integrating life sciences • data • discovery</p>
-		</div>
-
-		<!-- Section 1: Central Dogma Map Wrapper -->
-		<section class="dogma-container">
-			<h2>The Central Dogma of Omics Science</h2>
-			<p class="dogma-subtitle">From Information to Function. From Biology to Impact.</p>
-			
-			<div class="dogma-graphic-wrapper">
-				<!-- Keep your background graphic layer here -->
-				<img src="/main-landing.png" alt="The Central Dogma Flow Diagrams" class="dogma-graphic-layer" />
-				<a href="/research" class="explore-overlay-btn" title="Explore Our Research">Explore Our Research</a>
+				<nav class="main-nav">
+					{navLinks.map(link => (
+						<a href={link.href} class="nav-link">{link.name}</a>
+					))}
+				</nav>
+				<a href="/partner" class="partner-btn">Partner With Us</a>
 			</div>
-		</section>
+		</header>
 
-		<!-- Section 2: Six Structural Pillars Grid Grid Elements -->
-		<section class="pillars-section">
-			<p class="pillars-heading">• THE SIX PILLARS OF OMICS SCIENCE •</p>
-			<div class="pillars-grid">
-				{omicsPillars.map(pillar => (
-					<a href={`/${pillar.id}`} class="pillar-card" style={`--accent-color: ${pillar.border}`}>
-						<div class="pillar-card-content">
+		<main class="portal-hero">
+			<div class="hero-content">
+				<h1 class="portal-title">Panor<span>Omics</span></h1>
+				<p class="portal-tagline">integrating life sciences • data • discovery</p>
+			</div>
+
+			<section class="dogma-container">
+				<h2>The Central Dogma of Omics Science</h2>
+				<p class="dogma-subtitle">From Information to Function. From Biology to Impact.</p>
+				<div class="dogma-graphic-wrapper">
+					<img src="/main-landing.png" alt="The Central Dogma Flow Diagrams" class="dogma-graphic-layer" />
+					<a href="/research" class="explore-overlay-btn">Explore Our Research</a>
+				</div>
+			</section>
+
+			<section class="pillars-section">
+				<p class="pillars-heading">• THE SIX PILLARS OF OMICS SCIENCE •</p>
+				<div class="pillars-grid">
+					{omicsPillars.map(pillar => (
+						<div class="pillar-card" style={`--accent-color: ${pillar.border}`}>
 							<span class="pillar-name">{pillar.name}</span>
 							<p class="pillar-description">{pillar.text}</p>
 						</div>
-						<div class="card-glow-element"></div>
-					</a>
-				))}
-			</div>
-		</section>
+					))}
+				</div>
+			</section>
 
-		<!-- Section 3: Bottom Integration Mission Ribbon Banner -->
-		<section class="mission-section">
-			<div class="mission-header">
-				<h3>INTEGRATING MULTI-OMICS</h3>
-				<p>Integrating multiple omics layers to reveal a comprehensive view of biology.</p>
-			</div>
-			
-			<div class="mission-grid">
-				{missionRibbon.map(item => (
-					<div class="mission-node">
-						<div class="icon-ring">
-							<span class="node-icon">{item.icon}</span>
+			<section class="mission-section">
+				<div class="mission-header">
+					<h3>INTEGRATING MULTI-OMICS</h3>
+					<p>Integrating multiple omics layers to reveal a comprehensive view of biology.</p>
+				</div>
+				<div class="mission-grid">
+					{missionRibbon.map(item => (
+						<div class="mission-node">
+							<div class="icon-ring">
+								<span class="node-icon">{item.icon}</span>
+							</div>
+							<h4>{item.title}</h4>
+							<p>{item.text}</p>
 						</div>
-						<h4>{item.title}</h4>
-						<p>{item.text}</p>
-					</div>
-				))}
-			</div>
-		</section>
-	</main>
-</Layout>
-
-<style>
-	/* Header Component Structural Properties */
-	.site-header {
-		width: 100%;
-		background-color: #ffffff;
-		padding: 0.75rem 2rem;
-		position: sticky;
-		top: 0;
-		z-index: 100;
-	}
-	.header-container {
-		max-width: 1400px;
-		margin: 0 auto;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	.logo-group {
-		text-decoration: none;
-	}
-	.brand-title {
-		font-size: 1.5rem;
-		font-weight: 800;
-		color: #0c4a6e;
-		display: block;
-		line-height: 1;
-	}
-	.brand-sub {
-		font-size: 0.6rem;
-		font-weight: 700;
-		letter-spacing: 0.05em;
-		color: #64748b;
-	}
-	.main-nav {
-		display: flex;
-		gap: 1.25rem;
-	}
-	.nav-link {
-		color: #334155;
-		text-decoration: none;
-		font-size: 0.85rem;
-		font-weight: 600;
-	}
-	.partner-btn {
-		background-color: #0284c7;
-		color: #ffffff;
-		padding: 0.5rem 1.25rem;
-		border-radius: 4px;
-		text-decoration: none;
-		font-size: 0.85rem;
-		font-weight: 600;
-	}
-
-	/* Hero Branding Header Layout */
-	.portal-hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 4rem 1.5rem;
-	}
-	.portal-title {
-		font-size: 4.5rem;
-		font-weight: 800;
-		letter-spacing: -0.03em;
-		text-align: center;
-	}
-	.portal-title span {
-		color: #38bdf8;
-	}
-	.portal-tagline {
-		font-size: 1.25rem;
-		color: #94a3b8;
-		letter-spacing: 0.05em;
-		margin-top: 0.25rem;
-		text-align: center;
-	}
-
-	/* Central Diagram Logic Blocks */
-	.dogma-container {
-		width: 100%;
-		max-width: 1200px;
-		text-align: center;
-		margin: 4rem auto 2rem;
-	}
-	.dogma-container h2 {
-		font-size: 2rem;
-		font-weight: 700;
-	}
-	.dogma-subtitle {
-		font-size: 0.95rem;
-		color: #64748b;
-		margin-bottom: 2rem;
-	}
-	.dogma-graphic-wrapper {
-		position: relative;
-		width: 100%;
-	}
-	.dogma-graphic-layer {
-		width: 100%;
-		height: auto;
-		display: block;
-	}
-	.explore-overlay-btn {
-		position: absolute;
-		top: 71.0%;
-		left: 4.2%;
-		background-color: rgba(56, 189, 248, 0.1);
-		border: 1px solid #38bdf8;
-		color: #ffffff;
-		padding: 0.6rem 1.5rem;
-		text-decoration: none;
-		border-radius: 4px;
-		font-weight: 600;
-		font-size: 0.85rem;
-		backdrop-filter: blur(4px);
-		transition: all 0.2s ease;
-	}
-	.explore-overlay-btn:hover {
-		background-color: #38bdf8;
-		color: #010610;
-		box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
-	}
-
-	/* Central 6 Pillars Framework Layout */
-	.pillars-section {
-		width: 100%;
-		max-width: 1250px;
-		margin: 3rem auto;
-	}
-	.pillars-heading {
-		text-align: center;
-		font-size: 0.85rem;
-		font-weight: 700;
-		color: #475569;
-		letter-spacing: 0.15em;
-		margin-bottom: 2rem;
-	}
-	.pillars-grid {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		gap: 1rem;
-	}
-	.pillar-card {
-		position: relative;
-		background-color: rgba(15, 23, 42, 0.4);
-		border: 1px solid var(--accent-color);
-		border-radius: 6px;
-		padding: 1.5rem 1.25rem;
-		text-decoration: none;
-		min-height: 220px;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		transition: transform 0.2s ease, box-shadow 0.2s ease;
-	}
-	.pillar-card:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 6px 25px var(--accent-color);
-	}
-	.pillar-name {
-		color: #ffffff;
-		font-weight: 700;
-		font-size: 1.05rem;
-		letter-spacing: 0.05em;
-		display: block;
-		margin-bottom: 1rem;
-	}
-	.pillar-description {
-		color: #94a3b8;
-		font-size: 0.8rem;
-		line-height: 1.5;
-	}
-
-	/* Bottom Ribbon Target Columns Styling */
-	.mission-section {
-		width: 100%;
-		max-width: 1250px;
-		margin: 4rem auto 2rem;
-		border-top: 1px solid #1e293b;
-		padding-top: 3rem;
-	}
-	.mission-header {
-		text-align: center;
-		margin-bottom: 3rem;
-	}
-	.mission-header h3 {
-		font-size: 1.25rem;
-		letter-spacing: 0.1em;
-		color: #38bdf8;
-	}
-	.mission-header p {
-		font-size: 0.9rem;
-		color: #64748b;
-		margin-top: 0.25rem;
-	}
-	.mission-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 2rem;
-	}
-	.mission-node {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
-	.icon-ring {
-		width: 50px;
-		height: 50px;
-		border-radius: 50%;
-		border: 1px solid #334155;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-bottom: 0.75rem;
-	}
-	.node-icon {
-		font-size: 1.25rem;
-	}
-	.mission-node h4 {
-		font-size: 0.9rem;
-		letter-spacing: 0.05em;
-		color: #f8fafc;
-		margin-bottom: 0.5rem;
-	}
-	.mission-node p {
-		font-size: 0.75rem;
-		color: #64748b;
-		max-width: 180px;
-		line-height: 1.4;
-	}
-
-	/* Viewport Screen Queries Breakpoints */
-	@media (min-width: 768px) {
-		.pillars-grid { grid-template-columns: repeat(3, 1fr); }
-		.mission-grid { grid-template-columns: repeat(3, 1fr); }
-	}
-	@media (min-width: 1024px) {
-		.pillars-grid { grid-template-columns: repeat(6, 1fr); }
-		.mission-grid { grid-template-columns: repeat(6, 1fr); }
-	}
-</style>
+					))}
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

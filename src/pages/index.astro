@@ -1,5 +1,5 @@
 ---
-// Clean Operational Presentation Canvas for PanorOmics
+// Final Interactive Presentation Canvas for PanorOmics
 ---
 
 <!doctype html>
@@ -10,7 +10,7 @@
 		<link rel="icon" type="image/png" href="/icon-mark.png" />
 		<title>PanorOmics | Unifying Omics. Advancing Health. Transforming Lives.</title>
 		<style>
-			/* Strip browser defaults */
+			/* Reset browser settings */
 			html, body {
 				margin: 0;
 				padding: 0;
@@ -24,7 +24,7 @@
 				overflow-x: hidden;
 			}
 
-			/* FIXED STICKY NAVIGATION BAR */
+			/* FIXED LIGHT STICKY NAVIGATION HEADER */
 			.site-header {
 				background-color: #f4f7fa; 
 				border-bottom: 1px solid rgba(0, 51, 102, 0.1);
@@ -80,7 +80,7 @@
 				margin-top: 1px;
 			}
 
-			/* PAGE CONTENT LAYOUT */
+			/* PAGE SECTIONS CONTAINER */
 			.landing-container {
 				width: 100%;
 				display: flex;
@@ -89,62 +89,12 @@
 				background-color: #010610;
 			}
 
-			/* HORIZONTAL CODE-BASED HERO BANNER */
-			.code-hero {
-				width: 100%;
-				max-width: 1400px;
-				padding: 6rem 2rem;
-				box-sizing: border-box;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: 4rem;
-			}
-
-			/* Crisp vector graphic helix emblem matching your institutional identity */
-			.helix-vector-box {
-				width: 180px;
-				height: 180px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				flex-shrink: 0;
-			}
-
-			.hero-text-block {
-				display: flex;
-				flex-direction: column;
-				max-width: 600px;
-			}
-
-			.hero-headline {
-				font-size: clamp(3rem, 6vw, 4.5rem);
-				font-weight: 800;
-				line-height: 1.1;
-				margin: 0 0 0.5rem 0;
-				letter-spacing: -1.5px;
-				color: #ffffff;
-			}
-
-			.hero-headline span {
-				color: #1a8cff;
-			}
-
-			.hero-slogan {
-				font-size: 1.25rem;
-				color: #a0c0e0;
-				line-height: 1.6;
-				margin: 0;
-				letter-spacing: 0.5px;
-				text-transform: lowercase;
-			}
-
-			/* IMAGE SECTIONS */
 			.page-section {
 				width: 100%;
-				max-width: 1920px;
+				max-width: 1400px;
 				display: flex;
 				justify-content: center;
+				position: relative; /* Essential for aligning invisible links on top of the images */
 			}
 
 			.full-page-asset {
@@ -153,14 +103,12 @@
 				display: block;
 			}
 
-			/* Responsive tweaks for mobile viewports */
-			@media (max-width: 820px) {
-				.code-hero {
-					flex-direction: column;
-					text-align: center;
-					gap: 2rem;
-					padding: 4rem 1.5rem;
-				}
+			/* INTERACTIVE INVISIBLE CLICK LINK CONTAINERS */
+			.clickable-area {
+				position: absolute;
+				display: block;
+				cursor: pointer;
+				/* background-color: rgba(255, 0, 0, 0.2); Uncomment this line to see the boxes for testing */
 			}
 		</style>
 	</head>
@@ -182,31 +130,34 @@
 		<!-- INFOGRAPHIC SCROLLING SECTIONS -->
 		<div class="landing-container">
 			
-			<!-- SECTION 1: CLEAN CODE HERO BLOCK (REPLACES CRASHED CROP BOX) -->
-			<section class="code-hero">
-				<!-- Clean, scalable vector helix emblem that will never crop or blur -->
-				<svg class="helix-vector-box" viewBox="0 0 100 100" fill="none" xmlns="http://w3.org">
-					<circle cx="50" cy="50" r="44" stroke="#ffffff" stroke-width="4" stroke-dasharray="6 4" />
-					<path d="M30 30 C 40 45, 60 55, 70 70" stroke="#1a8cff" stroke-width="6" stroke-linecap="round" />
-					<path d="M70 30 C 60 45, 40 55, 30 70" stroke="#ffffff" stroke-width="6" stroke-linecap="round" />
-					<path d="M38 39 H 62" stroke="#1a8cff" stroke-width="3" />
-					<path d="M44 49 H 56" stroke="#ffffff" stroke-width="3" />
-					<path d="M38 61 H 62" stroke="#1a8cff" stroke-width="3" />
-				</svg>
-				
-				<div class="hero-text-block">
-					<h1 class="hero-headline">Panor<span>Omics</span></h1>
-					<p class="hero-slogan">integrating life sciences • data • discovery</p>
-				</div>
+			<!-- SECTION 1: CORE RAW LOGO GRAPHIC DISPLAY (No code text, no cropping mistakes) -->
+			<section class="page-section">
+				<img 
+					src="/panoromics-logo.png" 
+					alt="PanorOmics - Unifying Omics. Advancing Health. Transforming Lives." 
+					class="full-page-asset"
+				/>
 			</section>
 
-			<!-- SECTION 2: CENTRAL DOGMA MAP -->
+			<!-- SECTION 2: CENTRAL DOGMA INFOGRAPHIC LAYER WITH CLICKABLE TARGETS -->
 			<section class="page-section">
 				<img 
 					src="/central-dogma.png" 
 					alt="The Central Dogma of Omics Science" 
 					class="full-page-asset"
 				/>
+
+				<!-- INVISIBLE LINK OVER GENOMICS LAYER -->
+				<a href="/research#genomics" class="clickable-area" style="top: 72%; left: 12%; width: 12%; height: 25%;" title="Genomics Research"></a>
+
+				<!-- INVISIBLE LINK OVER TRANSCRIPTOMICS LAYER -->
+				<a href="/research#transcriptomics" class="clickable-area" style="top: 72%; left: 25%; width: 12%; height: 25%;" title="Transcriptomics Research"></a>
+
+				<!-- INVISIBLE LINK OVER PROTEOMICS LAYER -->
+				<a href="/research#proteomics" class="clickable-area" style="top: 72%; left: 50%; width: 12%; height: 25%;" title="Proteomics Research"></a>
+
+				<!-- INVISIBLE LINK OVER METABOLOMIC INTERACTIONS LAYER -->
+				<a href="/research#metabolomics" class="clickable-area" style="top: 72%; left: 74%; width: 12%; height: 25%;" title="Metabolomics Research"></a>
 			</section>
 
 		</div>

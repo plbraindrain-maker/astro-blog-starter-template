@@ -1,5 +1,5 @@
 ---
-// Final High-Performance Interactive Presentation Canvas for PanorOmics
+// Final Production Delivery for PanorOmics Landing Page
 ---
 
 <!doctype html>
@@ -90,20 +90,20 @@
 				background-color: #010610;
 			}
 
-			/* PREMIUM WIDESCREEN CODE-BASED HERO BLOCK */
+			/* WIDESCREEN HERO BLOCK - PLACES LOGO DIRECTLY ON THE LEFT */
 			.widescreen-hero {
 				width: 100%;
-				max-width: 1400px;
-				padding: 7rem 2rem;
+				max-width: 1200px;
+				padding: 6rem 2rem;
 				box-sizing: border-box;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				gap: 5rem;
+				gap: 4rem; /* Balanced space between the logo and the text */
 			}
 
-			/* Intentionally scales the icon container without cropping artifacts */
-			.hero-icon-frame {
+			/* Logo container sitting cleanly on the left side */
+			.hero-logo-frame {
 				width: 220px;
 				height: 220px;
 				display: flex;
@@ -112,17 +112,26 @@
 				flex-shrink: 0;
 			}
 
-			.hero-icon-frame img {
+			.hero-logo-frame img {
 				width: 100%;
 				height: auto;
 				display: block;
 				object-fit: contain;
+				border-radius: 16px;
 			}
 
-			.hero-content-frame {
+			/* Clickable content link wrapping the hero text matrix */
+			.hero-text-link {
 				display: flex;
 				flex-direction: column;
 				max-width: 650px;
+				text-decoration: none; /* Removes underlines from link */
+				cursor: pointer;
+				transition: transform 0.2s ease;
+			}
+
+			.hero-text-link:hover {
+				transform: translateX(4px); /* Subtle horizontal move on hover to show interactivity */
 			}
 
 			.hero-title {
@@ -135,7 +144,7 @@
 			}
 
 			.hero-title span {
-				color: #1a8cff; /* Colors the 'Omics' suffix with vibrant blue */
+				color: #1a8cff; 
 			}
 
 			.hero-tagline {
@@ -148,7 +157,7 @@
 				font-weight: 400;
 			}
 
-			/* INFOGRAPHIC IMMERSIVE CONTENT LAYER */
+			/* INFOGRAPHIC CONTENT LAYER */
 			.page-section {
 				width: 100%;
 				max-width: 1400px;
@@ -165,24 +174,23 @@
 				clip-path: none !important;
 			}
 
-			/* INTERACTIVE INVISIBLE CLICK LINK PLACEMENT */
+			/* INTERACTIVE INVISIBLE CLICK TARGETS FOR THE GRAPHICS BLOCKS */
 			.clickable-area {
 				position: absolute;
 				display: block;
 				cursor: pointer;
 			}
 
-			/* Responsive shifts for smaller mobile screens */
+			/* Responsive mobile stacking layout */
 			@media (max-width: 860px) {
 				.widescreen-hero {
 					flex-direction: column;
 					text-align: center;
 					gap: 2.5rem;
-					padding: 5rem 1.5rem;
+					padding: 4rem 1.5rem;
 				}
-				.hero-icon-frame {
-					width: 160px;
-					height: 160px;
+				.hero-text-link:hover {
+					transform: none;
 				}
 			}
 		</style>
@@ -202,18 +210,21 @@
 			</div>
 		</header>
 
-		<!-- MAIN PRESENTATION CONTAINER -->
+		<!-- MAIN PRESENTATION CANVAS -->
 		<div class="landing-container">
 			
-			<!-- SECTION 1: PREMIUM CODE-BASED HERO BANNER -->
+			<!-- SECTION 1: WIDESCREEN HERO (Logo Left, Clickable Page Link Center) -->
 			<section class="widescreen-hero">
-				<div class="hero-icon-frame">
+				<!-- Logo sitting perfectly on the left side -->
+				<div class="hero-logo-frame">
 					
 				</div>
-				<div class="hero-content-frame">
+				
+				<!-- Main text block configured as a clickable link going to your landing/about page -->
+				<a href="/about" class="hero-text-link" title="Go to About Landing Page">
 					<h1 class="hero-title">Panor<span>Omics</span></h1>
 					<p class="hero-tagline">integrating life sciences • data • discovery</p>
-				</div>
+				</a>
 			</section>
 
 			<!-- SECTION 2: CENTRAL DOGMA INFOGRAPHIC LAYER WITH CLICKABLE TARGETS -->

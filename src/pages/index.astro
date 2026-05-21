@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/png" href="/panoromics-logo.png" />
+		<link rel="icon" type="image/png" href="/icon-mark.png" />
 		<title>PanorOmics | Unifying Omics. Advancing Health. Transforming Lives.</title>
 		<style>
 			/* Strip browser defaults */
@@ -47,15 +47,16 @@
 			.brand-link {
 				display: flex;
 				align-items: center;
-				gap: 12px;
+				gap: 14px;
 				text-decoration: none;
 			}
 
-			/* Clean, lightweight inline SVG icon matching your helix design */
-			.header-logo-vector {
-				width: 32px;
-				height: 32px;
+			/* Pixel-perfect formatting for your small rounded logo mark */
+			.header-logo-icon {
+				height: 45px;
+				width: auto;
 				display: block;
+				border-radius: 8px;
 			}
 
 			.text-identity {
@@ -109,13 +110,8 @@
 		<header class="site-header">
 			<div class="nav-container">
 				<a href="/" class="brand-link">
-					<!-- Crisp graphic science emblem for the header link -->
-					<svg class="header-logo-vector" viewBox="0 0 24 24" fill="none" stroke="#003366" stroke-width="2.5" stroke-linecap="round">
-						<path d="M4.5 10.5C4.5 5.52285 8.52285 1.5 13.5 1.5C18.4772 1.5 22.5 5.52285 22.5 10.5C22.5 15.4772 18.4772 19.5 13.5 19.5" />
-						<path d="M9 7.5C9 9.98528 11.0147 12 13.5 12C15.9853 12 18 9.98528 18 7.5C18 5.01472 15.9853 3 13.5 3" />
-						<path d="M12 14.5V22.5" />
-						<path d="M8.5 19H15.5" />
-					</svg>
+					<!-- Loads your specific custom small rounded logo icon -->
+					<img src="/icon-mark.png" alt="PanorOmics Icon" class="header-logo-icon" />
 					
 						<span class="brand-text">PanorOmics</span>
 						<span class="brand-subtitle">The Panoramic Omics Sciences Center</span>
@@ -127,7 +123,7 @@
 		<!-- INFOGRAPHIC SCROLLING SECTIONS -->
 		<div class="landing-container">
 			
-			<!-- SECTION 1: LOADS YOUR FULL-SCALE WIDESCREEN IMAGE ASSET -->
+			<!-- SECTION 1: WIDESCREEN PRESENTATION BANNER -->
 			<section class="page-section">
 				<img 
 					src="/panoromics-logo.png" 

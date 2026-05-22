@@ -1,10 +1,6 @@
 {
   "name": "panoromics-site",
-  "main": "./.cloudflare/worker.js",
   "compatibility_date": "2026-05-20",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
   "assets": {
     "directory": "./dist"
   }

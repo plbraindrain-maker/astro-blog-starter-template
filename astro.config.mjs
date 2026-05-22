@@ -4,6 +4,13 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   output: 'static',
   adapter: cloudflare({
+    mode: 'directory',
     types: false
-  })
+  }),
+  vite: {
+    build: {
+      outDir: 'dist',
+      emptyOutDir: true
+    }
+  }
 });

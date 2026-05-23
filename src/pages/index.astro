@@ -1,336 +1,363 @@
 ---
+
 const navLinks = [
+
   { name: 'Home', href: '/' },
+
   { name: 'About', href: '/about' },
+
   { name: 'Research', href: '/research' },
+
   { name: 'Education', href: '/education' },
+
   { name: 'Platforms', href: '/platforms' },
+
   { name: 'Data', href: '/data' },
+
   { name: 'Publications', href: '/publications' },
+
   { name: 'News', href: '/news' },
+
   { name: 'Contact', href: '/contact' },
+
 ];
+
 ---
 
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>PanorOmics | The Panoramic Omics Sciences Center</title>
+<meta charset="UTF-8" />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    html {
-      scroll-behavior: smooth;
-    }
+<title>PanorOmics</title>
 
-    body {
-      background: #010816;
-      color: white;
-      font-family: Arial, Helvetica, sans-serif;
-      overflow-x: hidden;
-    }
+<style>
 
-    /* HEADER */
+*{
 
-    .site-header {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.97);
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-    }
+  margin:0;
 
-    .header-container {
-      max-width: 1480px;
-      margin: 0 auto;
-      padding: 1rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
+  padding:0;
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      text-decoration: none;
-    }
+  box-sizing:border-box;
 
-    .brand img {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      border-radius: 10px;
-    }
+}
 
-    .brand-title {
-      color: #020817;
-      font-size: 2rem;
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
+body{
 
-    .brand-subtitle {
-      color: #64748b;
-      font-size: 0.76rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-top: 0.35rem;
-      font-weight: 600;
-    }
+  background:#020817;
 
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: 1.35rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
+  color:white;
 
-    .main-nav a {
-      color: #1e293b;
-      text-decoration: none;
-      font-size: 0.96rem;
-      font-weight: 700;
-      transition: color 0.2s ease;
-    }
+  font-family:Arial, Helvetica, sans-serif;
 
-    .main-nav a:hover {
-      color: #2563eb;
-    }
+  overflow-x:hidden;
 
-    /* HERO — FULL LANDING PAGE IMAGE */
+}
 
-    .hero {
-      min-height: calc(100vh - 96px);
-      padding: 2.5rem 2rem 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at center, rgba(37, 99, 235, 0.18), transparent 42%),
-        linear-gradient(180deg, #010816 0%, #020b1d 100%);
-    }
+/* HEADER */
 
-    .hero-container {
-      width: 100%;
-      max-width: 1540px;
-      margin: 0 auto;
-    }
+.site-header{
 
-    .hero-image-wrap {
-      width: 100%;
-      border-radius: 34px;
-      overflow: hidden;
-      box-shadow:
-        0 0 0 1px rgba(96, 165, 250, 0.18),
-        0 40px 100px rgba(37, 99, 235, 0.28);
-      background: rgba(255, 255, 255, 0.03);
-    }
+  width:100%;
 
-    .hero-image-wrap img {
-      width: 100%;
-      display: block;
-      height: auto;
-    }
+  background:rgba(255,255,255,0.96);
 
-    /* CENTRAL DOGMA */
+  border-bottom:1px solid rgba(0,0,0,0.08);
 
-    .dogma-section {
-      padding: 5rem 2rem 8rem;
-      background:
-        radial-gradient(circle at center top, rgba(37, 99, 235, 0.13), transparent 38%),
-        #010816;
-    }
+  position:sticky;
 
-    .dogma-container {
-      max-width: 1480px;
-      margin: 0 auto;
-      text-align: center;
-    }
+  top:0;
 
-    .dogma-kicker {
-      color: #64748b;
-      font-size: 0.9rem;
-      font-weight: 800;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-    }
+  z-index:999;
 
-    .dogma-container h1 {
-      font-size: clamp(2.8rem, 5vw, 5.2rem);
-      line-height: 1.05;
-      font-weight: 950;
-      letter-spacing: -0.045em;
-      margin-bottom: 1rem;
-    }
+}
 
-    .dogma-container p {
-      color: #94a3b8;
-      font-size: 1.25rem;
-      line-height: 1.6;
-      margin-bottom: 3.5rem;
-    }
+.header-container{
 
-    .dogma-image-wrap {
-      border-radius: 34px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.03);
-      box-shadow:
-        0 0 0 1px rgba(96, 165, 250, 0.16),
-        0 35px 90px rgba(37, 99, 235, 0.18);
-    }
+  max-width:1500px;
 
-    .dogma-image-wrap img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
+  margin:auto;
 
-    /* FOOTER */
+  padding:1rem 2rem;
 
-    .footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.14);
-      padding: 3rem 2rem;
-      background: #020b1d;
-      text-align: center;
-      color: #94a3b8;
-    }
+  display:flex;
 
-    .footer strong {
-      color: white;
-    }
+  justify-content:space-between;
 
-    /* RESPONSIVE */
+  align-items:center;
 
-    @media (max-width: 1100px) {
-      .header-container {
-        flex-direction: column;
-      }
+}
 
-      .main-nav {
-        justify-content: center;
-      }
+.branding{
 
-      .hero {
-        padding: 2rem 1.25rem 3.5rem;
-      }
-    }
+  display:flex;
 
-    @media (max-width: 720px) {
-      .header-container {
-        padding: 1rem;
-      }
+  align-items:center;
 
-      .brand img {
-        width: 54px;
-        height: 54px;
-      }
+  gap:1rem;
 
-      .brand-title {
-        font-size: 1.55rem;
-      }
+}
 
-      .brand-subtitle {
-        font-size: 0.58rem;
-        letter-spacing: 0.14em;
-      }
+.branding img{
 
-      .main-nav {
-        gap: 0.8rem;
-      }
+  width:65px;
 
-      .main-nav a {
-        font-size: 0.82rem;
-      }
+  height:65px;
 
-      .hero-image-wrap,
-      .dogma-image-wrap {
-        border-radius: 18px;
-      }
+  object-fit:contain;
 
-      .dogma-section {
-        padding: 3.5rem 1.25rem 5rem;
-      }
+}
 
-      .dogma-container p {
-        font-size: 1.05rem;
-      }
-    }
-  </style>
+.brand-title{
+
+  font-size:3rem;
+
+  font-weight:900;
+
+  color:#020817;
+
+  line-height:1;
+
+}
+
+.brand-title span{
+
+  color:#2563eb;
+
+}
+
+.brand-sub{
+
+  font-size:0.85rem;
+
+  color:#64748b;
+
+  letter-spacing:0.25em;
+
+  margin-top:0.25rem;
+
+}
+
+.main-nav{
+
+  display:flex;
+
+  gap:2rem;
+
+  flex-wrap:wrap;
+
+}
+
+.main-nav a{
+
+  color:#0f172a;
+
+  text-decoration:none;
+
+  font-weight:700;
+
+  transition:0.2s;
+
+}
+
+.main-nav a:hover{
+
+  color:#2563eb;
+
+}
+
+/* HERO */
+
+.hero{
+
+  min-height:100vh;
+
+  padding:5rem 2rem;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+
+  background:
+
+  radial-gradient(circle at center,
+
+  rgba(37,99,235,0.18),
+
+  transparent 60%),
+
+  #020817;
+
+}
+
+.hero-title{
+
+  font-size:5.5rem;
+
+  line-height:1.05;
+
+  font-weight:900;
+
+  max-width:1200px;
+
+  margin-bottom:2rem;
+
+}
+
+.hero-sub{
+
+  font-size:1.7rem;
+
+  color:#94a3b8;
+
+  margin-bottom:4rem;
+
+}
+
+.hero-image{
+
+  width:100%;
+
+  max-width:1600px;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  box-shadow:
+
+  0 0 80px rgba(37,99,235,0.22),
+
+  0 0 140px rgba(37,99,235,0.12);
+
+}
+
+.hero-image img{
+
+  width:100%;
+
+  display:block;
+
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+  .header-container{
+
+    flex-direction:column;
+
+    gap:1.5rem;
+
+  }
+
+  .main-nav{
+
+    justify-content:center;
+
+  }
+
+  .hero-title{
+
+    font-size:3.2rem;
+
+  }
+
+  .hero-sub{
+
+    font-size:1.1rem;
+
+  }
+
+  .brand-title{
+
+    font-size:2rem;
+
+  }
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <header class="site-header">
-    <div class="header-container">
+<header class="site-header">
 
-      <a href="/" class="brand">
-        <img src="/panoromics-logo.png" alt="PanorOmics Logo" />
+  <div class="header-container">
 
-        <div>
-          <div class="brand-title">PanorOmics</div>
-          <div class="brand-subtitle">The Panoramic Omics Sciences Center</div>
+    <div class="branding">
+
+      <img src="/panoromics-logo.png" alt="PanorOmics Logo">
+
+      <div>
+
+        <div class="brand-title">
+
+          Panor<span>Omics</span>
+
         </div>
-      </a>
 
-      <nav class="main-nav">
-        {navLinks.map((link) => (
-          <a href={link.href}>{link.name}</a>
-        ))}
-      </nav>
+        <div class="brand-sub">
+
+          THE PANORAMIC OMICS SCIENCES CENTER
+
+        </div>
+
+      </div>
 
     </div>
-  </header>
 
-  <main>
+    <nav class="main-nav">
 
-    <!-- FULL LANDING PAGE HERO IMAGE -->
-    <section class="hero">
-      <div class="hero-container">
-        <div class="hero-image-wrap">
-          <img src="/main-landing.png" alt="PanorOmics landing page" />
-        </div>
-      </div>
-    </section>
+      {navLinks.map((link) => (
 
-    <!-- CENTRAL DOGMA LANDMARK -->
-    <section class="dogma-section">
-      <div class="dogma-container">
+        <a href={link.href}>{link.name}</a>
 
-        <div class="dogma-kicker">Signature Scientific Framework</div>
+      ))}
 
-        <h1>The Central Dogma of Omics Science</h1>
+    </nav>
 
-        <p>From information to function. From biology to impact.</p>
+  </div>
 
-        <div class="dogma-image-wrap">
-          <img src="/central-dogma.png" alt="The Central Dogma of Omics Science" />
-        </div>
+</header>
 
-      </div>
-    </section>
+<section class="hero">
 
-    <footer class="footer">
-      <p>
-        <strong>PanorOmics</strong> — integrating life sciences • data • discovery
-      </p>
-    </footer>
+  <h1 class="hero-title">
 
-  </main>
+    The Central Dogma of Omics Science
+
+  </h1>
+
+  <p class="hero-sub">
+
+    From information to function. From biology to impact.
+
+  </p>
+
+  <div class="hero-image">
+
+    <img src="/central-dogma.png" alt="Central Dogma">
+
+  </div>
+
+</section>
 
 </body>
+
 </html>

@@ -1,363 +1,188 @@
 ---
-
 const navLinks = [
-
   { name: 'Home', href: '/' },
-
   { name: 'About', href: '/about' },
-
   { name: 'Research', href: '/research' },
-
   { name: 'Education', href: '/education' },
-
   { name: 'Platforms', href: '/platforms' },
-
   { name: 'Data', href: '/data' },
-
   { name: 'Publications', href: '/publications' },
-
   { name: 'News', href: '/news' },
-
   { name: 'Contact', href: '/contact' },
-
 ];
-
 ---
 
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 <title>PanorOmics</title>
 
 <style>
-
-*{
-
-  margin:0;
-
-  padding:0;
-
-  box-sizing:border-box;
-
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-
   background:#020817;
-
   color:white;
-
   font-family:Arial, Helvetica, sans-serif;
-
   overflow-x:hidden;
-
 }
 
-/* HEADER */
-
 .site-header{
-
   width:100%;
-
   background:rgba(255,255,255,0.96);
-
   border-bottom:1px solid rgba(0,0,0,0.08);
-
   position:sticky;
-
   top:0;
-
   z-index:999;
-
 }
 
 .header-container{
-
   max-width:1500px;
-
   margin:auto;
-
   padding:1rem 2rem;
-
   display:flex;
-
   justify-content:space-between;
-
   align-items:center;
-
 }
 
 .branding{
-
   display:flex;
-
   align-items:center;
-
   gap:1rem;
-
 }
 
 .branding img{
-
   width:65px;
-
   height:65px;
-
   object-fit:contain;
-
 }
 
 .brand-title{
-
   font-size:3rem;
-
   font-weight:900;
-
   color:#020817;
-
   line-height:1;
-
 }
 
-.brand-title span{
-
-  color:#2563eb;
-
-}
+.brand-title span{color:#2563eb}
 
 .brand-sub{
-
   font-size:0.85rem;
-
   color:#64748b;
-
   letter-spacing:0.25em;
-
   margin-top:0.25rem;
-
 }
 
 .main-nav{
-
   display:flex;
-
   gap:2rem;
-
   flex-wrap:wrap;
-
 }
 
 .main-nav a{
-
   color:#0f172a;
-
   text-decoration:none;
-
   font-weight:700;
-
-  transition:0.2s;
-
 }
-
-.main-nav a:hover{
-
-  color:#2563eb;
-
-}
-
-/* HERO */
 
 .hero{
-
-  min-height:100vh;
-
-  padding:5rem 2rem;
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  justify-content:center;
-
+  padding:4rem 2rem 5rem;
   text-align:center;
-
-  background:
-
-  radial-gradient(circle at center,
-
-  rgba(37,99,235,0.18),
-
-  transparent 60%),
-
-  #020817;
-
+  background:radial-gradient(circle at center,rgba(37,99,235,0.18),transparent 60%),#020817;
 }
 
 .hero-title{
-
-  font-size:5.5rem;
-
+  font-size:5.2rem;
   line-height:1.05;
-
   font-weight:900;
-
-  max-width:1200px;
-
-  margin-bottom:2rem;
-
+  margin-bottom:1rem;
 }
 
 .hero-sub{
-
-  font-size:1.7rem;
-
+  font-size:1.5rem;
   color:#94a3b8;
-
-  margin-bottom:4rem;
-
+  margin-bottom:3rem;
 }
 
-.hero-image{
-
+.image-block{
   width:100%;
-
   max-width:1600px;
-
+  margin:0 auto;
   border-radius:30px;
-
   overflow:hidden;
-
-  box-shadow:
-
-  0 0 80px rgba(37,99,235,0.22),
-
-  0 0 140px rgba(37,99,235,0.12);
-
+  box-shadow:0 0 80px rgba(37,99,235,0.22);
 }
 
-.hero-image img{
-
+.image-block img{
   width:100%;
-
   display:block;
-
 }
 
-/* MOBILE */
+.section-spacer{
+  height:5rem;
+}
 
 @media(max-width:1000px){
-
-  .header-container{
-
-    flex-direction:column;
-
-    gap:1.5rem;
-
-  }
-
-  .main-nav{
-
-    justify-content:center;
-
-  }
-
-  .hero-title{
-
-    font-size:3.2rem;
-
-  }
-
-  .hero-sub{
-
-    font-size:1.1rem;
-
-  }
-
-  .brand-title{
-
-    font-size:2rem;
-
-  }
-
+  .header-container{flex-direction:column;gap:1.5rem}
+  .main-nav{justify-content:center}
+  .hero-title{font-size:3rem}
+  .hero-sub{font-size:1.1rem}
+  .brand-title{font-size:2rem}
 }
-
 </style>
-
 </head>
 
 <body>
 
 <header class="site-header">
-
   <div class="header-container">
-
     <div class="branding">
-
       <img src="/panoromics-logo.png" alt="PanorOmics Logo">
-
       <div>
-
-        <div class="brand-title">
-
-          Panor<span>Omics</span>
-
-        </div>
-
-        <div class="brand-sub">
-
-          THE PANORAMIC OMICS SCIENCES CENTER
-
-        </div>
-
+        <div class="brand-title">Panor<span>Omics</span></div>
+        <div class="brand-sub">THE PANORAMIC OMICS SCIENCES CENTER</div>
       </div>
-
     </div>
 
     <nav class="main-nav">
-
       {navLinks.map((link) => (
-
         <a href={link.href}>{link.name}</a>
-
       ))}
-
     </nav>
-
   </div>
-
 </header>
 
 <section class="hero">
-
   <h1 class="hero-title">
-
-    The Central Dogma of Omics Science
-
+    Panor<span style="color:#2563eb;">Omics</span>
   </h1>
 
   <p class="hero-sub">
-
-    From information to function. From biology to impact.
-
+    integrating life sciences • data • discovery
   </p>
 
-  <div class="hero-image">
-
-    <img src="/central-dogma.png" alt="Central Dogma">
-
+  <div class="image-block">
+    <img src="/main-landing.png" alt="PanorOmics Landing Page">
   </div>
+</section>
 
+<div class="section-spacer"></div>
+
+<section class="hero">
+  <h1 class="hero-title">
+    The Central Dogma of Omics Science
+  </h1>
+
+  <p class="hero-sub">
+    From information to function. From biology to impact.
+  </p>
+
+  <div class="image-block">
+    <img src="/central-dogma.png" alt="Central Dogma of Omics Science">
+  </div>
 </section>
 
 </body>
-
 </html>

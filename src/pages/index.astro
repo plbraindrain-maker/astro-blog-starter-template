@@ -29,35 +29,100 @@ const cards = [
 <title>PanorOmics</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;background:#020817;color:white;overflow-x:hidden}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-.header{background:white;padding:1rem 2rem}
-.header-inner{max-width:1500px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:2rem}
-.brand{display:flex;align-items:center;gap:1rem;text-decoration:none}
-.brand img{width:62px;height:62px}
-.brand-title{font-size:2.8rem;font-weight:900;color:#020817;line-height:1}
-.brand-title span{color:#2563eb}
-.brand-sub{color:#64748b;font-size:.8rem;letter-spacing:.22em;margin-top:.25rem}
-.nav{display:flex;gap:1.7rem;flex-wrap:wrap}
-.nav a{color:#0f172a;text-decoration:none;font-weight:800}
-.nav a:hover{color:#2563eb}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#020817;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+
+.header{
+  background:white;
+  padding:1rem 2rem;
+}
+
+.header-inner{
+  max-width:1600px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:2rem;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  text-decoration:none;
+}
+
+.brand img{
+  width:62px;
+  height:62px;
+}
+
+.brand-title{
+  font-size:2.8rem;
+  font-weight:900;
+  color:#020817;
+  line-height:1;
+}
+
+.brand-title span{
+  color:#2563eb;
+}
+
+.brand-sub{
+  color:#64748b;
+  font-size:.8rem;
+  letter-spacing:.22em;
+  margin-top:.25rem;
+}
+
+.nav{
+  display:flex;
+  gap:1.7rem;
+  flex-wrap:wrap;
+}
+
+.nav a{
+  color:#0f172a;
+  text-decoration:none;
+  font-weight:800;
+}
+
+.nav a:hover{
+  color:#2563eb;
+}
+
+/* HERO */
 
 .hero{
-  padding:5rem 4rem;
+  padding:4rem 3rem 5rem;
   overflow:hidden;
   background:
-    radial-gradient(circle at center, rgba(59,130,246,.18) 0%, rgba(0,0,0,0) 55%),
+    radial-gradient(circle at center,
+    rgba(59,130,246,.18) 0%,
+    rgba(0,0,0,0) 55%),
     #020817;
 }
 
 .hero-inner{
-  max-width:1600px;
+  max-width:1700px;
   margin:0 auto;
   display:grid;
-  grid-template-columns:1.05fr 1fr;
+  grid-template-columns:.75fr 1.25fr;
   align-items:center;
-  gap:4rem;
+  gap:3rem;
 }
 
 .hero-left{
@@ -66,11 +131,11 @@ body{font-family:Arial,Helvetica,sans-serif;background:#020817;color:white;overf
 }
 
 .hero h1{
-  font-size:clamp(4rem,7vw,7rem);
-  line-height:.92;
+  font-size:clamp(3.2rem,5vw,5.2rem);
+  line-height:.95;
   margin-bottom:2rem;
   font-weight:900;
-  letter-spacing:-3px;
+  letter-spacing:-2px;
 }
 
 .hero h1 span{
@@ -78,10 +143,10 @@ body{font-family:Arial,Helvetica,sans-serif;background:#020817;color:white;overf
 }
 
 .hero p{
-  font-size:1.35rem;
-  line-height:1.8;
+  font-size:1.15rem;
+  line-height:1.9;
   color:#cbd5e1;
-  max-width:720px;
+  max-width:650px;
   margin-bottom:2.5rem;
 }
 
@@ -93,19 +158,28 @@ body{font-family:Arial,Helvetica,sans-serif;background:#020817;color:white;overf
   padding:1rem 2rem;
   border-radius:999px;
   font-weight:800;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  background:#3b82f6;
 }
 
 .hero-img{
   display:block;
   border-radius:32px;
   overflow:hidden;
-  box-shadow:0 0 80px rgba(59,130,246,.25);
+  box-shadow:
+    0 0 80px rgba(59,130,246,.25);
 }
 
 .hero-img img{
   width:100%;
   display:block;
 }
+
+/* CARDS */
 
 .cards{
   max-width:1500px;
@@ -133,9 +207,25 @@ body{font-family:Arial,Helvetica,sans-serif;background:#020817;color:white;overf
   box-shadow:0 0 35px rgba(37,99,235,.18);
 }
 
-.card h3{font-size:1.7rem;margin-bottom:1rem}
-.card p{color:#cbd5e1;line-height:1.75;font-size:1.05rem}
-.card span{display:block;color:#3b82f6;margin-top:1.5rem;font-weight:800}
+.card h3{
+  font-size:1.7rem;
+  margin-bottom:1rem;
+}
+
+.card p{
+  color:#cbd5e1;
+  line-height:1.75;
+  font-size:1.05rem;
+}
+
+.card span{
+  display:block;
+  color:#3b82f6;
+  margin-top:1.5rem;
+  font-weight:800;
+}
+
+/* DOGMA */
 
 .dogma{
   padding:4rem 2rem 7rem;
@@ -164,14 +254,36 @@ body{font-family:Arial,Helvetica,sans-serif;background:#020817;color:white;overf
   box-shadow:0 0 80px rgba(37,99,235,.25);
 }
 
-.dogma-img img{width:100%;display:block}
+.dogma-img img{
+  width:100%;
+  display:block;
+}
+
+/* MOBILE */
 
 @media(max-width:1000px){
-  .header-inner{flex-direction:column}
-  .nav{justify-content:center}
-  .hero-inner{grid-template-columns:1fr;text-align:center}
-  .hero p{margin-left:auto;margin-right:auto}
-  .cards{grid-template-columns:1fr}
+
+  .header-inner{
+    flex-direction:column;
+  }
+
+  .nav{
+    justify-content:center;
+  }
+
+  .hero-inner{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -180,11 +292,18 @@ body{font-family:Arial,Helvetica,sans-serif;background:#020817;color:white;overf
 
 <header class="header">
   <div class="header-inner">
+
     <a class="brand" href="/">
       <img src="/panoromics-logo.png" alt="PanorOmics Logo" />
+
       <div>
-        <div class="brand-title">Panor<span>Omics</span></div>
-        <div class="brand-sub">THE PANORAMIC OMICS SCIENCES CENTER</div>
+        <div class="brand-title">
+          Panor<span>Omics</span>
+        </div>
+
+        <div class="brand-sub">
+          THE PANORAMIC OMICS SCIENCES CENTER
+        </div>
       </div>
     </a>
 
@@ -193,17 +312,20 @@ body{font-family:Arial,Helvetica,sans-serif;background:#020817;color:white;overf
         <a href={link.href}>{link.name}</a>
       ))}
     </nav>
+
   </div>
 </header>
 
 <section class="hero">
+
   <div class="hero-inner">
 
     <div class="hero-left">
+
       <h1>
-        Unifying <span class="blue">omics.</span><br />
-        Advancing <span class="blue">health.</span><br />
-        Transforming <span class="blue">lives.</span>
+        Unifying <span>omics.</span><br />
+        Advancing <span>health.</span><br />
+        Transforming <span>lives.</span>
       </h1>
 
       <p>
@@ -212,16 +334,25 @@ body{font-family:Arial,Helvetica,sans-serif;background:#020817;color:white;overf
         precision medicine, and biotechnology innovation.
       </p>
 
-      <a class="btn" href="/research">Explore Our Research →</a>
+      <a class="btn" href="/research">
+        Explore Our Research →
+      </a>
+
     </div>
 
     <a class="hero-img" href="/research">
-      <img src="/main-landing.png" alt="PanorOmics landing visual" />
+      <img
+        src="/main-landing.png"
+        alt="PanorOmics landing visual"
+      />
     </a>
+
   </div>
+
 </section>
 
 <section class="cards">
+
   {cards.map(card => (
     <a class="card" href={card[2]}>
       <h3>{card[0]}</h3>
@@ -229,15 +360,26 @@ body{font-family:Arial,Helvetica,sans-serif;background:#020817;color:white;overf
       <span>Learn More →</span>
     </a>
   ))}
+
 </section>
 
 <section class="dogma">
-  <h2>The Central Dogma of Omics Science</h2>
-  <p>From information to function. From biology to impact.</p>
+
+  <h2>
+    The Central Dogma of Omics Science
+  </h2>
+
+  <p>
+    From information to function. From biology to impact.
+  </p>
 
   <div class="dogma-img">
-    <img src="/central-dogma.png" alt="Central Dogma of Omics Science" />
+    <img
+      src="/central-dogma.png"
+      alt="Central Dogma of Omics Science"
+    />
   </div>
+
 </section>
 
 </body>

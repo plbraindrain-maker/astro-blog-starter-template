@@ -60,12 +60,108 @@ url('/main-landing.png');background-size:cover;background-position:center;opacit
 .label{position:absolute;border:1px solid rgba(96,165,250,.5);background:rgba(2,8,23,.55);padding:.7rem 1rem;border-radius:999px;font-weight:800;font-size:.85rem}
 .g{top:18%;left:12%}.t{top:43%;left:7%}.p{bottom:28%;left:12%}.m{top:28%;right:8%}.l{top:52%;right:8%}.e{bottom:24%;right:10%}
 
-.cards{max-width:1500px;margin:auto;padding:3rem 2rem 6rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}
-.card{display:block;text-decoration:none;color:white;background:rgba(255,255,255,.03);border:1px solid rgba(96,165,250,.25);border-radius:18px;padding:1.5rem;min-height:210px;transition:.25s}
-.card:hover{transform:translateY(-6px);border-color:#3b82f6;box-shadow:0 0 30px rgba(37,99,235,.22)}
-.card h3{margin-bottom:.8rem}
-.card p{color:#cbd5e1;line-height:1.55;font-size:.95rem}
-.card span{display:block;color:#3b82f6;margin-top:1rem;font-weight:800}
+/* =========================
+   OMICS CARDS SECTION
+========================= */
+
+.cards{
+  max-width:1500px;
+  margin:0 auto;
+  padding:2rem 2rem 6rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.8rem;
+  align-items:stretch;
+}
+
+.card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:280px;
+
+  padding:2.2rem;
+  border-radius:24px;
+
+  text-decoration:none;
+  color:white;
+
+  background:rgba(255,255,255,0.025);
+  border:1px solid rgba(59,130,246,0.22);
+
+  backdrop-filter:blur(12px);
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+
+  border-color:#3b82f6;
+
+  background:rgba(255,255,255,0.04);
+
+  box-shadow:
+    0 0 35px rgba(37,99,235,0.18),
+    0 0 80px rgba(37,99,235,0.08);
+}
+
+.card h3{
+  font-size:2rem;
+  font-weight:800;
+  margin-bottom:1.2rem;
+  letter-spacing:-0.03em;
+}
+
+.card p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1.05rem;
+}
+
+.card span{
+  margin-top:2rem;
+
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+
+  color:#3b82f6;
+
+  font-size:1rem;
+  font-weight:700;
+
+  transition:.25s ease;
+}
+
+.card:hover span{
+  transform:translateX(6px);
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+  .cards{
+    padding:1rem 1rem 4rem;
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    min-height:auto;
+    padding:1.8rem;
+  }
+
+  .card h3{
+    font-size:1.7rem;
+  }
+
+}
 
 .dogma{padding:4rem 2rem 7rem;text-align:center;background:#020817}
 .dogma h2{font-size:4rem;line-height:1.05;margin-bottom:1rem}

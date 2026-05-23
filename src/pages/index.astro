@@ -18,7 +18,6 @@ const cards = [
   ['Metabolomics', 'Measuring metabolites to capture biochemical phenotypes and pathways.', '/research'],
   ['Lipidomics', 'Analyzing lipid species to illuminate membrane biology and metabolism.', '/research'],
   ['Epigenomics', 'Studying epigenetic modifications that shape gene regulation.', '/research'],
-  ['Education', 'Omics learning programs for the next generation of scientists.', '/education'],
 ];
 ---
 
@@ -33,62 +32,144 @@ const cards = [
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Arial,Helvetica,sans-serif;background:#020817;color:white;overflow-x:hidden}
 
-.site-header{background:#fff;position:relative;z-index:10}
-.header-container{max-width:1500px;margin:auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.header{background:white;padding:1rem 2rem}
+.header-inner{max-width:1500px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:2rem}
 .brand{display:flex;align-items:center;gap:1rem;text-decoration:none}
-.brand img{width:64px;height:64px;object-fit:contain}
+.brand img{width:62px;height:62px}
 .brand-title{font-size:2.8rem;font-weight:900;color:#020817;line-height:1}
 .brand-title span{color:#2563eb}
-.brand-sub{color:#64748b;letter-spacing:.22em;font-size:.8rem;margin-top:.25rem}
-nav{display:flex;gap:1.7rem;flex-wrap:wrap}
-nav a{color:#0f172a;text-decoration:none;font-weight:700}
-nav a:hover{color:#2563eb}
+.brand-sub{color:#64748b;font-size:.8rem;letter-spacing:.22em;margin-top:.25rem}
+.nav{display:flex;gap:1.7rem;flex-wrap:wrap}
+.nav a{color:#0f172a;text-decoration:none;font-weight:800}
+.nav a:hover{color:#2563eb}
 
-.hero{min-height:88vh;padding:4rem 2rem;background:radial-gradient(circle at 70% 45%,rgba(37,99,235,.28),transparent 38%),#020817}
-.hero-grid{max-width:1500px;margin:auto;display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:center}
-.hero h1{font-size:5.5rem;line-height:1.05;font-weight:900}
+.hero{
+  padding:4rem 2rem 3rem;
+  background:radial-gradient(circle at 70% 45%,rgba(37,99,235,.28),transparent 40%),#020817;
+}
+
+.hero-inner{
+  max-width:1500px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:.9fr 1.15fr;
+  gap:3rem;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:clamp(4rem,5.6vw,6.5rem);
+  line-height:1;
+  font-weight:950;
+  letter-spacing:-.05em;
+}
+
 .blue{color:#3b82f6}
-.hero p{margin:2rem 0;color:#cbd5e1;font-size:1.25rem;line-height:1.8;max-width:640px}
-.btn{display:inline-block;background:#2563eb;color:white;text-decoration:none;padding:1rem 2rem;border-radius:999px;font-weight:800}
-.btn:hover{background:#3b82f6}
 
-.dna-box{position:relative;min-height:520px;border-radius:34px;background:linear-gradient(135deg,rgba(15,23,42,.9),rgba(2,8,23,.65));box-shadow:0 0 80px rgba(37,99,235,.28);overflow:hidden}
-.dna{position:absolute;inset:0;background:
-radial-gradient(circle at 50% 50%,rgba(59,130,246,.35),transparent 35%),
-url('/main-landing.png');background-size:cover;background-position:center;opacity:.9}
-.labels{position:absolute;inset:0}
-.label{position:absolute;border:1px solid rgba(96,165,250,.5);background:rgba(2,8,23,.55);padding:.7rem 1rem;border-radius:999px;font-weight:800;font-size:.85rem}
-.g{top:18%;left:12%}.t{top:43%;left:7%}.p{bottom:28%;left:12%}.m{top:28%;right:8%}.l{top:52%;right:8%}.e{bottom:24%;right:10%}
+.hero p{
+  margin:2rem 0;
+  max-width:680px;
+  color:#dbeafe;
+  font-size:1.25rem;
+  line-height:1.8;
+}
 
-.cards{max-width:1500px;margin:auto;padding:3rem 2rem 6rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}
-.card{display:block;text-decoration:none;color:white;background:rgba(255,255,255,.03);border:1px solid rgba(96,165,250,.25);border-radius:18px;padding:1.5rem;min-height:210px;transition:.25s}
-.card:hover{transform:translateY(-6px);border-color:#3b82f6;box-shadow:0 0 30px rgba(37,99,235,.22)}
-.card h3{margin-bottom:.8rem}
-.card p{color:#cbd5e1;line-height:1.55;font-size:.95rem}
-.card span{display:block;color:#3b82f6;margin-top:1rem;font-weight:800}
+.btn{
+  display:inline-flex;
+  padding:1rem 1.8rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:900;
+  background:#2563eb;
+  color:white;
+  box-shadow:0 0 40px rgba(37,99,235,.35);
+}
 
-.dogma{padding:4rem 2rem 7rem;text-align:center;background:#020817}
-.dogma h2{font-size:4rem;line-height:1.05;margin-bottom:1rem}
-.dogma p{color:#94a3b8;font-size:1.3rem;margin-bottom:2.5rem}
-.dogma-img{max-width:1500px;margin:auto;border-radius:30px;overflow:hidden;box-shadow:0 0 80px rgba(37,99,235,.22)}
+.hero-img{
+  border-radius:32px;
+  overflow:hidden;
+  box-shadow:0 0 90px rgba(37,99,235,.32);
+}
+
+.hero-img img{
+  width:100%;
+  display:block;
+}
+
+.cards{
+  max-width:1500px;
+  margin:auto;
+  padding:2rem 2rem 5rem;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+}
+
+.card{
+  text-decoration:none;
+  color:white;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(59,130,246,.25);
+  border-radius:22px;
+  padding:2rem;
+  min-height:210px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#3b82f6;
+  box-shadow:0 0 35px rgba(37,99,235,.18);
+}
+
+.card h3{font-size:1.7rem;margin-bottom:1rem}
+.card p{color:#cbd5e1;line-height:1.75;font-size:1.05rem}
+.card span{display:block;color:#3b82f6;margin-top:1.5rem;font-weight:800}
+
+.dogma{
+  padding:4rem 2rem 7rem;
+  text-align:center;
+  background:#020817;
+}
+
+.dogma h2{
+  font-size:clamp(2.8rem,5vw,5rem);
+  line-height:1.05;
+  font-weight:950;
+  margin-bottom:1rem;
+}
+
+.dogma p{
+  color:#94a3b8;
+  font-size:1.3rem;
+  margin-bottom:3rem;
+}
+
+.dogma-img{
+  max-width:1500px;
+  margin:auto;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 0 80px rgba(37,99,235,.25);
+}
+
 .dogma-img img{width:100%;display:block}
 
 @media(max-width:1000px){
-.header-container{flex-direction:column}
-nav{justify-content:center}
-.hero-grid{grid-template-columns:1fr;text-align:center}
-.hero p{margin-left:auto;margin-right:auto}
-.hero h1{font-size:3.5rem}
-.dogma h2{font-size:2.7rem}
+  .header-inner{flex-direction:column}
+  .nav{justify-content:center}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero p{margin-left:auto;margin-right:auto}
+  .cards{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="header-container">
-    <a href="/" class="brand">
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="/">
       <img src="/panoromics-logo.png" alt="PanorOmics Logo" />
       <div>
         <div class="brand-title">Panor<span>Omics</span></div>
@@ -96,14 +177,16 @@ nav{justify-content:center}
       </div>
     </a>
 
-    <nav>
-      {navLinks.map(link => <a href={link.href}>{link.name}</a>)}
+    <nav class="nav">
+      {navLinks.map(link => (
+        <a href={link.href}>{link.name}</a>
+      ))}
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <div class="hero-grid">
+  <div class="hero-inner">
     <div>
       <h1>
         Unifying <span class="blue">omics.</span><br />
@@ -117,20 +200,12 @@ nav{justify-content:center}
         precision medicine, and biotechnology innovation.
       </p>
 
-      <a href="/research" class="btn">Explore Our Research →</a>
+      <a class="btn" href="/research">Explore Our Research →</a>
     </div>
 
-    <div class="dna-box">
-      <div class="dna"></div>
-      <div class="labels">
-        <a class="label g" href="/research">GENOMICS</a>
-        <a class="label t" href="/research">TRANSCRIPTOMICS</a>
-        <a class="label p" href="/research">PROTEOMICS</a>
-        <a class="label m" href="/research">METABOLOMICS</a>
-        <a class="label l" href="/research">LIPIDOMICS</a>
-        <a class="label e" href="/research">EPIGENOMICS</a>
-      </div>
-    </div>
+    <a class="hero-img" href="/research">
+      <img src="/main-landing.png" alt="PanorOmics landing visual" />
+    </a>
   </div>
 </section>
 

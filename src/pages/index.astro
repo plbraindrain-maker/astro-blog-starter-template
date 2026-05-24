@@ -29,6 +29,7 @@ const cards = [
 <title>PanorOmics</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -179,6 +180,49 @@ body{
   display:block;
 }
 
+/* NEW OMICS DEFINITION SECTION */
+
+.omics-definition{
+  padding:7rem 2rem;
+  background:#020817;
+  border-top:1px solid rgba(59,130,246,.08);
+  border-bottom:1px solid rgba(59,130,246,.08);
+}
+
+.omics-definition-inner{
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
+}
+
+.definition-label{
+  color:#3b82f6;
+  font-size:.9rem;
+  letter-spacing:.28em;
+  font-weight:800;
+  margin-bottom:1.5rem;
+}
+
+.omics-definition h2{
+  font-size:clamp(3rem,5vw,5rem);
+  line-height:1.05;
+  margin-bottom:2rem;
+  font-weight:900;
+  letter-spacing:-2px;
+}
+
+.omics-definition h2 span{
+  color:#3b82f6;
+}
+
+.omics-definition p{
+  color:#cbd5e1;
+  font-size:1.2rem;
+  line-height:2;
+  max-width:950px;
+  margin:0 auto 2rem;
+}
+
 /* CARDS */
 
 .cards{
@@ -285,12 +329,14 @@ body{
     grid-template-columns:1fr;
   }
 }
+
 </style>
 </head>
 
 <body>
 
 <header class="header">
+
   <div class="header-inner">
 
     <a class="brand" href="/">
@@ -314,7 +360,10 @@ body{
     </nav>
 
   </div>
+
 </header>
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -329,9 +378,10 @@ body{
       </h1>
 
       <p>
-        PanorOmics integrates multi-omics data, artificial intelligence,
-        systems biology, and translational science to accelerate discovery,
-        precision medicine, and biotechnology innovation.
+        PanorOmics integrates multi-omics science, computational systems,
+        artificial intelligence, and translational biology to advance
+        systems-level understanding of life, disease, biotechnology,
+        and human health.
       </p>
 
       <a class="btn" href="/research">
@@ -343,13 +393,48 @@ body{
     <a class="hero-img" href="/research">
       <img
         src="/main-landing.png"
-        alt="PanorOmics landing visual"
+        alt="PanorOmics cinematic hero"
       />
     </a>
 
   </div>
 
 </section>
+
+<!-- NEW OMICS SCIENCES SECTION -->
+
+<section class="omics-definition">
+
+  <div class="omics-definition-inner">
+
+    <div class="definition-label">
+      WHAT IS OMICS SCIENCES?
+    </div>
+
+    <h2>
+      A Discipline, <span>Not a Toolbox</span>
+    </h2>
+
+    <p>
+      Omics Sciences is an emerging integrative discipline that unifies
+      molecular biology, computational systems, artificial intelligence,
+      spatial biology, translational medicine, and multidimensional biological
+      data into a systems-level understanding of life, disease, and human health.
+    </p>
+
+    <p>
+      Rather than functioning as isolated technologies, omics sciences
+      integrates genomics, transcriptomics, proteomics, metabolomics,
+      lipidomics, epigenomics, and clinical frameworks to study how biological
+      information is organized, regulated, disrupted, and translated into
+      phenotype and disease at the scale of the whole organism.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- CARDS -->
 
 <section class="cards">
 
@@ -362,6 +447,8 @@ body{
   ))}
 
 </section>
+
+<!-- DOGMA -->
 
 <section class="dogma">
 

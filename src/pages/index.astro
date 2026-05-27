@@ -12,7 +12,7 @@ const navLinks = [
 ];
 
 const cards = [
-  ['Genomics', 'Comprehensive analysis of genetic variation to uncover biology and disease risk.', '/genomics'],
+  ['Genomics', 'Comprehensive analysis of genetic variation to uncover biology and disease risk.', '/research'],
   ['Transcriptomics', 'Profiling RNA expression to understand gene activity and regulation.', '/research'],
   ['Proteomics', 'Characterizing proteins to reveal function, pathways, and biomarkers.', '/research'],
   ['Metabolomics', 'Measuring metabolites to capture biochemical phenotypes and pathways.', '/research'],
@@ -77,7 +77,8 @@ body{
   max-width:1450px;
   margin:0 auto;
 
-  padding:14px 34px;
+  padding:18px 42px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -86,19 +87,19 @@ body{
 .brand{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:16px;
 
   text-decoration:none;
 }
 
 .brand img{
-  width:52px;
-  height:52px;
+  width:58px;
+  height:58px;
   object-fit:contain;
 }
 
 .brand-title{
-  font-size:1.7rem;
+  font-size:2rem;
   font-weight:800;
   line-height:1;
   color:white;
@@ -111,20 +112,20 @@ body{
 
 .brand-sub{
   color:#94a3b8;
-  font-size:.64rem;
-  margin-top:2px;
-  letter-spacing:.14em;
+  font-size:.72rem;
+  margin-top:4px;
+  letter-spacing:.08em;
 }
 
 .nav{
   display:flex;
-  gap:24px;
+  gap:28px;
 }
 
 .nav a{
   color:#dbe4ff;
   text-decoration:none;
-  font-size:.88rem;
+  font-size:.92rem;
   transition:.3s ease;
 }
 
@@ -144,11 +145,11 @@ body{
 
   justify-content:space-between;
 
-  gap:42px;
+  gap:60px;
 
-  padding:110px 7% 55px;
+  padding:140px 7% 90px;
 
-  min-height:82vh;
+  min-height:100vh;
 
   overflow:hidden;
 
@@ -161,28 +162,28 @@ body{
 
 .hero-left{
   flex:1;
-  max-width:560px;
+  max-width:620px;
 }
 
 .hero-kicker{
   color:#3b82f6;
-  font-size:.82rem;
-  letter-spacing:.28em;
-  margin-bottom:18px;
+  font-size:.95rem;
+  letter-spacing:.25em;
+  margin-bottom:20px;
   font-weight:700;
 }
 
 .hero-title{
 
-  font-size:clamp(3rem,5vw,5rem);
+  font-size:clamp(3.5rem,6vw,6.4rem);
 
-  line-height:.94;
+  line-height:.92;
 
   letter-spacing:-0.06em;
 
   font-weight:900;
 
-  margin-bottom:22px;
+  margin-bottom:28px;
 }
 
 .hero-title span{
@@ -191,15 +192,15 @@ body{
 
 .hero-description{
 
-  font-size:1rem;
+  font-size:1.14rem;
 
-  line-height:1.72;
+  line-height:1.85;
 
   color:#cbd5e1;
 
-  max-width:560px;
+  max-width:600px;
 
-  margin-bottom:34px;
+  margin-bottom:42px;
 }
 
 .hero-button{
@@ -210,7 +211,7 @@ body{
 
   gap:10px;
 
-  padding:16px 30px;
+  padding:18px 34px;
 
   border-radius:999px;
 
@@ -247,9 +248,9 @@ body{
 
   width:100%;
 
-  max-width:760px;
+  max-width:900px;
 
-  border-radius:24px;
+  border-radius:30px;
 
   overflow:hidden;
 
@@ -273,18 +274,18 @@ body{
 ========================================= */
 
 .section{
-  padding:52px 7%;
+  padding:80px 7%;
 }
 
 .section-title{
 
-  font-size:clamp(2.3rem,4vw,4rem);
+  font-size:clamp(2.8rem,5vw,5rem);
 
-  line-height:1.04;
+  line-height:1.02;
 
   letter-spacing:-0.05em;
 
-  margin-bottom:18px;
+  margin-bottom:24px;
 }
 
 .section-title span{
@@ -293,13 +294,13 @@ body{
 
 .section-description{
 
-  font-size:1rem;
+  font-size:1.1rem;
 
-  line-height:1.8;
+  line-height:1.9;
 
   color:#cbd5e1;
 
-  max-width:980px;
+  max-width:1000px;
 }
 
 /* =========================================
@@ -308,13 +309,13 @@ body{
 
 .omics-grid{
 
-  margin-top:34px;
+  margin-top:60px;
 
   display:grid;
 
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 
-  gap:20px;
+  gap:24px;
 }
 
 .omics-card{
@@ -323,11 +324,9 @@ body{
 
   border:1px solid rgba(59,130,246,.12);
 
-  border-radius:22px;
+  border-radius:24px;
 
-  padding:24px;
-
-  text-decoration:none;
+  padding:32px;
 
   transition:.35s ease;
 }
@@ -344,20 +343,16 @@ body{
 
 .omics-card h3{
 
-  font-size:1.45rem;
+  font-size:1.7rem;
 
-  margin-bottom:14px;
-
-  color:#2563eb;
+  margin-bottom:16px;
 }
 
 .omics-card p{
 
   color:#94a3b8;
 
-  line-height:1.7;
-
-  font-size:.96rem;
+  line-height:1.8;
 }
 
 /* =========================================
@@ -366,9 +361,9 @@ body{
 
 .central-dogma{
 
-  margin-top:34px;
+  margin-top:60px;
 
-  border-radius:26px;
+  border-radius:28px;
 
   overflow:hidden;
 
@@ -389,15 +384,13 @@ body{
 
 .footer{
 
-  padding:42px 7%;
+  padding:60px 7%;
 
   border-top:1px solid rgba(59,130,246,.10);
 
   text-align:center;
 
   color:#94a3b8;
-
-  font-size:.95rem;
 }
 
 /* =========================================
@@ -408,52 +401,39 @@ body{
 
   .hero{
     flex-direction:column;
-    padding-top:120px;
+    padding-top:150px;
   }
 
   .nav{
     display:none;
-  }
-
-  .hero-video{
-    max-width:100%;
   }
 }
 
 @media(max-width:768px){
 
   .header-inner{
-    padding:16px 20px;
+    padding:18px 22px;
   }
 
   .hero{
-    padding:120px 20px 60px;
+    padding:130px 22px 80px;
   }
 
   .section{
-    padding:46px 20px;
+    padding:70px 22px;
   }
 
   .hero-title{
-    font-size:3rem;
+    font-size:3.3rem;
   }
 
   .section-title{
-    font-size:2.4rem;
+    font-size:2.5rem;
   }
 
   .hero-description,
   .section-description{
-    font-size:.96rem;
-  }
-
-  .brand-title{
-    font-size:1.45rem;
-  }
-
-  .hero-button{
-    width:100%;
-    justify-content:center;
+    font-size:1rem;
   }
 }
 
@@ -575,6 +555,7 @@ body{
   </p>
 
 </section>
+
 <!-- =========================================
      RESEARCH CARDS
 ========================================= -->

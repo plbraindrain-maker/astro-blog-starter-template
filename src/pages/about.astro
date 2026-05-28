@@ -26,7 +26,7 @@ body{
 .back{
   color:#3b82f6;
   text-decoration:none;
-  font-size:.92rem;
+  font-size:.88rem;
   font-weight:700;
 }
 
@@ -39,83 +39,73 @@ body{
 }
 
 h1{
-  font-size:clamp(2.3rem,4vw,4rem);
-  line-height:.98;
+  font-size:clamp(2.15rem,3.7vw,3.5rem);
+  line-height:1;
   letter-spacing:-.05em;
 }
 
-h1 span{
+h1 span,
+h2 span{
   color:#3b82f6;
 }
 
 p{
   margin-top:18px;
   color:#cbd5e1;
-  font-size:.95rem;
+  font-size:.93rem;
   line-height:1.65;
-  max-width:680px;
+  max-width:720px;
 }
 
-.video-box,
-.image-box{
+.video-box{
   border-radius:22px;
   overflow:hidden;
   border:1px solid rgba(59,130,246,.14);
   box-shadow:0 0 50px rgba(37,99,235,.12);
 }
 
-video,img{
+video{
   width:100%;
   display:block;
+  object-fit:cover;
 }
 
 .section{
-  padding:38px 0;
+  padding:34px 0;
+  border-top:1px solid rgba(59,130,246,.08);
 }
 
 h2{
-  font-size:clamp(1.7rem,3vw,2.6rem);
-  margin-bottom:18px;
+  font-size:clamp(1.55rem,2.5vw,2.35rem);
+  line-height:1.08;
+  margin-bottom:12px;
+  letter-spacing:-.04em;
 }
 
-h2 span{
+.statement{
+  font-size:clamp(1.15rem,2vw,1.65rem);
+  line-height:1.45;
+  max-width:1050px;
+  color:#e5edff;
+  font-weight:600;
+}
+
+.cta{
+  display:inline-flex;
+  margin-top:18px;
   color:#3b82f6;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:18px;
-  margin-top:24px;
-}
-
-.card{
-  background:rgba(8,15,35,.72);
-  border:1px solid rgba(59,130,246,.12);
-  border-radius:20px;
-  padding:20px;
-}
-
-.card h3{
-  color:#3b82f6;
-  margin-bottom:10px;
-  font-size:1.1rem;
-}
-
-.card p{
-  margin-top:0;
+  text-decoration:none;
   font-size:.9rem;
-  color:#94a3b8;
+  font-weight:700;
+}
+
+.cta:hover{
+  color:#60a5fa;
 }
 
 @media(max-width:900px){
-  .hero{
-    grid-template-columns:1fr
-  }
-
-  .page{
-    padding:64px 20px 36px
-  }
+  .hero{grid-template-columns:1fr}
+  .page{padding:64px 20px 36px}
 }
 </style>
 </head>
@@ -129,7 +119,6 @@ h2 span{
   <section class="hero">
 
     <div>
-
       <h1>About PanorOmics: <span>Reimagining Omics Sciences</span></h1>
 
       <p>
@@ -138,76 +127,82 @@ h2 span{
         a unified framework for discovery, education, precision medicine, and
         next-generation biomedical innovation.
       </p>
-
     </div>
 
     <div class="video-box">
-
       <video autoplay muted loop playsinline>
-
-        <source
-          src="/3_About_PanorOmics.mp4"
-          type="video/mp4"
-        />
-
+        <source src="/3_About_PanorOmics.mp4" type="video/mp4" />
       </video>
-
     </div>
 
   </section>
 
   <section class="section">
 
-    <h2>What is <span>PanorOmics?</span></h2>
-
-    <div class="image-box">
-
-      <img
-        src="/1_About_PanorOmics.png"
-        alt="PanorOmics multi-omics systems biology visualization"
-      />
-
-    </div>
+    <p class="statement">
+      PanorOmics is an emerging integrative framework that unifies molecular biology,
+      computational intelligence, biotechnology, and human health into a connected
+      model of scientific discovery.
+    </p>
 
   </section>
 
   <section class="section">
 
-    <h2>Core Vision</h2>
+    <h2>Systems <span>Biology</span></h2>
 
-    <div class="grid">
+    <p>
+      We view life as an interconnected system of genes, regulatory programs,
+      proteins, metabolites, cells, tissues, environments, and phenotypes.
+      This systems-level view helps connect biological complexity to disease,
+      adaptation, and translational discovery.
+    </p>
 
-      <div class="card">
-        <h3>Systems Biology</h3>
-        <p>Understanding life as interconnected biological networks across molecular and cellular layers.</p>
-      </div>
+    <a class="cta" href="/research">Learn more about systems biology →</a>
 
-      <div class="card">
-        <h3>Multi-Omics</h3>
-        <p>Integrating genomics, transcriptomics, proteomics, metabolomics, lipidomics, and epigenomics.</p>
-      </div>
+  </section>
 
-      <div class="card">
-        <h3>Artificial Intelligence</h3>
-        <p>Using computational intelligence to interpret complex biological data and accelerate discovery.</p>
-      </div>
+  <section class="section">
 
-      <div class="card">
-        <h3>Translational Biotechnology</h3>
-        <p>Connecting molecular discovery to real-world biomedical, clinical, and biotechnology innovation.</p>
-      </div>
+    <h2>Multi-Omics <span>Sciences</span></h2>
 
-      <div class="card">
-        <h3>Integrative Sciences</h3>
-        <p>Bridging biology, computation, medicine, biotechnology, and education into one scientific ecosystem.</p>
-      </div>
+    <p>
+      PanorOmics connects genomics, transcriptomics, proteomics, metabolomics,
+      lipidomics, and epigenomics into a unified scientific language for
+      understanding biological function across molecular layers.
+    </p>
 
-      <div class="card">
-        <h3>Accessible Knowledge</h3>
-        <p>Advancing scientific learning through clear, structured, and visually engaging omics education.</p>
-      </div>
+    <a class="cta" href="/genomics">Explore omics sciences →</a>
 
-    </div>
+  </section>
+
+  <section class="section">
+
+    <h2>Artificial Intelligence & <span>Translational Biotechnology</span></h2>
+
+    <p>
+      Artificial intelligence and computational biology help transform complex
+      biological data into insight. PanorOmics connects these approaches with
+      translational biotechnology to support discovery, precision medicine,
+      biomarker development, and biomedical innovation.
+    </p>
+
+    <a class="cta" href="/platforms">Discover AI-driven biomedical innovation →</a>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Education & <span>Accessible Knowledge</span></h2>
+
+    <p>
+      PanorOmics believes scientific knowledge should be visually accessible,
+      interdisciplinary, and globally connected. Our goal is to make omics
+      sciences clearer, more teachable, and more useful for the next generation
+      of biology, biotechnology, and medicine.
+    </p>
+
+    <a class="cta" href="/education">Learn more about education and accessibility →</a>
 
   </section>
 

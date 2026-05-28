@@ -1,1 +1,319 @@
+---
+---
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Contact | PanorOmics</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#020817;
+  color:white;
+  font-family:Inter,Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+.page{
+  padding:72px 7% 42px;
+}
+
+.back{
+  color:#3b82f6;
+  text-decoration:none;
+  font-size:.88rem;
+  font-weight:700;
+}
+
+.hero{
+  margin-top:34px;
+  margin-bottom:42px;
+}
+
+h1{
+  font-size:clamp(2.2rem,4vw,3.7rem);
+  line-height:1;
+  letter-spacing:-.05em;
+}
+
+h1 span{
+  color:#3b82f6;
+}
+
+.hero p{
+  margin-top:18px;
+  color:#cbd5e1;
+  font-size:.95rem;
+  line-height:1.7;
+  max-width:760px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:34px;
+}
+
+.info-box,
+.form-box{
+  background:rgba(8,15,35,.72);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:22px;
+  padding:28px;
+}
+
+.section-title{
+  font-size:1.15rem;
+  margin-bottom:18px;
+  color:white;
+}
+
+.contact-item{
+  margin-bottom:24px;
+}
+
+.contact-item h3{
+  color:#3b82f6;
+  font-size:.92rem;
+  margin-bottom:8px;
+}
+
+.contact-item p,
+.contact-item a{
+  color:#cbd5e1;
+  text-decoration:none;
+  font-size:.9rem;
+  line-height:1.6;
+}
+
+.contact-item a:hover{
+  color:#60a5fa;
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+
+label{
+  display:block;
+  margin-bottom:8px;
+  color:#cbd5e1;
+  font-size:.85rem;
+}
+
+input,
+textarea{
+  width:100%;
+  background:#0f172a;
+  border:1px solid rgba(59,130,246,.14);
+  border-radius:14px;
+  padding:14px;
+  color:white;
+  font-size:.9rem;
+  font-family:Inter,sans-serif;
+}
+
+textarea{
+  min-height:140px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus{
+  outline:none;
+  border-color:#3b82f6;
+}
+
+button{
+  margin-top:8px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  padding:14px 24px;
+  border-radius:999px;
+  font-size:.9rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s ease;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(37,99,235,.28);
+}
+
+@media(max-width:900px){
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .page{
+    padding:64px 20px 36px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="page">
+
+  <a class="back" href="/">← Back to PanorOmics</a>
+
+  <section class="hero">
+
+    <h1>
+      Contact <span>PanorOmics</span>
+    </h1>
+
+    <p>
+      PanorOmics supports interdisciplinary collaboration across omics sciences,
+      systems biology, artificial intelligence, translational biotechnology,
+      biomedical research, and scientific education.
+    </p>
+
+  </section>
+
+  <section class="contact-grid">
+
+    <div class="info-box">
+
+      <h2 class="section-title">
+        Contact Information
+      </h2>
+
+      <div class="contact-item">
+
+        <h3>General Inquiries</h3>
+
+        <a href="mailto:contact@panoromics.org">
+          contact@panoromics.org
+        </a>
+
+      </div>
+
+      <div class="contact-item">
+
+        <h3>Academic & Research Communication</h3>
+
+        <a href="mailto:psluangkaewphd@panoromics.org">
+          psluangkaewphd@panoromics.org
+        </a>
+
+      </div>
+
+      <div class="contact-item">
+
+        <h3>Research Areas</h3>
+
+        <p>
+          Multi-Omics Sciences<br>
+          Systems Biology<br>
+          Artificial Intelligence<br>
+          Translational Biotechnology<br>
+          Precision Medicine<br>
+          Omics Education
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="form-box">
+
+      <h2 class="section-title">
+        Send an Inquiry
+      </h2>
+
+      <form
+        action="mailto:contact@panoromics.org"
+        method="post"
+        enctype="text/plain"
+      >
+
+        <div class="form-group">
+
+          <label>Name</label>
+
+          <input
+            type="text"
+            name="name"
+            required
+          />
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Institution</label>
+
+          <input
+            type="text"
+            name="institution"
+          />
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Email</label>
+
+          <input
+            type="email"
+            name="email"
+            required
+          />
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Subject</label>
+
+          <input
+            type="text"
+            name="subject"
+          />
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Message</label>
+
+          <textarea
+            name="message"
+            required
+          ></textarea>
+
+        </div>
+
+        <button type="submit">
+          Send Inquiry
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+</main>
+
+</body>
+
+</html>

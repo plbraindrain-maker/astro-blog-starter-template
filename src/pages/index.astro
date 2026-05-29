@@ -55,9 +55,7 @@ body{
   overflow-x:hidden;
 }
 
-/* =========================================
-   HEADER
-========================================= */
+/* HEADER */
 
 .header{
   position:fixed;
@@ -127,9 +125,7 @@ body{
   color:#3b82f6;
 }
 
-/* =========================================
-   MOBILE MENU
-========================================= */
+/* MOBILE MENU */
 
 .menu-toggle{
   display:none;
@@ -165,9 +161,7 @@ body{
   display:flex;
 }
 
-/* =========================================
-   HERO
-========================================= */
+/* HERO */
 
 .hero{
   display:flex;
@@ -257,6 +251,8 @@ body{
   object-fit:cover;
 }
 
+/* SECTION */
+
 .section{
   padding:30px 7%;
 }
@@ -278,6 +274,8 @@ body{
   color:#cbd5e1;
   max-width:820px;
 }
+
+/* OMICS GRID */
 
 .omics-grid{
   margin-top:20px;
@@ -313,6 +311,8 @@ body{
   font-size:.86rem;
 }
 
+/* CENTRAL DOGMA */
+
 .central-dogma{
   margin-top:20px;
   border-radius:22px;
@@ -325,6 +325,8 @@ body{
   width:100%;
   display:block;
 }
+
+/* INSTITUTIONAL FOOTER */
 
 .institutional-footer{
   padding:32px 7% 24px;
@@ -365,6 +367,9 @@ body{
 }
 
 .footer-column a{
+  display:flex;
+  align-items:center;
+  gap:8px;
   color:#94a3b8;
   text-decoration:none;
   font-size:.78rem;
@@ -376,6 +381,14 @@ body{
   color:#3b82f6;
 }
 
+.footer-icon{
+  width:18px;
+  display:inline-flex;
+  justify-content:center;
+  font-weight:800;
+  color:#dbe4ff;
+}
+
 .footer{
   padding:28px 7%;
   border-top:1px solid rgba(59,130,246,.08);
@@ -384,9 +397,7 @@ body{
   font-size:.84rem;
 }
 
-/* =========================================
-   MOBILE
-========================================= */
+/* MOBILE */
 
 @media(max-width:1100px){
 
@@ -396,11 +407,14 @@ body{
   }
 
   .nav{
-    display:none;
+    display:none !important;
   }
 
   .menu-toggle{
-    display:block;
+    display:block !important;
+    color:white !important;
+    font-size:2rem;
+    z-index:2000;
   }
 
   .hero-video{
@@ -642,10 +656,21 @@ body{
         ⌂ Community
       </h3>
 
-      <a href="/network">Facebook</a>
-      <a href="/network">LinkedIn</a>
-      <a href="/network">YouTube</a>
-      <a href="/network">GitHub</a>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+        <span class="footer-icon">f</span> Facebook
+      </a>
+
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+        <span class="footer-icon">in</span> LinkedIn
+      </a>
+
+      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+        <span class="footer-icon">▶</span> YouTube
+      </a>
+
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+        <span class="footer-icon">⌘</span> GitHub
+      </a>
 
       <a href="/events">Events & Workshops</a>
       <a href="/collaborations">Collaborations</a>
@@ -675,6 +700,7 @@ body{
   © 2026 PanorOmics • Integrating Life Sciences • Data • Discovery
 
 </footer>
+
 <script is:inline>
 
 function toggleMenu() {
@@ -687,7 +713,6 @@ function toggleMenu() {
 }
 
 </script>
-
 
 </body>
 

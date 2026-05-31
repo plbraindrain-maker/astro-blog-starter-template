@@ -1,40 +1,35 @@
 ---
-const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Research', href: '/research' },
-  { name: 'Education', href: '/education' },
-  { name: 'Platforms', href: '/platforms' },
-  { name: 'Data', href: '/data' },
-  { name: 'Publications', href: '/publications' },
-  { name: 'News', href: '/news' },
-  { name: 'Contact', href: '/contact' },
-];
-
-const cards = [
-  ['Genomics', 'Comprehensive analysis of genetic variation to uncover biology and disease risk.', '/genomics'],
-  ['Transcriptomics', 'Profiling RNA expression to understand gene activity and regulation.', '/transcriptomics'],
-  ['Proteomics', 'Characterizing proteins to reveal function, pathways, and biomarkers.', '/proteomics'],
-  ['Metabolomics', 'Measuring metabolites to capture biochemical phenotypes and pathways.', '/metabolomics'],
-  ['Lipidomics', 'Analyzing lipid species to illuminate membrane biology and metabolism.', '/lipidomics'],
-  ['Epigenomics', 'Studying epigenetic modifications that shape gene regulation.', '/epigenomics'],
+const tracks = [
+  {
+    title: "Omics Sciences",
+    desc: "Integrated systems-level biology across multi-omics sciences.",
+    href: "/courses"
+  },
+  {
+    title: "AI Omics Academy",
+    desc: "AI biology, bioinformatics, and computational omics.",
+    href: "/ai-academy"
+  },
+  {
+    title: "Scientific Writing",
+    desc: "Scientific communication, editing, and publication support.",
+    href: "/writing"
+  },
+  {
+    title: "Workshops",
+    desc: "Short courses, bootcamps, and continuing education.",
+    href: "/workshops"
+  }
 ];
 ---
 
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>PanorOmics | The Panoramic Omics Sciences Center</title>
-
-<link rel="icon" type="image/png" href="/icon-mark.png" />
-<link rel="apple-touch-icon" href="/icon-mark.png" />
-
-<meta name="theme-color" content="#020817" />
+<title>PanEd | Omics Education Platform</title>
 
 <style>
 
@@ -44,425 +39,119 @@ const cards = [
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   background:#020817;
   color:white;
   font-family:Inter,sans-serif;
-  overflow-x:hidden;
 }
 
-/* HEADER */
-
-.header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:1000;
-  background:rgba(2,8,23,.78);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(59,130,246,.10);
-}
-
-.header-inner{
-  max-width:1450px;
-  margin:0 auto;
-  padding:12px 32px;
+.hero{
+  min-height:80vh;
   display:flex;
+  flex-direction:column;
   align-items:center;
-  justify-content:space-between;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
+.hero h1{
+  font-size:clamp(3rem,7vw,5rem);
+  font-weight:900;
+  letter-spacing:-0.05em;
+  margin-bottom:20px;
 }
 
-.brand img{
-  width:44px;
-  height:44px;
-  object-fit:contain;
-}
-
-.brand-title{
-  font-size:1.45rem;
-  font-weight:800;
-  line-height:1;
-  color:white;
-  letter-spacing:-0.04em;
-}
-
-.brand-title span{
+.hero h1 span{
   color:#3b82f6;
 }
 
-.brand-sub{
-  color:#94a3b8;
-  font-size:.56rem;
-  margin-top:2px;
-  letter-spacing:.10em;
+.hero p{
+  max-width:760px;
+  font-size:1.1rem;
+  line-height:1.7;
+  color:#cbd5e1;
+  margin-bottom:32px;
 }
 
-.nav{
+.hero-buttons{
   display:flex;
-  gap:18px;
+  gap:16px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
-.nav a{
-  color:#dbe4ff;
+.hero-buttons a{
+  padding:14px 26px;
+  border-radius:999px;
   text-decoration:none;
-  font-size:.8rem;
+  font-weight:700;
   transition:.3s ease;
 }
 
-.nav a:hover{
-  color:#3b82f6;
-}
-
-/* MOBILE MENU */
-
-.menu-toggle{
-  display:none;
-  background:none;
-  border:none;
-  color:white;
-  font-size:1.8rem;
-  cursor:pointer;
-}
-
-.mobile-menu{
-  display:none;
-  flex-direction:column;
-  position:fixed;
-  top:68px;
-  left:0;
-  width:100%;
-  z-index:999;
-  background:#020817;
-  border-bottom:1px solid rgba(59,130,246,.12);
-  padding:16px 24px;
-}
-
-.mobile-menu a{
-  color:#dbe4ff;
-  text-decoration:none;
-  font-size:.95rem;
-  padding:12px 0;
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-
-.mobile-menu.show{
-  display:flex;
-}
-
-/* HERO */
-
-.hero{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:30px;
-  padding:78px 6% 24px;
-  min-height:auto;
-  overflow:hidden;
-  background:
-  radial-gradient(circle at center,
-  rgba(59,130,246,.14),
-  transparent 42%),
-  #020817;
-}
-
-.hero-left{
-  flex:1;
-  max-width:480px;
-}
-
-.hero-kicker{
-  color:#3b82f6;
-  font-size:.7rem;
-  letter-spacing:.26em;
-  margin-bottom:14px;
-  font-weight:700;
-}
-
-.hero-title{
-  font-size:clamp(2.15rem,3.9vw,3.7rem);
-  line-height:.96;
-  letter-spacing:-0.055em;
-  font-weight:900;
-  margin-bottom:16px;
-}
-
-.hero-title span{
-  color:#3b82f6;
-}
-
-.hero-description{
-  font-size:.9rem;
-  line-height:1.6;
-  color:#cbd5e1;
-  max-width:500px;
-  margin-bottom:24px;
-}
-
-.hero-button{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:12px 24px;
-  border-radius:999px;
+.primary{
   background:#2563eb;
   color:white;
-  text-decoration:none;
-  font-size:.9rem;
-  font-weight:700;
-  transition:.35s ease;
 }
 
-.hero-button:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 40px rgba(37,99,235,.35);
+.secondary{
+  border:1px solid rgba(255,255,255,.12);
+  color:white;
 }
-
-.hero-video-wrap{
-  flex:1;
-  display:flex;
-  justify-content:center;
-}
-
-.hero-video{
-  width:100%;
-  max-width:670px;
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.06);
-  box-shadow:0 0 42px rgba(37,99,235,.10);
-}
-
-.hero-video video{
-  width:100%;
-  display:block;
-  object-fit:cover;
-}
-
-/* SECTION */
 
 .section{
-  padding:30px 7%;
+  padding:80px 8%;
 }
 
 .section-title{
-  font-size:clamp(1.55rem,2.6vw,2.55rem);
-  line-height:1.08;
-  letter-spacing:-0.04em;
-  margin-bottom:10px;
-}
-
-.section-title span{
-  color:#3b82f6;
+  font-size:2.4rem;
+  margin-bottom:16px;
 }
 
 .section-description{
-  font-size:.9rem;
-  line-height:1.6;
-  color:#cbd5e1;
-  max-width:820px;
-}
-
-/* OMICS GRID */
-
-.omics-grid{
-  margin-top:20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:16px;
-}
-
-.omics-card{
-  background:rgba(8,15,35,.72);
-  border:1px solid rgba(59,130,246,.12);
-  border-radius:18px;
-  padding:18px;
-  text-decoration:none;
-  transition:.35s ease;
-}
-
-.omics-card:hover{
-  transform:translateY(-5px);
-  border-color:#3b82f6;
-  box-shadow:0 18px 50px rgba(37,99,235,.11);
-}
-
-.omics-card h3{
-  font-size:1.12rem;
-  margin-bottom:9px;
-  color:#2563eb;
-}
-
-.omics-card p{
-  color:#7f8ca3;
-  line-height:1.55;
-  font-size:.86rem;
-}
-
-/* CENTRAL DOGMA */
-
-.central-dogma{
-  margin-top:20px;
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid rgba(59,130,246,.10);
-  box-shadow:0 0 42px rgba(37,99,235,.09);
-}
-
-.central-dogma img{
-  width:100%;
-  display:block;
-}
-
-/* INSTITUTIONAL FOOTER */
-
-.institutional-footer{
-  padding:32px 7% 24px;
-  border-top:1px solid rgba(59,130,246,.08);
-  background:#010614;
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(220px,1fr));
-  gap:28px;
-  max-width:1200px;
-  margin:0 auto;
-}
-
-.footer-column{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.footer-heading{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  color:white;
-  font-size:.88rem;
-  font-weight:700;
-  margin-bottom:10px;
-  letter-spacing:.02em;
-}
-
-.footer-heading img{
-  width:16px;
-  height:16px;
-  object-fit:contain;
-}
-
-.footer-column a{
-  display:flex;
-  align-items:center;
-  gap:8px;
+  max-width:800px;
   color:#94a3b8;
+  line-height:1.7;
+  margin-bottom:40px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(15,23,42,.7);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:22px;
+  padding:24px;
   text-decoration:none;
-  font-size:.78rem;
-  line-height:1.45;
-  transition:.25s ease;
+  transition:.3s ease;
 }
 
-.footer-column a:hover{
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#3b82f6;
+}
+
+.card h3{
   color:#3b82f6;
+  margin-bottom:12px;
+  font-size:1.2rem;
 }
 
-.footer-icon{
-  width:18px;
-  display:inline-flex;
-  justify-content:center;
-  font-weight:800;
-  color:#dbe4ff;
+.card p{
+  color:#94a3b8;
+  line-height:1.6;
 }
 
 .footer{
-  padding:28px 7%;
-  border-top:1px solid rgba(59,130,246,.08);
+  padding:40px 20px;
   text-align:center;
-  color:#94a3b8;
-  font-size:.84rem;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:#64748b;
 }
-
-/* MOBILE */
-
-@media(max-width:1100px){
-
-  .hero{
-    flex-direction:column;
-    padding-top:96px;
-  }
-
-  .nav{
-    display:none !important;
-  }
-
-  .menu-toggle{
-    display:block !important;
-    color:white !important;
-    font-size:2rem;
-    z-index:2000;
-  }
-
-  .hero-video{
-    max-width:100%;
-  }
-}
-
-@media(max-width:768px){
-
-  .header-inner{
-    padding:12px 16px;
-  }
-
-  .hero{
-    padding:96px 18px 34px;
-  }
-
-  .section{
-    padding:28px 18px;
-  }
-
-  .hero-title{
-    font-size:2.35rem;
-  }
-
-  .section-title{
-    font-size:1.75rem;
-  }
-
-  .hero-description,
-  .section-description{
-    font-size:.88rem;
-  }
-
-  .brand-title{
-    font-size:1.25rem;
-  }
-
-  .brand img{
-    width:40px;
-    height:40px;
-  }
-
-  .hero-button{
-    width:100%;
-    justify-content:center;
-  }
-  }
 
 </style>
 
@@ -470,94 +159,27 @@ body{
 
 <body>
 
-<header class="header">
-
-  <div class="header-inner">
-
-    <a class="brand" href="/">
-
-      <img src="/panoromics-logo.png" alt="PanorOmics Logo">
-
-      <div>
-
-        <div class="brand-title">
-          Panor<span>Omics</span>
-        </div>
-
-        <div class="brand-sub">
-          INTEGRATING LIFE SCIENCES • DATA • DISCOVERY
-        </div>
-
-      </div>
-
-    </a>
-
-    <nav class="nav">
-
-      {navLinks.map((link) => (
-        <a href={link.href}>{link.name}</a>
-      ))}
-
-    </nav>
-
-    <button class="menu-toggle" onclick="toggleMenu()">
-      ☰
-    </button>
-
-  </div>
-
-</header>
-
-<div id="mobileMenu" class="mobile-menu">
-
-  {navLinks.map((link) => (
-    <a href={link.href}>{link.name}</a>
-  ))}
-
-</div>
-
 <section class="hero">
 
-  <div class="hero-left">
+  <h1>
+    Pan<span>Ed</span>
+  </h1>
 
-    <div class="hero-kicker">
-      PANOROMICS OMICS SCIENCES
-    </div>
+  <p>
+    Modern Omics Education for the AI Biology Era.
+    Systems-level education in genomics, epigenomics,
+    AI biology, scientific writing, and translational omics sciences.
+  </p>
 
-    <h1 class="hero-title">
-      Unifying <span>omics.</span><br>
-      Advancing <span>health.</span><br>
-      Transforming <span>lives.</span>
-    </h1>
+  <div class="hero-buttons">
 
-    <p class="hero-description">
-      PanorOmics integrates multi-omics sciences,
-      computational biology, artificial intelligence,
-      and translational biotechnology into a unified
-      systems-level framework for discovery,
-      precision medicine, and human health.
-    </p>
-
-    <a href="#research" class="hero-button">
-      Explore Our Research →
+    <a href="/courses" class="primary">
+      Explore Courses
     </a>
 
-  </div>
-
-  <div class="hero-video-wrap">
-
-    <div class="hero-video">
-
-      <video autoplay muted loop playsinline>
-
-        <source
-          src="/architecture-of-life.mp4"
-          type="video/mp4"
-        >
-
-      </video>
-
-    </div>
+    <a href="/about" class="secondary">
+      Learn About PanEd
+    </a>
 
   </div>
 
@@ -566,40 +188,23 @@ body{
 <section class="section">
 
   <h2 class="section-title">
-    A Discipline, <span>Not a Toolbox</span>
+    Learning Tracks
   </h2>
 
   <p class="section-description">
-    Omics Sciences is an emerging integrative discipline
-    that unifies molecular biology, computational systems,
-    artificial intelligence, biotechnology, and human health
-    into a systems-level understanding of life.
+    Explore modern educational pathways across omics sciences,
+    AI biology, scientific communication, and systems-level biotechnology.
   </p>
 
-</section>
+  <div class="grid">
 
-<section class="section" id="research">
+    {tracks.map((track) => (
 
-  <h2 class="section-title">
-    The Architecture <span>of Life</span>
-  </h2>
+      <a href={track.href} class="card">
 
-  <p class="section-description">
-    PanorOmics explores interconnected biological layers
-    across genome, epigenome, transcriptome, proteome,
-    metabolome, and phenotype to advance translational
-    discovery and precision biotechnology.
-  </p>
+        <h3>{track.title}</h3>
 
-  <div class="omics-grid">
-
-    {cards.map(([title, desc, href]) => (
-
-      <a href={href} class="omics-card">
-
-        <h3>{title}</h3>
-
-        <p>{desc}</p>
+        <p>{track.desc}</p>
 
       </a>
 
@@ -609,111 +214,11 @@ body{
 
 </section>
 
-<section class="section">
-
-  <h2 class="section-title">
-    The Central Dogma <span>of Omics Science</span>
-  </h2>
-
-  <p class="section-description">
-    From biological information to molecular function.
-    From systems biology to clinical impact.
-  </p>
-
-  <div class="central-dogma">
-
-    <img
-      src="/central-dogma.png"
-      alt="Central Dogma of Omics Science"
-    >
-
-  </div>
-
-</section>
-
-<section class="institutional-footer">
-
-  <div class="footer-grid">
-
-    <div class="footer-column">
-
-      <h3 class="footer-heading">
-        <img src="/icon-mark.png" alt="PanorOmics Icon">
-        PanorOmics
-      </h3>
-
-      <a href="/">PanorOmics Home</a>
-      <a href="/research">Research</a>
-      <a href="/education">Education</a>
-      <a href="/platforms">Platforms</a>
-      <a href="/publications">Publications</a>
-
-    </div>
-
-    <div class="footer-column">
-
-      <h3 class="footer-heading">
-        ⌂ Community
-      </h3>
-
-      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-        <span class="footer-icon">f</span> Facebook
-      </a>
-
-      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-        <span class="footer-icon">in</span> LinkedIn
-      </a>
-
-      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-        <span class="footer-icon">▶</span> YouTube
-      </a>
-
-      <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-        <span class="footer-icon">⌘</span> GitHub
-      </a>
-
-      <a href="/events">Events & Workshops</a>
-      <a href="/collaborations">Collaborations</a>
-      <a href="/contact">Contact</a>
-
-    </div>
-
-    <div class="footer-column">
-
-      <h3 class="footer-heading">
-        ▣ Institution
-      </h3>
-
-      <a href="/give">Give</a>
-      <a href="/legal">Legal Information</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/accessibility">Accessibility</a>
-
-    </div>
-
-  </div>
-
-</section>
-
 <footer class="footer">
 
-  © 2026 PanorOmics • Integrating Life Sciences • Data • Discovery
+  PanEd by PanorOmics
 
 </footer>
 
-<script is:inline>
-
-function toggleMenu() {
-
-  const menu =
-  document.getElementById("mobileMenu");
-
-  menu.classList.toggle("show");
-
-}
-
-</script>
-
 </body>
-
 </html>

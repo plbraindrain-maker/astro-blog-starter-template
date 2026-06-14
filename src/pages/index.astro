@@ -12,13 +12,13 @@ const navLinks = [
 ];
 
 const cards = [
-  ['Genomics', 'Comprehensive analysis of genetic variation to uncover biology and disease risk.', '/genomics'],
-  ['Transcriptomics', 'Profiling RNA expression to understand gene activity and regulation.', '/transcriptomics'],
-  ['Proteomics', 'Characterizing proteins to reveal function, pathways, and biomarkers.', '/proteomics'],
-  ['Metabolomics', 'Measuring metabolites to capture biochemical phenotypes and pathways.', '/metabolomics'],
-  ['Lipidomics', 'Analyzing lipid species to illuminate membrane biology and metabolism.', '/lipidomics'],
-  ['Epigenomics', 'Studying epigenetic modifications that shape gene regulation.', '/epigenomics'],
-  ['Microbiomics', 'Exploring microbial communities and their roles in health, disease, and ecosystems.', '/microbiomics'],
+  ['Genomics', 'Comprehensive analysis of genetic variation to uncover biology and disease risk.', '/genomics', '/genomics-card.png'],
+  ['Transcriptomics', 'Profiling RNA expression to understand gene activity and regulation.', '/transcriptomics', '/transcriptomics-card.png'],
+  ['Proteomics', 'Characterizing proteins to reveal function, pathways, and biomarkers.', '/proteomics', '/proteomics-card.png'],
+  ['Metabolomics', 'Measuring metabolites to capture biochemical phenotypes and pathways.', '/metabolomics', '/metabolomics-card.png'],
+  ['Lipidomics', 'Analyzing lipid species to illuminate membrane biology and metabolism.', '/lipidomics', '/lipidomics-card.png'],
+  ['Epigenomics', 'Studying epigenetic modifications that shape gene regulation.', '/epigenomics', '/epigenomics-card.png'],
+  ['Microbiomics', 'Exploring microbial communities and their roles in health, disease, and ecosystems.', '/microbiomics', '/microbiomics-card.png'],
 ];
 ---
 
@@ -57,10 +57,6 @@ body{
   font-family:Inter,sans-serif;
   overflow-x:hidden;
 }
-
-/* =========================================
-   HEADER
-========================================= */
 
 .header{
   position:fixed;
@@ -130,10 +126,6 @@ body{
   color:#3b82f6;
 }
 
-/* =========================================
-   MOBILE MENU
-========================================= */
-
 .menu-toggle{
   display:none;
   background:none;
@@ -167,10 +159,6 @@ body{
 .mobile-menu.show{
   display:flex;
 }
-
-/* =========================================
-   HERO
-========================================= */
 
 .hero{
   display:flex;
@@ -243,6 +231,7 @@ body{
   flex:1;
   display:flex;
   justify-content:center;
+  width:100%;
 }
 
 .hero-video{
@@ -257,18 +246,11 @@ body{
   background:#020817;
 }
 
-.hero-slide{
-  position:absolute;
-  inset:0;
+.hero-video video{
   width:100%;
   height:100%;
+  display:block;
   object-fit:cover;
-  opacity:0;
-  transition:opacity 1.2s ease;
-}
-
-.hero-slide.active{
-  opacity:1;
 }
 
 .hero-caption{
@@ -320,12 +302,23 @@ body{
   padding:18px;
   text-decoration:none;
   transition:.35s ease;
+  overflow:hidden;
 }
 
 .omics-card:hover{
   transform:translateY(-5px);
   border-color:#3b82f6;
   box-shadow:0 18px 50px rgba(37,99,235,.11);
+}
+
+.omics-card img{
+  width:100%;
+  height:145px;
+  object-fit:cover;
+  border-radius:14px;
+  margin-bottom:14px;
+  display:block;
+  border:1px solid rgba(59,130,246,.12);
 }
 
 .omics-card h3{
@@ -352,10 +345,6 @@ body{
   width:100%;
   display:block;
 }
-
-/* =========================================
-   FOOTER
-========================================= */
 
 .footer{
   background:#07111f;
@@ -405,29 +394,12 @@ body{
   transition:.25s ease;
 }
 
-.footer-social a:nth-child(1):hover{
-  color:#0b3d91;
-}
-
-.footer-social a:nth-child(2):hover{
-  color:#000000;
-}
-
-.footer-social a:nth-child(3):hover{
-  color:#e1306c;
-}
-
-.footer-social a:nth-child(4):hover{
-  color:#ff0000;
-}
-
-.footer-social a:nth-child(5):hover{
-  color:#0a66c2;
-}
-
-.footer-social a:nth-child(6):hover{
-  color:#ffffff;
-}
+.footer-social a:nth-child(1):hover{color:#0b3d91;}
+.footer-social a:nth-child(2):hover{color:#000000;}
+.footer-social a:nth-child(3):hover{color:#e1306c;}
+.footer-social a:nth-child(4):hover{color:#ff0000;}
+.footer-social a:nth-child(5):hover{color:#0a66c2;}
+.footer-social a:nth-child(6):hover{color:#ffffff;}
 
 .footer-grid{
   display:grid;
@@ -475,10 +447,6 @@ body{
   color:#64748b;
   text-align:center;
 }
-
-/* =========================================
-   MOBILE
-========================================= */
 
 @media(max-width:1100px){
 
@@ -552,6 +520,10 @@ body{
   .hero-button{
     width:100%;
     justify-content:center;
+  }
+
+  .omics-card img{
+    height:170px;
   }
 }
 
@@ -639,16 +611,8 @@ body{
 
     <div class="hero-video">
 
-      <video class="hero-slide active" autoplay muted loop playsinline>
-        <source src="/chicago-science-skyline-hero.mp4" type="video/mp4">
-      </video>
-
-      <video class="hero-slide" autoplay muted loop playsinline>
-        <source src="/pittsburgh-science-skyline-hero.mp4" type="video/mp4">
-      </video>
-
-      <video class="hero-slide" autoplay muted loop playsinline>
-        <source src="/panoromics-architecture-of-life-v1.mp4" type="video/mp4">
+      <video id="heroVideo" autoplay muted loop playsinline preload="auto">
+        <source id="heroSource" src="/chicago-science-skyline-hero.mp4" type="video/mp4">
       </video>
 
       <div class="hero-caption" id="heroCaption">
@@ -691,9 +655,11 @@ body{
 
   <div class="omics-grid">
 
-    {cards.map(([title, desc, href]) => (
+    {cards.map(([title, desc, href, image]) => (
 
       <a href={href} class="omics-card">
+
+        <img src={image} alt={`${title} card image`}>
 
         <h3>{title}</h3>
 
@@ -800,6 +766,7 @@ body{
       <a href="/legal">Legal</a>
       <a href="/privacy">Privacy</a>
       <a href="/accessibility">Accessibility</a>
+
     </div>
 
   </div>
@@ -821,30 +788,48 @@ function toggleMenu() {
 
 }
 
-const heroSlides = document.querySelectorAll(".hero-slide");
-const heroCaption = document.getElementById("heroCaption");
-
-const heroCaptions = [
-  "Chicago, Illinois",
-  "Pittsburgh, Pennsylvania",
-  "The Architecture of Life"
+const heroItems = [
+  {
+    src: "/chicago-science-skyline-hero.mp4",
+    caption: "Chicago, Illinois"
+  },
+  {
+    src: "/pittsburgh-science-skyline-hero.mp4",
+    caption: "Pittsburgh, Pennsylvania"
+  },
+  {
+    src: "/panoromics-architecture-of-life-v1.mp4",
+    caption: "The Architecture of Life"
+  }
 ];
 
 let heroIndex = 0;
 
+const heroVideo =
+document.getElementById("heroVideo");
+
+const heroSource =
+document.getElementById("heroSource");
+
+const heroCaption =
+document.getElementById("heroCaption");
+
 setInterval(() => {
 
-  heroSlides[heroIndex].classList.remove("active");
-
   heroIndex =
-  (heroIndex + 1) % heroSlides.length;
+  (heroIndex + 1) % heroItems.length;
 
-  heroSlides[heroIndex].classList.add("active");
+  heroSource.src =
+  heroItems[heroIndex].src;
 
   heroCaption.textContent =
-  heroCaptions[heroIndex];
+  heroItems[heroIndex].caption;
 
-}, 6000);
+  heroVideo.load();
+
+  heroVideo.play().catch(() => {});
+
+}, 7000);
 
 </script>
 

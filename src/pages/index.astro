@@ -18,6 +18,7 @@ const cards = [
   ['Metabolomics', 'Measuring metabolites to capture biochemical phenotypes and pathways.', '/metabolomics'],
   ['Lipidomics', 'Analyzing lipid species to illuminate membrane biology and metabolism.', '/lipidomics'],
   ['Epigenomics', 'Studying epigenetic modifications that shape gene regulation.', '/epigenomics'],
+  ['Microbiomics', 'Exploring microbial communities and their roles in health, disease, and ecosystems.', '/microbiomics'],
 ];
 ---
 
@@ -251,12 +252,36 @@ body{
   overflow:hidden;
   border:1px solid rgba(255,255,255,.06);
   box-shadow:0 0 42px rgba(37,99,235,.10);
+  position:relative;
+  aspect-ratio:16/9;
+  background:#020817;
 }
 
-.hero-video video{
+.hero-slide{
+  position:absolute;
+  inset:0;
   width:100%;
-  display:block;
+  height:100%;
   object-fit:cover;
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
+
+.hero-slide.active{
+  opacity:1;
+}
+
+.hero-caption{
+  position:absolute;
+  left:22px;
+  bottom:18px;
+  z-index:3;
+  color:rgba(255,255,255,.82);
+  font-size:.78rem;
+  letter-spacing:.12em;
+  font-weight:700;
+  text-transform:uppercase;
+  text-shadow:0 2px 12px rgba(0,0,0,.65);
 }
 
 .section{
@@ -614,14 +639,21 @@ body{
 
     <div class="hero-video">
 
-      <video autoplay muted loop playsinline>
-
-        <source
-          src="/architecture-of-life.mp4"
-          type="video/mp4"
-        >
-
+      <video class="hero-slide active" autoplay muted loop playsinline>
+        <source src="/chicago-science-skyline-hero.mp4" type="video/mp4">
       </video>
+
+      <video class="hero-slide" autoplay muted loop playsinline>
+        <source src="/pittsburgh-science-skyline-hero.mp4" type="video/mp4">
+      </video>
+
+      <video class="hero-slide" autoplay muted loop playsinline>
+        <source src="/panoromics-architecture-of-life-v1.mp4" type="video/mp4">
+      </video>
+
+      <div class="hero-caption" id="heroCaption">
+        Chicago, Illinois
+      </div>
 
     </div>
 
@@ -653,8 +685,8 @@ body{
   <p class="section-description">
     PanorOmics explores interconnected biological layers
     across genome, epigenome, transcriptome, proteome,
-    metabolome, and phenotype to advance translational
-    discovery and precision biotechnology.
+    metabolome, lipidome, microbiome, and phenotype to
+    advance translational discovery and precision biotechnology.
   </p>
 
   <div class="omics-grid">
@@ -689,7 +721,7 @@ body{
   <div class="central-dogma">
 
     <img
-      src="/central-dogma.png"
+      src="/central-dogma-omics-science-v2.png"
       alt="Central Dogma of Omics Science"
     >
 
@@ -735,11 +767,11 @@ body{
       </div>
 
       <a href="/">Home</a>
-<a href="/research">Research</a>
-<a href="/education">Education</a>
-<a href="https://paned.org">PanED</a>
-<a href="/platforms">Platforms</a>
-<a href="/publications">Publications</a>
+      <a href="/research">Research</a>
+      <a href="/education">Education</a>
+      <a href="https://paned.org/">PanorOmics Online</a>
+      <a href="/platforms">Platforms</a>
+      <a href="/publications">Publications</a>
 
     </div>
 
@@ -788,6 +820,31 @@ function toggleMenu() {
   menu.classList.toggle("show");
 
 }
+
+const heroSlides = document.querySelectorAll(".hero-slide");
+const heroCaption = document.getElementById("heroCaption");
+
+const heroCaptions = [
+  "Chicago, Illinois",
+  "Pittsburgh, Pennsylvania",
+  "The Architecture of Life"
+];
+
+let heroIndex = 0;
+
+setInterval(() => {
+
+  heroSlides[heroIndex].classList.remove("active");
+
+  heroIndex =
+  (heroIndex + 1) % heroSlides.length;
+
+  heroSlides[heroIndex].classList.add("active");
+
+  heroCaption.textContent =
+  heroCaptions[heroIndex];
+
+}, 6000);
 
 </script>
 

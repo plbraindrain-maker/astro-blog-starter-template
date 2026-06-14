@@ -781,10 +781,8 @@ body{
   </div>
 
   <div class="footer-bottom">
-    <div class="footer-bottom">
   PanorOmics © 2026 • Omics Sciences Center
 </div>
-  </div>
 
 </footer>
 
@@ -830,15 +828,21 @@ setInterval(() => {
   heroIndex =
   (heroIndex + 1) % heroItems.length;
 
-  heroSource.src =
+  heroVideo.pause();
+
+  heroVideo.src =
   heroItems[heroIndex].src;
 
   heroCaption.textContent =
   heroItems[heroIndex].caption;
 
+  heroVideo.currentTime = 0;
   heroVideo.load();
 
-  heroVideo.play().catch(() => {});
+  heroVideo.onloadeddata = () => {
+    heroVideo.currentTime = 0;
+    heroVideo.play().catch(() => {});
+  };
 
 }, 7000);
 

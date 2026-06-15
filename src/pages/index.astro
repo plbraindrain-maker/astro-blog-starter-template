@@ -534,6 +534,37 @@ body{
 .panoromics-online:hover{
   color:#B1040E !important;
 }
+.panoromics-online{
+  color:#8C1515 !important;
+  font-weight:700;
+}
+
+.panoromics-online:hover{
+  color:#B1040E !important;
+}
+
+.integrity-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:12px;
+  padding:12px 24px;
+  border-radius:999px;
+  border:1px solid rgba(59,130,246,.25);
+  background:rgba(59,130,246,.08);
+  color:#dbe4ff;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+  transition:.35s ease;
+}
+
+.integrity-button:hover{
+  border-color:#3b82f6;
+  background:rgba(59,130,246,.15);
+  transform:translateY(-2px);
+}
 </style>
 
 </head>
@@ -608,9 +639,13 @@ body{
       precision medicine, and human health.
     </p>
 
-    <a href="#research" class="hero-button">
-      Explore Our Research →
-    </a>
+   <a href="#research" class="hero-button">
+  Explore Our Research →
+</a>
+
+<a href="/scientific-integrity" class="integrity-button">
+  🛡 Scientific Integrity
+</a>
 
   </div>
 
@@ -800,11 +835,11 @@ function toggleMenu() {
 const heroItems = [
   {
     src: "/chicago-science-skyline-hero.mp4",
-    caption: "Chicago, Illinois"
+    caption: "Rooted in Chicago"
   },
   {
     src: "/pittsburgh-science-skyline-hero.mp4",
-    caption: "Pittsburgh, Pennsylvania"
+    caption: "Developed in Pittsburgh"
   },
   {
     src: "/panoromics-architecture-of-life-v1.mp4",
@@ -844,7 +879,7 @@ setInterval(() => {
     heroVideo.play().catch(() => {});
   };
 
-}, 7000);
+}, 10000);
 
 </script>
 

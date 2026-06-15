@@ -252,17 +252,29 @@ body{
   display:block;
   object-fit:cover;
 }
+.hero-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
 
+.hero-slide.active{
+  opacity:1;
+}
 .hero-caption{
   position:absolute;
   left:22px;
   bottom:18px;
   z-index:3;
-  color:rgba(255,255,255,.82);
-  font-size:.78rem;
-  letter-spacing:.12em;
-  font-weight:700;
-  text-transform:uppercase;
+  color:rgba(255,255,255,.72);
+  font-size:.72rem;
+  letter-spacing:.08em;
+  font-weight:600;
+  text-transform:none;
   text-shadow:0 2px 12px rgba(0,0,0,.65);
 }
 
@@ -539,8 +551,6 @@ body{
   font-weight:700;
 }
 
-.panoromics-online:hover{
-  color:#B1040E !important;
 }
 
 .integrity-button{
@@ -639,29 +649,35 @@ body{
       precision medicine, and human health.
     </p>
 
-   <a href="#research" class="hero-button">
+  <a href="#research" class="hero-button">
   Explore Our Research →
 </a>
 
-<a href="/scientific-integrity" class="integrity-button">
-  🛡 Scientific Integrity
+<a href="/scientific-integrity" class="hero-button">
+  🛡 Scientific Integrity →
 </a>
 
   </div>
 
-  <div class="hero-video-wrap">
+  <div class="hero-video">
 
-    <div class="hero-video">
+  <video class="hero-slide active" muted playsinline preload="auto">
+    <source src="/chicago-science-skyline-hero.mp4" type="video/mp4">
+  </video>
 
-      <video id="heroVideo" autoplay muted loop playsinline preload="auto">
-        <source id="heroSource" src="/chicago-science-skyline-hero.mp4" type="video/mp4">
-      </video>
+  <video class="hero-slide" muted playsinline preload="auto">
+    <source src="/pittsburgh-science-skyline-hero.mp4" type="video/mp4">
+  </video>
 
-      <div class="hero-caption" id="heroCaption">
-        Chicago, Illinois
-      </div>
+  <video class="hero-slide" muted playsinline preload="auto">
+    <source src="/panoromics-architecture-of-life-v1.mp4" type="video/mp4">
+  </video>
 
-    </div>
+  <div class="hero-caption" id="heroCaption">
+    Rooted in Chicago
+  </div>
+
+</div>
 
   </div>
 
@@ -832,52 +848,32 @@ function toggleMenu() {
 
 }
 
-const heroItems = [
-  {
-    src: "/chicago-science-skyline-hero.mp4",
-    caption: "Rooted in Chicago"
-  },
-  {
-    src: "/pittsburgh-science-skyline-hero.mp4",
-    caption: "Developed in Pittsburgh"
-  },
-  {
-    src: "/panoromics-architecture-of-life-v1.mp4",
-    caption: "The Architecture of Life"
-  }
+const heroSlides = document.querySelectorAll(".hero-slide");
+const heroCaption = document.getElementById("heroCaption");
+
+const heroCaptions = [
+  "rooted in chicago",
+  "developed in pittsburgh",
+  "the architecture of life"
 ];
 
 let heroIndex = 0;
 
-const heroVideo =
-document.getElementById("heroVideo");
-
-const heroSource =
-document.getElementById("heroSource");
-
-const heroCaption =
-document.getElementById("heroCaption");
+heroSlides[0].currentTime = 0;
+heroSlides[0].play().catch(() => {});
 
 setInterval(() => {
 
-  heroIndex =
-  (heroIndex + 1) % heroItems.length;
+  heroSlides[heroIndex].pause();
+  heroSlides[heroIndex].classList.remove("active");
 
-  heroVideo.pause();
+  heroIndex = (heroIndex + 1) % heroSlides.length;
 
-  heroVideo.src =
-  heroItems[heroIndex].src;
+  heroSlides[heroIndex].currentTime = 0;
+  heroSlides[heroIndex].classList.add("active");
+  heroCaption.textContent = heroCaptions[heroIndex];
 
-  heroCaption.textContent =
-  heroItems[heroIndex].caption;
-
-  heroVideo.currentTime = 0;
-  heroVideo.load();
-
-  heroVideo.onloadeddata = () => {
-    heroVideo.currentTime = 0;
-    heroVideo.play().catch(() => {});
-  };
+  heroSlides[heroIndex].play().catch(() => {});
 
 }, 10000);
 

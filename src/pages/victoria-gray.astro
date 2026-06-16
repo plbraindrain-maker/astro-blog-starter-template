@@ -1,85 +1,263 @@
 ---
 ---
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Victoria Gray | PanorOmics</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Victoria Gray | PanorOmics</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:#020817;
+  color:white;
+  font-family:Inter,Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+.page{
+  max-width:1000px;
+  margin:auto;
+  padding:72px 7% 56px;
+}
+
+.back{
+  color:#3b82f6;
+  text-decoration:none;
+  font-size:.88rem;
+  font-weight:700;
+}
+
+h1{
+  margin-top:34px;
+  font-size:clamp(2.2rem,4vw,3.8rem);
+  line-height:1;
+  letter-spacing:-.05em;
+}
+
+h1 span,
+h2 span{
+  color:#3b82f6;
+}
+
+.hero-sub{
+  margin-top:16px;
+  color:#cbd5e1;
+  font-size:1rem;
+  line-height:1.7;
+}
+
+.story-image{
+  margin-top:30px;
+}
+
+.story-image img{
+  width:100%;
+  max-width:760px;
+  display:block;
+  margin:auto;
+  border-radius:18px;
+  border:1px solid rgba(59,130,246,.14);
+}
+
+.credit{
+  max-width:760px;
+  margin:10px auto 0;
+  color:#94a3b8;
+  font-size:.76rem;
+  line-height:1.45;
+}
+
+.section{
+  margin-top:38px;
+  padding-top:28px;
+  border-top:1px solid rgba(59,130,246,.10);
+}
+
+h2{
+  font-size:1.55rem;
+  margin-bottom:14px;
+}
+
+p{
+  color:#cbd5e1;
+  line-height:1.8;
+  font-size:.96rem;
+  margin-bottom:16px;
+}
+
+ul{
+  color:#cbd5e1;
+  line-height:1.9;
+  margin-left:22px;
+}
+
+.hero-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:14px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+  transition:.35s ease;
+}
+
+.hero-button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 40px rgba(37,99,235,.35);
+}
+
+.references p{
+  font-size:.88rem;
+  color:#94a3b8;
+}
+
+@media(max-width:768px){
+  .page{padding:64px 20px 46px}
+}
+</style>
 </head>
 
 <body>
 
-<section class="section">
+<main class="page">
 
-  <h1>Victoria Gray: A Living Breakthrough</h1>
+<a href="/" class="back">← Back to PanorOmics</a>
 
+<h1>Victoria Gray: <span>A Living Breakthrough</span></h1>
+
+<p class="hero-sub">
+From sickle cell disease to CRISPR history.
+</p>
+
+<div class="story-image">
   <img
     src="/victoria-gray-sickle-cell-crispr.png"
-    alt="Victoria Gray"
-    style="max-width:700px;width:100%;border-radius:16px;"
+    alt="Victoria Gray during treatment for sickle cell disease"
   >
-
-  <p>
-    <em>Photo: NPR Health Shots / Meredith Rizzo</em>
+  <p class="credit">
+    Photo: NPR Health Shots / Meredith Rizzo
   </p>
+</div>
 
-  <h2>From Sickle Cell Disease to CRISPR History</h2>
+<section class="section">
 
-  <p>
-    Victoria Gray was diagnosed with sickle cell disease as an infant...
-  </p>
+<h2>From Sickle Cell Disease to <span>CRISPR History</span></h2>
 
-  <p>
-    Sickle cell disease is caused by a mutation in the HBB gene...
-  </p>
+<p>
+Victoria Gray was diagnosed with sickle cell disease at just three months old. For more than three decades, she endured severe pain crises, repeated hospitalizations, and routine blood transfusions—living with the constant uncertainty that accompanies a life-threatening genetic disorder.
+</p>
 
-  <h2>A Historic Decision</h2>
-
-  <p>
-    In 2019, while exploring treatment options...
-  </p>
-
-  <h2>A New Chapter in Medicine</h2>
-
-  <p>
-    Following treatment, Victoria Gray experienced...
-  </p>
-
-  <h2>The Omics Connection</h2>
-
-  <p>
-    Victoria Gray's treatment was made possible by decades of discoveries...
-  </p>
-
-  <h2>Why Her Story Matters</h2>
-
-  <p>
-    Victoria Gray's journey illustrates the power of genomics...
-  </p>
-
-  <h2>Related Topics</h2>
-
-  <ul>
-    <li>Genomics</li>
-    <li>Precision Medicine</li>
-    <li>Gene Editing</li>
-    <li>CRISPR-Cas9</li>
-    <li>Translational Biotechnology</li>
-    <li>Rare and Genetic Diseases</li>
-  </ul>
-
-  <br>
-
-  <a href="/publications" class="hero-button">
-    Explore Related Publications →
-  </a>
-
-  <h2 style="margin-top:40px;">References</h2>
-
-  <p>
-    Frangoul H, Altshuler D, Cappellini MD, et al.
-  </p>
+<p>
+Sickle cell disease is caused by a mutation in the HBB gene, which leads the body to produce abnormal hemoglobin. The affected red blood cells turn rigid and crescent-shaped, blocking blood vessels, reducing oxygen delivery, and causing organ damage, chronic pain, and a shortened life expectancy. For Victoria, these challenges were simply part of daily life—until her story became one of the most important milestones in modern biomedical science.
+</p>
 
 </section>
+
+<section class="section">
+
+<h2>A Historic <span>Decision</span></h2>
+
+<p>
+In 2019, while weighing her treatment options, Victoria learned about an experimental clinical trial that used CRISPR gene-editing technology. Instead of managing the symptoms of sickle cell disease, the researchers set out to correct its underlying cause by editing the patient's own blood-forming stem cells.
+</p>
+
+<p>
+Victoria volunteered, becoming the first person in the world to receive a CRISPR-based treatment for sickle cell disease. Her stem cells were collected, edited in the laboratory, and—after chemotherapy to prepare her body—returned to her bloodstream. At the time, no one knew whether it would work.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>A New Chapter in <span>Medicine</span></h2>
+
+<p>
+Following treatment, Victoria experienced a dramatic reduction in the severe pain crises that had defined so much of her life. Her results offered some of the earliest evidence that CRISPR gene editing could be used safely and effectively in human patients.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>The Omics <span>Connection</span></h2>
+
+<p>
+The significance reached far beyond one person's recovery. Victoria's outcome showed that genomic science, biotechnology, and precision medicine could move beyond theory and into real-world clinical impact—and researchers, physicians, patients, and policymakers around the world took notice.
+</p>
+
+<p>
+In December 2023, the therapy she helped pioneer was approved by the U.S. Food and Drug Administration as Casgevy, the first CRISPR-based medicine ever approved for human use.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Why Her Story <span>Matters</span></h2>
+
+<p>
+Victoria Gray's journey illustrates the power of genomics to improve human health. Her experience connects decades of fundamental discovery—from the structure of DNA and molecular genetics to genome sequencing and CRISPR gene editing—with a tangible outcome for a single patient.
+</p>
+
+<p>
+At PanorOmics, we believe the omics sciences are ultimately about people. Victoria Gray's story shows how scientific discovery can become clinical innovation—and how innovation can become hope.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Related <span>Topics</span></h2>
+
+<ul>
+  <li>Genomics</li>
+  <li>Precision Medicine</li>
+  <li>Gene Editing</li>
+  <li>CRISPR-Cas9</li>
+  <li>Translational Biotechnology</li>
+  <li>Rare and Genetic Diseases</li>
+</ul>
+
+<a href="/publications" class="hero-button">
+  Explore Related Publications →
+</a>
+
+</section>
+
+<section class="section references">
+
+<h2>References</h2>
+
+<p>
+1. Frangoul H, Altshuler D, Cappellini MD, et al. CRISPR-Cas9 Gene Editing for Sickle Cell Disease and β-Thalassemia. New England Journal of Medicine. 2021.
+</p>
+
+<p>
+2. U.S. Food and Drug Administration. FDA Approves First Gene Therapies to Treat Patients with Sickle Cell Disease. December 8, 2023.
+</p>
+
+<p>
+3. NPR Health Shots. Sickle Cell Patient Reveals Why She Is Volunteering for Landmark Gene-Editing Study.
+</p>
+
+<p>
+4. Vertex Pharmaceuticals and CRISPR Therapeutics clinical trial publications.
+</p>
+
+</section>
+
+</main>
 
 </body>
 </html>

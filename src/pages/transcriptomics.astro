@@ -3,14 +3,21 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Transcriptomics | PanorOmics</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
   background:#020817;
@@ -43,7 +50,9 @@ h1{
   letter-spacing:-.05em;
 }
 
-h1 span{color:#3b82f6}
+h1 span{
+  color:#3b82f6;
+}
 
 p{
   margin-top:22px;
@@ -61,7 +70,20 @@ p{
   box-shadow:0 0 70px rgba(37,99,235,.14);
 }
 
-video,img{
+.infographic{
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-top:32px;
+}
+
+.infographic img{
+  width:100%;
+  display:block;
+  border-radius:24px;
+}
+
+video,
+img{
   width:100%;
   display:block;
 }
@@ -76,7 +98,9 @@ h2{
   line-height:1.05;
 }
 
-h2 span{color:#3b82f6}
+h2 span{
+  color:#3b82f6;
+}
 
 .grid{
   display:grid;
@@ -103,11 +127,31 @@ h2 span{color:#3b82f6}
   color:#94a3b8;
 }
 
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .page{padding:80px 22px 60px}
+.hero-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:24px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
 }
+
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .page{
+    padding:80px 22px 60px;
+  }
+}
+
 </style>
+
 </head>
 
 <body>
@@ -140,8 +184,11 @@ h2 span{color:#3b82f6}
 
     <h2>What is <span>Transcriptomics?</span></h2>
 
-    <div class="image-box">
-      <img src="/1_Transcriptomics Picture.png" alt="Transcriptomics overview infographic" />
+    <div class="infographic">
+      <img
+        src="/1_Transcriptomics Picture.png"
+        alt="Transcriptomics overview infographic"
+      />
     </div>
 
   </section>
@@ -151,17 +198,61 @@ h2 span{color:#3b82f6}
     <h2>Core Areas</h2>
 
     <div class="grid">
-      <div class="card"><h3>RNA Expression</h3><p>Measuring gene activity through RNA abundance.</p></div>
-      <div class="card"><h3>RNA-seq</h3><p>Sequencing transcripts to profile biological states.</p></div>
-      <div class="card"><h3>Alternative Splicing</h3><p>Understanding how one gene can generate multiple RNA isoforms.</p></div>
-      <div class="card"><h3>Non-coding RNA</h3><p>Studying regulatory RNAs including lncRNA, miRNA, and other ncRNA classes.</p></div>
-      <div class="card"><h3>Single-cell Transcriptomics</h3><p>Resolving gene expression at individual-cell resolution.</p></div>
-      <div class="card"><h3>Systems Regulation</h3><p>Connecting RNA activity to pathways, networks, and phenotype.</p></div>
+
+      <div class="card">
+        <h3>RNA Expression</h3>
+        <p>Measuring gene activity through RNA abundance.</p>
+      </div>
+
+      <div class="card">
+        <h3>RNA-seq</h3>
+        <p>Sequencing transcripts to profile biological states.</p>
+      </div>
+
+      <div class="card">
+        <h3>Alternative Splicing</h3>
+        <p>Understanding how one gene can generate multiple RNA isoforms.</p>
+      </div>
+
+      <div class="card">
+        <h3>Non-coding RNA</h3>
+        <p>Studying regulatory RNAs including lncRNA, miRNA, and other ncRNA classes.</p>
+      </div>
+
+      <div class="card">
+        <h3>Single-cell Transcriptomics</h3>
+        <p>Resolving gene expression at individual-cell resolution.</p>
+      </div>
+
+      <div class="card">
+        <h3>Systems Regulation</h3>
+        <p>Connecting RNA activity to pathways, networks, and phenotype.</p>
+      </div>
+
     </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Transcriptomics and <span>Omics Sciences</span></h2>
+
+    <p>
+      Transcriptomics connects genomic information to biological function by revealing how genes are actively expressed across cells, tissues, developmental stages, and disease states.
+    </p>
+
+    <p>
+      At PanorOmics, transcriptomics serves as a central bridge between the genome and downstream molecular phenotypes, enabling systems-level understanding of life.
+    </p>
+
+    <a href="/publications" class="hero-button">
+      Explore Related Publications →
+    </a>
 
   </section>
 
 </main>
 
 </body>
+
 </html>

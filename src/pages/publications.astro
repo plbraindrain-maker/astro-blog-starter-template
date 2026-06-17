@@ -428,10 +428,11 @@ or human impact story.
 <div class="library-toolbar">
 
 <input
+  id="searchInput"
   class="search-box"
   type="search"
-  placeholder="Search by keyword, title, author, disease, omics field, method, journal, or topic..."
-/>
+  placeholder="Search publications, authors, journals, keywords, diseases, or omics disciplines..."
+>
 
 <div class="toolbar-label">
 Omics Toolbar
@@ -608,6 +609,62 @@ Read Victoria Gray's Story →
 </section>
 
 </div>
+<script>
+
+const searchInput =
+document.getElementById("searchInput");
+
+searchInput.addEventListener("input", function() {
+
+  const value =
+  this.value.toLowerCase();
+
+  const cards =
+  document.querySelectorAll(".paper-card");
+
+  cards.forEach(card => {
+
+    const text =
+    card.textContent.toLowerCase();
+
+    card.style.display =
+      text.includes(value)
+      ? "block"
+      : "none";
+
+  });
+
+});
+</div>
+
+<script>
+
+const searchInput =
+document.getElementById("searchInput");
+
+searchInput.addEventListener("input", function() {
+
+  const value =
+  this.value.toLowerCase();
+
+  const cards =
+  document.querySelectorAll(".paper-card");
+
+  cards.forEach(card => {
+
+    const text =
+    card.textContent.toLowerCase();
+
+    card.style.display =
+      text.includes(value)
+      ? ""
+      : "none";
+
+  });
+
+});
+
+</script>
 
 </body>
 

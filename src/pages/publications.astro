@@ -509,7 +509,7 @@ Landmark <span>Discoveries</span>
 
 {landmarkDiscoveries.map((item) => (
 
-  <div class="category-card">
+  <div class="category-card searchable-card">
     <h3>{item}</h3>
     <p>Curated resources explaining the discovery, scientific context, omics connection, and human impact.</p>
   </div>
@@ -530,7 +530,7 @@ Browse by <span>Omics Science</span>
 
 {omicsCategories.filter((item) => item !== 'All').map((item) => (
 
-  <div class="category-card">
+  <div class="category-card searchable-card">
     <h3>{item}</h3>
     <p>Curated papers, landmark studies, educational summaries, and translational discoveries in {item.toLowerCase()}.</p>
   </div>
@@ -551,7 +551,7 @@ Curated <span>Collections</span>
 
 {curatedCollections.map((item) => (
 
-  <div class="category-card">
+  <div class="category-card searchable-card">
     <h3>{item}</h3>
     <p>PanorOmics-selected readings connecting scientific publications with education, research, and translational biotechnology.</p>
   </div>
@@ -572,7 +572,7 @@ Journal <span>Browser</span>
 
 {journalCollections.map((item) => (
 
-  <div class="category-card">
+  <div class="category-card searchable-card">
     <h3>{item}</h3>
     <p>Browse high-impact literature and selected papers relevant to omics sciences and biomedical discovery.</p>
   </div>
@@ -589,7 +589,7 @@ Journal <span>Browser</span>
 Human Impact <span>Stories</span>
 </h2>
 
-<div class="wide-card">
+<div class="wide-card searchable-card">
 
 <h3 style="color:#3b82f6; margin-bottom:12px;">
 Victoria Gray CRISPR Collection
@@ -610,37 +610,22 @@ Read Victoria Gray's Story →
 
 </div>
 
-<script>
-
-const searchInput =
-document.getElementById("searchInput");
+<script is:inline>
+const searchInput = document.getElementById("searchInput");
 
 if (searchInput) {
-
   searchInput.addEventListener("input", function() {
+    const value = this.value.toLowerCase();
 
-    const value =
-    this.value.toLowerCase();
+    const cards = document.querySelectorAll(".paper-card, .searchable-card");
 
-    const cards =
-    document.querySelectorAll(".paper-card");
+    cards.forEach((card) => {
+      const text = card.textContent.toLowerCase();
 
-    cards.forEach(card => {
-
-      const text =
-      card.textContent.toLowerCase();
-
-      card.style.display =
-        text.includes(value)
-        ? ""
-        : "none";
-
+      card.style.display = text.includes(value) ? "" : "none";
     });
-
   });
-
 }
-
 </script>
 
 </body>

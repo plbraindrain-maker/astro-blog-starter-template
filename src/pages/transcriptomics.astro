@@ -22,52 +22,61 @@
 body{
   background:#020817;
   color:white;
-  font-family:Inter,Arial,sans-serif;
-  overflow-x:hidden;
+  font-family:Inter,sans-serif;
 }
 
-.page{
-  padding:90px 7% 70px;
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 7% 60px;
 }
 
 .back{
   color:#3b82f6;
   text-decoration:none;
+  font-size:.9rem;
   font-weight:700;
 }
 
 .hero{
-  margin-top:48px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:42px;
-  align-items:center;
+  margin-top:32px;
 }
 
-h1{
-  font-size:clamp(3rem,5vw,5rem);
+.hero h1{
+  font-size:clamp(2.5rem,5vw,4.5rem);
   line-height:.95;
   letter-spacing:-.05em;
+  margin-bottom:18px;
 }
 
-h1 span{
+.hero h1 span{
   color:#3b82f6;
 }
 
-p{
-  margin-top:22px;
+.hero p{
   color:#cbd5e1;
   font-size:1rem;
-  line-height:1.75;
-  max-width:720px;
+  line-height:1.8;
+  max-width:900px;
 }
 
-.video-box,
-.image-box{
-  border-radius:26px;
-  overflow:hidden;
-  border:1px solid rgba(59,130,246,.14);
-  box-shadow:0 0 70px rgba(37,99,235,.14);
+.hero-image{
+  margin-top:36px;
+}
+
+.hero-image video{
+  width:100%;
+  border-radius:20px;
+  display:block;
+  border:1px solid rgba(59,130,246,.12);
+}
+
+.hero-image img{
+  width:100%;
+  max-width:none;
+  border-radius:20px;
+  display:block;
+  border:1px solid rgba(59,130,246,.12);
 }
 
 .infographic{
@@ -82,49 +91,48 @@ p{
   border-radius:24px;
 }
 
-video,
-img{
-  width:100%;
-  display:block;
-}
-
 .section{
-  padding:56px 0;
+  margin-top:60px;
 }
 
-h2{
-  font-size:clamp(2rem,3.5vw,3.4rem);
-  margin-bottom:20px;
-  line-height:1.05;
+.section h2{
+  font-size:2rem;
+  margin-bottom:16px;
 }
 
-h2 span{
+.section h2 span{
   color:#3b82f6;
 }
 
-.grid{
+.section p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.applications{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:20px;
-  margin-top:30px;
+  margin-top:24px;
 }
 
 .card{
-  background:rgba(8,15,35,.72);
+  background:rgba(8,15,35,.75);
   border:1px solid rgba(59,130,246,.12);
-  border-radius:22px;
+  border-radius:18px;
   padding:24px;
 }
 
 .card h3{
   color:#3b82f6;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .card p{
-  margin-top:0;
-  font-size:.95rem;
-  color:#94a3b8;
+  margin:0;
+  font-size:.92rem;
 }
 
 .hero-button{
@@ -140,118 +148,122 @@ h2 span{
   font-weight:700;
 }
 
-@media(max-width:900px){
-  .hero{
-    grid-template-columns:1fr;
-  }
-
-  .page{
-    padding:80px 22px 60px;
-  }
-}
-
 </style>
 
 </head>
 
 <body>
 
-<main class="page">
+<div class="container">
 
-  <a class="back" href="/">← Back to PanorOmics</a>
+<a href="/" class="back">
+← Back to PanorOmics
+</a>
 
-  <section class="hero">
+<section class="hero">
 
-    <div>
-      <h1>Transcriptomics: <span>Dynamic Gene Expression</span></h1>
+<h1>
+Transcript<span>omics</span>
+</h1>
 
-      <p>
-        Transcriptomics studies the complete set of RNA transcripts produced by the genome.
-        It reveals how genes are activated, regulated, and translated into biological
-        function across cells, tissues, disease states, and environmental conditions.
-      </p>
-    </div>
+<p>
+Transcriptomics studies the complete set of RNA transcripts produced by the genome. It reveals how genes are activated, regulated, and translated into biological function across cells, tissues, disease states, and environmental conditions.
+</p>
 
-    <div class="video-box">
-      <video autoplay muted loop playsinline>
-        <source src="/3_Transcriptomics Dynamic gene expression.mp4" type="video/mp4" />
-      </video>
-    </div>
+<div class="hero-image">
+  <video autoplay muted loop playsinline>
+    <source src="/3_Transcriptomics Dynamic gene expression.mp4" type="video/mp4">
+  </video>
+</div>
 
-  </section>
+</section>
 
-  <section class="section">
+<section class="section">
 
-    <h2>What is <span>Transcriptomics?</span></h2>
+<h2>
+What is <span>Transcriptomics?</span>
+</h2>
 
-    <div class="infographic">
-      <img
-        src="/1_Transcriptomics Picture.png"
-        alt="Transcriptomics overview infographic"
-      />
-    </div>
+<div class="infographic">
 
-  </section>
+  <img
+    src="/1_Transcriptomics Picture.png"
+    alt="Transcriptomics overview infographic"
+  >
 
-  <section class="section">
+</div>
 
-    <h2>Core Areas</h2>
+<p>
+Transcriptomics is the study of RNA molecules produced by cells, tissues, or organisms under specific biological conditions. It provides insight into which genes are active, how strongly they are expressed, and how gene expression changes across development, disease, treatment, and environment.
+</p>
 
-    <div class="grid">
+<p>
+Modern transcriptomics uses RNA sequencing, single-cell analysis, spatial methods, and computational biology to connect gene regulation with biological function, cellular identity, disease mechanisms, and therapeutic discovery.
+</p>
 
-      <div class="card">
-        <h3>RNA Expression</h3>
-        <p>Measuring gene activity through RNA abundance.</p>
-      </div>
+</section>
 
-      <div class="card">
-        <h3>RNA-seq</h3>
-        <p>Sequencing transcripts to profile biological states.</p>
-      </div>
+<section class="section">
 
-      <div class="card">
-        <h3>Alternative Splicing</h3>
-        <p>Understanding how one gene can generate multiple RNA isoforms.</p>
-      </div>
+<h2>
+Applications in <span>Research & Medicine</span>
+</h2>
 
-      <div class="card">
-        <h3>Non-coding RNA</h3>
-        <p>Studying regulatory RNAs including lncRNA, miRNA, and other ncRNA classes.</p>
-      </div>
+<div class="applications">
 
-      <div class="card">
-        <h3>Single-cell Transcriptomics</h3>
-        <p>Resolving gene expression at individual-cell resolution.</p>
-      </div>
+<div class="card">
+<h3>RNA Expression</h3>
+<p>
+Measuring gene activity through RNA abundance across cells, tissues, and biological conditions.
+</p>
+</div>
 
-      <div class="card">
-        <h3>Systems Regulation</h3>
-        <p>Connecting RNA activity to pathways, networks, and phenotype.</p>
-      </div>
+<div class="card">
+<h3>RNA-seq</h3>
+<p>
+Sequencing transcripts to profile biological states, disease signatures, and treatment responses.
+</p>
+</div>
 
-    </div>
+<div class="card">
+<h3>Alternative Splicing</h3>
+<p>
+Understanding how one gene can generate multiple RNA isoforms with different biological roles.
+</p>
+</div>
 
-  </section>
+<div class="card">
+<h3>Non-coding RNA</h3>
+<p>
+Studying regulatory RNAs including lncRNA, miRNA, circRNA, and other non-coding RNA classes.
+</p>
+</div>
 
-  <section class="section">
+</div>
 
-    <h2>Transcriptomics and <span>Omics Sciences</span></h2>
+</section>
 
-    <p>
-      Transcriptomics connects genomic information to biological function by revealing how genes are actively expressed across cells, tissues, developmental stages, and disease states.
-    </p>
+<section class="section">
 
-    <p>
-      At PanorOmics, transcriptomics serves as a central bridge between the genome and downstream molecular phenotypes, enabling systems-level understanding of life.
-    </p>
+<h2>
+Transcriptomics and <span>Omics Sciences</span>
+</h2>
 
-    <a href="/publications" class="hero-button">
-      Explore Related Publications →
-    </a>
+<p>
+Transcriptomics connects genomic information to biological function by revealing how genes are actively expressed across cells, tissues, developmental stages, disease states, and environmental contexts.
+</p>
 
-  </section>
+<p>
+At PanorOmics, transcriptomics serves as a central bridge between the genome and downstream molecular phenotypes, enabling systems-level understanding of life, disease, and biotechnology.
+</p>
 
-</main>
+<a href="/publications" class="hero-button">
+Explore Related Publications →
+</a>
+
+</section>
+
+</div>
 
 </body>
 

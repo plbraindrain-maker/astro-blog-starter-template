@@ -614,10 +614,12 @@ Read Victoria Gray's Story →
 const searchInput = document.getElementById("searchInput");
 
 if (searchInput) {
-  searchInput.addEventListener("input", function() {
+  searchInput.addEventListener("input", function () {
     const value = this.value.toLowerCase();
 
-    const cards = document.querySelectorAll(".paper-card, .searchable-card");
+    const cards = document.querySelectorAll(
+      ".paper-card, .category-card, .wide-card"
+    );
 
     cards.forEach((card) => {
       const text = card.textContent.toLowerCase();

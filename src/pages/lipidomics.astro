@@ -3,215 +3,268 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Lipidomics | PanorOmics</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
   background:#020817;
   color:white;
-  font-family:Inter,Arial,sans-serif;
-  overflow-x:hidden;
+  font-family:Inter,sans-serif;
 }
 
-.page{
-  padding:72px 7% 42px;
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 7% 60px;
 }
 
 .back{
   color:#3b82f6;
   text-decoration:none;
-  font-size:.92rem;
+  font-size:.9rem;
   font-weight:700;
 }
 
 .hero{
-  margin-top:34px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:34px;
-  align-items:center;
+  margin-top:32px;
 }
 
-h1{
-  font-size:clamp(2.3rem,4vw,4rem);
-  line-height:.98;
+.hero h1{
+  font-size:clamp(2.5rem,5vw,4.5rem);
+  line-height:.95;
   letter-spacing:-.05em;
-}
-
-h1 span{
-  color:#3b82f6;
-}
-
-p{
-  margin-top:18px;
-  color:#cbd5e1;
-  font-size:.95rem;
-  line-height:1.65;
-  max-width:680px;
-}
-
-.video-box,
-.image-box{
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid rgba(59,130,246,.14);
-  box-shadow:0 0 50px rgba(37,99,235,.12);
-}
-
-video,img{
-  width:100%;
-  display:block;
-}
-
-.section{
-  padding:38px 0;
-}
-
-h2{
-  font-size:clamp(1.7rem,3vw,2.6rem);
   margin-bottom:18px;
 }
 
-h2 span{
+.hero h1 span{
   color:#3b82f6;
 }
 
-.grid{
+.hero p{
+  color:#cbd5e1;
+  font-size:1rem;
+  line-height:1.8;
+  max-width:900px;
+}
+
+.hero-image{
+  margin-top:36px;
+}
+
+.hero-image video{
+  width:100%;
+  border-radius:20px;
+  display:block;
+  border:1px solid rgba(59,130,246,.12);
+}
+
+.hero-image img{
+  width:100%;
+  max-width:none;
+  border-radius:20px;
+  display:block;
+  border:1px solid rgba(59,130,246,.12);
+}
+
+.infographic{
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-top:32px;
+}
+
+.infographic img{
+  width:100%;
+  display:block;
+  border-radius:24px;
+}
+
+.section{
+  margin-top:60px;
+}
+
+.section h2{
+  font-size:2rem;
+  margin-bottom:16px;
+}
+
+.section h2 span{
+  color:#3b82f6;
+}
+
+.section p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.applications{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
   margin-top:24px;
 }
 
 .card{
-  background:rgba(8,15,35,.72);
+  background:rgba(8,15,35,.75);
   border:1px solid rgba(59,130,246,.12);
-  border-radius:20px;
-  padding:20px;
+  border-radius:18px;
+  padding:24px;
 }
 
 .card h3{
   color:#3b82f6;
   margin-bottom:10px;
-  font-size:1.1rem;
 }
 
 .card p{
-  margin-top:0;
-  font-size:.9rem;
-  color:#94a3b8;
+  margin:0;
+  font-size:.92rem;
 }
 
-@media(max-width:900px){
-  .hero{
-    grid-template-columns:1fr
-  }
-
-  .page{
-    padding:64px 20px 36px
-  }
+.hero-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:24px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
 }
+
 </style>
+
 </head>
 
 <body>
 
-<main class="page">
+<div class="container">
 
-  <a class="back" href="/">← Back to PanorOmics</a>
+<a href="/" class="back">
+← Back to PanorOmics
+</a>
 
-  <section class="hero">
+<section class="hero">
 
-    <div>
+<h1>
+Lipid<span>omics</span>
+</h1>
 
-      <h1>Lipidomics: <span>Mapping Lipid Biology</span></h1>
+<p>
+Lipidomics investigates the diverse lipid molecules that shape membranes, signaling pathways, energy storage, inflammation, metabolism, and cellular identity. By profiling lipid species and lipid networks, lipidomics reveals how biochemical regulation influences health, disease, and therapeutic response.
+</p>
 
-      <p>
-        Lipidomics investigates the diverse lipid molecules that shape membranes,
-        signaling pathways, energy storage, inflammation, metabolism, and cellular
-        identity. By profiling lipid species and lipid networks, lipidomics reveals
-        how biochemical regulation influences health, disease, and therapeutic response.
-      </p>
+<div class="hero-image">
+  <video autoplay muted loop playsinline>
+    <source src="/3_Lipidomics.mp4" type="video/mp4">
+  </video>
+</div>
 
-    </div>
+</section>
 
-    <div class="video-box">
+<section class="section">
 
-      <video autoplay muted loop playsinline>
+<h2>
+What is <span>Lipidomics?</span>
+</h2>
 
-        <source
-          src="/3_Lipidomics.mp4"
-          type="video/mp4"
-        />
+<div class="infographic">
 
-      </video>
+  <img
+    src="/1_Lipidomics.png"
+    alt="Lipidomics overview infographic"
+  >
 
-    </div>
+</div>
 
-  </section>
+<p>
+Lipidomics is the comprehensive study of lipid molecules and lipid-related pathways across cells, tissues, organisms, and biological systems.
+</p>
 
-  <section class="section">
+<p>
+Modern lipidomics uses mass spectrometry, computational lipid annotation, pathway analysis, and systems biology to understand membrane biology, metabolic regulation, inflammation, disease mechanisms, and therapeutic response.
+</p>
 
-    <h2>What is <span>Lipidomics?</span></h2>
+</section>
 
-    <div class="image-box">
+<section class="section">
 
-      <img
-        src="/1_Lipidomics.png"
-        alt="Lipidomics overview infographic"
-      />
+<h2>
+Applications in <span>Research & Medicine</span>
+</h2>
 
-    </div>
+<div class="applications">
 
-  </section>
+<div class="card">
+<h3>Lipid Profiling</h3>
+<p>
+Measuring lipid species across cells, tissues, biofluids, and biological systems.
+</p>
+</div>
 
-  <section class="section">
+<div class="card">
+<h3>Membrane Biology</h3>
+<p>
+Understanding how lipid composition shapes cellular structure, signaling, and function.
+</p>
+</div>
 
-    <h2>Core Areas</h2>
+<div class="card">
+<h3>Metabolic Regulation</h3>
+<p>
+Mapping lipid pathways involved in energy balance, metabolism, and cellular adaptation.
+</p>
+</div>
 
-    <div class="grid">
+<div class="card">
+<h3>Inflammation & Signaling</h3>
+<p>
+Studying lipid mediators that regulate immune responses, inflammation, and signaling networks.
+</p>
+</div>
 
-      <div class="card">
-        <h3>Lipid Profiling</h3>
-        <p>Measuring lipid species across cells, tissues, and biological systems.</p>
-      </div>
+</div>
 
-      <div class="card">
-        <h3>Membrane Biology</h3>
-        <p>Understanding how lipid composition shapes cellular structure and function.</p>
-      </div>
+</section>
 
-      <div class="card">
-        <h3>Metabolic Regulation</h3>
-        <p>Mapping lipid pathways involved in energy balance and cellular metabolism.</p>
-      </div>
+<section class="section">
 
-      <div class="card">
-        <h3>Inflammation & Signaling</h3>
-        <p>Studying lipid mediators that regulate immune responses and signaling networks.</p>
-      </div>
+<h2>
+Lipidomics and <span>Omics Sciences</span>
+</h2>
 
-      <div class="card">
-        <h3>Disease Biomarkers</h3>
-        <p>Identifying lipid signatures associated with disease risk and progression.</p>
-      </div>
+<p>
+Lipidomics connects metabolism, membrane biology, signaling, and disease mechanisms by measuring lipid species that influence cellular behavior and physiological function.
+</p>
 
-      <div class="card">
-        <h3>Systems Lipidomics</h3>
-        <p>Integrating lipidomics with genomics, proteomics, metabolomics, and clinical data.</p>
-      </div>
+<p>
+At PanorOmics, lipidomics is a critical omics layer for understanding biochemical regulation, cellular communication, metabolic health, inflammation, and translational biotechnology.
+</p>
 
-    </div>
+<a href="/publications" class="hero-button">
+Explore Related Publications →
+</a>
 
-  </section>
+</section>
 
-</main>
+</div>
 
 </body>
+
 </html>

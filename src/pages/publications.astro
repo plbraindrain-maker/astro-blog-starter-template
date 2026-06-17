@@ -1,4 +1,100 @@
 ---
+const omicsCategories = [
+  'All',
+  'Genomics',
+  'Transcriptomics',
+  'Proteomics',
+  'Metabolomics',
+  'Lipidomics',
+  'Epigenomics',
+  'Microbiomics',
+];
+
+const publicationTypes = [
+  'All Types',
+  'Research Articles',
+  'Reviews',
+  'Clinical Studies',
+  'Case Studies',
+  'Protocols',
+  'Datasets',
+  'Books',
+  'Educational Resources',
+];
+
+const keywords = [
+  'Cancer',
+  'CRISPR',
+  'AI Biology',
+  'Non-coding RNA',
+  'Precision Medicine',
+  'Single Cell',
+  'Aging',
+  'Stem Cells',
+  'Biomarkers',
+  'Drug Discovery',
+  'Colorectal Cancer',
+  'Systems Biology',
+];
+
+const featuredPapers = [
+  {
+    title: 'CRISPR-Cas9 Gene Editing for Sickle Cell Disease and β-Thalassemia',
+    authors: 'Frangoul H, Altshuler D, Cappellini MD, et al.',
+    journal: 'New England Journal of Medicine',
+    year: '2021',
+    category: 'Genomics',
+    type: 'Clinical Study',
+    why: 'A landmark study showing how gene editing can move from molecular discovery to real-world patient impact.',
+  },
+  {
+    title: 'The Human Genome Project and the Foundation of Precision Medicine',
+    authors: 'Curated PanorOmics Library Entry',
+    journal: 'PanorOmics Educational Library',
+    year: 'Featured',
+    category: 'Genomics',
+    type: 'Landmark Discovery',
+    why: 'Established the genomic foundation for modern biomedical research, sequencing, and precision health.',
+  },
+  {
+    title: 'Single-Cell Transcriptomics in Cancer Biology',
+    authors: 'Curated PanorOmics Library Entry',
+    journal: 'PanorOmics Educational Library',
+    year: 'Featured',
+    category: 'Transcriptomics',
+    type: 'Review Collection',
+    why: 'Shows how RNA profiling can reveal tumor heterogeneity, immune states, and therapy resistance.',
+  },
+];
+
+const landmarkDiscoveries = [
+  'Human Genome Project',
+  'CRISPR Gene Editing',
+  'ENCODE Project',
+  'The Cancer Genome Atlas',
+  'Human Cell Atlas',
+  'AlphaFold',
+];
+
+const journalCollections = [
+  'Nature',
+  'Science',
+  'Cell',
+  'NEJM',
+  'The Lancet',
+  'Nature Biotechnology',
+  'Nature Genetics',
+  'Genome Biology',
+];
+
+const curatedCollections = [
+  'Victoria Gray CRISPR Collection',
+  'Cancer Genomics Collection',
+  'Non-coding RNA Collection',
+  'Colorectal Cancer Omics Collection',
+  'AI Biology Collection',
+  'Precision Medicine Collection',
+];
 ---
 
 <!DOCTYPE html>
@@ -23,6 +119,7 @@ body{
   background:#020817;
   color:white;
   font-family:Inter,sans-serif;
+  overflow-x:hidden;
 }
 
 .container{
@@ -44,16 +141,24 @@ body{
 }
 
 .library-logo{
-  width:140px;
+  width:130px;
   height:auto;
   display:block;
   margin:0 auto 24px;
 }
 
+.hero-kicker{
+  color:#3b82f6;
+  font-size:.72rem;
+  letter-spacing:.26em;
+  font-weight:800;
+  margin-bottom:16px;
+}
+
 .hero h1{
-  font-size:clamp(2.5rem,5vw,4.5rem);
+  font-size:clamp(2.6rem,5vw,4.6rem);
   line-height:.95;
-  letter-spacing:-.05em;
+  letter-spacing:-.055em;
   margin-bottom:18px;
 }
 
@@ -65,12 +170,93 @@ body{
   color:#cbd5e1;
   font-size:1rem;
   line-height:1.8;
-  max-width:900px;
+  max-width:920px;
   margin:0 auto;
 }
 
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;
+  margin-top:34px;
+}
+
+.stat{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:18px;
+}
+
+.stat strong{
+  display:block;
+  color:#3b82f6;
+  font-size:1.5rem;
+  margin-bottom:4px;
+}
+
+.stat span{
+  color:#94a3b8;
+  font-size:.84rem;
+}
+
+.library-toolbar{
+  margin-top:42px;
+  background:rgba(8,15,35,.78);
+  border:1px solid rgba(59,130,246,.14);
+  border-radius:24px;
+  padding:22px;
+  box-shadow:0 0 50px rgba(37,99,235,.10);
+}
+
+.search-box{
+  width:100%;
+  padding:16px 18px;
+  border-radius:999px;
+  border:1px solid rgba(59,130,246,.25);
+  background:#020817;
+  color:white;
+  font-size:1rem;
+  outline:none;
+}
+
+.search-box::placeholder{
+  color:#64748b;
+}
+
+.toolbar-label{
+  color:#94a3b8;
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  margin-top:18px;
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
+
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.filter-pill{
+  padding:9px 15px;
+  border-radius:999px;
+  border:1px solid rgba(59,130,246,.18);
+  background:rgba(59,130,246,.08);
+  color:#cbd5e1;
+  font-size:.82rem;
+  font-weight:700;
+}
+
+.filter-pill.active{
+  background:#2563eb;
+  color:white;
+}
+
 .section{
-  margin-top:60px;
+  margin-top:64px;
 }
 
 .section h2{
@@ -89,34 +275,68 @@ body{
   margin-bottom:16px;
 }
 
-.categories{
+.library-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:20px;
   margin-top:24px;
 }
 
-.card{
+.paper-card,
+.category-card{
   background:rgba(8,15,35,.75);
   border:1px solid rgba(59,130,246,.12);
-  border-radius:18px;
+  border-radius:20px;
   padding:24px;
   transition:.3s ease;
 }
 
-.card:hover{
-  border-color:#3b82f6;
+.paper-card:hover,
+.category-card:hover{
   transform:translateY(-4px);
+  border-color:#3b82f6;
+  box-shadow:0 18px 50px rgba(37,99,235,.10);
 }
 
-.card h3{
+.paper-tag{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(59,130,246,.12);
+  color:#60a5fa;
+  font-size:.72rem;
+  font-weight:800;
+}
+
+.paper-card h3,
+.category-card h3{
   color:#3b82f6;
   margin-bottom:10px;
+  line-height:1.25;
 }
 
-.card p{
+.meta{
+  color:#94a3b8;
+  font-size:.82rem;
+  line-height:1.5;
+  margin-bottom:12px;
+}
+
+.paper-card p,
+.category-card p{
   margin:0;
   font-size:.92rem;
+  color:#cbd5e1;
+  line-height:1.7;
+}
+
+.wide-card{
+  background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(8,15,35,.78));
+  border:1px solid rgba(59,130,246,.18);
+  border-radius:24px;
+  padding:28px;
+  margin-top:24px;
 }
 
 .hero-button{
@@ -130,6 +350,20 @@ body{
   color:white;
   text-decoration:none;
   font-weight:700;
+}
+
+@media(max-width:768px){
+  .container{
+    padding:70px 20px 50px;
+  }
+
+  .library-logo{
+    width:105px;
+  }
+
+  .hero h1{
+    font-size:2.6rem;
+  }
 }
 
 </style>
@@ -152,16 +386,136 @@ body{
   class="library-logo"
 />
 
+<div class="hero-kicker">
+PANOROMICS SCIENTIFIC KNOWLEDGE LIBRARY
+</div>
+
 <h1>
 Publications <span>Library</span>
 </h1>
 
 <p>
-The PanorOmics Publications Library provides curated scientific literature,
-research highlights, landmark discoveries, and educational resources across
-omics sciences, biotechnology, artificial intelligence, systems biology,
-and precision medicine.
+A curated scientific knowledge portal for omics sciences, biotechnology,
+artificial intelligence, systems biology, precision medicine, and human health.
+Search by keyword, omics layer, publication type, research topic, landmark discovery,
+or human impact story.
 </p>
+
+<div class="stats">
+
+  <div class="stat">
+    <strong>7</strong>
+    <span>Omics Disciplines</span>
+  </div>
+
+  <div class="stat">
+    <strong>12+</strong>
+    <span>Keyword Collections</span>
+  </div>
+
+  <div class="stat">
+    <strong>8</strong>
+    <span>Journal Collections</span>
+  </div>
+
+  <div class="stat">
+    <strong>AI-ready</strong>
+    <span>Search Structure</span>
+  </div>
+
+</div>
+
+<div class="library-toolbar">
+
+<input
+  class="search-box"
+  type="search"
+  placeholder="Search by keyword, title, author, disease, omics field, method, journal, or topic..."
+/>
+
+<div class="toolbar-label">
+Omics Toolbar
+</div>
+
+<div class="filters">
+  {omicsCategories.map((item, index) => (
+    <span class={`filter-pill ${index === 0 ? 'active' : ''}`}>{item}</span>
+  ))}
+</div>
+
+<div class="toolbar-label">
+Publication Type
+</div>
+
+<div class="filters">
+  {publicationTypes.map((item, index) => (
+    <span class={`filter-pill ${index === 0 ? 'active' : ''}`}>{item}</span>
+  ))}
+</div>
+
+<div class="toolbar-label">
+Keyword Search
+</div>
+
+<div class="filters">
+  {keywords.map((item) => (
+    <span class="filter-pill">{item}</span>
+  ))}
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Featured <span>Publications</span>
+</h2>
+
+<div class="library-grid">
+
+{featuredPapers.map((paper) => (
+
+  <article class="paper-card">
+
+    <span class="paper-tag">{paper.category} • {paper.type}</span>
+
+    <h3>{paper.title}</h3>
+
+    <div class="meta">
+      {paper.authors}<br>
+      {paper.journal} • {paper.year}
+    </div>
+
+    <p>{paper.why}</p>
+
+  </article>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Landmark <span>Discoveries</span>
+</h2>
+
+<div class="library-grid">
+
+{landmarkDiscoveries.map((item) => (
+
+  <div class="category-card">
+    <h3>{item}</h3>
+    <p>Curated resources explaining the discovery, scientific context, omics connection, and human impact.</p>
+  </div>
+
+))}
+
+</div>
 
 </section>
 
@@ -171,42 +525,16 @@ and precision medicine.
 Browse by <span>Omics Science</span>
 </h2>
 
-<div class="categories">
+<div class="library-grid">
 
-<div class="card">
-<h3>Genomics</h3>
-<p>Genome sequencing, genetic variation, precision medicine, and population genomics.</p>
-</div>
+{omicsCategories.filter((item) => item !== 'All').map((item) => (
 
-<div class="card">
-<h3>Transcriptomics</h3>
-<p>RNA expression, RNA sequencing, non-coding RNA, and gene regulation.</p>
-</div>
+  <div class="category-card">
+    <h3>{item}</h3>
+    <p>Curated papers, landmark studies, educational summaries, and translational discoveries in {item.toLowerCase()}.</p>
+  </div>
 
-<div class="card">
-<h3>Proteomics</h3>
-<p>Protein expression, signaling pathways, biomarkers, and systems proteomics.</p>
-</div>
-
-<div class="card">
-<h3>Metabolomics</h3>
-<p>Metabolic pathways, biochemical phenotypes, and disease-associated metabolites.</p>
-</div>
-
-<div class="card">
-<h3>Lipidomics</h3>
-<p>Lipid signaling, membrane biology, inflammation, and metabolic regulation.</p>
-</div>
-
-<div class="card">
-<h3>Epigenomics</h3>
-<p>DNA methylation, chromatin biology, histone modifications, and gene regulation.</p>
-</div>
-
-<div class="card">
-<h3>Microbiomics</h3>
-<p>Microbial ecosystems, host interactions, microbiome therapeutics, and environmental microbiology.</p>
-</div>
+))}
 
 </div>
 
@@ -215,40 +543,19 @@ Browse by <span>Omics Science</span>
 <section class="section">
 
 <h2>
-Browse by <span>Research Area</span>
+Curated <span>Collections</span>
 </h2>
 
-<div class="categories">
+<div class="library-grid">
 
-<div class="card">
-<h3>Cancer Biology</h3>
-<p>Genomic, epigenomic, transcriptomic, and multi-omics approaches to cancer research.</p>
-</div>
+{curatedCollections.map((item) => (
 
-<div class="card">
-<h3>Precision Medicine</h3>
-<p>Personalized diagnostics, therapeutics, and predictive biomarkers.</p>
-</div>
+  <div class="category-card">
+    <h3>{item}</h3>
+    <p>PanorOmics-selected readings connecting scientific publications with education, research, and translational biotechnology.</p>
+  </div>
 
-<div class="card">
-<h3>Artificial Intelligence</h3>
-<p>Machine learning, computational biology, and AI-driven biomedical discovery.</p>
-</div>
-
-<div class="card">
-<h3>Biotechnology</h3>
-<p>Translational science, innovation, therapeutics, and emerging technologies.</p>
-</div>
-
-<div class="card">
-<h3>Systems Biology</h3>
-<p>Integrating biological networks across molecular and clinical scales.</p>
-</div>
-
-<div class="card">
-<h3>Omics Sciences</h3>
-<p>Theoretical foundations, interdisciplinary integration, and the Architecture of Life.</p>
-</div>
+))}
 
 </div>
 
@@ -257,17 +564,46 @@ Browse by <span>Research Area</span>
 <section class="section">
 
 <h2>
-Recent <span>Publications</span>
+Journal <span>Browser</span>
 </h2>
+
+<div class="library-grid">
+
+{journalCollections.map((item) => (
+
+  <div class="category-card">
+    <h3>{item}</h3>
+    <p>Browse high-impact literature and selected papers relevant to omics sciences and biomedical discovery.</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Human Impact <span>Stories</span>
+</h2>
+
+<div class="wide-card">
+
+<h3 style="color:#3b82f6; margin-bottom:12px;">
+Victoria Gray CRISPR Collection
+</h3>
 
 <p>
-Curated publication collections and featured research articles will be added
-to this library as the PanorOmics knowledge base expands.
+A curated collection connecting sickle cell disease, genomics, CRISPR gene editing,
+clinical translation, biotechnology, and human impact.
 </p>
 
-<a href="/research" class="hero-button">
-Explore Research →
+<a href="/victoria-gray" class="hero-button">
+Read Victoria Gray's Story →
 </a>
+
+</div>
 
 </section>
 

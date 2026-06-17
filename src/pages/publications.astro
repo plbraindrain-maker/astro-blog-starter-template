@@ -610,26 +610,30 @@ Read Victoria Gray's Story →
 
 </div>
 
-<script is:inline>
-const searchInput = document.getElementById("searchInput");
+<<script is:inline>
+window.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("searchInput");
 
-if (searchInput) {
+  if (!searchInput) return;
+
   searchInput.addEventListener("input", function () {
-    const value = this.value.toLowerCase();
+    const value = searchInput.value.toLowerCase().trim();
 
     const cards = document.querySelectorAll(
       ".paper-card, .category-card, .wide-card"
     );
 
-    cards.forEach((card) => {
+    cards.forEach(function (card) {
       const text = card.textContent.toLowerCase();
 
-      card.style.display = text.includes(value) ? "" : "none";
+      card.style.display =
+        value === "" || text.includes(value)
+          ? ""
+          : "none";
     });
   });
-}
+});
 </script>
-
-</body>
+/body>
 
 </html>

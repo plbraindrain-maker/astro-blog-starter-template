@@ -44,7 +44,8 @@ const featuredPapers = [
     journal: 'New England Journal of Medicine',
     year: '2021',
     category: 'Genomics',
-    type: 'Clinical Study',
+    type: 'Clinical Studies',
+    keywords: 'CRISPR Genomics Clinical Studies Precision Medicine',
     why: 'A landmark study showing how gene editing can move from molecular discovery to real-world patient impact.',
   },
   {
@@ -53,7 +54,8 @@ const featuredPapers = [
     journal: 'PanorOmics Educational Library',
     year: 'Featured',
     category: 'Genomics',
-    type: 'Landmark Discovery',
+    type: 'Educational Resources',
+    keywords: 'Human Genome Project Genomics Precision Medicine',
     why: 'Established the genomic foundation for modern biomedical research, sequencing, and precision health.',
   },
   {
@@ -62,7 +64,8 @@ const featuredPapers = [
     journal: 'PanorOmics Educational Library',
     year: 'Featured',
     category: 'Transcriptomics',
-    type: 'Review Collection',
+    type: 'Reviews',
+    keywords: 'Single Cell Transcriptomics Cancer Biology',
     why: 'Shows how RNA profiling can reveal tumor heterogeneity, immune states, and therapy resistance.',
   },
 ];
@@ -241,6 +244,8 @@ body{
 }
 
 .filter-pill{
+  cursor:pointer;
+  font-family:inherit;
   padding:9px 15px;
   border-radius:999px;
   border:1px solid rgba(59,130,246,.18);
@@ -282,8 +287,7 @@ body{
   margin-top:24px;
 }
 
-.paper-card,
-.category-card{
+.library-card{
   background:rgba(8,15,35,.75);
   border:1px solid rgba(59,130,246,.12);
   border-radius:20px;
@@ -291,8 +295,7 @@ body{
   transition:.3s ease;
 }
 
-.paper-card:hover,
-.category-card:hover{
+.library-card:hover{
   transform:translateY(-4px);
   border-color:#3b82f6;
   box-shadow:0 18px 50px rgba(37,99,235,.10);
@@ -309,8 +312,7 @@ body{
   font-weight:800;
 }
 
-.paper-card h3,
-.category-card h3{
+.library-card h3{
   color:#3b82f6;
   margin-bottom:10px;
   line-height:1.25;
@@ -323,20 +325,11 @@ body{
   margin-bottom:12px;
 }
 
-.paper-card p,
-.category-card p{
+.library-card p{
   margin:0;
   font-size:.92rem;
   color:#cbd5e1;
   line-height:1.7;
-}
-
-.wide-card{
-  background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(8,15,35,.78));
-  border:1px solid rgba(59,130,246,.18);
-  border-radius:24px;
-  padding:28px;
-  margin-top:24px;
 }
 
 .hero-button{
@@ -350,6 +343,10 @@ body{
   color:white;
   text-decoration:none;
   font-weight:700;
+}
+
+.hidden{
+  display:none !important;
 }
 
 @media(max-width:768px){
@@ -419,8 +416,8 @@ or human impact story.
   </div>
 
   <div class="stat">
-    <strong>AI-ready</strong>
-    <span>Search Structure</span>
+    <strong>Working</strong>
+    <span>Search + Filters</span>
   </div>
 
 </div>
@@ -440,7 +437,13 @@ Omics Toolbar
 
 <div class="filters">
   {omicsCategories.map((item, index) => (
-    <span class={`filter-pill ${index === 0 ? 'active' : ''}`}>{item}</span>
+    <button
+      class={`filter-pill ${index === 0 ? 'active' : ''}`}
+      data-filter={item}
+      type="button"
+    >
+      {item}
+    </button>
   ))}
 </div>
 
@@ -450,7 +453,13 @@ Publication Type
 
 <div class="filters">
   {publicationTypes.map((item, index) => (
-    <span class={`filter-pill ${index === 0 ? 'active' : ''}`}>{item}</span>
+    <button
+      class={`filter-pill ${index === 0 ? 'active' : ''}`}
+      data-filter={item}
+      type="button"
+    >
+      {item}
+    </button>
   ))}
 </div>
 
@@ -460,7 +469,13 @@ Keyword Search
 
 <div class="filters">
   {keywords.map((item) => (
-    <span class="filter-pill">{item}</span>
+    <button
+      class="filter-pill"
+      data-filter={item}
+      type="button"
+    >
+      {item}
+    </button>
   ))}
 </div>
 
@@ -478,7 +493,10 @@ Featured <span>Publications</span>
 
 {featuredPapers.map((paper) => (
 
-  <article class="paper-card">
+  <article
+    class="library-card searchable-card"
+    data-search={`${paper.title} ${paper.authors} ${paper.journal} ${paper.year} ${paper.category} ${paper.type} ${paper.keywords} ${paper.why}`}
+  >
 
     <span class="paper-tag">{paper.category} • {paper.type}</span>
 
@@ -509,7 +527,10 @@ Landmark <span>Discoveries</span>
 
 {landmarkDiscoveries.map((item) => (
 
-  <div class="category-card searchable-card">
+  <div
+    class="library-card searchable-card"
+    data-search={`${item} landmark discovery omics science biomedical research`}
+  >
     <h3>{item}</h3>
     <p>Curated resources explaining the discovery, scientific context, omics connection, and human impact.</p>
   </div>
@@ -530,7 +551,10 @@ Browse by <span>Omics Science</span>
 
 {omicsCategories.filter((item) => item !== 'All').map((item) => (
 
-  <div class="category-card searchable-card">
+  <div
+    class="library-card searchable-card"
+    data-search={`${item} omics science curated papers landmark studies reviews translational discoveries`}
+  >
     <h3>{item}</h3>
     <p>Curated papers, landmark studies, educational summaries, and translational discoveries in {item.toLowerCase()}.</p>
   </div>
@@ -551,7 +575,10 @@ Curated <span>Collections</span>
 
 {curatedCollections.map((item) => (
 
-  <div class="category-card searchable-card">
+  <div
+    class="library-card searchable-card"
+    data-search={`${item} curated collection publications education translational biotechnology`}
+  >
     <h3>{item}</h3>
     <p>PanorOmics-selected readings connecting scientific publications with education, research, and translational biotechnology.</p>
   </div>
@@ -572,7 +599,10 @@ Journal <span>Browser</span>
 
 {journalCollections.map((item) => (
 
-  <div class="category-card searchable-card">
+  <div
+    class="library-card searchable-card"
+    data-search={`${item} journal browser high impact literature omics biomedical discovery`}
+  >
     <h3>{item}</h3>
     <p>Browse high-impact literature and selected papers relevant to omics sciences and biomedical discovery.</p>
   </div>
@@ -589,9 +619,12 @@ Journal <span>Browser</span>
 Human Impact <span>Stories</span>
 </h2>
 
-<div class="wide-card searchable-card">
+<div
+  class="library-card searchable-card"
+  data-search="Victoria Gray CRISPR sickle cell disease genomics gene editing clinical translation biotechnology human impact"
+>
 
-<h3 style="color:#3b82f6; margin-bottom:12px;">
+<h3>
 Victoria Gray CRISPR Collection
 </h3>
 
@@ -612,24 +645,70 @@ Read Victoria Gray's Story →
 
 <script is:inline>
 window.addEventListener("DOMContentLoaded", function () {
-  const searchInput = document.getElementById("searchInput");
+  const searchInput =
+  document.getElementById("searchInput");
 
-  if (!searchInput) return;
+  const buttons =
+  document.querySelectorAll(".filter-pill");
 
-  searchInput.addEventListener("input", function () {
-    const value = searchInput.value.toLowerCase().trim();
+  const cards =
+  document.querySelectorAll(".searchable-card");
 
-    const cards = document.querySelectorAll(
-      ".paper-card, .category-card, .wide-card"
-    );
+  function clearActiveButtons() {
+    buttons.forEach(function(button) {
+      button.classList.remove("active");
+    });
+  }
 
-    cards.forEach(function (card) {
-      const text = card.textContent.toLowerCase();
+  function filterCards(query) {
+    const cleanQuery =
+    String(query || "").toLowerCase().trim();
 
-      card.style.display =
-        value === "" || text.includes(value)
+    cards.forEach(function(card) {
+      const text =
+      (
+        card.getAttribute("data-search") ||
+        card.textContent ||
+        ""
+      ).toLowerCase();
+
+      if (
+        cleanQuery === "" ||
+        cleanQuery === "all" ||
+        cleanQuery === "all types" ||
+        text.includes(cleanQuery)
+      ) {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function() {
+      clearActiveButtons();
+      filterCards(searchInput.value);
+    });
+  }
+
+  buttons.forEach(function(button) {
+    button.addEventListener("click", function() {
+      const value =
+      button.getAttribute("data-filter") || "";
+
+      clearActiveButtons();
+      button.classList.add("active");
+
+      if (searchInput) {
+        searchInput.value =
+        value.toLowerCase() === "all" ||
+        value.toLowerCase() === "all types"
           ? ""
-          : "none";
+          : value;
+      }
+
+      filterCards(value);
     });
   });
 });

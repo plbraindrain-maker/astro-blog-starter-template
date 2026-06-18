@@ -119,10 +119,21 @@ body{
 }
 
 .card{
+  display:block;
   background:rgba(8,15,35,.75);
   border:1px solid rgba(59,130,246,.12);
   border-radius:18px;
   padding:24px;
+  text-decoration:none;
+  color:inherit;
+  transition:.25s ease;
+  cursor:pointer;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:#3b82f6;
+  box-shadow:0 12px 30px rgba(59,130,246,.15);
 }
 
 .card h3{
@@ -211,36 +222,35 @@ Applications in <span>Research & Medicine</span>
 
 <div class="applications">
 
-<div class="card">
+<a href="/research/genomics/genome-sequencing" class="card">
 <h3>Genome Sequencing</h3>
 <p>
 Reading DNA information at scale to study organisms, populations, and disease mechanisms.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/genomics/variant-discovery" class="card">
 <h3>Variant Discovery</h3>
 <p>
 Identifying genetic differences linked to inherited disorders, cancer, drug response, and biological traits.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/genomics/precision-medicine" class="card">
 <h3>Precision Medicine</h3>
 <p>
 Connecting genomic information to diagnosis, prevention, treatment selection, and personalized care.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/genomics/population-genomics" class="card">
 <h3>Population Genomics</h3>
 <p>
 Studying genetic diversity across individuals, communities, ancestry groups, and global populations.
 </p>
-</div>
+</a>
 
 </div>
-
 </section>
 
 <section class="section">

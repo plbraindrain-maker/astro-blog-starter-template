@@ -1,1 +1,435 @@
+---
+// src/components/KaiAssistant.astro
 
+const assistantName = "Kai";
+const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explore PanorOmics, find research areas, discover publications, and guide you to PanorOmics Online.`;
+---
+
+<div id="kai-assistant" class="kai-shell">
+  <div id="kai-panel" class="kai-panel" aria-live="polite">
+    <div class="kai-header">
+      <div class="kai-header-left">
+        <div class="kai-mini-avatar">K</div>
+        <div>
+          <h3>Kai</h3>
+          <p>PanorOmics AI Guide</p>
+        </div>
+      </div>
+      <button id="kai-minimize" class="kai-icon-btn" aria-label="Minimize Kai">−</button>
+    </div>
+
+    <div id="kai-messages" class="kai-messages">
+      <div class="kai-msg kai-msg-bot">
+        <div class="kai-bubble">
+          {welcomeMessage}
+        </div>
+      </div>
+
+      <div class="kai-msg kai-msg-bot">
+        <div class="kai-bubble">
+          I can help you:
+          <ul class="kai-list">
+            <li>Explore research sections</li>
+            <li>Find genomics, transcriptomics, proteomics, and other omics pages</li>
+            <li>Guide you to the Publications Library</li>
+            <li>Direct you to PanorOmics Online for learning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="kai-quick-actions">
+      <button class="kai-chip" data-kai-action="show around">Show me around</button>
+      <button class="kai-chip" data-kai-action="research">Research sections</button>
+      <button class="kai-chip" data-kai-action="publications">Publications Library</button>
+      <button class="kai-chip" data-kai-action="omics">What is PanorOmics?</button>
+      <button class="kai-chip" data-kai-action="online">PanorOmics Online</button>
+      <button class="kai-chip" data-kai-action="genomics">Genomics</button>
+    </div>
+
+    <form id="kai-form" class="kai-input-row">
+      <input
+        id="kai-input"
+        type="text"
+        placeholder="Ask Kai a question..."
+        autocomplete="off"
+      />
+      <button type="submit" class="kai-send">Send</button>
+    </form>
+  </div>
+
+  <button id="kai-launcher" class="kai-launcher" aria-label="Open Kai assistant">
+    <div class="kai-sunburst">
+      <div class="kai-avatar-ring">
+        <div class="kai-avatar-face">K</div>
+      </div>
+    </div>
+  </button>
+</div>
+
+<style>
+  .kai-shell{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:9999;
+    font-family:Inter,sans-serif;
+  }
+
+  .kai-panel{
+    width:380px;
+    max-width:calc(100vw - 32px);
+    height:580px;
+    max-height:calc(100vh - 120px);
+    background:#06101f;
+    border:1px solid rgba(59,130,246,.18);
+    border-radius:24px;
+    box-shadow:0 24px 60px rgba(0,0,0,.35);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    margin-bottom:16px;
+  }
+
+  .kai-hidden{
+    display:none !important;
+  }
+
+  .kai-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 18px;
+    background:rgba(8,15,35,.92);
+    border-bottom:1px solid rgba(59,130,246,.12);
+  }
+
+  .kai-header-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .kai-mini-avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#8C1515;
+    color:#fff;
+    font-weight:800;
+    border:2px solid #fff;
+  }
+
+  .kai-header h3{
+    margin:0;
+    color:#fff;
+    font-size:1rem;
+    line-height:1.1;
+  }
+
+  .kai-header p{
+    margin:3px 0 0;
+    color:#94a3b8;
+    font-size:.78rem;
+  }
+
+  .kai-icon-btn{
+    background:transparent;
+    border:none;
+    color:#cbd5e1;
+    font-size:1.5rem;
+    cursor:pointer;
+  }
+
+  .kai-messages{
+    flex:1;
+    overflow:auto;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    background:#020817;
+  }
+
+  .kai-msg{
+    display:flex;
+  }
+
+  .kai-msg-bot{
+    justify-content:flex-start;
+  }
+
+  .kai-msg-user{
+    justify-content:flex-end;
+  }
+
+  .kai-bubble{
+    max-width:88%;
+    padding:14px 16px;
+    border-radius:18px;
+    line-height:1.6;
+    font-size:.95rem;
+    white-space:pre-wrap;
+  }
+
+  .kai-msg-bot .kai-bubble{
+    background:rgba(8,15,35,.84);
+    border:1px solid rgba(59,130,246,.12);
+    color:#e5edf9;
+  }
+
+  .kai-msg-user .kai-bubble{
+    background:#2563eb;
+    color:#fff;
+  }
+
+  .kai-list{
+    margin:8px 0 0 18px;
+    padding:0;
+  }
+
+  .kai-quick-actions{
+    padding:14px 16px 8px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    background:#06101f;
+    border-top:1px solid rgba(59,130,246,.10);
+  }
+
+  .kai-chip{
+    border:1px solid rgba(59,130,246,.18);
+    background:rgba(59,130,246,.08);
+    color:#dbe4ff;
+    border-radius:999px;
+    padding:8px 12px;
+    font-size:.82rem;
+    font-weight:700;
+    cursor:pointer;
+  }
+
+  .kai-chip:hover{
+    border-color:#3b82f6;
+    background:rgba(59,130,246,.14);
+  }
+
+  .kai-input-row{
+    display:flex;
+    gap:10px;
+    padding:14px 16px 16px;
+    background:#06101f;
+  }
+
+  #kai-input{
+    flex:1;
+    border-radius:999px;
+    border:1px solid rgba(59,130,246,.2);
+    background:#020817;
+    color:#fff;
+    padding:12px 14px;
+    outline:none;
+    font-size:.94rem;
+  }
+
+  #kai-input::placeholder{
+    color:#64748b;
+  }
+
+  .kai-send{
+    border:none;
+    border-radius:999px;
+    background:#2563eb;
+    color:#fff;
+    padding:12px 16px;
+    font-weight:700;
+    cursor:pointer;
+  }
+
+  .kai-send:hover{
+    background:#1d4ed8;
+  }
+
+  .kai-launcher{
+    border:none;
+    background:transparent;
+    padding:0;
+    cursor:pointer;
+    display:block;
+    margin-left:auto;
+  }
+
+  .kai-sunburst{
+    width:108px;
+    height:108px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:
+      conic-gradient(
+        from 0deg,
+        #d6a21d 0deg 12deg,
+        transparent 12deg 30deg,
+        #d6a21d 30deg 42deg,
+        transparent 42deg 60deg,
+        #d6a21d 60deg 72deg,
+        transparent 72deg 90deg,
+        #d6a21d 90deg 102deg,
+        transparent 102deg 120deg,
+        #d6a21d 120deg 132deg,
+        transparent 132deg 150deg,
+        #d6a21d 150deg 162deg,
+        transparent 162deg 180deg,
+        #d6a21d 180deg 192deg,
+        transparent 192deg 210deg,
+        #d6a21d 210deg 222deg,
+        transparent 222deg 240deg,
+        #d6a21d 240deg 252deg,
+        transparent 252deg 270deg,
+        #d6a21d 270deg 282deg,
+        transparent 282deg 300deg,
+        #d6a21d 300deg 312deg,
+        transparent 312deg 330deg,
+        #d6a21d 330deg 342deg,
+        transparent 342deg 360deg
+      );
+    filter:drop-shadow(0 12px 26px rgba(0,0,0,.32));
+  }
+
+  .kai-avatar-ring{
+    width:76px;
+    height:76px;
+    border-radius:50%;
+    background:#8C1515;
+    border:4px solid #ffffff;
+    display:grid;
+    place-items:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+  }
+
+  .kai-avatar-face{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    background:#ececec;
+    display:grid;
+    place-items:center;
+    border:2px solid #2f2f2f;
+    color:#2f2f2f;
+    font-weight:900;
+    font-size:1.15rem;
+  }
+
+  @media(max-width:768px){
+    .kai-shell{
+      right:16px;
+      bottom:16px;
+    }
+
+    .kai-panel{
+      width:min(100vw - 24px, 380px);
+      height:72vh;
+    }
+
+    .kai-sunburst{
+      width:92px;
+      height:92px;
+    }
+
+    .kai-avatar-ring{
+      width:66px;
+      height:66px;
+    }
+
+    .kai-avatar-face{
+      width:46px;
+      height:46px;
+    }
+  }
+</style>
+
+<script is:inline>
+  const panel = document.getElementById('kai-panel');
+  const launcher = document.getElementById('kai-launcher');
+  const minimize = document.getElementById('kai-minimize');
+  const form = document.getElementById('kai-form');
+  const input = document.getElementById('kai-input');
+  const messages = document.getElementById('kai-messages');
+  const chips = document.querySelectorAll('.kai-chip');
+
+  function addMessage(text, who = 'bot') {
+    const wrap = document.createElement('div');
+    wrap.className = `kai-msg kai-msg-${who}`;
+
+    const bubble = document.createElement('div');
+    bubble.className = 'kai-bubble';
+    bubble.textContent = text;
+
+    wrap.appendChild(bubble);
+    messages.appendChild(wrap);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function answerKai(question) {
+    const q = question.toLowerCase().trim();
+
+    if (q.includes('show me around') || q.includes('show around') || q.includes('tour')) {
+      return `Welcome to PanorOmics. Start with the Home page for the Architecture of Life, then explore Research for genomics and other omics sciences, visit the Publications Library for curated scientific literature, and use PanorOmics Online for courses and certificates.`;
+    }
+
+    if (q.includes('genomics')) {
+      return `The Genomics section covers Genome Sequencing, Variant Discovery, Precision Medicine, and Population Genomics. It is the foundation of the PanorOmics research structure.`;
+    }
+
+    if (q.includes('research')) {
+      return `PanorOmics Research is organized into knowledge-rich sections such as Genomics, Transcriptomics, Proteomics, Metabolomics, Lipidomics, Epigenomics, and Microbiomics. Each discipline can contain dedicated research applications and linked reference pages.`;
+    }
+
+    if (q.includes('publication') || q.includes('library') || q.includes('papers')) {
+      return `The Publications Library is the curated scientific knowledge base of PanorOmics. It is designed to help users browse landmark discoveries, journal collections, curated topics, and research pathways.`;
+    }
+
+    if (q.includes('online') || q.includes('course') || q.includes('certificate') || q.includes('learn')) {
+      return `PanorOmics Online is the learning portal for courses, certificates, and educational resources. It is separate from the PanorOmics research environment and uses its own visual identity.`;
+    }
+
+    if (q.includes('what is panoromics') || q.includes('omics')) {
+      return `PanorOmics is a scientific knowledge platform focused on Omics Sciences as an integrated discipline. It connects research, publications, scientific frameworks, and educational pathways into one structured ecosystem.`;
+    }
+
+    if (q.includes('contact')) {
+      return `You can direct visitors to the Contact section from the main navigation. This is the right place for collaborations, academic inquiries, and institutional communication.`;
+    }
+
+    return `I can help guide visitors through Research, the Publications Library, Genomics, and PanorOmics Online. Try asking: "Show me around", "Where is the Publications Library?", or "What is Genomics?"`;
+  }
+
+  launcher?.addEventListener('click', () => {
+    panel.classList.toggle('kai-hidden');
+  });
+
+  minimize?.addEventListener('click', () => {
+    panel.classList.add('kai-hidden');
+  });
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const question = input.value.trim();
+    if (!question) return;
+
+    addMessage(question, 'user');
+    const reply = answerKai(question);
+    setTimeout(() => addMessage(reply, 'bot'), 220);
+    input.value = '';
+  });
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const question = chip.getAttribute('data-kai-action') || chip.textContent.trim();
+      addMessage(question, 'user');
+      const reply = answerKai(question);
+      setTimeout(() => addMessage(reply, 'bot'), 180);
+    });
+  });
+</script>

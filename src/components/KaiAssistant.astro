@@ -10,7 +10,7 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
     <div class="kai-header">
       <div class="kai-header-left">
         <div class="kai-mini-avatar">
-          <div class="kai-mini-head">K</div>
+          <img src="/kai-avatar.png" alt="Kai AI Assistant" />
         </div>
         <div>
           <h3>Kai AI Assistant</h3>
@@ -63,7 +63,7 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
     <div class="kai-burst">
       <div class="kai-ring">
         <div class="kai-face-wrap">
-          <div class="kai-face">K</div>
+          <img src="/kai-avatar.png" alt="Kai AI Assistant" class="kai-avatar-img" />
         </div>
       </div>
     </div>
@@ -145,24 +145,18 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
     width:42px;
     height:42px;
     border-radius:50%;
-    display:grid;
-    place-items:center;
+    overflow:hidden;
     background:#fff6da;
     border:2px solid #ffd36e;
     box-shadow:0 4px 12px rgba(0,0,0,.08);
+    flex-shrink:0;
   }
 
-  .kai-mini-head{
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    background:#d9ecff;
-    border:2px solid #94c8ff;
-    color:#31557a;
-    font-size:.95rem;
-    font-weight:900;
+  .kai-mini-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
   }
 
   .kai-messages{
@@ -288,8 +282,8 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
   }
 
   .kai-burst{
-    width:90px;
-    height:90px;
+    width:96px;
+    height:96px;
     border-radius:50%;
     display:grid;
     place-items:center;
@@ -325,8 +319,8 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
   }
 
   .kai-ring{
-    width:64px;
-    height:64px;
+    width:70px;
+    height:70px;
     border-radius:50%;
     background:#ffffff;
     border:4px solid #b91c1c;
@@ -336,19 +330,19 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
   }
 
   .kai-face-wrap{
-    width:48px;
-    height:48px;
+    width:54px;
+    height:54px;
     border-radius:50%;
+    overflow:hidden;
     background:#f3f4f6;
     border:2px solid #6b7280;
-    display:grid;
-    place-items:center;
   }
 
-  .kai-face{
-    color:#374151;
-    font-size:1rem;
-    font-weight:900;
+  .kai-avatar-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
   }
 
   @keyframes kaiPop{

@@ -2,20 +2,22 @@
 // src/components/KaiAssistant.astro
 
 const assistantName = "Kai";
-const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explore PanorOmics, find research areas, discover publications, and guide you to PanorOmics Online.`;
+const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explore PanorOmics, find research areas, discover publications, and guide you around the site.`;
 ---
 
 <div id="kai-assistant" class="kai-shell">
-  <div id="kai-panel" class="kai-panel" aria-live="polite">
+  <div id="kai-panel" class="kai-panel kai-hidden" aria-live="polite">
     <div class="kai-header">
       <div class="kai-header-left">
-        <div class="kai-mini-avatar">K</div>
+        <div class="kai-mini-avatar">
+          <div class="kai-mini-head">K</div>
+        </div>
         <div>
-          <h3>Kai</h3>
-          <p>PanorOmics AI Guide</p>
+          <h3>Kai AI Assistant</h3>
+          <p>Your PanorOmics guide</p>
         </div>
       </div>
-      <button id="kai-minimize" class="kai-icon-btn" aria-label="Minimize Kai">−</button>
+      <button id="kai-minimize" class="kai-icon-btn" aria-label="Close Kai">×</button>
     </div>
 
     <div id="kai-messages" class="kai-messages">
@@ -30,21 +32,20 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
           I can help you:
           <ul class="kai-list">
             <li>Explore research sections</li>
-            <li>Find genomics, transcriptomics, proteomics, and other omics pages</li>
-            <li>Guide you to the Publications Library</li>
-            <li>Direct you to PanorOmics Online for learning</li>
+            <li>Find publications</li>
+            <li>Guide you around PanorOmics</li>
+            <li>Take you to PanorOmics Online</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="kai-quick-actions">
-      <button class="kai-chip" data-kai-action="show around">Show me around</button>
-      <button class="kai-chip" data-kai-action="research">Research sections</button>
-      <button class="kai-chip" data-kai-action="publications">Publications Library</button>
-      <button class="kai-chip" data-kai-action="omics">What is PanorOmics?</button>
-      <button class="kai-chip" data-kai-action="online">PanorOmics Online</button>
+      <button class="kai-chip" data-kai-action="show me around">Show me around</button>
+      <button class="kai-chip" data-kai-action="research">Research</button>
+      <button class="kai-chip" data-kai-action="publications">Publications</button>
       <button class="kai-chip" data-kai-action="genomics">Genomics</button>
+      <button class="kai-chip" data-kai-action="online">PanorOmics Online</button>
     </div>
 
     <form id="kai-form" class="kai-input-row">
@@ -58,10 +59,12 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
     </form>
   </div>
 
-  <button id="kai-launcher" class="kai-launcher" aria-label="Open Kai assistant">
-    <div class="kai-sunburst">
-      <div class="kai-avatar-ring">
-        <div class="kai-avatar-face">K</div>
+  <button id="kai-launcher" class="kai-launcher" aria-label="Open Kai AI Assistant">
+    <div class="kai-burst">
+      <div class="kai-ring">
+        <div class="kai-face-wrap">
+          <div class="kai-face">K</div>
+        </div>
       </div>
     </div>
   </button>
@@ -70,44 +73,72 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
 <style>
   .kai-shell{
     position:fixed;
-    right:24px;
-    bottom:24px;
+    right:20px;
+    bottom:20px;
     z-index:9999;
     font-family:Inter,sans-serif;
-  }
-
-  .kai-panel{
-    width:380px;
-    max-width:calc(100vw - 32px);
-    height:580px;
-    max-height:calc(100vh - 120px);
-    background:#06101f;
-    border:1px solid rgba(59,130,246,.18);
-    border-radius:24px;
-    box-shadow:0 24px 60px rgba(0,0,0,.35);
-    overflow:hidden;
-    display:flex;
-    flex-direction:column;
-    margin-bottom:16px;
   }
 
   .kai-hidden{
     display:none !important;
   }
 
+  .kai-panel{
+    width:340px;
+    max-width:calc(100vw - 24px);
+    height:480px;
+    max-height:calc(100vh - 120px);
+    margin-bottom:14px;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    border-radius:24px;
+    background:#f7fbff;
+    border:1px solid rgba(141, 196, 255, .55);
+    box-shadow:0 20px 60px rgba(12, 53, 96, .22);
+    animation:kaiPop .22s ease;
+  }
+
   .kai-header{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:16px 18px;
-    background:rgba(8,15,35,.92);
-    border-bottom:1px solid rgba(59,130,246,.12);
+    padding:14px 16px;
+    background:linear-gradient(180deg, #eef7ff 0%, #e8f3ff 100%);
+    border-bottom:1px solid rgba(141, 196, 255, .45);
   }
 
   .kai-header-left{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
+  }
+
+  .kai-header h3{
+    margin:0;
+    font-size:1rem;
+    line-height:1.1;
+    color:#23415f;
+    font-weight:800;
+  }
+
+  .kai-header p{
+    margin:3px 0 0;
+    font-size:.76rem;
+    color:#6f86a0;
+  }
+
+  .kai-icon-btn{
+    background:transparent;
+    border:none;
+    color:#6f86a0;
+    font-size:1.6rem;
+    line-height:1;
+    cursor:pointer;
+  }
+
+  .kai-icon-btn:hover{
+    color:#23415f;
   }
 
   .kai-mini-avatar{
@@ -116,41 +147,32 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
     border-radius:50%;
     display:grid;
     place-items:center;
-    background:#8C1515;
-    color:#fff;
-    font-weight:800;
-    border:2px solid #fff;
+    background:#fff6da;
+    border:2px solid #ffd36e;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
   }
 
-  .kai-header h3{
-    margin:0;
-    color:#fff;
-    font-size:1rem;
-    line-height:1.1;
-  }
-
-  .kai-header p{
-    margin:3px 0 0;
-    color:#94a3b8;
-    font-size:.78rem;
-  }
-
-  .kai-icon-btn{
-    background:transparent;
-    border:none;
-    color:#cbd5e1;
-    font-size:1.5rem;
-    cursor:pointer;
+  .kai-mini-head{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#d9ecff;
+    border:2px solid #94c8ff;
+    color:#31557a;
+    font-size:.95rem;
+    font-weight:900;
   }
 
   .kai-messages{
     flex:1;
     overflow:auto;
-    padding:18px;
+    padding:14px;
+    background:#f7fbff;
     display:flex;
     flex-direction:column;
-    gap:14px;
-    background:#020817;
+    gap:12px;
   }
 
   .kai-msg{
@@ -167,22 +189,24 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
 
   .kai-bubble{
     max-width:88%;
-    padding:14px 16px;
+    padding:12px 14px;
     border-radius:18px;
-    line-height:1.6;
-    font-size:.95rem;
+    line-height:1.55;
+    font-size:.88rem;
     white-space:pre-wrap;
   }
 
   .kai-msg-bot .kai-bubble{
-    background:rgba(8,15,35,.84);
-    border:1px solid rgba(59,130,246,.12);
-    color:#e5edf9;
+    background:#ffffff;
+    color:#36516d;
+    border:1px solid rgba(141, 196, 255, .45);
+    box-shadow:0 4px 14px rgba(12,53,96,.06);
   }
 
   .kai-msg-user .kai-bubble{
-    background:#2563eb;
-    color:#fff;
+    background:#dff0ff;
+    color:#23415f;
+    border:1px solid rgba(141, 196, 255, .45);
   }
 
   .kai-list{
@@ -190,65 +214,68 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
     padding:0;
   }
 
+  .kai-list li{
+    margin-bottom:4px;
+  }
+
   .kai-quick-actions{
-    padding:14px 16px 8px;
+    padding:10px 14px 6px;
     display:flex;
     flex-wrap:wrap;
-    gap:10px;
-    background:#06101f;
-    border-top:1px solid rgba(59,130,246,.10);
+    gap:8px;
+    background:#eef7ff;
+    border-top:1px solid rgba(141, 196, 255, .35);
   }
 
   .kai-chip{
-    border:1px solid rgba(59,130,246,.18);
-    background:rgba(59,130,246,.08);
-    color:#dbe4ff;
+    border:1px solid rgba(141, 196, 255, .55);
+    background:#ffffff;
+    color:#426280;
     border-radius:999px;
-    padding:8px 12px;
-    font-size:.82rem;
+    padding:7px 11px;
+    font-size:.78rem;
     font-weight:700;
     cursor:pointer;
   }
 
   .kai-chip:hover{
-    border-color:#3b82f6;
-    background:rgba(59,130,246,.14);
+    background:#dff0ff;
   }
 
   .kai-input-row{
     display:flex;
     gap:10px;
-    padding:14px 16px 16px;
-    background:#06101f;
+    padding:12px 14px 14px;
+    background:#eef7ff;
   }
 
   #kai-input{
     flex:1;
     border-radius:999px;
-    border:1px solid rgba(59,130,246,.2);
-    background:#020817;
-    color:#fff;
-    padding:12px 14px;
+    border:1px solid rgba(141, 196, 255, .55);
+    background:#ffffff;
+    color:#23415f;
+    padding:11px 14px;
     outline:none;
-    font-size:.94rem;
+    font-size:.87rem;
   }
 
   #kai-input::placeholder{
-    color:#64748b;
+    color:#8aa0b6;
   }
 
   .kai-send{
     border:none;
     border-radius:999px;
-    background:#2563eb;
-    color:#fff;
-    padding:12px 16px;
-    font-weight:700;
+    background:#7fc2ff;
+    color:#ffffff;
+    padding:11px 16px;
+    font-weight:800;
     cursor:pointer;
   }
 
   .kai-send:hover{
-    background:#1d4ed8;
+    background:#63b4fc;
   }
 
   .kai-launcher{
@@ -260,91 +287,105 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
     margin-left:auto;
   }
 
-  .kai-sunburst{
-    width:108px;
-    height:108px;
+  .kai-burst{
+    width:90px;
+    height:90px;
     border-radius:50%;
     display:grid;
     place-items:center;
     background:
       conic-gradient(
         from 0deg,
-        #d6a21d 0deg 12deg,
+        #f5c54a 0deg 12deg,
         transparent 12deg 30deg,
-        #d6a21d 30deg 42deg,
+        #f5c54a 30deg 42deg,
         transparent 42deg 60deg,
-        #d6a21d 60deg 72deg,
+        #f5c54a 60deg 72deg,
         transparent 72deg 90deg,
-        #d6a21d 90deg 102deg,
+        #f5c54a 90deg 102deg,
         transparent 102deg 120deg,
-        #d6a21d 120deg 132deg,
+        #f5c54a 120deg 132deg,
         transparent 132deg 150deg,
-        #d6a21d 150deg 162deg,
+        #f5c54a 150deg 162deg,
         transparent 162deg 180deg,
-        #d6a21d 180deg 192deg,
+        #f5c54a 180deg 192deg,
         transparent 192deg 210deg,
-        #d6a21d 210deg 222deg,
+        #f5c54a 210deg 222deg,
         transparent 222deg 240deg,
-        #d6a21d 240deg 252deg,
+        #f5c54a 240deg 252deg,
         transparent 252deg 270deg,
-        #d6a21d 270deg 282deg,
+        #f5c54a 270deg 282deg,
         transparent 282deg 300deg,
-        #d6a21d 300deg 312deg,
+        #f5c54a 300deg 312deg,
         transparent 312deg 330deg,
-        #d6a21d 330deg 342deg,
+        #f5c54a 330deg 342deg,
         transparent 342deg 360deg
       );
-    filter:drop-shadow(0 12px 26px rgba(0,0,0,.32));
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,.18));
   }
 
-  .kai-avatar-ring{
-    width:76px;
-    height:76px;
+  .kai-ring{
+    width:64px;
+    height:64px;
     border-radius:50%;
-    background:#8C1515;
-    border:4px solid #ffffff;
+    background:#ffffff;
+    border:4px solid #b91c1c;
     display:grid;
     place-items:center;
-    box-shadow:0 6px 18px rgba(0,0,0,.25);
+    box-shadow:0 6px 16px rgba(0,0,0,.16);
   }
 
-  .kai-avatar-face{
-    width:54px;
-    height:54px;
+  .kai-face-wrap{
+    width:48px;
+    height:48px;
     border-radius:50%;
-    background:#ececec;
+    background:#f3f4f6;
+    border:2px solid #6b7280;
     display:grid;
     place-items:center;
-    border:2px solid #2f2f2f;
-    color:#2f2f2f;
+  }
+
+  .kai-face{
+    color:#374151;
+    font-size:1rem;
     font-weight:900;
-    font-size:1.15rem;
+  }
+
+  @keyframes kaiPop{
+    from{
+      opacity:0;
+      transform:translateY(10px) scale(.98);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0) scale(1);
+    }
   }
 
   @media(max-width:768px){
     .kai-shell{
-      right:16px;
-      bottom:16px;
+      right:14px;
+      bottom:14px;
     }
 
     .kai-panel{
-      width:min(100vw - 24px, 380px);
-      height:72vh;
+      width:min(100vw - 20px, 340px);
+      height:430px;
     }
 
-    .kai-sunburst{
-      width:92px;
-      height:92px;
+    .kai-burst{
+      width:82px;
+      height:82px;
     }
 
-    .kai-avatar-ring{
-      width:66px;
-      height:66px;
+    .kai-ring{
+      width:58px;
+      height:58px;
     }
 
-    .kai-avatar-face{
-      width:46px;
-      height:46px;
+    .kai-face-wrap{
+      width:42px;
+      height:42px;
     }
   }
 </style>
@@ -375,34 +416,30 @@ const welcomeMessage = `Hello, I'm ${assistantName}. I'm here to help you explor
     const q = question.toLowerCase().trim();
 
     if (q.includes('show me around') || q.includes('show around') || q.includes('tour')) {
-      return `Welcome to PanorOmics. Start with the Home page for the Architecture of Life, then explore Research for genomics and other omics sciences, visit the Publications Library for curated scientific literature, and use PanorOmics Online for courses and certificates.`;
+      return `Welcome to PanorOmics. Start with the homepage, explore the Research sections, visit the Publications Library for curated scientific literature, and use PanorOmics Online for courses and certificates.`;
     }
 
     if (q.includes('genomics')) {
-      return `The Genomics section covers Genome Sequencing, Variant Discovery, Precision Medicine, and Population Genomics. It is the foundation of the PanorOmics research structure.`;
+      return `The Genomics section includes Genome Sequencing, Variant Discovery, Precision Medicine, and Population Genomics.`;
     }
 
     if (q.includes('research')) {
-      return `PanorOmics Research is organized into knowledge-rich sections such as Genomics, Transcriptomics, Proteomics, Metabolomics, Lipidomics, Epigenomics, and Microbiomics. Each discipline can contain dedicated research applications and linked reference pages.`;
+      return `PanorOmics Research is organized into major omics sciences sections including genomics, transcriptomics, proteomics, metabolomics, lipidomics, epigenomics, and microbiomics.`;
     }
 
     if (q.includes('publication') || q.includes('library') || q.includes('papers')) {
-      return `The Publications Library is the curated scientific knowledge base of PanorOmics. It is designed to help users browse landmark discoveries, journal collections, curated topics, and research pathways.`;
+      return `The Publications Library helps visitors browse curated scientific literature, landmark discoveries, and thematic collections.`;
     }
 
     if (q.includes('online') || q.includes('course') || q.includes('certificate') || q.includes('learn')) {
-      return `PanorOmics Online is the learning portal for courses, certificates, and educational resources. It is separate from the PanorOmics research environment and uses its own visual identity.`;
+      return `PanorOmics Online is the learning portal for courses, certificates, and educational resources.`;
     }
 
     if (q.includes('what is panoromics') || q.includes('omics')) {
-      return `PanorOmics is a scientific knowledge platform focused on Omics Sciences as an integrated discipline. It connects research, publications, scientific frameworks, and educational pathways into one structured ecosystem.`;
+      return `PanorOmics is a scientific knowledge platform focused on Omics Sciences as an integrated discipline connecting research, publications, and learning pathways.`;
     }
 
-    if (q.includes('contact')) {
-      return `You can direct visitors to the Contact section from the main navigation. This is the right place for collaborations, academic inquiries, and institutional communication.`;
-    }
-
-    return `I can help guide visitors through Research, the Publications Library, Genomics, and PanorOmics Online. Try asking: "Show me around", "Where is the Publications Library?", or "What is Genomics?"`;
+    return `I can help guide visitors through Research, the Publications Library, Genomics, and PanorOmics Online.`;
   }
 
   launcher?.addEventListener('click', () => {

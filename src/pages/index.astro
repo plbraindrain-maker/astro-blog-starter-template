@@ -1,4 +1,5 @@
 ---
+import KaiAssistant from "../../../components/KaiAssistant.astro";
 const navLinks = [
   { name: 'Home', href: '/' }, 
   { name: 'About', href: '/about' },
@@ -948,10 +949,16 @@ setInterval(() => {
 
   heroSlides[heroIndex].play().catch(() => {});
 
-}, 10000);
+<script is:inline>
+  ...
+  }, 10000);
+</script>
 
+<KaiAssistant />
+
+<script is:inline>
+  ...
 </script>
 
 </body>
-
 </html>

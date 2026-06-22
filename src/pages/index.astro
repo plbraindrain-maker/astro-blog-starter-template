@@ -900,91 +900,68 @@ body{
   </div>
 
   <div class="footer-bottom">
-  PanorOmics © 2026 • Omics Sciences Center • All rights reserved.
+  PanorOmics © 2026 • Omics Sciences Center • All Rights Reserved.
 </div>
 
 </footer>
 
 <script is:inline>
-
-function toggleMenu() {
-
-  const menu =
-  document.getElementById("mobileMenu");
-
-  menu.classList.toggle("show");
-
-}
-
-const heroSlides = document.querySelectorAll(".hero-slide");
-const heroCaption = document.getElementById("heroCaption");
-
-const heroCaptions = [
-  "rooted in chicago",
-  "developed in pittsburgh",
-  "the architecture of life"
-];
-
-let heroIndex = 0;
-
-heroSlides[0].currentTime = 0;
-heroSlides[0].play().catch(() => {});
-
-setInterval(() => {
-
-  heroSlides[heroIndex].pause();
-  heroSlides[heroIndex].classList.remove("active");
-
-  heroIndex = (heroIndex + 1) % heroSlides.length;
-
-  heroSlides[heroIndex].currentTime = 0;
-  heroSlides[heroIndex].classList.add("active");
-  heroCaption.textContent = heroCaptions[heroIndex];
-
-  heroSlides[heroIndex].play().catch(() => {});
-
-<script is:inline>
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
-  menu.classList.toggle("show");
+  if (menu) menu.classList.toggle("show");
 }
 
-const heroSlides = document.querySelectorAll(".hero-slide");
-const heroCaption = document.getElementById("heroCaption");
+document.addEventListener("DOMContentLoaded", () => {
+  const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
+  const heroCaption = document.getElementById("heroCaption");
 
-const heroCaptions = [
-  "Rooted in Chicago",
-  "Developed in Pittsburgh",
-  "The Architecture of Life"
-];
+  const heroCaptions = [
+    "Rooted in Chicago",
+    "Developed in Pittsburgh",
+    "The Architecture of Life"
+  ];
 
-let heroIndex = 0;
-
-if (heroSlides.length > 0) {
-  heroSlides[0].currentTime = 0;
-  heroSlides[0].play().catch(() => {});
-}
-
-setInterval(() => {
   if (heroSlides.length === 0) return;
 
-  heroSlides[heroIndex].pause();
-  heroSlides[heroIndex].classList.remove("active");
+  let heroIndex = 0;
 
-  heroIndex = (heroIndex + 1) % heroSlides.length;
-
-  heroSlides[heroIndex].currentTime = 0;
-  heroSlides[heroIndex].classList.add("active");
+  heroSlides.forEach((slide, index) => {
+    slide.pause();
+    slide.classList.remove("active");
+    slide.currentTime = 0;
+    if (index === 0) slide.classList.add("active");
+  });
 
   if (heroCaption) {
-    heroCaption.textContent = heroCaptions[heroIndex];
+    heroCaption.textContent = heroCaptions[0];
   }
 
-  heroSlides[heroIndex].play().catch(() => {});
-}, 10000);
+  const playCurrentSlide = () => {
+    const current = heroSlides[heroIndex];
+    current.currentTime = 0;
+    current.play().catch(() => {});
+  };
+
+  const showNextSlide = () => {
+    heroSlides[heroIndex].pause();
+    heroSlides[heroIndex].classList.remove("active");
+
+    heroIndex = (heroIndex + 1) % heroSlides.length;
+
+    heroSlides[heroIndex].classList.add("active");
+
+    if (heroCaption) {
+      heroCaption.textContent = heroCaptions[heroIndex];
+    }
+
+    playCurrentSlide();
+  };
+
+  playCurrentSlide();
+  setInterval(showNextSlide, 10000);
+});
 </script>
 
 <KaiAssistant />
-
 </body>
 </html>

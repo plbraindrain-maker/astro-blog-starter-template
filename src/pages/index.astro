@@ -548,12 +548,6 @@ body{
 .panoromics-online:hover{
   color:#B1040E !important;
 }
-.panoromics-online{
-  color:#8C1515 !important;
-  font-weight:700;
-}
-
-}
 
 .integrity-button{
   display:inline-flex;
@@ -665,15 +659,15 @@ body{
 
   <div class="hero-video">
 
-  <video class="hero-slide active" muted playsinline preload="auto">
+  <video class="hero-slide active" autoplay muted loop playsinline preload="auto">
     <source src="/chicago-science-skyline-hero.mp4" type="video/mp4">
   </video>
 
-  <video class="hero-slide" muted playsinline preload="auto">
+  <video class="hero-slide" autoplay muted loop playsinline preload="auto">
     <source src="/pittsburgh-science-skyline-hero.mp4" type="video/mp4">
   </video>
 
-  <video class="hero-slide" muted playsinline preload="auto">
+  <video class="hero-slide" autoplay muted loop playsinline preload="auto">
     <source src="/panoromics-architecture-of-life-v1.mp4" type="video/mp4">
   </video>
 
@@ -906,7 +900,7 @@ body{
   </div>
 
   <div class="footer-bottom">
-  PanorOmics © 2026 • Omics Sciences Center
+  PanorOmics © 2026 • Omics Sciences Center • All rights reserved.
 </div>
 
 </footer>
@@ -950,31 +944,29 @@ setInterval(() => {
   heroSlides[heroIndex].play().catch(() => {});
 
 <script is:inline>
-
 function toggleMenu() {
-
-  const menu =
-  document.getElementById("mobileMenu");
-
+  const menu = document.getElementById("mobileMenu");
   menu.classList.toggle("show");
-
 }
 
 const heroSlides = document.querySelectorAll(".hero-slide");
 const heroCaption = document.getElementById("heroCaption");
 
 const heroCaptions = [
-  "rooted in chicago",
-  "developed in pittsburgh",
-  "the architecture of life"
+  "Rooted in Chicago",
+  "Developed in Pittsburgh",
+  "The Architecture of Life"
 ];
 
 let heroIndex = 0;
 
-heroSlides[0].currentTime = 0;
-heroSlides[0].play().catch(() => {});
+if (heroSlides.length > 0) {
+  heroSlides[0].currentTime = 0;
+  heroSlides[0].play().catch(() => {});
+}
 
 setInterval(() => {
+  if (heroSlides.length === 0) return;
 
   heroSlides[heroIndex].pause();
   heroSlides[heroIndex].classList.remove("active");
@@ -983,12 +975,13 @@ setInterval(() => {
 
   heroSlides[heroIndex].currentTime = 0;
   heroSlides[heroIndex].classList.add("active");
-  heroCaption.textContent = heroCaptions[heroIndex];
+
+  if (heroCaption) {
+    heroCaption.textContent = heroCaptions[heroIndex];
+  }
 
   heroSlides[heroIndex].play().catch(() => {});
-
 }, 10000);
-
 </script>
 
 <KaiAssistant />

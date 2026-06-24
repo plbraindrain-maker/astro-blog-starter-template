@@ -1,1 +1,474 @@
+---
+const coreAreas = [
+  ['CpG Methylation Mapping', 'Studying DNA methylation patterns at CpG sites to understand gene regulation, promoter activity, chromatin state, and cellular identity.'],
+  ['Gene Regulation and Silencing', 'Analyzing how DNA methylation influences transcriptional repression, gene activity, imprinting, and regulatory control.'],
+  ['Developmental and Cell-State Methylation', 'Investigating methylation changes during development, differentiation, aging, disease progression, and cellular reprogramming.'],
+  ['Clinical Methylation Biomarkers', 'Using DNA methylation signatures to support disease classification, prognosis, early detection, aging research, and precision medicine studies.'],
+];
 
+const technologies = [
+  ['Bisulfite Sequencing', 'Sequencing-based method that detects methylated cytosines by converting unmethylated cytosines while preserving methylated sites.'],
+  ['Whole-Genome Bisulfite Sequencing', 'Genome-wide DNA methylation profiling that provides high-resolution methylation maps across the entire genome.'],
+  ['Reduced Representation Bisulfite Sequencing', 'Targeted bisulfite sequencing approach that enriches CpG-rich regions for cost-effective methylation analysis.'],
+  ['DNA Methylation Arrays', 'Array-based platforms used to measure methylation at selected CpG sites across large sample cohorts.'],
+  ['AI-Assisted Methylation Analysis', 'Computational approaches that support methylation signature discovery, epigenetic age prediction, disease classification, and regulatory interpretation.'],
+];
+
+const modalities = [
+  ['Promoter Methylation', 'Measures methylation near gene promoters, often associated with transcriptional repression or altered gene activity.'],
+  ['Enhancer Methylation', 'Analyzes methylation changes at distal regulatory elements that influence cell-type-specific gene expression.'],
+  ['Global DNA Methylation', 'Evaluates genome-wide methylation patterns associated with development, aging, disease, and environmental exposure.'],
+  ['Epigenetic Clock Analysis', 'Uses DNA methylation patterns to estimate biological aging and age-associated disease risk.'],
+  ['Cancer Methylation Profiling', 'Identifies tumor-associated methylation changes involved in gene silencing, subtype classification, and biomarker discovery.'],
+  ['Single-cell DNA Methylation', 'Profiles methylation patterns in individual cells to reveal epigenomic heterogeneity and cell-state variation.'],
+];
+
+const timeline = [
+  [
+    '1940s–1970s',
+    'DNA Methylation Foundations',
+    'Early discoveries established DNA methylation as a chemical modification of DNA with potential regulatory significance.'
+  ],
+  [
+    '1980s–1990s',
+    'DNA Methylation and Gene Regulation',
+    'DNA methylation became strongly linked with gene silencing, genomic imprinting, X-chromosome inactivation, and cancer-associated regulation.'
+  ],
+  [
+    '1990s–2000s',
+    'Cancer Methylation Research',
+    'Aberrant promoter methylation emerged as a major mechanism of tumor suppressor gene silencing and cancer epigenomic disruption.'
+  ],
+  [
+    '2000s–Present',
+    'Genome-Wide Methylation Profiling',
+    'Bisulfite sequencing and methylation arrays enabled genome-wide mapping of DNA methylation across tissues, diseases, and cohorts.'
+  ],
+  [
+    '2013–Present',
+    'Epigenetic Clocks',
+    'DNA methylation-based clocks connected methylation patterns with biological aging, age-related disease, and lifespan research.'
+  ],
+  [
+    '2015–Present',
+    'Single-cell DNA Methylation',
+    'Single-cell methylation methods revealed epigenomic heterogeneity across cells, tissues, tumors, and developmental states.'
+  ],
+  [
+    'Present',
+    'AI-Assisted DNA Methylation Interpretation',
+    'AI increasingly supports methylation biomarker discovery, epigenetic age modeling, disease classification, and regulatory epigenomics.'
+  ],
+];
+
+const publications = [
+  ['DNA Methylation and Gene Regulation', 'Foundational methylation studies', 'Nature / Cell / Science'],
+  ['DNA Methylation and Human Cancer', 'Cancer epigenomics studies', 'Nature Reviews Genetics / Cell'],
+  ['Comprehensive DNA Methylation Profiling', 'Genome-wide methylation studies', 'Nature Genetics / Genome Research'],
+  ['DNA Methylation Age of Human Tissues and Cell Types', 'Horvath', 'Genome Biology • 2013'],
+  ['Single-cell DNA Methylation Analysis', 'Single-cell epigenomics studies', 'Nature / Science / Cell'],
+  ['AI Models for DNA Methylation and Epigenetic Aging', 'Computational epigenomics studies', 'Nature Methods / Nature Genetics'],
+];
+
+const related = [
+  ['Chromatin Accessibility', '/research/epigenomics/chromatin-accessibility'],
+  ['Disease Epigenomics', '/research/epigenomics/disease-epigenomics'],
+  ['Histone Modifications', '/research/epigenomics/histone-modifications'],
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>DNA Methylation | PanorOmics Research</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#020817;
+  color:white;
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 7% 70px;
+}
+
+.back{
+  color:#3b82f6;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.hero{
+  margin-top:34px;
+}
+
+.hero h1{
+  font-size:clamp(2.7rem,5vw,4.8rem);
+  line-height:.95;
+  letter-spacing:-.055em;
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:#3b82f6;
+}
+
+.hero p{
+  color:#cbd5e1;
+  font-size:1rem;
+  line-height:1.8;
+  max-width:900px;
+}
+
+.hero-image{
+  margin-top:36px;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+}
+
+.hero-image img{
+  width:100%;
+  display:block;
+  border-radius:24px;
+  border:1px solid rgba(59,130,246,.14);
+}
+
+.section{
+  margin-top:64px;
+}
+
+.section h2{
+  font-size:2rem;
+  margin-bottom:16px;
+}
+
+.section h2 span{
+  color:#3b82f6;
+}
+
+.section p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:24px;
+}
+
+.card{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:24px;
+}
+
+.card h3{
+  color:#3b82f6;
+  margin-bottom:10px;
+  line-height:1.3;
+}
+
+.card p{
+  margin:0;
+  font-size:.92rem;
+  color:#cbd5e1;
+}
+
+.timeline{
+  display:grid;
+  gap:16px;
+  margin-top:24px;
+}
+
+.timeline-item{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:18px;
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:20px;
+}
+
+.year{
+  color:#3b82f6;
+  font-weight:900;
+  font-size:1.15rem;
+}
+
+.paper{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:22px;
+}
+
+.paper h3{
+  color:#3b82f6;
+  margin-bottom:8px;
+}
+
+.meta{
+  color:#94a3b8;
+  font-size:.86rem;
+  line-height:1.5;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:24px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.secondary-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:12px;
+  padding:14px 30px;
+  border-radius:999px;
+  background:#8C1515;
+  color:#ffffff;
+  border:1px solid #A77A7A;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s ease;
+}
+
+.secondary-button:hover{
+  background:#6F1111;
+  border-color:#8C1515;
+  transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+  .container{
+    padding:70px 20px 55px;
+  }
+
+  .timeline-item{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/research" class="back">
+← Back to Research
+</a>
+
+<section class="hero">
+
+<h1>
+DNA <span>Methylation</span>
+</h1>
+
+<p>
+DNA methylation research studies chemical modifications of DNA that influence gene regulation, chromatin state, cellular identity, biological aging, disease mechanisms, and epigenomic biomarkers.
+</p>
+
+<div class="hero-image">
+  <img
+    src="/research-dna-methylation-hero-v1.png"
+    alt="DNA Methylation Research"
+  >
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Research <span>Overview</span>
+</h2>
+
+<p>
+DNA methylation is one of the best-studied epigenomic mechanisms. By adding methyl groups to DNA, especially at CpG sites, cells can regulate gene activity, maintain cellular identity, control developmental programs, and respond to disease-associated regulatory disruption.
+</p>
+
+<p>
+At PanorOmics, DNA methylation is presented as a core epigenomics research area: a bridge between genome regulation, gene expression, aging biology, cancer epigenomics, biomarker discovery, and precision medicine.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Core <span>Research Areas</span>
+</h2>
+
+<div class="grid">
+
+{coreAreas.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+DNA Methylation <span>Technologies</span>
+</h2>
+
+<div class="grid">
+
+{technologies.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+DNA Methylation <span>Modalities</span>
+</h2>
+
+<div class="grid">
+
+{modalities.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+<p style="margin-top:24px;">
+Related epigenomic approaches such as chromatin accessibility, disease epigenomics, and histone modification analysis are explored across the Epigenomics Research Center.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Landmark <span>DNA Methylation Milestones</span>
+</h2>
+
+<div class="timeline">
+
+{timeline.map(([year, title, text]) => (
+
+  <div class="timeline-item">
+    <div class="year">{year}</div>
+    <div>
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Featured <span>Publications</span>
+</h2>
+
+<div class="grid">
+
+{publications.map(([title, authors, journal]) => (
+
+  <div class="paper">
+    <h3>{title}</h3>
+    <div class="meta">
+      {authors}<br>
+      {journal}
+    </div>
+  </div>
+
+))}
+
+</div>
+
+<a href="/publications" class="button">
+Explore Publications Library →
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+Continue Your <span>Research Journey</span>
+</h2>
+
+<div class="grid">
+
+{related.map(([title, href]) => (
+
+  <a href={href} class="card" style="text-decoration:none;">
+    <h3>{title} →</h3>
+    <p>Continue exploring the Epigenomics Research Center.</p>
+  </a>
+
+))}
+
+</div>
+
+<a href="https://paned.org/" class="secondary-button">
+Explore PanorOmics Online →
+</a>
+
+</section>
+
+</div>
+
+</body>
+
+</html>

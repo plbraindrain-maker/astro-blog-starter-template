@@ -135,6 +135,20 @@ body{
   font-size:.92rem;
 }
 
+.clickable-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.clickable-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(59,130,246,.35);
+  background:rgba(12,24,52,.9);
+}
+
 .hero-button{
   display:inline-flex;
   align-items:center;
@@ -211,33 +225,33 @@ Applications in <span>Research & Medicine</span>
 
 <div class="applications">
 
-<div class="card">
+<a href="/research/lipidomics/lipid-profiling" class="card clickable-card">
 <h3>Lipid Profiling</h3>
 <p>
 Measuring lipid species across cells, tissues, biofluids, and biological systems.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/lipidomics/membrane-biology" class="card clickable-card">
 <h3>Membrane Biology</h3>
 <p>
 Understanding how lipid composition shapes cellular structure, signaling, and function.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/lipidomics/metabolic-regulation" class="card clickable-card">
 <h3>Metabolic Regulation</h3>
 <p>
 Mapping lipid pathways involved in energy balance, metabolism, and cellular adaptation.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/lipidomics/inflammation-signaling" class="card clickable-card">
 <h3>Inflammation & Signaling</h3>
 <p>
 Studying lipid mediators that regulate immune responses, inflammation, and signaling networks.
 </p>
-</div>
+</a>
 
 </div>
 

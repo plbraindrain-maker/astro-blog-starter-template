@@ -1,1 +1,474 @@
+---
+const coreAreas = [
+  ['Microbiome-Based Patient Stratification', 'Using microbial community patterns to classify patients by disease risk, treatment response, immune state, and clinical phenotype.'],
+  ['Personalized Microbiome Therapeutics', 'Studying how microbiome data can guide probiotics, prebiotics, dietary strategies, microbial therapies, and treatment optimization.'],
+  ['Drug–Microbiome Interactions', 'Analyzing how microbial communities influence drug metabolism, therapeutic efficacy, adverse effects, and individualized treatment response.'],
+  ['Microbiome Biomarker Discovery', 'Identifying microbial signatures that support diagnosis, prognosis, disease monitoring, therapeutic response prediction, and precision health research.'],
+];
 
+const technologies = [
+  ['16S rRNA Sequencing', 'Amplicon sequencing used to profile microbial community composition for patient stratification and clinical microbiome research.'],
+  ['Shotgun Metagenomics', 'Whole-community sequencing used to identify microbial species, genes, pathways, resistance markers, and functional potential.'],
+  ['Metabolomics Integration', 'Combines microbiome profiles with metabolite data to understand host–microbe biochemical interactions and treatment response.'],
+  ['Clinical Multi-omics', 'Integrates microbiome data with genomics, transcriptomics, proteomics, metabolomics, lipidomics, immune profiling, and clinical outcomes.'],
+  ['AI-Assisted Precision Microbiomics', 'Computational approaches that support patient stratification, biomarker discovery, response prediction, and personalized microbiome interpretation.'],
+];
+
+const modalities = [
+  ['Gut Microbiome Precision Health', 'Uses gut microbiome profiles to study metabolic health, inflammation, nutrition, immune function, and disease risk.'],
+  ['Microbiome-Based Risk Prediction', 'Identifies microbial signatures associated with disease susceptibility, progression, recurrence, or treatment outcome.'],
+  ['Therapeutic Response Modeling', 'Studies how microbiome features influence response to drugs, immunotherapy, antibiotics, diet, and microbial interventions.'],
+  ['Nutrition and Microbiome Personalization', 'Connects diet, microbial metabolism, host response, and individualized nutritional strategies.'],
+  ['Pharmacomicrobiomics', 'Examines how microbial communities modify drugs, influence pharmacology, and contribute to variable treatment response.'],
+  ['Multi-omics Precision Medicine', 'Combines microbiome data with molecular and clinical data to support individualized health and disease interpretation.'],
+];
+
+const timeline = [
+  [
+    '2007–2012',
+    'Human Microbiome Project',
+    'Large-scale human microbiome mapping established reference frameworks for linking microbial communities with health and disease.'
+  ],
+  [
+    '2010s–Present',
+    'Microbiome and Disease Stratification',
+    'Microbiome studies increasingly identified microbial signatures associated with disease risk, disease subtypes, and clinical outcomes.'
+  ],
+  [
+    '2012–Present',
+    'Microbiome Therapeutics',
+    'Microbial interventions, including fecal microbiota transplantation and defined microbial therapies, expanded interest in microbiome-guided treatment.'
+  ],
+  [
+    '2015–Present',
+    'Pharmacomicrobiomics',
+    'Research increasingly showed that microbial communities can influence drug metabolism, therapeutic response, toxicity, and treatment variability.'
+  ],
+  [
+    '2016–Present',
+    'Microbiome and Immunotherapy Response',
+    'Studies connected gut microbiome composition with cancer immunotherapy response, immune regulation, and treatment outcomes.'
+  ],
+  [
+    '2018–Present',
+    'Multi-omics Precision Microbiomics',
+    'Integrated omics approaches connect microbiome profiles with host genomics, immune activity, metabolites, proteins, lipids, and clinical phenotypes.'
+  ],
+  [
+    'Present',
+    'AI-Assisted Precision Microbiome Interpretation',
+    'AI increasingly supports microbiome biomarker discovery, patient stratification, therapeutic response prediction, and personalized health modeling.'
+  ],
+];
+
+const publications = [
+  ['Structure, Function and Diversity of the Healthy Human Microbiome', 'Human Microbiome Project Consortium', 'Nature • 2012'],
+  ['A Framework for Human Microbiome Research', 'Human Microbiome Project Consortium', 'Nature • 2012'],
+  ['The Microbiome and Precision Medicine', 'Precision microbiome studies', 'Nature Medicine / Cell Host & Microbe'],
+  ['Gut Microbiome and Cancer Immunotherapy Response', 'Immunotherapy microbiome studies', 'Science / Nature / Cell'],
+  ['Pharmacomicrobiomics and Drug Response', 'Drug–microbiome interaction studies', 'Nature Reviews / Cell'],
+  ['AI and Precision Microbiome Analysis', 'Computational microbiome studies', 'Nature Methods / Microbiome'],
+];
+
+const related = [
+  ['Environmental Science', '/research/microbiomics/environmental-science'],
+  ['Human Health', '/research/microbiomics/human-health'],
+  ['Infectious Diseases', '/research/microbiomics/infectious-diseases'],
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Precision Medicine | PanorOmics Research</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#020817;
+  color:white;
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 7% 70px;
+}
+
+.back{
+  color:#3b82f6;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.hero{
+  margin-top:34px;
+}
+
+.hero h1{
+  font-size:clamp(2.7rem,5vw,4.8rem);
+  line-height:.95;
+  letter-spacing:-.055em;
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:#3b82f6;
+}
+
+.hero p{
+  color:#cbd5e1;
+  font-size:1rem;
+  line-height:1.8;
+  max-width:900px;
+}
+
+.hero-image{
+  margin-top:36px;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+}
+
+.hero-image img{
+  width:100%;
+  display:block;
+  border-radius:24px;
+  border:1px solid rgba(59,130,246,.14);
+}
+
+.section{
+  margin-top:64px;
+}
+
+.section h2{
+  font-size:2rem;
+  margin-bottom:16px;
+}
+
+.section h2 span{
+  color:#3b82f6;
+}
+
+.section p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:24px;
+}
+
+.card{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:24px;
+}
+
+.card h3{
+  color:#3b82f6;
+  margin-bottom:10px;
+  line-height:1.3;
+}
+
+.card p{
+  margin:0;
+  font-size:.92rem;
+  color:#cbd5e1;
+}
+
+.timeline{
+  display:grid;
+  gap:16px;
+  margin-top:24px;
+}
+
+.timeline-item{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:18px;
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:20px;
+}
+
+.year{
+  color:#3b82f6;
+  font-weight:900;
+  font-size:1.15rem;
+}
+
+.paper{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:22px;
+}
+
+.paper h3{
+  color:#3b82f6;
+  margin-bottom:8px;
+}
+
+.meta{
+  color:#94a3b8;
+  font-size:.86rem;
+  line-height:1.5;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:24px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.secondary-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:12px;
+  padding:14px 30px;
+  border-radius:999px;
+  background:#8C1515;
+  color:#ffffff;
+  border:1px solid #A77A7A;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s ease;
+}
+
+.secondary-button:hover{
+  background:#6F1111;
+  border-color:#8C1515;
+  transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+  .container{
+    padding:70px 20px 55px;
+  }
+
+  .timeline-item{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/research" class="back">
+← Back to Research
+</a>
+
+<section class="hero">
+
+<h1>
+Precision <span>Medicine</span>
+</h1>
+
+<p>
+Precision medicine microbiomics studies how microbial communities influence individual disease risk, therapeutic response, immune regulation, nutrition, drug metabolism, and personalized health strategies.
+</p>
+
+<div class="hero-image">
+  <img
+    src="/research-precision-medicine-hero-v1.png"
+    alt="Precision Medicine Microbiomics Research"
+  >
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Research <span>Overview</span>
+</h2>
+
+<p>
+Precision medicine microbiomics uses microbial community data to understand why individuals differ in disease risk, drug response, immune activity, metabolism, and clinical outcomes. Because the microbiome interacts with host biology, diet, environment, and therapeutics, it can provide an important layer of personalized health interpretation.
+</p>
+
+<p>
+At PanorOmics, precision medicine is presented as a core microbiomics research area: a bridge between microbial ecology, host biology, pharmacology, immune response, biomarker discovery, patient stratification, and multi-omics precision health.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Core <span>Research Areas</span>
+</h2>
+
+<div class="grid">
+
+{coreAreas.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Precision Microbiomics <span>Technologies</span>
+</h2>
+
+<div class="grid">
+
+{technologies.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Precision Microbiomics <span>Modalities</span>
+</h2>
+
+<div class="grid">
+
+{modalities.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+<p style="margin-top:24px;">
+Related microbiomic approaches such as environmental science, human health, and infectious disease microbiomics are explored across the Microbiomics Research Center.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Landmark <span>Precision Microbiomics Milestones</span>
+</h2>
+
+<div class="timeline">
+
+{timeline.map(([year, title, text]) => (
+
+  <div class="timeline-item">
+    <div class="year">{year}</div>
+    <div>
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Featured <span>Publications</span>
+</h2>
+
+<div class="grid">
+
+{publications.map(([title, authors, journal]) => (
+
+  <div class="paper">
+    <h3>{title}</h3>
+    <div class="meta">
+      {authors}<br>
+      {journal}
+    </div>
+  </div>
+
+))}
+
+</div>
+
+<a href="/publications" class="button">
+Explore Publications Library →
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+Continue Your <span>Research Journey</span>
+</h2>
+
+<div class="grid">
+
+{related.map(([title, href]) => (
+
+  <a href={href} class="card" style="text-decoration:none;">
+    <h3>{title} →</h3>
+    <p>Continue exploring the Microbiomics Research Center.</p>
+  </a>
+
+))}
+
+</div>
+
+<a href="https://paned.org/" class="secondary-button">
+Explore PanorOmics Online →
+</a>
+
+</section>
+
+</div>
+
+</body>
+
+</html>

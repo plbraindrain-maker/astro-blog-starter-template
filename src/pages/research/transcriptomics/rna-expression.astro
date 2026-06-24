@@ -1,1 +1,474 @@
+---
+const coreAreas = [
+  ['Differential Gene Expression', 'Comparing RNA expression levels across tissues, disease states, treatments, or biological conditions to identify genes associated with function and phenotype.'],
+  ['Expression Signatures', 'Defining gene expression patterns that classify cell states, disease subtypes, biological pathways, and molecular responses.'],
+  ['Pathway-Level Expression Analysis', 'Interpreting RNA expression changes through biological pathways, regulatory networks, and systems-level functional programs.'],
+  ['Clinical RNA Biomarkers', 'Using RNA expression patterns to support disease classification, prognosis, therapeutic response prediction, and precision medicine research.'],
+];
 
+const technologies = [
+  ['RNA Sequencing', 'High-throughput sequencing of RNA molecules to quantify gene expression and characterize transcriptome-wide activity.'],
+  ['Microarray Profiling', 'Hybridization-based measurement of gene expression across thousands of genes, widely used before RNA sequencing became dominant.'],
+  ['qPCR / RT-qPCR', 'Targeted quantitative measurement of RNA expression for validation, diagnostics, and focused gene expression studies.'],
+  ['Single-cell RNA-seq', 'Expression profiling at single-cell resolution to reveal cellular heterogeneity, rare cell states, and dynamic transcriptional programs.'],
+  ['Spatial Transcriptomics', 'RNA expression analysis within tissue architecture, preserving spatial relationships between cells and molecular activity.'],
+];
+
+const modalities = [
+  ['Bulk RNA Expression', 'Measures average RNA expression across a tissue, sample, or cell population.'],
+  ['Single-cell RNA Expression', 'Profiles gene expression in individual cells to identify cell types, states, and heterogeneity.'],
+  ['Spatial RNA Expression', 'Maps gene expression patterns directly within tissue structure.'],
+  ['Targeted Expression Panels', 'Measures selected genes or pathways for focused biological or clinical questions.'],
+  ['Time-course Expression Profiling', 'Tracks RNA expression changes across development, treatment, stress, or disease progression.'],
+  ['Expression-Based Classification', 'Uses RNA signatures to classify disease subtypes, biological states, or therapeutic response groups.'],
+];
+
+const timeline = [
+  [
+    '1977',
+    'Northern Blotting',
+    'RNA detection methods made it possible to measure specific gene transcripts and study gene expression experimentally.'
+  ],
+  [
+    '1987–Present',
+    'RT-PCR and Quantitative Expression Analysis',
+    'Reverse transcription PCR and later quantitative PCR enabled sensitive targeted measurement of RNA expression.'
+  ],
+  [
+    '1995–2000s',
+    'Gene Expression Microarrays',
+    'Microarrays allowed thousands of genes to be measured simultaneously, transforming transcriptome-scale expression profiling.'
+  ],
+  [
+    '2008–Present',
+    'RNA Sequencing',
+    'RNA-seq replaced many array-based approaches by enabling high-resolution, transcriptome-wide expression analysis.'
+  ],
+  [
+    '2009–Present',
+    'Single-cell RNA Expression',
+    'Single-cell RNA-seq revealed cellular heterogeneity by measuring gene expression at individual-cell resolution.'
+  ],
+  [
+    '2016–Present',
+    'Spatial Transcriptomics',
+    'Spatial methods connected RNA expression patterns with tissue architecture and cellular microenvironments.'
+  ],
+  [
+    'Present',
+    'AI-Assisted RNA Expression Analysis',
+    'AI increasingly supports expression signature discovery, cell-state classification, pathway interpretation, and clinical transcriptomics.'
+  ],
+];
+
+const publications = [
+  ['Expression Monitoring by Hybridization to High-Density Oligonucleotide Arrays', 'Lockhart et al.', 'Nature Biotechnology • 1996'],
+  ['Serial Analysis of Gene Expression', 'Velculescu et al.', 'Science • 1995'],
+  ['Mapping and Quantifying Mammalian Transcriptomes by RNA-seq', 'Mortazavi et al.', 'Nature Methods • 2008'],
+  ['Transcriptome Sequencing to Detect Gene Fusions', 'Maher et al.', 'Nature • 2009'],
+  ['Single-cell RNA-seq Reveals Cellular Heterogeneity', 'Single-cell transcriptomics studies', 'Nature / Science / Cell'],
+  ['Spatial Transcriptomics', 'Ståhl et al.', 'Science • 2016'],
+];
+
+const related = [
+  ['RNA-seq', '/research/transcriptomics/rna-seq'],
+  ['Alternative Splicing', '/research/transcriptomics/alternative-splicing'],
+  ['Non-coding RNA', '/research/transcriptomics/non-coding-rna'],
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>RNA Expression | PanorOmics Research</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#020817;
+  color:white;
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 7% 70px;
+}
+
+.back{
+  color:#3b82f6;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.hero{
+  margin-top:34px;
+}
+
+.hero h1{
+  font-size:clamp(2.7rem,5vw,4.8rem);
+  line-height:.95;
+  letter-spacing:-.055em;
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:#3b82f6;
+}
+
+.hero p{
+  color:#cbd5e1;
+  font-size:1rem;
+  line-height:1.8;
+  max-width:900px;
+}
+
+.hero-image{
+  margin-top:36px;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+}
+
+.hero-image img{
+  width:100%;
+  display:block;
+  border-radius:24px;
+  border:1px solid rgba(59,130,246,.14);
+}
+
+.section{
+  margin-top:64px;
+}
+
+.section h2{
+  font-size:2rem;
+  margin-bottom:16px;
+}
+
+.section h2 span{
+  color:#3b82f6;
+}
+
+.section p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:24px;
+}
+
+.card{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:24px;
+}
+
+.card h3{
+  color:#3b82f6;
+  margin-bottom:10px;
+  line-height:1.3;
+}
+
+.card p{
+  margin:0;
+  font-size:.92rem;
+  color:#cbd5e1;
+}
+
+.timeline{
+  display:grid;
+  gap:16px;
+  margin-top:24px;
+}
+
+.timeline-item{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:18px;
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:20px;
+}
+
+.year{
+  color:#3b82f6;
+  font-weight:900;
+  font-size:1.15rem;
+}
+
+.paper{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:22px;
+}
+
+.paper h3{
+  color:#3b82f6;
+  margin-bottom:8px;
+}
+
+.meta{
+  color:#94a3b8;
+  font-size:.86rem;
+  line-height:1.5;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:24px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.secondary-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:12px;
+  padding:14px 30px;
+  border-radius:999px;
+  background:#8C1515;
+  color:#ffffff;
+  border:1px solid #A77A7A;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s ease;
+}
+
+.secondary-button:hover{
+  background:#6F1111;
+  border-color:#8C1515;
+  transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+  .container{
+    padding:70px 20px 55px;
+  }
+
+  .timeline-item{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/research" class="back">
+← Back to Research
+</a>
+
+<section class="hero">
+
+<h1>
+RNA <span>Expression</span>
+</h1>
+
+<p>
+RNA expression reveals which genes are active, how strongly they are expressed, and how biological systems respond across tissues, cells, diseases, treatments, and environmental conditions.
+</p>
+
+<div class="hero-image">
+  <img
+    src="/research-rna-expression-hero-v1.png"
+    alt="RNA Expression Research"
+  >
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Research <span>Overview</span>
+</h2>
+
+<p>
+RNA expression analysis is central to transcriptomics because it measures the dynamic activity of genes rather than the static sequence of DNA. By quantifying RNA levels, researchers can identify active pathways, compare biological states, classify disease subtypes, and understand how cells respond to internal and external signals.
+</p>
+
+<p>
+At PanorOmics, RNA expression is presented as a foundational layer of transcriptomic discovery: the bridge between genomic information, cellular function, disease biology, biomarker discovery, and multi-omics interpretation.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Core <span>Research Areas</span>
+</h2>
+
+<div class="grid">
+
+{coreAreas.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Expression <span>Technologies</span>
+</h2>
+
+<div class="grid">
+
+{technologies.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Expression <span>Modalities</span>
+</h2>
+
+<div class="grid">
+
+{modalities.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+<p style="margin-top:24px;">
+Related transcriptomic approaches such as RNA sequencing, alternative splicing, and non-coding RNA analysis are explored across the Transcriptomics Research Center.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Landmark <span>Transcriptomics Milestones</span>
+</h2>
+
+<div class="timeline">
+
+{timeline.map(([year, title, text]) => (
+
+  <div class="timeline-item">
+    <div class="year">{year}</div>
+    <div>
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Featured <span>Publications</span>
+</h2>
+
+<div class="grid">
+
+{publications.map(([title, authors, journal]) => (
+
+  <div class="paper">
+    <h3>{title}</h3>
+    <div class="meta">
+      {authors}<br>
+      {journal}
+    </div>
+  </div>
+
+))}
+
+</div>
+
+<a href="/publications" class="button">
+Explore Publications Library →
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+Continue Your <span>Research Journey</span>
+</h2>
+
+<div class="grid">
+
+{related.map(([title, href]) => (
+
+  <a href={href} class="card" style="text-decoration:none;">
+    <h3>{title} →</h3>
+    <p>Continue exploring the Transcriptomics Research Center.</p>
+  </a>
+
+))}
+
+</div>
+
+<a href="https://paned.org/" class="secondary-button">
+Explore PanorOmics Online →
+</a>
+
+</section>
+
+</div>
+
+</body>
+
+</html>

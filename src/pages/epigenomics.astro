@@ -135,6 +135,20 @@ body{
   font-size:.92rem;
 }
 
+.clickable-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.clickable-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(59,130,246,.35);
+  background:rgba(12,24,52,.9);
+}
+
 .hero-button{
   display:inline-flex;
   align-items:center;
@@ -211,33 +225,33 @@ Applications in <span>Research & Medicine</span>
 
 <div class="applications">
 
-<div class="card">
+<a href="/research/epigenomics/dna-methylation" class="card clickable-card">
 <h3>DNA Methylation</h3>
 <p>
 Studying chemical marks that influence gene activity, genome regulation, and disease risk.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/epigenomics/histone-modifications" class="card clickable-card">
 <h3>Histone Modifications</h3>
 <p>
 Understanding chromatin marks that shape gene expression programs and cellular identity.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/epigenomics/chromatin-accessibility" class="card clickable-card">
 <h3>Chromatin Accessibility</h3>
 <p>
 Mapping open and closed chromatin regions that control regulatory activity.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/epigenomics/disease-epigenomics" class="card clickable-card">
 <h3>Disease Epigenomics</h3>
 <p>
 Identifying epigenetic disruptions linked to cancer, aging, inflammation, and disease progression.
 </p>
-</div>
+</a>
 
 </div>
 

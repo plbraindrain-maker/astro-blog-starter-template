@@ -1,1 +1,360 @@
+---
+const omicsLayers = [
+  ['Genomics', 'Mutations and inherited variation can help researchers understand why cells begin behaving abnormally.'],
+  ['Transcriptomics', 'RNA patterns can show which genes are unusually active or silent during disease development.'],
+  ['Proteomics', 'Protein changes can reveal altered signaling, growth pathways, immune response, and therapeutic targets.'],
+  ['Metabolomics', 'Metabolite shifts can reflect changes in energy use, cellular stress, and biochemical activity.'],
+  ['Lipidomics', 'Lipid patterns can connect membrane remodeling, inflammation, signaling, and tumor biology.'],
+  ['Epigenomics', 'DNA methylation and chromatin changes can show how gene regulation becomes disrupted.'],
+  ['Microbiomics', 'Microbial communities may influence inflammation, immune balance, metabolism, and disease environment.'],
+];
 
+const storyCards = [
+  ['Before Symptoms', 'Molecular changes may begin long before disease becomes clinically visible. Omics sciences help researchers study those hidden biological signals.'],
+  ['Across Many Layers', 'Cancer is not explained by one molecule alone. It often involves DNA, RNA, proteins, metabolites, lipids, epigenetic regulation, immunity, and environment.'],
+  ['From Data to Meaning', 'The goal is not just to collect data, but to understand how molecular patterns connect to disease risk, progression, treatment response, and human health.'],
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>When Cancer Leaves Molecular Clues | PanorOmics</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#020817;
+  color:white;
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 7% 70px;
+}
+
+.back{
+  color:#3b82f6;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.hero{
+  margin-top:34px;
+}
+
+.eyebrow{
+  color:#60a5fa;
+  font-size:.8rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(2.7rem,5vw,4.8rem);
+  line-height:.95;
+  letter-spacing:-.055em;
+  margin-bottom:20px;
+  max-width:980px;
+}
+
+.hero h1 span{
+  color:#3b82f6;
+}
+
+.hero p{
+  color:#cbd5e1;
+  font-size:1.05rem;
+  line-height:1.85;
+  max-width:920px;
+}
+
+.story-panel{
+  margin-top:42px;
+  background:
+    radial-gradient(circle at top left, rgba(59,130,246,.22), transparent 34%),
+    rgba(8,15,35,.82);
+  border:1px solid rgba(59,130,246,.16);
+  border-radius:26px;
+  padding:34px;
+}
+
+.story-panel p{
+  color:#dbeafe;
+  line-height:1.9;
+  font-size:1.02rem;
+  margin-bottom:18px;
+}
+
+.section{
+  margin-top:64px;
+}
+
+.section h2{
+  font-size:2rem;
+  margin-bottom:16px;
+}
+
+.section h2 span{
+  color:#3b82f6;
+}
+
+.section p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:24px;
+}
+
+.card{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:24px;
+}
+
+.card h3{
+  color:#3b82f6;
+  margin-bottom:10px;
+  line-height:1.3;
+}
+
+.card p{
+  margin:0;
+  font-size:.92rem;
+  color:#cbd5e1;
+}
+
+.layer-list{
+  display:grid;
+  gap:14px;
+  margin-top:24px;
+}
+
+.layer{
+  display:grid;
+  grid-template-columns:190px 1fr;
+  gap:18px;
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:20px;
+}
+
+.layer strong{
+  color:#3b82f6;
+}
+
+.layer p{
+  margin:0;
+  color:#cbd5e1;
+  font-size:.94rem;
+}
+
+.note{
+  margin-top:34px;
+  padding:22px;
+  border-radius:18px;
+  background:rgba(30,41,59,.55);
+  border:1px solid rgba(148,163,184,.16);
+}
+
+.note p{
+  margin:0;
+  color:#cbd5e1;
+  font-size:.92rem;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:26px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.secondary-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:12px;
+  margin-left:10px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:transparent;
+  color:#dbeafe;
+  border:1px solid rgba(59,130,246,.35);
+  text-decoration:none;
+  font-weight:700;
+}
+
+@media(max-width:768px){
+  .container{
+    padding:70px 20px 55px;
+  }
+
+  .story-panel{
+    padding:24px;
+  }
+
+  .layer{
+    grid-template-columns:1fr;
+  }
+
+  .secondary-button{
+    margin-left:0;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/" class="back">
+← Back to PanorOmics
+</a>
+
+<section class="hero">
+
+<div class="eyebrow">
+Omics Sciences in Real Lives
+</div>
+
+<h1>
+When Cancer Leaves <span>Molecular Clues</span>
+</h1>
+
+<p>
+Cancer does not begin as a visible disease. It begins as biological disruption — changes in DNA, gene activity, proteins, metabolism, lipids, epigenetic regulation, immunity, and the surrounding cellular environment.
+</p>
+
+<div class="story-panel">
+
+<p>
+A person may feel healthy while molecular changes are already unfolding inside tissues. A cell may acquire genetic alterations. Regulatory systems may become unstable. Proteins may signal growth at the wrong time. Metabolism may shift. Inflammation may reshape the local environment.
+</p>
+
+<p>
+Omics sciences help researchers study these hidden molecular patterns. Instead of looking at one layer alone, omics approaches allow scientists to examine biology as an interconnected system.
+</p>
+
+<p>
+This is why cancer research increasingly depends on multi-layer molecular interpretation: not only asking whether disease is present, but asking how disease begins, how it changes over time, and why it responds differently across individuals.
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+The Story Across <span>Omics Layers</span>
+</h2>
+
+<p>
+No single omics layer explains the whole cancer story. Each layer contributes a different view of biological disruption.
+</p>
+
+<div class="layer-list">
+
+{omicsLayers.map(([title, text]) => (
+
+  <div class="layer">
+    <strong>{title}</strong>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Why This Matters in <span>Real Life</span>
+</h2>
+
+<div class="grid">
+
+{storyCards.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+From Molecular Clues to <span>Human Impact</span>
+</h2>
+
+<p>
+Omics sciences do not replace clinical judgment, diagnosis, or medical care. Their value is in helping researchers understand biological mechanisms, discover biomarkers, classify disease more precisely, and develop better questions for future medicine.
+</p>
+
+<p>
+For cancer, this means studying how molecular signals emerge, how tumors evolve, how the immune system responds, and why different people may experience different disease trajectories or treatment responses.
+</p>
+
+<div class="note">
+  <p>
+    Educational note: This page is for research and education only. It does not provide medical advice, diagnosis, treatment, or screening guidance.
+  </p>
+</div>
+
+<a href="/research" class="button">
+Explore Omics Research →
+</a>
+
+<a href="/publications" class="secondary-button">
+Explore Publications →
+</a>
+
+</section>
+
+</div>
+
+</body>
+
+</html>

@@ -134,7 +134,19 @@ body{
   margin:0;
   font-size:.92rem;
 }
+.clickable-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  transition:.25s ease;
+}
 
+.clickable-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(59,130,246,.35);
+  background:rgba(12,24,52,.9);
+}
 .hero-button{
   display:inline-flex;
   align-items:center;
@@ -211,36 +223,35 @@ Applications in <span>Research & Medicine</span>
 
 <div class="applications">
 
-<div class="card">
+<a href="/research/proteomics/protein-identification" class="card clickable-card">
 <h3>Protein Identification</h3>
 <p>
 Characterizing proteins and understanding their biological roles across cells, tissues, and disease states.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/proteomics/mass-spectrometry" class="card clickable-card">
 <h3>Mass Spectrometry</h3>
 <p>
 Profiling proteins and peptides using LC-MS/MS and other advanced proteomic technologies.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/proteomics/protein-interactions" class="card clickable-card">
 <h3>Protein Interactions</h3>
 <p>
 Understanding signaling networks, molecular complexes, and functional pathway relationships.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/proteomics/biomarker-discovery" class="card clickable-card">
 <h3>Biomarker Discovery</h3>
 <p>
 Identifying disease-associated proteins for diagnosis, prognosis, therapeutic targeting, and monitoring.
 </p>
-</div>
+</a>
 
 </div>
-
 </section>
 
 <section class="section">

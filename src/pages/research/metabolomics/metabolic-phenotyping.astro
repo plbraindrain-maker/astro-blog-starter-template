@@ -1,1 +1,474 @@
+---
+const coreAreas = [
+  ['Metabolic State Characterization', 'Defining the biochemical state of cells, tissues, organisms, or patients through metabolite patterns and pathway activity.'],
+  ['Phenotype–Metabolite Mapping', 'Connecting measurable metabolic profiles with biological traits, disease states, treatment response, and environmental exposures.'],
+  ['Clinical Metabolic Phenotyping', 'Using metabolite signatures to support patient stratification, disease classification, prognosis, and precision medicine research.'],
+  ['Systems-Level Metabolism', 'Interpreting metabolic phenotypes through pathways, networks, physiology, and integrated multi-omics data.'],
+];
 
+const technologies = [
+  ['LC-MS / MS', 'Liquid chromatography mass spectrometry used for broad and sensitive metabolite detection across biological samples.'],
+  ['GC-MS', 'Gas chromatography mass spectrometry used for volatile, derivatized, and small-molecule metabolic profiling.'],
+  ['NMR Spectroscopy', 'Reproducible, non-destructive metabolite measurement technology used for metabolic phenotyping and clinical studies.'],
+  ['Targeted Metabolomics', 'Focused quantification of selected metabolites or pathways for hypothesis-driven phenotyping and validation.'],
+  ['AI-Assisted Phenotyping', 'Machine learning approaches that support metabolic classification, pattern discovery, and phenotype interpretation.'],
+];
+
+const modalities = [
+  ['Untargeted Metabolic Phenotyping', 'Broad profiling of metabolites to discover biochemical patterns associated with biological or disease states.'],
+  ['Targeted Metabolic Phenotyping', 'Quantifies selected metabolites or pathways to test focused biological or clinical hypotheses.'],
+  ['Clinical Phenotyping', 'Uses metabolite patterns to classify patient groups, disease states, treatment response, or health trajectories.'],
+  ['Nutritional and Environmental Phenotyping', 'Links metabolic profiles with diet, lifestyle, exposure, microbiome activity, and environmental factors.'],
+  ['Longitudinal Phenotyping', 'Tracks metabolic changes over time during disease progression, development, treatment, or recovery.'],
+  ['Multi-omics Phenotyping', 'Combines metabolomics with genomics, transcriptomics, proteomics, lipidomics, and clinical data to define biological states.'],
+];
+
+const timeline = [
+  [
+    '1950s–1970s',
+    'Clinical Chemistry Foundations',
+    'Routine measurement of metabolites in blood and urine established small molecules as indicators of physiological and disease state.'
+  ],
+  [
+    '1970s–1990s',
+    'Metabolic Disorder Profiling',
+    'Biochemical testing for inherited metabolic disorders demonstrated how metabolite patterns can define disease phenotypes.'
+  ],
+  [
+    '1990s–2000s',
+    'Metabonomics and Metabolomics',
+    'High-throughput metabolic profiling expanded phenotype analysis from individual metabolites to system-wide metabolic signatures.'
+  ],
+  [
+    '2000s–Present',
+    'Mass Spectrometry Phenotyping',
+    'LC-MS, GC-MS, and related technologies enabled sensitive metabolic phenotyping across tissues, fluids, cohorts, and disease models.'
+  ],
+  [
+    '2010s–Present',
+    'Population and Clinical Metabolic Phenotyping',
+    'Large-scale studies increasingly link metabolic profiles with health records, disease risk, lifestyle, environment, and clinical outcomes.'
+  ],
+  [
+    '2015–Present',
+    'Multi-omics Phenotype Integration',
+    'Integrated omics approaches connect metabolic phenotypes with genomic, transcriptomic, proteomic, lipidomic, and clinical information.'
+  ],
+  [
+    'Present',
+    'AI-Assisted Metabolic Phenotyping',
+    'AI increasingly supports phenotype classification, metabolic signature discovery, patient stratification, and precision medicine research.'
+  ],
+];
+
+const publications = [
+  ['Metabolomics: The Link Between Genotypes and Phenotypes', 'Fiehn', 'Plant Molecular Biology • 2002'],
+  ['The Human Metabolome Database', 'Wishart et al.', 'Nucleic Acids Research • 2007'],
+  ['Metabonomics and Metabolic Phenotyping', 'Nicholson and colleagues', 'Nature / Nature Reviews'],
+  ['Mass Spectrometry-Based Metabolomics', 'Metabolomics technology studies', 'Nature Methods / Analytical Chemistry'],
+  ['Clinical Metabolic Phenotyping', 'Clinical metabolomics studies', 'Nature Medicine / Cell Metabolism'],
+  ['Multi-omics Phenotyping', 'Integrated omics studies', 'Cell Systems / Nature Biotechnology'],
+];
+
+const related = [
+  ['Metabolite Profiling', '/research/metabolomics/metabolite-profiling'],
+  ['Pathway Analysis', '/research/metabolomics/pathway-analysis'],
+  ['Disease Biomarkers', '/research/metabolomics/disease-biomarkers'],
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Metabolic Phenotyping | PanorOmics Research</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#020817;
+  color:white;
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 7% 70px;
+}
+
+.back{
+  color:#3b82f6;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.hero{
+  margin-top:34px;
+}
+
+.hero h1{
+  font-size:clamp(2.7rem,5vw,4.8rem);
+  line-height:.95;
+  letter-spacing:-.055em;
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:#3b82f6;
+}
+
+.hero p{
+  color:#cbd5e1;
+  font-size:1rem;
+  line-height:1.8;
+  max-width:900px;
+}
+
+.hero-image{
+  margin-top:36px;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+}
+
+.hero-image img{
+  width:100%;
+  display:block;
+  border-radius:24px;
+  border:1px solid rgba(59,130,246,.14);
+}
+
+.section{
+  margin-top:64px;
+}
+
+.section h2{
+  font-size:2rem;
+  margin-bottom:16px;
+}
+
+.section h2 span{
+  color:#3b82f6;
+}
+
+.section p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:24px;
+}
+
+.card{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:24px;
+}
+
+.card h3{
+  color:#3b82f6;
+  margin-bottom:10px;
+  line-height:1.3;
+}
+
+.card p{
+  margin:0;
+  font-size:.92rem;
+  color:#cbd5e1;
+}
+
+.timeline{
+  display:grid;
+  gap:16px;
+  margin-top:24px;
+}
+
+.timeline-item{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:18px;
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:20px;
+}
+
+.year{
+  color:#3b82f6;
+  font-weight:900;
+  font-size:1.15rem;
+}
+
+.paper{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:22px;
+}
+
+.paper h3{
+  color:#3b82f6;
+  margin-bottom:8px;
+}
+
+.meta{
+  color:#94a3b8;
+  font-size:.86rem;
+  line-height:1.5;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:24px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.secondary-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:12px;
+  padding:14px 30px;
+  border-radius:999px;
+  background:#8C1515;
+  color:#ffffff;
+  border:1px solid #A77A7A;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s ease;
+}
+
+.secondary-button:hover{
+  background:#6F1111;
+  border-color:#8C1515;
+  transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+  .container{
+    padding:70px 20px 55px;
+  }
+
+  .timeline-item{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/research" class="back">
+← Back to Research
+</a>
+
+<section class="hero">
+
+<h1>
+Metabolic <span>Phenotyping</span>
+</h1>
+
+<p>
+Metabolic phenotyping characterizes biological state through metabolite patterns, revealing how physiology, disease, treatment, environment, and molecular regulation shape measurable biochemical profiles.
+</p>
+
+<div class="hero-image">
+  <img
+    src="/research-metabolic-phenotyping-hero-v1.png"
+    alt="Metabolic Phenotyping Research"
+  >
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Research <span>Overview</span>
+</h2>
+
+<p>
+Metabolic phenotyping uses metabolite measurements to define the biochemical state of cells, tissues, organisms, or patients. Because metabolites reflect active physiology and pathway activity, metabolic phenotypes provide a direct window into biological function, disease mechanisms, treatment response, and environmental influence.
+</p>
+
+<p>
+At PanorOmics, metabolic phenotyping is presented as a core metabolomics research area: a bridge between metabolite profiling, pathway biology, clinical interpretation, disease biomarkers, and multi-omics systems medicine.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Core <span>Research Areas</span>
+</h2>
+
+<div class="grid">
+
+{coreAreas.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Metabolic Phenotyping <span>Technologies</span>
+</h2>
+
+<div class="grid">
+
+{technologies.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Metabolic Phenotyping <span>Modalities</span>
+</h2>
+
+<div class="grid">
+
+{modalities.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+<p style="margin-top:24px;">
+Related metabolomic approaches such as metabolite profiling, pathway analysis, and disease biomarker discovery are explored across the Metabolomics Research Center.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Landmark <span>Metabolic Phenotyping Milestones</span>
+</h2>
+
+<div class="timeline">
+
+{timeline.map(([year, title, text]) => (
+
+  <div class="timeline-item">
+    <div class="year">{year}</div>
+    <div>
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Featured <span>Publications</span>
+</h2>
+
+<div class="grid">
+
+{publications.map(([title, authors, journal]) => (
+
+  <div class="paper">
+    <h3>{title}</h3>
+    <div class="meta">
+      {authors}<br>
+      {journal}
+    </div>
+  </div>
+
+))}
+
+</div>
+
+<a href="/publications" class="button">
+Explore Publications Library →
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+Continue Your <span>Research Journey</span>
+</h2>
+
+<div class="grid">
+
+{related.map(([title, href]) => (
+
+  <a href={href} class="card" style="text-decoration:none;">
+    <h3>{title} →</h3>
+    <p>Continue exploring the Metabolomics Research Center.</p>
+  </a>
+
+))}
+
+</div>
+
+<a href="https://paned.org/" class="secondary-button">
+Explore PanorOmics Online →
+</a>
+
+</section>
+
+</div>
+
+</body>
+
+</html>

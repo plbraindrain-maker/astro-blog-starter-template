@@ -772,119 +772,148 @@ body{
   </p>
 
   <div id="realLivesGrid" style="
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:24px;
-  margin-top:20px;
-  max-width:900px;
-  margin-left:auto;
-  margin-right:auto;
-  align-items:start;
-">
-</div>
-
-<script>
-const realLivesStories = [
-  {
-    title: "Victoria Gray: A Living Breakthrough",
-    image: "/victoria-gray-sickle-cell-crispr.png",
-    alt: "Victoria Gray during treatment for sickle cell disease",
-    credit: "Photo: NPR Health Shots / Meredith Rizzo",
-    description: "Diagnosed with sickle cell disease as an infant, Victoria Gray lived with severe pain crises for more than three decades. Her story shows how genomics, CRISPR gene editing, and biotechnology can transform human lives.",
-    href: "/victoria-gray",
-    button: "Read Victoria Gray's Story →"
-  },
-  {
-    title: "Emily Whitehead: A Living Drug Against Leukemia",
-    image: "/emily-whitehead-car-t-therapy.png",
-    alt: "Emily Whitehead before and after CAR T-cell therapy",
-    credit: "Image source: Benjamin McLeod, LinkedIn public educational post on Emily Whitehead and CAR T-cell therapy; original photo credit to be confirmed.",
-    description: "Emily Whitehead’s story became a landmark example of CAR T-cell therapy, showing how biotechnology, immunology, and cell engineering can reshape cancer treatment.",
-    href: "/emily-whitehead",
-    button: "Read Emily Whitehead's Story →"
-  },
-  {
-    title: "Mila Makovec: A Tailor-Made Therapy",
-    image: "/mila-makovec-rare-disease-genomics.jpeg",
-    alt: "Mila Makovec during rare disease treatment",
-    credit: "Photo: Katherine C. Cohen / Boston Children’s Hospital, via STAT.",
-    description: "Mila Makovec’s story became a landmark example of rare disease genomics, showing how whole-genome sequencing and RNA-targeted therapy can open new possibilities for individualized medicine.",
-    href: "/mila-makovec",
-    button: "Read Mila Makovec's Story →"
-  },
-  {
-    title: "When Cancer Leaves Molecular Clues",
-    image: "/cancer-molecular-clues-hero-v1.png",
-    alt: "Cancer Molecular Clues Multi-omics Story",
-    credit: "",
-    description: "Cancer does not begin as a visible disease. It begins as molecular disruption — changes in DNA, RNA, proteins, metabolism, lipids, epigenetic regulation, immunity, and the surrounding biological environment.",
-    href: "/cancer-molecular-clues",
-    button: "Read Cancer Molecular Clues Story →"
-  }
-];
-
-const storiesPerWeek = 2;
-const weekNumber = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 7));
-const startIndex = (weekNumber * storiesPerWeek) % realLivesStories.length;
-
-const visibleStories = [
-  realLivesStories[startIndex],
-  realLivesStories[(startIndex + 1) % realLivesStories.length]
-];
-
-const grid = document.getElementById("realLivesGrid");
-
-grid.innerHTML = visibleStories.map(story => `
-  <div class="omics-card">
-
-    <h3 style="font-size:1.35rem; margin-bottom:16px;">
-      ${story.title}
-    </h3>
-
-    <img
-      src="${story.image}"
-      alt="${story.alt}"
-      style="
-        width:100%;
-        max-width:720px;
-        height:auto;
-        display:block;
-        margin:0 auto 10px auto;
-        border-radius:16px;
-        border:1px solid rgba(59,130,246,.12);
-      "
-    >
-
-    ${story.credit ? `
-      <p style="
-        font-size:.72rem;
-        color:#94a3b8;
-        max-width:720px;
-        margin:0 auto 18px auto;
-        line-height:1.45;
-      ">
-        ${story.credit}
-      </p>
-    ` : ""}
-
-    <p style="
-      max-width:720px;
-      margin:0 auto;
-      font-size:.9rem;
-      line-height:1.65;
-    ">
-      ${story.description}
-    </p>
-
-    <div style="max-width:720px; margin:20px auto 0 auto; width:100%;">
-      <a href="${story.href}" class="hero-button">
-        ${story.button}
-      </a>
-    </div>
-
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:24px;
+    margin-top:20px;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    align-items:start;
+  ">
   </div>
-`).join("");
-</script>
+
+  <script is:inline>
+    const realLivesStories = [
+      {
+        title: "Victoria Gray: A Living Breakthrough",
+        image: "/victoria-gray-sickle-cell-crispr.png",
+        alt: "Victoria Gray during treatment for sickle cell disease",
+        credit: "Photo: NPR Health Shots / Meredith Rizzo",
+        description: "Diagnosed with sickle cell disease as an infant, Victoria Gray lived with severe pain crises for more than three decades. Her story shows how genomics, CRISPR gene editing, and biotechnology can transform human lives.",
+        href: "/victoria-gray",
+        button: "Read Victoria Gray's Story →"
+      },
+      {
+        title: "Emily Whitehead: A Living Drug Against Leukemia",
+        image: "/emily-whitehead-car-t-therapy.png",
+        alt: "Emily Whitehead before and after CAR T-cell therapy",
+        credit: "Image source: Benjamin McLeod, LinkedIn public educational post on Emily Whitehead and CAR T-cell therapy; original photo credit to be confirmed.",
+        description: "Emily Whitehead’s story became a landmark example of CAR T-cell therapy, showing how biotechnology, immunology, and cell engineering can reshape cancer treatment.",
+        href: "/emily-whitehead",
+        button: "Read Emily Whitehead's Story →"
+      },
+      {
+        title: "Mila Makovec: A Tailor-Made Therapy",
+        image: "/mila-makovec-rare-disease-genomics.png",
+        alt: "Mila Makovec during rare disease treatment",
+        credit: "Photo: Katherine C. Cohen / Boston Children’s Hospital, via STAT.",
+        description: "Mila Makovec’s story became a landmark example of rare disease genomics, showing how whole-genome sequencing and RNA-targeted therapy can open new possibilities for individualized medicine.",
+        href: "/mila-makovec",
+        button: "Read Mila Makovec's Story →"
+      },
+      {
+        title: "When Cancer Leaves Molecular Clues",
+        image: "/cancer-molecular-clues-hero-v1.png",
+        alt: "Cancer Molecular Clues Multi-omics Story",
+        credit: "",
+        description: "Cancer does not begin as a visible disease. It begins as molecular disruption — changes in DNA, RNA, proteins, metabolism, lipids, epigenetic regulation, immunity, and the surrounding biological environment.",
+        href: "/cancer-molecular-clues",
+        button: "Read Cancer Molecular Clues Story →"
+      }
+    ];
+
+    const storiesPerWeek = 2;
+    const weekNumber = Math.floor(Date.now() / (1000 * 60 * 60 * 24 * 7));
+    const startIndex = (weekNumber * storiesPerWeek) % realLivesStories.length;
+
+    const visibleStories = [
+      realLivesStories[startIndex],
+      realLivesStories[(startIndex + 1) % realLivesStories.length]
+    ];
+
+    const grid = document.getElementById("realLivesGrid");
+
+    grid.innerHTML = visibleStories.map(story => `
+      <div style="
+        background:rgba(8,15,35,.72);
+        border:1px solid rgba(59,130,246,.12);
+        border-radius:18px;
+        padding:18px;
+        overflow:hidden;
+        transition:.35s ease;
+      ">
+
+        <h3 style="
+          font-size:1.35rem;
+          margin-bottom:16px;
+          color:#2563eb;
+          line-height:1.15;
+        ">
+          ${story.title}
+        </h3>
+
+        <img
+          src="${story.image}"
+          alt="${story.alt}"
+          style="
+            width:100%;
+            max-width:720px;
+            height:auto;
+            display:block;
+            margin:0 auto 10px auto;
+            border-radius:16px;
+            border:1px solid rgba(59,130,246,.12);
+          "
+        >
+
+        ${story.credit ? `
+          <p style="
+            font-size:.72rem;
+            color:#94a3b8;
+            max-width:720px;
+            margin:0 auto 18px auto;
+            line-height:1.45;
+          ">
+            ${story.credit}
+          </p>
+        ` : ""}
+
+        <p style="
+          max-width:720px;
+          margin:0 auto;
+          color:#7f8ca3;
+          font-size:.9rem;
+          line-height:1.65;
+        ">
+          ${story.description}
+        </p>
+
+        <div style="max-width:720px; margin:20px auto 0 auto; width:100%;">
+          <a
+            href="${story.href}"
+            style="
+              display:inline-flex;
+              align-items:center;
+              justify-content:center;
+              gap:8px;
+              padding:12px 24px;
+              border-radius:999px;
+              background:#2563eb;
+              color:white;
+              text-decoration:none;
+              font-size:.9rem;
+              font-weight:700;
+              transition:.35s ease;
+            "
+          >
+            ${story.button}
+          </a>
+        </div>
+
+      </div>
+    `).join("");
+  </script>
 
 </section>
 <footer class="footer">

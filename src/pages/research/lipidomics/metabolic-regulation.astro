@@ -1,1 +1,474 @@
+---
+const coreAreas = [
+  ['Lipid Metabolism Regulation', 'Studying how lipid synthesis, storage, transport, oxidation, and remodeling regulate cellular and systemic metabolism.'],
+  ['Energy Balance and Lipid Storage', 'Analyzing how triglycerides, fatty acids, cholesterol, and lipid droplets influence energy homeostasis and metabolic disease.'],
+  ['Lipid Signaling and Metabolic Control', 'Investigating bioactive lipids that regulate insulin signaling, mitochondrial function, inflammation, and cellular adaptation.'],
+  ['Disease-Associated Lipid Dysregulation', 'Identifying lipid metabolic changes linked to obesity, diabetes, cardiovascular disease, cancer, fatty liver disease, and neurodegeneration.'],
+];
 
+const technologies = [
+  ['LC-MS / MS Lipidomics', 'High-sensitivity mass spectrometry used to quantify lipid species involved in metabolic regulation.'],
+  ['Targeted Lipidomics', 'Focused quantification of lipid pathways, fatty acids, sterols, sphingolipids, and signaling lipids.'],
+  ['Stable Isotope Tracing', 'Experimental approach used to track lipid synthesis, turnover, oxidation, and metabolic flux.'],
+  ['Metabolic Flux Analysis', 'Computational and experimental methods used to study lipid pathway activity and metabolic regulation.'],
+  ['AI-Assisted Lipid Metabolism Analysis', 'Machine learning approaches that support lipid signature discovery, pathway interpretation, and metabolic disease classification.'],
+];
+
+const modalities = [
+  ['Fatty Acid Metabolism', 'Studies fatty acid synthesis, oxidation, elongation, desaturation, and signaling roles in metabolic regulation.'],
+  ['Triglyceride and Storage Lipid Biology', 'Analyzes lipid storage, lipid droplets, energy balance, and metabolic adaptation.'],
+  ['Cholesterol and Sterol Metabolism', 'Examines sterol biosynthesis, transport, membrane regulation, and cardiovascular disease biology.'],
+  ['Sphingolipid Metabolism', 'Studies sphingolipid pathways involved in insulin resistance, inflammation, apoptosis, and cellular stress.'],
+  ['Mitochondrial Lipid Metabolism', 'Connects lipid oxidation, mitochondrial function, cardiolipin biology, and cellular energy production.'],
+  ['Multi-omics Metabolic Regulation', 'Combines lipidomics with genomics, transcriptomics, proteomics, metabolomics, and clinical data to interpret metabolic systems.'],
+];
+
+const timeline = [
+  [
+    '1920s–1950s',
+    'Lipid Metabolism Foundations',
+    'Early biochemical research established lipids as essential molecules for energy storage, membrane structure, and physiological regulation.'
+  ],
+  [
+    '1960s–1980s',
+    'Cholesterol and Lipoprotein Biology',
+    'Research on cholesterol, lipoproteins, and lipid transport connected lipid metabolism with cardiovascular disease and systemic physiology.'
+  ],
+  [
+    '1980s–1990s',
+    'Fatty Acid and Energy Metabolism',
+    'Studies of fatty acid oxidation, lipid storage, and metabolic control expanded understanding of energy balance and metabolic disease.'
+  ],
+  [
+    '1990s–2000s',
+    'Lipid Signaling and Metabolic Disease',
+    'Bioactive lipids became increasingly recognized as regulators of insulin signaling, inflammation, cellular stress, and disease biology.'
+  ],
+  [
+    '2000s–Present',
+    'Mass Spectrometry Lipid Metabolism',
+    'Mass spectrometry enabled large-scale measurement of lipid species involved in metabolic regulation, disease states, and pathway activity.'
+  ],
+  [
+    '2015–Present',
+    'Multi-omics Metabolic Regulation',
+    'Integrated omics approaches connect lipid metabolism with gene regulation, protein activity, metabolite pathways, and clinical phenotypes.'
+  ],
+  [
+    'Present',
+    'AI-Assisted Lipid Metabolic Interpretation',
+    'AI increasingly supports lipid pathway interpretation, metabolic disease classification, patient stratification, and systems-level lipidomics.'
+  ],
+];
+
+const publications = [
+  ['Lipid Metabolism and Metabolic Disease', 'Metabolic lipid studies', 'Cell Metabolism / Nature Reviews Endocrinology'],
+  ['Mass Spectrometry-Based Lipidomics', 'Lipidomics technology studies', 'Nature Methods / Analytical Chemistry'],
+  ['LIPID MAPS and Lipid Classification', 'LIPID MAPS Consortium', 'Nucleic Acids Research / Journal of Lipid Research'],
+  ['Lipid Droplets and Energy Storage', 'Lipid storage studies', 'Nature Reviews Molecular Cell Biology / Cell Metabolism'],
+  ['Sphingolipids in Metabolic Regulation', 'Sphingolipid metabolism studies', 'Nature Reviews Molecular Cell Biology / Cell Metabolism'],
+  ['Multi-omics Metabolic Disease Research', 'Integrated omics studies', 'Nature Medicine / Cell Systems'],
+];
+
+const related = [
+  ['Inflammation Signaling', '/research/lipidomics/inflammation-signaling'],
+  ['Lipid Profiling', '/research/lipidomics/lipid-profiling'],
+  ['Membrane Biology', '/research/lipidomics/membrane-biology'],
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Metabolic Regulation | PanorOmics Research</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#020817;
+  color:white;
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 7% 70px;
+}
+
+.back{
+  color:#3b82f6;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.hero{
+  margin-top:34px;
+}
+
+.hero h1{
+  font-size:clamp(2.7rem,5vw,4.8rem);
+  line-height:.95;
+  letter-spacing:-.055em;
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:#3b82f6;
+}
+
+.hero p{
+  color:#cbd5e1;
+  font-size:1rem;
+  line-height:1.8;
+  max-width:900px;
+}
+
+.hero-image{
+  margin-top:36px;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+}
+
+.hero-image img{
+  width:100%;
+  display:block;
+  border-radius:24px;
+  border:1px solid rgba(59,130,246,.14);
+}
+
+.section{
+  margin-top:64px;
+}
+
+.section h2{
+  font-size:2rem;
+  margin-bottom:16px;
+}
+
+.section h2 span{
+  color:#3b82f6;
+}
+
+.section p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:24px;
+}
+
+.card{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:24px;
+}
+
+.card h3{
+  color:#3b82f6;
+  margin-bottom:10px;
+  line-height:1.3;
+}
+
+.card p{
+  margin:0;
+  font-size:.92rem;
+  color:#cbd5e1;
+}
+
+.timeline{
+  display:grid;
+  gap:16px;
+  margin-top:24px;
+}
+
+.timeline-item{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:18px;
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:20px;
+}
+
+.year{
+  color:#3b82f6;
+  font-weight:900;
+  font-size:1.15rem;
+}
+
+.paper{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:22px;
+}
+
+.paper h3{
+  color:#3b82f6;
+  margin-bottom:8px;
+}
+
+.meta{
+  color:#94a3b8;
+  font-size:.86rem;
+  line-height:1.5;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:24px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.secondary-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:12px;
+  padding:14px 30px;
+  border-radius:999px;
+  background:#8C1515;
+  color:#ffffff;
+  border:1px solid #A77A7A;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s ease;
+}
+
+.secondary-button:hover{
+  background:#6F1111;
+  border-color:#8C1515;
+  transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+  .container{
+    padding:70px 20px 55px;
+  }
+
+  .timeline-item{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/research" class="back">
+← Back to Research
+</a>
+
+<section class="hero">
+
+<h1>
+Metabolic <span>Regulation</span>
+</h1>
+
+<p>
+Metabolic regulation lipidomics studies how lipid pathways control energy balance, cellular signaling, membrane remodeling, inflammation, mitochondrial function, and disease-associated metabolic dysfunction.
+</p>
+
+<div class="hero-image">
+  <img
+    src="/research-metabolic-regulation-hero-v1.png"
+    alt="Metabolic Regulation Research"
+  >
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Research <span>Overview</span>
+</h2>
+
+<p>
+Metabolic regulation is a central area of lipidomics because lipids are major regulators of cellular energy, membrane function, signaling, and physiological adaptation. Lipid pathways influence fatty acid oxidation, lipid storage, cholesterol balance, mitochondrial activity, insulin signaling, inflammation, and disease progression.
+</p>
+
+<p>
+At PanorOmics, metabolic regulation is presented as a core lipidomics research area: a bridge between lipid profiling, membrane biology, inflammation signaling, metabolic disease, biomarker discovery, and multi-omics systems interpretation.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Core <span>Research Areas</span>
+</h2>
+
+<div class="grid">
+
+{coreAreas.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Metabolic Regulation <span>Technologies</span>
+</h2>
+
+<div class="grid">
+
+{technologies.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Metabolic Regulation <span>Modalities</span>
+</h2>
+
+<div class="grid">
+
+{modalities.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+<p style="margin-top:24px;">
+Related lipidomic approaches such as inflammation signaling, lipid profiling, and membrane biology are explored across the Lipidomics Research Center.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Landmark <span>Metabolic Regulation Milestones</span>
+</h2>
+
+<div class="timeline">
+
+{timeline.map(([year, title, text]) => (
+
+  <div class="timeline-item">
+    <div class="year">{year}</div>
+    <div>
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Featured <span>Publications</span>
+</h2>
+
+<div class="grid">
+
+{publications.map(([title, authors, journal]) => (
+
+  <div class="paper">
+    <h3>{title}</h3>
+    <div class="meta">
+      {authors}<br>
+      {journal}
+    </div>
+  </div>
+
+))}
+
+</div>
+
+<a href="/publications" class="button">
+Explore Publications Library →
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+Continue Your <span>Research Journey</span>
+</h2>
+
+<div class="grid">
+
+{related.map(([title, href]) => (
+
+  <a href={href} class="card" style="text-decoration:none;">
+    <h3>{title} →</h3>
+    <p>Continue exploring the Lipidomics Research Center.</p>
+  </a>
+
+))}
+
+</div>
+
+<a href="https://paned.org/" class="secondary-button">
+Explore PanorOmics Online →
+</a>
+
+</section>
+
+</div>
+
+</body>
+
+</html>

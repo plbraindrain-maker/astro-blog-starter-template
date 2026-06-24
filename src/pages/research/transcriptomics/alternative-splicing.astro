@@ -1,1 +1,474 @@
+---
+const coreAreas = [
+  ['Splice Isoform Discovery', 'Identifying alternative transcript isoforms generated from the same gene through different exon combinations and splice junctions.'],
+  ['Disease-Associated Splicing', 'Studying abnormal splicing events linked to cancer, inherited disease, neurological disorders, and therapeutic resistance.'],
+  ['Splicing Regulation', 'Analyzing how RNA-binding proteins, splice factors, sequence motifs, and regulatory networks control transcript processing.'],
+  ['Clinical Splicing Biomarkers', 'Using splice variants and isoform signatures to support diagnosis, prognosis, disease classification, and precision medicine research.'],
+];
 
+const technologies = [
+  ['RNA-seq', 'Sequencing-based transcriptome profiling used to detect splice junctions, exon usage, and alternative transcript structures.'],
+  ['Long-read RNA-seq', 'Full-length transcript sequencing that improves isoform discovery and resolves complex alternative splicing patterns.'],
+  ['Single-cell RNA-seq', 'Single-cell transcriptomics used to study cell-type-specific splicing variation and transcriptional heterogeneity.'],
+  ['RT-PCR / qPCR Validation', 'Targeted experimental validation of specific splice junctions, exon inclusion events, and isoform expression.'],
+  ['Computational Splicing Analysis', 'Bioinformatic methods that quantify exon usage, splice junctions, isoform abundance, and differential splicing events.'],
+];
+
+const modalities = [
+  ['Exon Skipping', 'An exon is excluded from the mature RNA transcript, producing an alternative protein or regulatory isoform.'],
+  ['Intron Retention', 'An intron remains in the mature RNA transcript, often influencing RNA stability, translation, or degradation.'],
+  ['Alternative 5′ Splice Sites', 'Different donor splice sites generate transcript isoforms with altered exon boundaries.'],
+  ['Alternative 3′ Splice Sites', 'Different acceptor splice sites produce transcript isoforms with variable exon structure.'],
+  ['Mutually Exclusive Exons', 'Only one of two alternative exons is included in the mature transcript.'],
+  ['Differential Isoform Usage', 'The relative abundance of transcript isoforms changes across tissues, diseases, treatments, or cell states.'],
+];
+
+const timeline = [
+  [
+    '1977',
+    'Split Genes and RNA Splicing',
+    'The discovery of split genes revealed that RNA transcripts can be processed by removing introns and joining exons.'
+  ],
+  [
+    '1980s–1990s',
+    'Alternative Splicing Expands Gene Function',
+    'Alternative splicing became recognized as a major mechanism that allows one gene to produce multiple RNA and protein isoforms.'
+  ],
+  [
+    '2000s',
+    'Genome-Scale Splicing Annotation',
+    'Genome and transcriptome studies expanded the catalog of splice isoforms across tissues, organisms, and disease states.'
+  ],
+  [
+    '2008–Present',
+    'RNA-seq Splicing Analysis',
+    'RNA-seq enabled transcriptome-wide detection of splice junctions, exon usage, and differential splicing events.'
+  ],
+  [
+    '2014–Present',
+    'Long-read Isoform Sequencing',
+    'Long-read transcript sequencing improved full-length isoform reconstruction and the interpretation of complex splicing patterns.'
+  ],
+  [
+    '2015–Present',
+    'Single-cell Splicing Analysis',
+    'Single-cell transcriptomics began revealing cell-type-specific splicing programs and isoform diversity across individual cells.'
+  ],
+  [
+    'Present',
+    'AI-Assisted Splicing Interpretation',
+    'AI increasingly supports splice variant prediction, isoform annotation, disease mechanism discovery, and therapeutic splicing research.'
+  ],
+];
+
+const publications = [
+  ['Adenovirus Messenger RNA Contains Sequences from Noncontiguous Segments of Viral DNA', 'Berget, Moore & Sharp', 'PNAS • 1977'],
+  ['An Amazing Sequence Arrangement at the 5′ Ends of Adenovirus 2 Messenger RNA', 'Chow et al.', 'Cell • 1977'],
+  ['Alternative Splicing and Proteome Diversity', 'Black', 'Annual Review of Biochemistry • 2003'],
+  ['RNA-seq: A Revolutionary Tool for Transcriptomics', 'Wang, Gerstein & Snyder', 'Nature Reviews Genetics • 2009'],
+  ['The Human Transcriptome and Alternative Splicing', 'Transcriptome annotation studies', 'Nature / Science / Genome Research'],
+  ['Long-read Sequencing for Transcript Isoform Discovery', 'Long-read transcriptomics studies', 'Nature Biotechnology / Genome Research'],
+];
+
+const related = [
+  ['RNA Expression', '/research/transcriptomics/rna-expression'],
+  ['RNA-seq', '/research/transcriptomics/rna-seq'],
+  ['Non-coding RNA', '/research/transcriptomics/non-coding-rna'],
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Alternative Splicing | PanorOmics Research</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#020817;
+  color:white;
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 7% 70px;
+}
+
+.back{
+  color:#3b82f6;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.hero{
+  margin-top:34px;
+}
+
+.hero h1{
+  font-size:clamp(2.7rem,5vw,4.8rem);
+  line-height:.95;
+  letter-spacing:-.055em;
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:#3b82f6;
+}
+
+.hero p{
+  color:#cbd5e1;
+  font-size:1rem;
+  line-height:1.8;
+  max-width:900px;
+}
+
+.hero-image{
+  margin-top:36px;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+}
+
+.hero-image img{
+  width:100%;
+  display:block;
+  border-radius:24px;
+  border:1px solid rgba(59,130,246,.14);
+}
+
+.section{
+  margin-top:64px;
+}
+
+.section h2{
+  font-size:2rem;
+  margin-bottom:16px;
+}
+
+.section h2 span{
+  color:#3b82f6;
+}
+
+.section p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:24px;
+}
+
+.card{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:24px;
+}
+
+.card h3{
+  color:#3b82f6;
+  margin-bottom:10px;
+  line-height:1.3;
+}
+
+.card p{
+  margin:0;
+  font-size:.92rem;
+  color:#cbd5e1;
+}
+
+.timeline{
+  display:grid;
+  gap:16px;
+  margin-top:24px;
+}
+
+.timeline-item{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:18px;
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:20px;
+}
+
+.year{
+  color:#3b82f6;
+  font-weight:900;
+  font-size:1.15rem;
+}
+
+.paper{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:22px;
+}
+
+.paper h3{
+  color:#3b82f6;
+  margin-bottom:8px;
+}
+
+.meta{
+  color:#94a3b8;
+  font-size:.86rem;
+  line-height:1.5;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:24px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.secondary-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:12px;
+  padding:14px 30px;
+  border-radius:999px;
+  background:#8C1515;
+  color:#ffffff;
+  border:1px solid #A77A7A;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s ease;
+}
+
+.secondary-button:hover{
+  background:#6F1111;
+  border-color:#8C1515;
+  transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+  .container{
+    padding:70px 20px 55px;
+  }
+
+  .timeline-item{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/research" class="back">
+← Back to Research
+</a>
+
+<section class="hero">
+
+<h1>
+Alternative <span>Splicing</span>
+</h1>
+
+<p>
+Alternative splicing expands transcriptome complexity by allowing a single gene to generate multiple RNA isoforms, influencing protein diversity, cellular identity, disease mechanisms, and regulatory programs.
+</p>
+
+<div class="hero-image">
+  <img
+    src="/research-alternative-splicing-hero-v1.png"
+    alt="Alternative Splicing Research"
+  >
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Research <span>Overview</span>
+</h2>
+
+<p>
+Alternative splicing is a central mechanism of transcriptomic regulation. By selectively including or excluding exons and splice sites, cells can generate multiple RNA transcripts from a single gene, expanding functional diversity without changing the underlying DNA sequence.
+</p>
+
+<p>
+At PanorOmics, alternative splicing is presented as a major transcriptomic research area: a regulatory layer connecting RNA processing, gene expression, isoform biology, cancer mechanisms, neurological disease, therapeutic discovery, and multi-omics interpretation.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Core <span>Research Areas</span>
+</h2>
+
+<div class="grid">
+
+{coreAreas.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Splicing <span>Technologies</span>
+</h2>
+
+<div class="grid">
+
+{technologies.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Splicing <span>Modalities</span>
+</h2>
+
+<div class="grid">
+
+{modalities.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+<p style="margin-top:24px;">
+Related transcriptomic approaches such as RNA expression, RNA sequencing, and non-coding RNA analysis are explored across the Transcriptomics Research Center.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Landmark <span>Splicing Milestones</span>
+</h2>
+
+<div class="timeline">
+
+{timeline.map(([year, title, text]) => (
+
+  <div class="timeline-item">
+    <div class="year">{year}</div>
+    <div>
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Featured <span>Publications</span>
+</h2>
+
+<div class="grid">
+
+{publications.map(([title, authors, journal]) => (
+
+  <div class="paper">
+    <h3>{title}</h3>
+    <div class="meta">
+      {authors}<br>
+      {journal}
+    </div>
+  </div>
+
+))}
+
+</div>
+
+<a href="/publications" class="button">
+Explore Publications Library →
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+Continue Your <span>Research Journey</span>
+</h2>
+
+<div class="grid">
+
+{related.map(([title, href]) => (
+
+  <a href={href} class="card" style="text-decoration:none;">
+    <h3>{title} →</h3>
+    <p>Continue exploring the Transcriptomics Research Center.</p>
+  </a>
+
+))}
+
+</div>
+
+<a href="https://paned.org/" class="secondary-button">
+Explore PanorOmics Online →
+</a>
+
+</section>
+
+</div>
+
+</body>
+
+</html>

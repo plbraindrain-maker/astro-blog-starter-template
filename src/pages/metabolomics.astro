@@ -134,7 +134,19 @@ body{
   margin:0;
   font-size:.92rem;
 }
+.clickable-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  transition:.25s ease;
+}
 
+.clickable-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(59,130,246,.35);
+  background:rgba(12,24,52,.9);
+}
 .hero-button{
   display:inline-flex;
   align-items:center;
@@ -211,33 +223,33 @@ Applications in <span>Research & Medicine</span>
 
 <div class="applications">
 
-<div class="card">
+<a href="/research/metabolomics/metabolite-profiling" class="card clickable-card">
 <h3>Metabolite Profiling</h3>
 <p>
 Measuring small molecules that reflect biological state, cellular activity, and disease processes.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/metabolomics/pathway-analysis" class="card clickable-card">
 <h3>Pathway Analysis</h3>
 <p>
 Mapping biochemical reactions and metabolic network activity across biological systems.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/metabolomics/disease-biomarkers" class="card clickable-card">
 <h3>Disease Biomarkers</h3>
 <p>
 Identifying metabolite signatures linked to diagnosis, progression, treatment response, and risk.
 </p>
-</div>
+</a>
 
-<div class="card">
+<a href="/research/metabolomics/metabolic-phenotyping" class="card clickable-card">
 <h3>Metabolic Phenotyping</h3>
 <p>
 Connecting metabolism to physiology, environment, phenotype, nutrition, and human health.
 </p>
-</div>
+</a>
 
 </div>
 

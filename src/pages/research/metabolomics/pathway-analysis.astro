@@ -1,1 +1,474 @@
+---
+const coreAreas = [
+  ['Metabolic Pathway Mapping', 'Connecting metabolites to biochemical pathways to understand cellular metabolism, disease mechanisms, and biological regulation.'],
+  ['Pathway Enrichment Analysis', 'Identifying pathways that are overrepresented among altered metabolites across conditions, tissues, or disease states.'],
+  ['Network-Based Metabolomics', 'Interpreting metabolites through biochemical networks, pathway topology, enzyme activity, and systems-level relationships.'],
+  ['Multi-omics Pathway Integration', 'Combining metabolomics with genomics, transcriptomics, proteomics, lipidomics, and clinical data to understand pathway-level biology.'],
+];
 
+const technologies = [
+  ['LC-MS / MS', 'Liquid chromatography mass spectrometry used to detect metabolites that can be mapped to biochemical pathways.'],
+  ['GC-MS', 'Gas chromatography mass spectrometry used to measure small molecules involved in central carbon metabolism, amino acid metabolism, and organic acid pathways.'],
+  ['NMR Spectroscopy', 'Reproducible metabolite measurement technology used to study pathway-level metabolic patterns.'],
+  ['Pathway Databases', 'Resources such as KEGG, Reactome, HMDB, and MetaboAnalyst support metabolite annotation and pathway interpretation.'],
+  ['AI-Assisted Pathway Analysis', 'Machine learning and computational methods that support pathway prediction, network interpretation, and metabolic signature discovery.'],
+];
+
+const modalities = [
+  ['Central Carbon Metabolism', 'Analyzes pathways such as glycolysis, the TCA cycle, pentose phosphate pathway, and energy metabolism.'],
+  ['Amino Acid Metabolism', 'Studies amino acid pathways involved in biosynthesis, signaling, nitrogen balance, and disease-associated metabolic changes.'],
+  ['Lipid and Fatty Acid Pathways', 'Connects metabolite patterns with lipid metabolism, membrane biology, inflammation, and metabolic disease.'],
+  ['Redox and Oxidative Stress Pathways', 'Interprets metabolites involved in oxidative stress, antioxidant defense, mitochondrial function, and cellular damage.'],
+  ['Disease Pathway Signatures', 'Identifies altered metabolic pathways associated with cancer, diabetes, cardiovascular disease, neurodegeneration, and immune disorders.'],
+  ['Integrated Pathway Modeling', 'Combines metabolite data with genes, transcripts, proteins, enzymes, and clinical phenotypes to model biological systems.'],
+];
+
+const timeline = [
+  [
+    '1930s–1950s',
+    'Biochemical Pathway Foundations',
+    'Foundational metabolic pathways such as glycolysis and the citric acid cycle established the framework for understanding cellular metabolism.'
+  ],
+  [
+    '1960s–1980s',
+    'Clinical Biochemistry and Pathway Disorders',
+    'Biochemical testing linked metabolite abnormalities to pathway dysfunction, inherited metabolic disease, and clinical phenotypes.'
+  ],
+  [
+    '1990s–2000s',
+    'Metabolomics Pathway Interpretation',
+    'High-throughput metabolomics expanded pathway analysis from individual metabolites to system-wide biochemical patterns.'
+  ],
+  [
+    '2000s–Present',
+    'Pathway Database Expansion',
+    'Metabolic databases and pathway tools improved metabolite annotation, pathway mapping, and biological interpretation.'
+  ],
+  [
+    '2010s–Present',
+    'Network Metabolomics',
+    'Network-based approaches connected metabolites with enzymes, pathways, disease mechanisms, and systems biology.'
+  ],
+  [
+    '2015–Present',
+    'Multi-omics Pathway Integration',
+    'Integrated omics approaches connect metabolic pathways with genomic, transcriptomic, proteomic, lipidomic, and clinical data.'
+  ],
+  [
+    'Present',
+    'AI-Assisted Pathway Analysis',
+    'AI increasingly supports metabolic pathway prediction, pathway enrichment, network modeling, and systems-level interpretation.'
+  ],
+];
+
+const publications = [
+  ['Metabolomics: The Link Between Genotypes and Phenotypes', 'Fiehn', 'Plant Molecular Biology • 2002'],
+  ['The Human Metabolome Database', 'Wishart et al.', 'Nucleic Acids Research • 2007'],
+  ['MetaboAnalyst for Metabolomics Data Analysis', 'Xia and colleagues', 'Nucleic Acids Research / Nature Protocols'],
+  ['KEGG for Pathway Mapping', 'Kanehisa and colleagues', 'Nucleic Acids Research'],
+  ['Metabolic Pathway Analysis in Systems Biology', 'Systems metabolomics studies', 'Nature Reviews / Cell Metabolism'],
+  ['Multi-omics Pathway Integration', 'Integrated omics studies', 'Cell Systems / Nature Biotechnology'],
+];
+
+const related = [
+  ['Metabolite Profiling', '/research/metabolomics/metabolite-profiling'],
+  ['Metabolic Phenotyping', '/research/metabolomics/metabolic-phenotyping'],
+  ['Disease Biomarkers', '/research/metabolomics/disease-biomarkers'],
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Pathway Analysis | PanorOmics Research</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#020817;
+  color:white;
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 7% 70px;
+}
+
+.back{
+  color:#3b82f6;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.hero{
+  margin-top:34px;
+}
+
+.hero h1{
+  font-size:clamp(2.7rem,5vw,4.8rem);
+  line-height:.95;
+  letter-spacing:-.055em;
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:#3b82f6;
+}
+
+.hero p{
+  color:#cbd5e1;
+  font-size:1rem;
+  line-height:1.8;
+  max-width:900px;
+}
+
+.hero-image{
+  margin-top:36px;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+}
+
+.hero-image img{
+  width:100%;
+  display:block;
+  border-radius:24px;
+  border:1px solid rgba(59,130,246,.14);
+}
+
+.section{
+  margin-top:64px;
+}
+
+.section h2{
+  font-size:2rem;
+  margin-bottom:16px;
+}
+
+.section h2 span{
+  color:#3b82f6;
+}
+
+.section p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:24px;
+}
+
+.card{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:24px;
+}
+
+.card h3{
+  color:#3b82f6;
+  margin-bottom:10px;
+  line-height:1.3;
+}
+
+.card p{
+  margin:0;
+  font-size:.92rem;
+  color:#cbd5e1;
+}
+
+.timeline{
+  display:grid;
+  gap:16px;
+  margin-top:24px;
+}
+
+.timeline-item{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:18px;
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:20px;
+}
+
+.year{
+  color:#3b82f6;
+  font-weight:900;
+  font-size:1.15rem;
+}
+
+.paper{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:22px;
+}
+
+.paper h3{
+  color:#3b82f6;
+  margin-bottom:8px;
+}
+
+.meta{
+  color:#94a3b8;
+  font-size:.86rem;
+  line-height:1.5;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:24px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.secondary-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:12px;
+  padding:14px 30px;
+  border-radius:999px;
+  background:#8C1515;
+  color:#ffffff;
+  border:1px solid #A77A7A;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s ease;
+}
+
+.secondary-button:hover{
+  background:#6F1111;
+  border-color:#8C1515;
+  transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+  .container{
+    padding:70px 20px 55px;
+  }
+
+  .timeline-item{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/research" class="back">
+← Back to Research
+</a>
+
+<section class="hero">
+
+<h1>
+Pathway <span>Analysis</span>
+</h1>
+
+<p>
+Pathway analysis interprets metabolite changes through biochemical pathways, helping researchers understand metabolic regulation, disease mechanisms, pathway disruption, and systems-level biological function.
+</p>
+
+<div class="hero-image">
+  <img
+    src="/research-pathway-analysis-hero-v1.png"
+    alt="Pathway Analysis Research"
+  >
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Research <span>Overview</span>
+</h2>
+
+<p>
+Pathway analysis transforms metabolite measurements into biological interpretation. Rather than viewing metabolites as isolated molecules, pathway analysis connects them to biochemical routes, enzyme activity, cellular regulation, disease mechanisms, and physiological state.
+</p>
+
+<p>
+At PanorOmics, pathway analysis is presented as a core metabolomics research area: the interpretive layer that connects metabolite profiling, metabolic phenotyping, disease biomarkers, systems biology, and multi-omics integration.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Core <span>Research Areas</span>
+</h2>
+
+<div class="grid">
+
+{coreAreas.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Pathway Analysis <span>Technologies</span>
+</h2>
+
+<div class="grid">
+
+{technologies.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Pathway Analysis <span>Modalities</span>
+</h2>
+
+<div class="grid">
+
+{modalities.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+<p style="margin-top:24px;">
+Related metabolomic approaches such as metabolite profiling, metabolic phenotyping, and disease biomarker discovery are explored across the Metabolomics Research Center.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Landmark <span>Pathway Analysis Milestones</span>
+</h2>
+
+<div class="timeline">
+
+{timeline.map(([year, title, text]) => (
+
+  <div class="timeline-item">
+    <div class="year">{year}</div>
+    <div>
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Featured <span>Publications</span>
+</h2>
+
+<div class="grid">
+
+{publications.map(([title, authors, journal]) => (
+
+  <div class="paper">
+    <h3>{title}</h3>
+    <div class="meta">
+      {authors}<br>
+      {journal}
+    </div>
+  </div>
+
+))}
+
+</div>
+
+<a href="/publications" class="button">
+Explore Publications Library →
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+Continue Your <span>Research Journey</span>
+</h2>
+
+<div class="grid">
+
+{related.map(([title, href]) => (
+
+  <a href={href} class="card" style="text-decoration:none;">
+    <h3>{title} →</h3>
+    <p>Continue exploring the Metabolomics Research Center.</p>
+  </a>
+
+))}
+
+</div>
+
+<a href="https://paned.org/" class="secondary-button">
+Explore PanorOmics Online →
+</a>
+
+</section>
+
+</div>
+
+</body>
+
+</html>

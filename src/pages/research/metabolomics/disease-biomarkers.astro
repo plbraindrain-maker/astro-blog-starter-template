@@ -1,1 +1,474 @@
+---
+const coreAreas = [
+  ['Metabolic Disease Signatures', 'Identifying metabolite patterns associated with disease presence, progression, severity, and biological dysfunction.'],
+  ['Clinical Metabolomics', 'Applying metabolite analysis to patient samples, translational research, diagnostics, prognosis, and precision medicine studies.'],
+  ['Biomarker Validation', 'Evaluating candidate metabolic biomarkers across cohorts, sample types, analytical platforms, and clinical contexts.'],
+  ['Multi-omics Biomarker Integration', 'Combining metabolomics with genomics, transcriptomics, proteomics, lipidomics, and clinical data to improve disease interpretation.'],
+];
 
+const technologies = [
+  ['Mass Spectrometry', 'High-sensitivity analytical technology used to detect, quantify, and characterize metabolites across biological samples.'],
+  ['LC-MS / MS', 'Liquid chromatography coupled with mass spectrometry for broad metabolite detection and disease biomarker discovery.'],
+  ['GC-MS', 'Gas chromatography mass spectrometry used for volatile, derivatized, and small-molecule metabolite analysis.'],
+  ['NMR Spectroscopy', 'Non-destructive metabolite measurement approach used for reproducible metabolic profiling and biomarker studies.'],
+  ['AI-Assisted Metabolomics', 'Machine learning approaches that support biomarker signature discovery, disease classification, and metabolic interpretation.'],
+];
+
+const modalities = [
+  ['Discovery Metabolomics', 'Broad, unbiased profiling used to identify candidate metabolites associated with disease or biological state.'],
+  ['Targeted Biomarker Panels', 'Focused measurement of selected metabolites for validation, monitoring, or clinical translation.'],
+  ['Plasma and Serum Metabolomics', 'Blood-based metabolite profiling used to discover circulating disease biomarkers.'],
+  ['Urine Metabolomics', 'Non-invasive metabolite profiling used for disease monitoring, exposure assessment, and biomarker discovery.'],
+  ['Tissue Metabolomics', 'Metabolic analysis of tissue samples to identify disease-associated biochemical alterations.'],
+  ['Longitudinal Biomarker Monitoring', 'Tracking metabolite changes over time to study disease progression, treatment response, or recovery.'],
+];
+
+const timeline = [
+  [
+    '1950s–1970s',
+    'Clinical Chemistry Foundations',
+    'Routine measurement of small molecules in blood and urine established the clinical value of metabolites as disease indicators.'
+  ],
+  [
+    '1970s–1990s',
+    'Inborn Errors of Metabolism',
+    'Metabolite testing became central to diagnosing inherited metabolic disorders and understanding biochemical disease mechanisms.'
+  ],
+  [
+    '1990s–2000s',
+    'Metabolomics Era Emerges',
+    'High-throughput metabolite profiling expanded disease biomarker discovery beyond individual metabolites toward metabolic signatures.'
+  ],
+  [
+    '2000s–Present',
+    'Mass Spectrometry Biomarker Discovery',
+    'LC-MS, GC-MS, and related technologies enabled sensitive discovery of disease-associated metabolites across clinical samples.'
+  ],
+  [
+    '2010s–Present',
+    'Systems Metabolomics',
+    'Metabolic biomarker studies increasingly connected metabolites with pathways, phenotypes, exposures, and disease mechanisms.'
+  ],
+  [
+    '2015–Present',
+    'Multi-omics Disease Biomarkers',
+    'Integrated omics approaches combine metabolite signatures with genomic, transcriptomic, proteomic, lipidomic, and clinical data.'
+  ],
+  [
+    'Present',
+    'AI-Assisted Disease Biomarker Discovery',
+    'AI increasingly supports metabolic biomarker discovery, patient stratification, disease classification, and precision medicine research.'
+  ],
+];
+
+const publications = [
+  ['Metabolomics: The Link Between Genotypes and Phenotypes', 'Fiehn', 'Plant Molecular Biology • 2002'],
+  ['The Human Metabolome Database', 'Wishart et al.', 'Nucleic Acids Research • 2007'],
+  ['Metabolomics and Disease Biomarker Discovery', 'Clinical metabolomics studies', 'Nature Reviews / Clinical Chemistry'],
+  ['Mass Spectrometry-Based Metabolomics', 'Metabolomics technology studies', 'Nature Methods / Analytical Chemistry'],
+  ['Metabolomics in Precision Medicine', 'Translational metabolomics studies', 'Nature Medicine / Cell Metabolism'],
+  ['Multi-omics Biomarker Discovery', 'Integrated omics biomarker studies', 'Nature Medicine / Cell Systems'],
+];
+
+const related = [
+  ['Metabolite Profiling', '/research/metabolomics/metabolite-profiling'],
+  ['Metabolic Phenotyping', '/research/metabolomics/metabolic-phenotyping'],
+  ['Pathway Analysis', '/research/metabolomics/pathway-analysis'],
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Disease Biomarkers | PanorOmics Research</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#020817;
+  color:white;
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 7% 70px;
+}
+
+.back{
+  color:#3b82f6;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.hero{
+  margin-top:34px;
+}
+
+.hero h1{
+  font-size:clamp(2.7rem,5vw,4.8rem);
+  line-height:.95;
+  letter-spacing:-.055em;
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:#3b82f6;
+}
+
+.hero p{
+  color:#cbd5e1;
+  font-size:1rem;
+  line-height:1.8;
+  max-width:900px;
+}
+
+.hero-image{
+  margin-top:36px;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+}
+
+.hero-image img{
+  width:100%;
+  display:block;
+  border-radius:24px;
+  border:1px solid rgba(59,130,246,.14);
+}
+
+.section{
+  margin-top:64px;
+}
+
+.section h2{
+  font-size:2rem;
+  margin-bottom:16px;
+}
+
+.section h2 span{
+  color:#3b82f6;
+}
+
+.section p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:1rem;
+  margin-bottom:16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:24px;
+}
+
+.card{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:24px;
+}
+
+.card h3{
+  color:#3b82f6;
+  margin-bottom:10px;
+  line-height:1.3;
+}
+
+.card p{
+  margin:0;
+  font-size:.92rem;
+  color:#cbd5e1;
+}
+
+.timeline{
+  display:grid;
+  gap:16px;
+  margin-top:24px;
+}
+
+.timeline-item{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:18px;
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:20px;
+}
+
+.year{
+  color:#3b82f6;
+  font-weight:900;
+  font-size:1.15rem;
+}
+
+.paper{
+  background:rgba(8,15,35,.75);
+  border:1px solid rgba(59,130,246,.12);
+  border-radius:18px;
+  padding:22px;
+}
+
+.paper h3{
+  color:#3b82f6;
+  margin-bottom:8px;
+}
+
+.meta{
+  color:#94a3b8;
+  font-size:.86rem;
+  line-height:1.5;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:24px;
+  padding:12px 24px;
+  border-radius:999px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.secondary-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:12px;
+  padding:14px 30px;
+  border-radius:999px;
+  background:#8C1515;
+  color:#ffffff;
+  border:1px solid #A77A7A;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s ease;
+}
+
+.secondary-button:hover{
+  background:#6F1111;
+  border-color:#8C1515;
+  transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+  .container{
+    padding:70px 20px 55px;
+  }
+
+  .timeline-item{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/research" class="back">
+← Back to Research
+</a>
+
+<section class="hero">
+
+<h1>
+Disease <span>Biomarkers</span>
+</h1>
+
+<p>
+Disease biomarker research uses metabolomics to identify measurable small-molecule signatures associated with disease biology, diagnosis, prognosis, treatment response, and precision medicine.
+</p>
+
+<div class="hero-image">
+  <img
+    src="/research-disease-biomarkers-hero-v1.png"
+    alt="Disease Biomarkers Research"
+  >
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Research <span>Overview</span>
+</h2>
+
+<p>
+Metabolic biomarkers provide direct insight into biochemical activity because metabolites reflect cellular function, physiological state, environmental exposure, and disease-associated pathway disruption. Disease biomarker discovery uses metabolite profiles to identify molecular patterns that distinguish health, disease, progression, and therapeutic response.
+</p>
+
+<p>
+At PanorOmics, disease biomarkers are presented as a core metabolomics research area: a translational bridge between metabolite measurement, disease mechanisms, clinical interpretation, precision medicine, and multi-omics biomarker discovery.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Core <span>Research Areas</span>
+</h2>
+
+<div class="grid">
+
+{coreAreas.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Disease Biomarker <span>Technologies</span>
+</h2>
+
+<div class="grid">
+
+{technologies.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Disease Biomarker <span>Modalities</span>
+</h2>
+
+<div class="grid">
+
+{modalities.map(([title, text]) => (
+
+  <div class="card">
+    <h3>{title}</h3>
+    <p>{text}</p>
+  </div>
+
+))}
+
+</div>
+
+<p style="margin-top:24px;">
+Related metabolomic approaches such as metabolite profiling, metabolic phenotyping, and pathway analysis are explored across the Metabolomics Research Center.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>
+Landmark <span>Disease Biomarker Milestones</span>
+</h2>
+
+<div class="timeline">
+
+{timeline.map(([year, title, text]) => (
+
+  <div class="timeline-item">
+    <div class="year">{year}</div>
+    <div>
+      <h3>{title}</h3>
+      <p>{text}</p>
+    </div>
+  </div>
+
+))}
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>
+Featured <span>Publications</span>
+</h2>
+
+<div class="grid">
+
+{publications.map(([title, authors, journal]) => (
+
+  <div class="paper">
+    <h3>{title}</h3>
+    <div class="meta">
+      {authors}<br>
+      {journal}
+    </div>
+  </div>
+
+))}
+
+</div>
+
+<a href="/publications" class="button">
+Explore Publications Library →
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>
+Continue Your <span>Research Journey</span>
+</h2>
+
+<div class="grid">
+
+{related.map(([title, href]) => (
+
+  <a href={href} class="card" style="text-decoration:none;">
+    <h3>{title} →</h3>
+    <p>Continue exploring the Metabolomics Research Center.</p>
+  </a>
+
+))}
+
+</div>
+
+<a href="https://paned.org/" class="secondary-button">
+Explore PanorOmics Online →
+</a>
+
+</section>
+
+</div>
+
+</body>
+
+</html>

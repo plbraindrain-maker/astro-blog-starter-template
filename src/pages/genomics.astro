@@ -23,6 +23,7 @@ body{
   background:#020817;
   color:white;
   font-family:Inter,sans-serif;
+  overflow-x:hidden;
 }
 
 .container{
@@ -113,8 +114,8 @@ body{
 
 .applications{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:28px;
   margin-top:24px;
 }
 
@@ -123,11 +124,12 @@ body{
   background:rgba(8,15,35,.75);
   border:1px solid rgba(59,130,246,.12);
   border-radius:18px;
-  padding:24px;
+  padding:22px;
   text-decoration:none;
   color:inherit;
   transition:.25s ease;
   cursor:pointer;
+  overflow:hidden;
 }
 
 .card:hover{
@@ -136,14 +138,30 @@ body{
   box-shadow:0 12px 30px rgba(59,130,246,.15);
 }
 
+.card img{
+  width:100%;
+  height:190px;
+  max-width:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  border-radius:14px;
+  margin-bottom:18px;
+  border:1px solid rgba(59,130,246,.12);
+}
+
 .card h3{
   color:#3b82f6;
   margin-bottom:10px;
+  font-size:1.35rem;
+  line-height:1.2;
 }
 
 .card p{
   margin:0;
   font-size:.92rem;
+  line-height:1.65;
+  color:#cbd5e1;
 }
 
 .hero-button{
@@ -157,22 +175,46 @@ body{
   color:white;
   text-decoration:none;
   font-weight:700;
-}
-.card{
-  overflow:hidden;
+  transition:.25s ease;
 }
 
-.card img{
-  width:100%;
-  height:160px;
-  max-width:100%;
-  display:block;
-  object-fit:cover;
-  object-position:center;
-  border-radius:14px;
-  margin-bottom:18px;
-  border:1px solid rgba(59,130,246,.12);
+.hero-button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 40px rgba(37,99,235,.35);
 }
+
+@media(max-width:900px){
+  .applications{
+    grid-template-columns:1fr;
+  }
+
+  .card img{
+    height:210px;
+  }
+}
+
+@media(max-width:768px){
+  .container{
+    padding:72px 20px 46px;
+  }
+
+  .section{
+    margin-top:46px;
+  }
+
+  .section h2{
+    font-size:1.65rem;
+  }
+
+  .card{
+    padding:18px;
+  }
+
+  .card img{
+    height:180px;
+  }
+}
+
 </style>
 
 </head>
@@ -231,56 +273,69 @@ Modern genomics combines sequencing technologies, computational analysis, popula
 <section class="section">
 
 <h2>
-Applications in <span>Research & Medicine</span>
+Genome Sequencing <span>Technologies</span>
 </h2>
+
+<p>
+Genome sequencing enables scientists to read DNA information across different scales, from whole genomes and protein-coding regions to clinically meaningful variants and single-cell genomic variation.
+</p>
 
 <div class="applications">
 
 <a href="/research/genomics/whole-genome-sequencing" class="card">
-  <img src="/whole-genome-sequencing.png" alt="Whole Genome Sequencing">
+  <img
+    src="/1.1.1-whole-genome-sequencing.png"
+    alt="Whole Genome Sequencing"
+  >
 
   <h3>Whole Genome Sequencing</h3>
 
   <p>
-    Comprehensive sequencing of the entire genome, including coding and non-coding
-    regions, to capture the broadest view of genetic variation.
+    Comprehensive sequencing of the entire genome, including coding and non-coding regions, to capture the broadest view of genetic variation.
   </p>
 </a>
 
 <a href="/research/genomics/whole-exome-sequencing" class="card">
-  <img src="/whole-exome-sequencing.png" alt="Whole Exome Sequencing">
+  <img
+    src="/1.1.2-whole-exome-sequencing.png"
+    alt="Whole Exome Sequencing"
+  >
 
   <h3>Whole Exome Sequencing</h3>
 
   <p>
-    Targeted sequencing of protein-coding regions to identify variants linked to
-    inherited disease, rare disorders, and clinical diagnosis.
+    Targeted sequencing of protein-coding regions to identify variants linked to inherited disease, rare disorders, and clinical diagnosis.
   </p>
 </a>
 
 <a href="/research/genomics/variant-discovery" class="card">
-  <img src="/variant-discovery.png" alt="Variant Discovery and Interpretation">
+  <img
+    src="/1.1.3-variant-discovery-interpretation.png"
+    alt="Variant Discovery and Interpretation"
+  >
 
   <h3>Variant Discovery & Interpretation</h3>
 
   <p>
-    Identifying and interpreting genetic variants that influence biological
-    function, disease risk, and therapeutic response.
+    Identifying and interpreting genetic variants that influence biological function, disease risk, and therapeutic response.
   </p>
 </a>
 
 <a href="/research/genomics/single-cell-genomics" class="card">
-  <img src="/single-cell-genomics.png" alt="Single-cell Genomics">
+  <img
+    src="/1.1.4-single-cell-genomics.png"
+    alt="Single-cell Genomics"
+  >
 
   <h3>Single-cell Genomics</h3>
 
   <p>
-    Analyzing genomic variation at single-cell resolution to reveal mosaicism,
-    clonal evolution, and cellular heterogeneity.
+    Analyzing genomic variation at single-cell resolution to reveal mosaicism, clonal evolution, and cellular heterogeneity.
   </p>
 </a>
 
 </div>
+
 </section>
 
 <section class="section">

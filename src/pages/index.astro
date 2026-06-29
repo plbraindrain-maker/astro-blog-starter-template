@@ -162,12 +162,85 @@ body{
   display:flex;
 }
 
+/* TOP SINGLE HUMAN CLIP */
+
+.top-clip-section{
+  padding:96px 6% 10px;
+  background:
+    radial-gradient(circle at center, rgba(59,130,246,.14), transparent 42%),
+    #020817;
+}
+
+.top-clip-video{
+  width:100%;
+  max-width:1180px;
+  margin:0 auto;
+  border-radius:24px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 0 46px rgba(37,99,235,.12);
+  position:relative;
+  aspect-ratio:16/9;
+  background:#020817;
+}
+
+.top-clip-video video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+
+.clip-glass-overlay{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2,8,23,.70) 0%,
+      rgba(2,8,23,.46) 48%,
+      rgba(2,8,23,.18) 100%
+    );
+}
+
+.clip-glass-text{
+  position:absolute;
+  left:30px;
+  top:44%;
+  transform:translateY(-50%);
+  z-index:3;
+  max-width:390px;
+  color:white;
+}
+
+.clip-glass-text h2{
+  font-size:clamp(1rem,1.45vw,1.45rem);
+  line-height:1.08;
+  letter-spacing:-.025em;
+  font-weight:800;
+  margin-bottom:8px;
+  color:white;
+  text-shadow:0 3px 18px rgba(0,0,0,.7);
+}
+
+.clip-glass-text p{
+  font-size:.56rem;
+  line-height:1.45;
+  color:white;
+  max-width:390px;
+  margin-bottom:0;
+  text-shadow:0 2px 12px rgba(0,0,0,.8);
+}
+
+/* ORIGINAL HERO WITH 3 ROTATING CLIPS */
+
 .hero{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:24px;
-  padding:78px 6% 24px;
+  gap:30px;
+  padding:34px 6% 24px;
   min-height:auto;
   overflow:hidden;
   background:
@@ -231,7 +304,7 @@ body{
 
 .hero-video{
   width:100%;
-  max-width:760px;
+  max-width:670px;
   border-radius:20px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.06);
@@ -239,7 +312,7 @@ body{
   position:relative;
   aspect-ratio:16/9;
   background:#020817;
-  flex:1.25;
+  flex:1;
 }
 
 .hero-video video{
@@ -260,46 +333,16 @@ body{
   opacity:1;
 }
 
-.clip-glass-overlay{
+.hero-caption{
   position:absolute;
-  inset:0;
-  z-index:2;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(2,8,23,.70) 0%,
-      rgba(2,8,23,.46) 48%,
-      rgba(2,8,23,.18) 100%
-    );
-}
-
-.clip-glass-text{
-  position:absolute;
-  left:30px;
-  top:44%;
-  transform:translateY(-50%);
+  left:22px;
+  bottom:18px;
   z-index:3;
-  max-width:390px;
-  color:white;
-}
-
-.clip-glass-text h2{
-  font-size:clamp(1rem,1.45vw,1.45rem);
-  line-height:1.08;
-  letter-spacing:-.025em;
-  font-weight:800;
-  margin-bottom:8px;
-  color:white;
-  text-shadow:0 3px 18px rgba(0,0,0,.7);
-}
-
-.clip-glass-text p{
-  font-size:.56rem;
-  line-height:1.45;
-  color:white;
-  max-width:390px;
-  margin-bottom:0;
-  text-shadow:0 2px 12px rgba(0,0,0,.8);
+  color:rgba(255,255,255,.72);
+  font-size:.72rem;
+  letter-spacing:.08em;
+  font-weight:600;
+  text-shadow:0 2px 12px rgba(0,0,0,.65);
 }
 
 .section{
@@ -488,7 +531,7 @@ body{
 
   .hero{
     flex-direction:column;
-    padding-top:96px;
+    padding-top:34px;
   }
 
   .nav{
@@ -523,8 +566,28 @@ body{
     padding:12px 16px;
   }
 
+  .top-clip-section{
+    padding:96px 18px 10px;
+  }
+
+  .clip-glass-text{
+    left:22px;
+    right:22px;
+    top:46%;
+    max-width:none;
+  }
+
+  .clip-glass-text h2{
+    font-size:1.05rem;
+  }
+
+  .clip-glass-text p{
+    font-size:.54rem;
+    line-height:1.4;
+  }
+
   .hero{
-    padding:96px 18px 34px;
+    padding:34px 18px 34px;
   }
 
   .section{
@@ -560,22 +623,6 @@ body{
 
   .omics-card img{
     height:170px;
-  }
-
-  .clip-glass-text{
-    left:22px;
-    right:22px;
-    top:46%;
-    max-width:none;
-  }
-
-  .clip-glass-text h2{
-    font-size:1.05rem;
-  }
-
-  .clip-glass-text p{
-    font-size:.54rem;
-    line-height:1.4;
   }
 }
 
@@ -662,6 +709,36 @@ body{
 
 </div>
 
+<section class="top-clip-section">
+
+  <div class="top-clip-video">
+
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="/panoromics-hero-glass.mp4" type="video/mp4">
+    </video>
+
+    <div class="clip-glass-overlay"></div>
+
+    <div class="clip-glass-text">
+      <h2>
+        Where Omics Sciences Converge
+      </h2>
+
+      <p>
+        PanorOmics is where the omics sciences converge. We advance genomics,
+        transcriptomics, proteomics, metabolomics, lipidomics, epigenomics,
+        and microbiomics not as separate fields but as one integrated discipline
+        for understanding life and disease in its full molecular complexity.
+        Through research, education, data, and innovation, we make that science
+        accessible to those who will use it to advance medicine, drive biotechnology,
+        and deliver precision health.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
 <section class="hero">
 
   <div class="hero-left">
@@ -707,25 +784,11 @@ body{
     </video>
 
     <video class="hero-slide" autoplay muted loop playsinline preload="auto">
-      <source src="/panoromics-hero-glass.mp4" type="video/mp4">
+      <source src="/panoromics-architecture-of-life-v1.mp4" type="video/mp4">
     </video>
 
-    <div class="clip-glass-overlay"></div>
-
-    <div class="clip-glass-text">
-      <h2>
-        Where Omics Sciences Converge
-      </h2>
-
-      <p>
-        PanorOmics is where the omics sciences converge. We advance genomics,
-        transcriptomics, proteomics, metabolomics, lipidomics, epigenomics,
-        and microbiomics not as separate fields but as one integrated discipline
-        for understanding life and disease in its full molecular complexity.
-        Through research, education, data, and innovation, we make that science
-        accessible to those who will use it to advance medicine, drive biotechnology,
-        and deliver precision health.
-      </p>
+    <div class="hero-caption" id="heroCaption">
+      Rooted in Chicago
     </div>
 
   </div>
@@ -1090,6 +1153,13 @@ function toggleMenu() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
+  const heroCaption = document.getElementById("heroCaption");
+
+  const heroCaptions = [
+    "Rooted in Chicago",
+    "Developed in Pittsburgh",
+    "The Architecture of Life"
+  ];
 
   if (heroSlides.length === 0) return;
 
@@ -1101,6 +1171,10 @@ document.addEventListener("DOMContentLoaded", () => {
     slide.currentTime = 0;
     if (index === 0) slide.classList.add("active");
   });
+
+  if (heroCaption) {
+    heroCaption.textContent = heroCaptions[0];
+  }
 
   const playCurrentSlide = () => {
     const current = heroSlides[heroIndex];
@@ -1115,6 +1189,11 @@ document.addEventListener("DOMContentLoaded", () => {
     heroIndex = (heroIndex + 1) % heroSlides.length;
 
     heroSlides[heroIndex].classList.add("active");
+
+    if (heroCaption) {
+      heroCaption.textContent = heroCaptions[heroIndex];
+    }
+
     playCurrentSlide();
   };
 

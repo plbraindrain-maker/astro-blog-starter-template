@@ -166,7 +166,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:30px;
+  gap:24px;
   padding:78px 6% 24px;
   min-height:auto;
   overflow:hidden;
@@ -231,7 +231,7 @@ body{
 
 .hero-video{
   width:100%;
-  max-width:670px;
+  max-width:760px;
   border-radius:20px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.06);
@@ -239,14 +239,25 @@ body{
   position:relative;
   aspect-ratio:16/9;
   background:#020817;
-  flex:1;
+  flex:1.25;
 }
 
 .hero-video video{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   display:block;
   object-fit:cover;
+}
+
+.hero-slide{
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
+
+.hero-slide.active{
+  opacity:1;
 }
 
 .clip-glass-overlay{
@@ -256,43 +267,39 @@ body{
   background:
     linear-gradient(
       90deg,
-      rgba(2,8,23,.82) 0%,
-      rgba(2,8,23,.58) 48%,
-      rgba(2,8,23,.24) 100%
+      rgba(2,8,23,.70) 0%,
+      rgba(2,8,23,.46) 48%,
+      rgba(2,8,23,.18) 100%
     );
 }
 
 .clip-glass-text{
   position:absolute;
-  left:34px;
-  top:50%;
+  left:30px;
+  top:44%;
   transform:translateY(-50%);
   z-index:3;
-  max-width:465px;
+  max-width:390px;
   color:white;
 }
 
 .clip-glass-text h2{
-  font-size:clamp(1.2rem,1.8vw,1.9rem);
+  font-size:clamp(1rem,1.45vw,1.45rem);
   line-height:1.08;
-  letter-spacing:-.035em;
-  font-weight:850;
-  margin-bottom:10px;
+  letter-spacing:-.025em;
+  font-weight:800;
+  margin-bottom:8px;
   color:white;
-  text-shadow:0 3px 18px rgba(0,0,0,.65);
-}
-
-.clip-glass-text h2 span{
-  color:white;
+  text-shadow:0 3px 18px rgba(0,0,0,.7);
 }
 
 .clip-glass-text p{
-  font-size:.64rem;
-  line-height:1.5;
+  font-size:.56rem;
+  line-height:1.45;
   color:white;
-  max-width:520px;
+  max-width:390px;
   margin-bottom:0;
-  text-shadow:0 2px 12px rgba(0,0,0,.75);
+  text-shadow:0 2px 12px rgba(0,0,0,.8);
 }
 
 .section{
@@ -558,18 +565,20 @@ body{
   .clip-glass-text{
     left:22px;
     right:22px;
+    top:46%;
     max-width:none;
   }
 
- .clip-glass-text h2{
-  font-size:1.15rem;
+  .clip-glass-text h2{
+    font-size:1.05rem;
+  }
+
+  .clip-glass-text p{
+    font-size:.54rem;
+    line-height:1.4;
+  }
 }
 
-.clip-glass-text p{
-  font-size:.62rem;
-  line-height:1.45;
-}
-}
 .panoromics-online{
   color:#8C1515 !important;
   font-weight:700;
@@ -689,27 +698,35 @@ body{
 
   <div class="hero-video">
 
-    <video autoplay muted loop playsinline preload="auto">
+    <video class="hero-slide active" autoplay muted loop playsinline preload="auto">
+      <source src="/chicago-science-skyline-hero.mp4" type="video/mp4">
+    </video>
+
+    <video class="hero-slide" autoplay muted loop playsinline preload="auto">
+      <source src="/pittsburgh-science-skyline-hero.mp4" type="video/mp4">
+    </video>
+
+    <video class="hero-slide" autoplay muted loop playsinline preload="auto">
       <source src="/panoromics-hero-glass.mp4" type="video/mp4">
     </video>
 
     <div class="clip-glass-overlay"></div>
 
     <div class="clip-glass-text">
-  <h2>
-    Where Omics Sciences Converge
-  </h2>
+      <h2>
+        Where Omics Sciences Converge
+      </h2>
 
-  <p>
-    PanorOmics is where the omics sciences converge. We advance genomics,
-    transcriptomics, proteomics, metabolomics, lipidomics, epigenomics,
-    and microbiomics not as separate fields but as one integrated discipline
-    for understanding life and disease in its full molecular complexity.
-    Through research, education, data, and innovation, we make that science
-    accessible to those who will use it to advance medicine, drive biotechnology,
-    and deliver precision health.
-  </p>
-</div>
+      <p>
+        PanorOmics is where the omics sciences converge. We advance genomics,
+        transcriptomics, proteomics, metabolomics, lipidomics, epigenomics,
+        and microbiomics not as separate fields but as one integrated discipline
+        for understanding life and disease in its full molecular complexity.
+        Through research, education, data, and innovation, we make that science
+        accessible to those who will use it to advance medicine, drive biotechnology,
+        and deliver precision health.
+      </p>
+    </div>
 
   </div>
 
@@ -1070,6 +1087,40 @@ function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
   if (menu) menu.classList.toggle("show");
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
+
+  if (heroSlides.length === 0) return;
+
+  let heroIndex = 0;
+
+  heroSlides.forEach((slide, index) => {
+    slide.pause();
+    slide.classList.remove("active");
+    slide.currentTime = 0;
+    if (index === 0) slide.classList.add("active");
+  });
+
+  const playCurrentSlide = () => {
+    const current = heroSlides[heroIndex];
+    current.currentTime = 0;
+    current.play().catch(() => {});
+  };
+
+  const showNextSlide = () => {
+    heroSlides[heroIndex].pause();
+    heroSlides[heroIndex].classList.remove("active");
+
+    heroIndex = (heroIndex + 1) % heroSlides.length;
+
+    heroSlides[heroIndex].classList.add("active");
+    playCurrentSlide();
+  };
+
+  playCurrentSlide();
+  setInterval(showNextSlide, 10000);
+});
 </script>
 
 <KaiAssistant />

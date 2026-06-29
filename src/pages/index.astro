@@ -1,5 +1,6 @@
 ---
 import KaiAssistant from "../components/KaiAssistant.astro";
+
 const navLinks = [
   { name: 'Home', href: '/' }, 
   { name: 'About', href: '/about' },
@@ -21,14 +22,12 @@ const cards = [
   ['Epigenomics', 'Studying epigenetic modifications that shape gene regulation.', '/epigenomics', '/epigenomics-card.png'],
   ['Microbiomics','Exploring microbial communities and their roles in health, disease, and ecosystems.','/microbiomics','/microbiomics-card.png'],
 ];
-
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -36,13 +35,11 @@ const cards = [
 
 <link rel="icon" type="image/png" href="/icon-mark.png" />
 <link rel="apple-touch-icon" href="/icon-mark.png" />
-
 <meta name="theme-color" content="#020817" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-
 *{
   margin:0;
   padding:0;
@@ -162,24 +159,34 @@ body{
   display:flex;
 }
 
+/* HERO */
+
 .hero{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:30px;
-  padding:78px 6% 24px;
+  padding:96px 6% 34px;
   min-height:auto;
   overflow:hidden;
   background:
-  radial-gradient(circle at center,
-  rgba(59,130,246,.14),
-  transparent 42%),
-  #020817;
+    radial-gradient(circle at center, rgba(59,130,246,.14), transparent 42%),
+    #020817;
 }
 
 .hero-left{
   flex:1;
-  max-width:480px;
+  max-width:500px;
+}
+
+.hero-glass-card{
+  padding:34px;
+  border-radius:28px;
+  background:rgba(8,15,35,.52);
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  box-shadow:0 30px 90px rgba(0,0,0,.42);
 }
 
 .hero-kicker{
@@ -228,35 +235,9 @@ body{
   transform:translateY(-3px);
   box-shadow:0 12px 40px rgba(37,99,235,.35);
 }
-.hero-button:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 40px rgba(37,99,235,.35);
-}
-
-.hero-glass-card{
-  padding:34px;
-  border-radius:28px;
-  background:rgba(8,15,35,.52);
-  border:1px solid rgba(255,255,255,.16);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  box-shadow:0 30px 90px rgba(0,0,0,.42);
-}
-
-.hero-video-wrap{
-  flex:1;
-  display:flex;
-  justify-content:center;
-  width:100%;
-}
-.hero-video-wrap{
-  flex:1;
-  display:flex;
-  justify-content:center;
-  width:100%;
-}
 
 .hero-video{
+  flex:1;
   width:100%;
   max-width:670px;
   border-radius:20px;
@@ -269,24 +250,18 @@ body{
 }
 
 .hero-video video{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   display:block;
   object-fit:cover;
 }
-.hero-slide{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  transition:opacity 1.2s ease;
-}
 
-.hero-slide.active{
+.hero-slide{
   opacity:1;
 }
+
 .hero-caption{
   position:absolute;
   left:22px;
@@ -296,9 +271,10 @@ body{
   font-size:.72rem;
   letter-spacing:.08em;
   font-weight:600;
-  text-transform:none;
   text-shadow:0 2px 12px rgba(0,0,0,.65);
 }
+
+/* SECTIONS */
 
 .section{
   padding:30px 7%;
@@ -379,6 +355,8 @@ body{
   width:100%;
   display:block;
 }
+
+/* FOOTER */
 
 .footer{
   background:#07111f;
@@ -482,8 +460,41 @@ body{
   text-align:center;
 }
 
-@media(max-width:1100px){
+.panoromics-online{
+  color:#8C1515 !important;
+  font-weight:700;
+}
 
+.panoromics-online:hover{
+  color:#B1040E !important;
+}
+
+.integrity-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:12px;
+  padding:12px 24px;
+  border-radius:999px;
+  border:1px solid rgba(59,130,246,.25);
+  background:rgba(59,130,246,.08);
+  color:#dbe4ff;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:700;
+  transition:.35s ease;
+}
+
+.integrity-button:hover{
+  border-color:#3b82f6;
+  background:rgba(59,130,246,.15);
+  transform:translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
   .hero{
     flex-direction:column;
     padding-top:96px;
@@ -500,10 +511,13 @@ body{
   .hero-video{
     max-width:100%;
   }
+
+  .hero-left{
+    max-width:100%;
+  }
 }
 
 @media(max-width:900px){
-
   .footer-top{
     flex-direction:column;
     align-items:flex-start;
@@ -516,13 +530,17 @@ body{
 }
 
 @media(max-width:768px){
-
   .header-inner{
     padding:12px 16px;
   }
 
   .hero{
     padding:96px 18px 34px;
+  }
+
+  .hero-glass-card{
+    padding:24px;
+    border-radius:22px;
   }
 
   .section{
@@ -560,53 +578,18 @@ body{
     height:170px;
   }
 }
-.panoromics-online{
-  color:#8C1515 !important;
-  font-weight:700;
-}
-
-.panoromics-online:hover{
-  color:#B1040E !important;
-}
-
-.integrity-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  margin-top:12px;
-  padding:12px 24px;
-  border-radius:999px;
-  border:1px solid rgba(59,130,246,.25);
-  background:rgba(59,130,246,.08);
-  color:#dbe4ff;
-  text-decoration:none;
-  font-size:.9rem;
-  font-weight:700;
-  transition:.35s ease;
-}
-
-.integrity-button:hover{
-  border-color:#3b82f6;
-  background:rgba(59,130,246,.15);
-  transform:translateY(-2px);
-}
 </style>
-
 </head>
 
 <body>
 
 <header class="header">
-
   <div class="header-inner">
 
     <a class="brand" href="/">
-
       <img src="/panoromics-logo.png" alt="PanorOmics Logo">
 
       <div>
-
         <div class="brand-title">
           Panor<span>Omics</span>
         </div>
@@ -614,17 +597,13 @@ body{
         <div class="brand-sub">
           INTEGRATING LIFE SCIENCES • DATA • DISCOVERY
         </div>
-
       </div>
-
     </a>
 
     <nav class="nav">
-
       {navLinks.map((link) => (
         <a href={link.href}>{link.name}</a>
       ))}
-
     </nav>
 
     <button class="menu-toggle" onclick="toggleMenu()">
@@ -632,15 +611,12 @@ body{
     </button>
 
   </div>
-
 </header>
 
 <div id="mobileMenu" class="mobile-menu">
-
   {navLinks.map((link) => (
     <a href={link.href}>{link.name}</a>
   ))}
-
 </div>
 
 <section class="hero">
@@ -705,18 +681,18 @@ body{
   </p>
 
 </section>
+
 <section class="section">
 
   <div class="central-dogma">
-
     <img
       src="/panoromics-architecture-of-life-v1.png"
       alt="PanorOmics Architecture of Life"
     >
-
   </div>
 
 </section>
+
 <section class="section" id="research">
 
   <h2 class="section-title">
@@ -731,21 +707,13 @@ body{
   </p>
 
   <div class="omics-grid">
-
     {cards.map(([title, desc, href, image]) => (
-
       <a href={href} class="omics-card">
-
         <img src={image} alt={`${title} card image`}>
-
         <h3>{title}</h3>
-
         <p>{desc}</p>
-
       </a>
-
     ))}
-
   </div>
 
 </section>
@@ -762,15 +730,14 @@ body{
   </p>
 
   <div class="central-dogma">
-
     <img
       src="/central-dogma-omics-science-v2.png"
       alt="Central Dogma of Omics Science"
     >
-
   </div>
 
 </section>
+
 <section class="section">
 
   <h2 class="section-title">
@@ -823,31 +790,31 @@ body{
         button: "Read Mila Makovec's Story →"
       },
       {
-       title: "A Safer Dose Written in the Genome",
-       image: "/pharmacogenomics-drug-response.png",
-       alt: "Pharmacogenomics illustration showing DNA, medication, and individualized drug response",
-       credit: "Illustration: Pharmacogenomics connects DNA variation with medication response.",
-       description: "A pharmacogenomics story showing how genetic variation can influence medication response, helping explain why the same medicine may require different dosing or monitoring across individuals.",
-       href: "/pharmacogenomics-drug-response",
-       button: "Read Pharmacogenomics Story →"
+        title: "A Safer Dose Written in the Genome",
+        image: "/pharmacogenomics-drug-response.png",
+        alt: "Pharmacogenomics illustration showing DNA, medication, and individualized drug response",
+        credit: "Illustration: Pharmacogenomics connects DNA variation with medication response.",
+        description: "A pharmacogenomics story showing how genetic variation can influence medication response, helping explain why the same medicine may require different dosing or monitoring across individuals.",
+        href: "/pharmacogenomics-drug-response",
+        button: "Read Pharmacogenomics Story →"
       },
       {
-       title: "When Pathogens Leave Genetic Footprints",
-       image: "/pathogen-genomic-surveillance.png",
-       alt: "COVID-19 genomic surveillance illustration showing viral sequencing, variant tracking, and public-health response",
-       credit: "Illustration: COVID-19 genomic surveillance connects pathogen sequencing with variant tracking and public-health response.",
-       description: "An infectious disease genomics story showing how viral sequencing can help track outbreaks, identify variants, monitor transmission patterns, and support public-health action.",
-       href: "/pathogen-genomic-surveillance",
-       button: "Read Genomic Surveillance Story →"
+        title: "When Pathogens Leave Genetic Footprints",
+        image: "/pathogen-genomic-surveillance.png",
+        alt: "COVID-19 genomic surveillance illustration showing viral sequencing, variant tracking, and public-health response",
+        credit: "Illustration: COVID-19 genomic surveillance connects pathogen sequencing with variant tracking and public-health response.",
+        description: "An infectious disease genomics story showing how viral sequencing can help track outbreaks, identify variants, monitor transmission patterns, and support public-health action.",
+        href: "/pathogen-genomic-surveillance",
+        button: "Read Genomic Surveillance Story →"
       },
       {
-      title: "When the Microbiome Becomes Medicine",
-      image: "/microbiome-therapy-cdiff.png",
-      alt: "Microbiome therapy illustration showing gut microbial restoration after recurrent infection",
-      credit: "Illustration: Microbiome-based therapy shows how restoring gut microbial balance can help protect the intestinal ecosystem after recurrent infection.",
-      description: "A microbiome story showing how restoring gut microbial balance can help treat recurrent infection and reveal the therapeutic power of microbial ecosystems.",
-      href: "/microbiome-therapy-cdiff",
-      button: "Read Microbiome Therapy Story →"
+        title: "When the Microbiome Becomes Medicine",
+        image: "/microbiome-therapy-cdiff.png",
+        alt: "Microbiome therapy illustration showing gut microbial restoration after recurrent infection",
+        credit: "Illustration: Microbiome-based therapy shows how restoring gut microbial balance can help protect the intestinal ecosystem after recurrent infection.",
+        description: "A microbiome story showing how restoring gut microbial balance can help treat recurrent infection and reveal the therapeutic power of microbial ecosystems.",
+        href: "/microbiome-therapy-cdiff",
+        button: "Read Microbiome Therapy Story →"
       },
       {
         title: "When Cancer Leaves Molecular Clues",
@@ -953,30 +920,27 @@ body{
   </script>
 
 </section>
+
 <footer class="footer">
 
   <div class="footer-top">
 
     <div class="footer-brand">
-
       <img src="/panoromics-logo.png" alt="PanorOmics Logo" class="footer-logo">
 
       <div>
         <h3>PanorOmics</h3>
         <p>Omics Sciences Center</p>
       </div>
-
     </div>
 
     <div class="footer-social">
-
       <a href="#"><i class="fab fa-facebook-f"></i></a>
       <a href="#"><i class="fab fa-x-twitter"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-youtube"></i></a>
       <a href="#"><i class="fab fa-linkedin-in"></i></a>
       <a href="#"><i class="fab fa-github"></i></a>
-
     </div>
 
   </div>
@@ -984,7 +948,6 @@ body{
   <div class="footer-grid"> 
 
     <div class="footer-column">
-
       <div class="footer-heading">
         <i class="fa-solid fa-house"></i>
         <span>PanorOmics</span>
@@ -993,16 +956,12 @@ body{
       <a href="/">Home</a>
       <a href="/research">Research</a>
       <a href="/education">Education</a>
-      <a href="https://paned.org/" class="panoromics-online">
-  PanorOmics Online
-</a>
+      <a href="https://paned.org/" class="panoromics-online">PanorOmics Online</a>
       <a href="/platforms">Platforms</a>
       <a href="/publications">Publications</a>
-
     </div>
 
     <div class="footer-column">
-
       <div class="footer-heading">
         <i class="fa-solid fa-users"></i>
         <span>Community</span>
@@ -1012,11 +971,9 @@ body{
       <a href="#">Workshops</a>
       <a href="#">Collaborations</a>
       <a href="/contact">Contact</a>
-
     </div>
 
     <div class="footer-column">
-
       <div class="footer-heading">
         <i class="fa-solid fa-book-open"></i>
         <span>Institution</span>
@@ -1026,14 +983,13 @@ body{
       <a href="/legal">Legal</a>
       <a href="/privacy">Privacy</a>
       <a href="/accessibility">Accessibility</a>
-
     </div>
 
   </div>
 
   <div class="footer-bottom">
-  PanorOmics © 2026 • Omics Sciences Center • All Rights Reserved.
-</div>
+    PanorOmics © 2026 • Omics Sciences Center • All Rights Reserved.
+  </div>
 
 </footer>
 
@@ -1044,53 +1000,11 @@ function toggleMenu() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
-  const heroCaption = document.getElementById("heroCaption");
+  const heroVideo = document.querySelector(".hero-slide.active");
 
-  const heroCaptions = [
-    "Rooted in Chicago",
-    "Developed in Pittsburgh",
-    "The Architecture of Life"
-  ];
-
-  if (heroSlides.length === 0) return;
-
-  let heroIndex = 0;
-
-  heroSlides.forEach((slide, index) => {
-    slide.pause();
-    slide.classList.remove("active");
-    slide.currentTime = 0;
-    if (index === 0) slide.classList.add("active");
-  });
-
-  if (heroCaption) {
-    heroCaption.textContent = heroCaptions[0];
+  if (heroVideo) {
+    heroVideo.play().catch(() => {});
   }
-
-  const playCurrentSlide = () => {
-    const current = heroSlides[heroIndex];
-    current.currentTime = 0;
-    current.play().catch(() => {});
-  };
-
-  const showNextSlide = () => {
-    heroSlides[heroIndex].pause();
-    heroSlides[heroIndex].classList.remove("active");
-
-    heroIndex = (heroIndex + 1) % heroSlides.length;
-
-    heroSlides[heroIndex].classList.add("active");
-
-    if (heroCaption) {
-      heroCaption.textContent = heroCaptions[heroIndex];
-    }
-
-    playCurrentSlide();
-  };
-
-  playCurrentSlide();
-  setInterval(showNextSlide, 10000);
 });
 </script>
 

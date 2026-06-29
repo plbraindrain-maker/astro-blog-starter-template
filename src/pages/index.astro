@@ -573,20 +573,38 @@ body{
     padding:96px 18px 10px;
   }
 
+    .clip-glass-overlay{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(2,8,23,.80) 0%,
+        rgba(2,8,23,.62) 45%,
+        rgba(2,8,23,.80) 100%
+      );
+  }
+
   .clip-glass-text{
-    left:22px;
-    right:22px;
-    top:46%;
-    max-width:none;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:88%;
+    max-width:320px;
+    text-align:center;
   }
 
   .clip-glass-text h2{
-    font-size:1.05rem;
+    font-size:1.35rem;
+    line-height:1.15;
+    font-weight:500;
+    margin-bottom:12px;
   }
 
   .clip-glass-text p{
-    font-size:.54rem;
-    line-height:1.4;
+    font-size:.72rem;
+    line-height:1.45;
+    font-weight:400;
+    max-width:320px;
+    margin:0 auto;
   }
 
   .hero{

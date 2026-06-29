@@ -228,7 +228,27 @@ body{
   transform:translateY(-3px);
   box-shadow:0 12px 40px rgba(37,99,235,.35);
 }
+.hero-button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 40px rgba(37,99,235,.35);
+}
 
+.hero-glass-card{
+  padding:34px;
+  border-radius:28px;
+  background:rgba(8,15,35,.52);
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  box-shadow:0 30px 90px rgba(0,0,0,.42);
+}
+
+.hero-video-wrap{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  width:100%;
+}
 .hero-video-wrap{
   flex:1;
   display:flex;
@@ -625,7 +645,7 @@ body{
 
 <section class="hero">
 
-  <div class="hero-left">
+  <div class="hero-left hero-glass-card">
 
     <div class="hero-kicker">
       PANOROMICS OMICS SCIENCES
@@ -645,41 +665,27 @@ body{
       precision medicine, and human health.
     </p>
 
-  <a href="#research" class="hero-button">
-  Explore Our Research →
-</a>
+    <a href="#research" class="hero-button">
+      Explore Our Research →
+    </a>
 
-<br><br>
+    <br><br>
 
-<a href="/scientific-integrity" class="hero-button">
-  🛡 Scientific Integrity →
-</a>
+    <a href="/scientific-integrity" class="hero-button">
+      🛡 Scientific Integrity →
+    </a>
 
   </div>
 
   <div class="hero-video">
-  <video class="hero-slide active" autoplay muted loop playsinline>
-    <source src="/panoromics-hero-glass.mp4" type="video/mp4" />
-  </video>
-</div>
 
-  <video class="hero-slide active" autoplay muted loop playsinline preload="auto">
-    <source src="/chicago-science-skyline-hero.mp4" type="video/mp4">
-  </video>
+    <video class="hero-slide active" autoplay muted loop playsinline preload="auto">
+      <source src="/panoromics-hero-glass.mp4" type="video/mp4">
+    </video>
 
-  <video class="hero-slide" autoplay muted loop playsinline preload="auto">
-    <source src="/pittsburgh-science-skyline-hero.mp4" type="video/mp4">
-  </video>
-
-  <video class="hero-slide" autoplay muted loop playsinline preload="auto">
-    <source src="/panoromics-architecture-of-life-v1.mp4" type="video/mp4">
-  </video>
-
-  <div class="hero-caption" id="heroCaption">
-    Rooted in Chicago
-  </div>
-
-</div>
+    <div class="hero-caption" id="heroCaption">
+      PanorOmics Vision
+    </div>
 
   </div>
 

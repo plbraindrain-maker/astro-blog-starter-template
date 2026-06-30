@@ -1,5 +1,5 @@
 {
-  "name": "panoromics-site",
+  "name": "astro-blog-starter-template",
   "compatibility_date": "2026-05-20",
   "assets": {
     "directory": "./dist"
